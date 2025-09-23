@@ -14,22 +14,25 @@ Conventions
   - Branch: `feature/material-theme`
   - Goal: Add Material 3 ThemeData, fonts, and wire to `main.dart`.
   - Priority: P0
-  - Status: todo
+  - Status: done
   - Estimate: 1-2h
+  - Completed: 2025-09-23 - Added `lib/theme/app_theme.dart` with Material 3 theme, integrated Google Fonts
 
 - M2 — EventCard and list refactor
   - Branch: `feature/ui-refactor-eventcard`
   - Goal: Modernize `EventCard`, chips, spacing, and selection affordances.
   - Priority: P1
-  - Status: todo
+  - Status: done
   - Estimate: 1-3h
+  - Completed: 2025-09-23 - Refactored `EventCard` with Material 3 design tokens, modernized typography
 
 - M3 — Import screen hero + image assets
   - Branch: `feature/import-hero-image`
   - Goal: Add tasteful hero/background image, improve input layout, and declare assets.
   - Priority: P1
-  - Status: todo
+  - Status: done
   - Estimate: 1-2h (excluding sourcing)
+  - Completed: 2025-09-23 - Added hero section with gradient and geometric pattern, fixed 28px overflow issue
 
 - M4 — Icons & SVG assets
   - Branch: `feature/icons-and-assets`
@@ -42,8 +45,9 @@ Conventions
   - Branch: `feature/ci-workflow` (already created)
   - Goal: Add GitHub Actions to run `flutter analyze` and tests on PRs.
   - Priority: P1
-  - Status: todo
+  - Status: done
   - Estimate: 0.5-1h
+  - Completed: 2025-09-23 - Added `.github/workflows/flutter.yml` with Flutter analysis and testing
 
 - M6 — Optimize screenshots / assets
   - Branch: `feature/optimize-screenshots` (already created)

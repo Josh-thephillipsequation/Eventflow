@@ -18,16 +18,20 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-      elevation: event.isSelected ? 4 : 1,
+      elevation: event.isSelected ? 2 : 1,
       color: event.isSelected 
-          ? Theme.of(context).colorScheme.primaryContainer 
+          ? colorScheme.primaryContainer 
           : null,
       child: InkWell(
         onTap: onSelectionChanged,
+        borderRadius: BorderRadius.circular(12),
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,11 +40,10 @@ class EventCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       event.title,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
                         color: event.isSelected 
-                            ? Theme.of(context).colorScheme.onPrimaryContainer
+                            ? colorScheme.onPrimaryContainer
                             : null,
                       ),
                     ),
@@ -61,14 +64,13 @@ class EventCard extends StatelessWidget {
                     Icon(
                       Icons.calendar_today,
                       size: 16,
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      color: colorScheme.onSurfaceVariant,
                     ),
-                    const SizedBox(width: 4),
+                    const SizedBox(width: 6),
                     Text(
                       DateFormat('MMM d, yyyy').format(event.startTime),
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        fontSize: 14,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
                       ),
                     ),
                   ],
@@ -81,15 +83,14 @@ class EventCard extends StatelessWidget {
                   Icon(
                     Icons.access_time,
                     size: 16,
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    color: colorScheme.onSurfaceVariant,
                   ),
-                  const SizedBox(width: 4),
+                  const SizedBox(width: 6),
                   Expanded(
                     child: Text(
                       '${DateFormat('HH:mm').format(event.startTime)} - ${DateFormat('HH:mm').format(event.endTime)}',
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        fontSize: 14,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -105,15 +106,14 @@ class EventCard extends StatelessWidget {
                     Icon(
                       Icons.location_on,
                       size: 16,
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      color: colorScheme.onSurfaceVariant,
                     ),
-                    const SizedBox(width: 4),
+                    const SizedBox(width: 6),
                     Expanded(
                       child: Text(
                         event.location,
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
-                          fontSize: 14,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: colorScheme.onSurfaceVariant,
                         ),
                       ),
                     ),
@@ -125,9 +125,8 @@ class EventCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   event.description,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: colorScheme.onSurfaceVariant,
                   ),
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
@@ -140,9 +139,11 @@ class EventCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    const Text(
+                    Text(
                       'Priority:',
-                      style: TextStyle(fontWeight: FontWeight.w500),
+                      style: theme.textTheme.labelMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(width: 8),
                     Expanded(
@@ -154,7 +155,7 @@ class EventCard extends StatelessWidget {
                           return ChoiceChip(
                             label: Text(
                               priority.toString(),
-                              style: const TextStyle(fontSize: 12),
+                              style: theme.textTheme.labelSmall,
                             ),
                             selected: event.priority == priority,
                             onSelected: (bool selected) {
@@ -162,8 +163,8 @@ class EventCard extends StatelessWidget {
                                 onPriorityChanged(priority);
                               }
                             },
-                            backgroundColor: _getPriorityColor(priority, false),
-                            selectedColor: _getPriorityColor(priority, true),
+                            backgroundColor: _getPriorityColor(priority, false, colorScheme),
+                            selectedColor: _getPriorityColor(priority, true, colorScheme),
                           );
                         }),
                       ),
@@ -173,9 +174,8 @@ class EventCard extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   _getPriorityLabel(event.priority),
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: colorScheme.onSurfaceVariant,
                     fontStyle: FontStyle.italic,
                   ),
                 ),
@@ -187,22 +187,22 @@ class EventCard extends StatelessWidget {
     );
   }
 
-  Color _getPriorityColor(int priority, bool isSelected) {
-    if (!isSelected) return Colors.grey.shade200;
+  Color _getPriorityColor(int priority, bool isSelected, ColorScheme colorScheme) {
+    if (!isSelected) return colorScheme.surfaceContainerHighest;
     
     switch (priority) {
       case 1:
-        return Colors.red.shade100;
+        return colorScheme.errorContainer;
       case 2:
         return Colors.orange.shade100;
       case 3:
         return Colors.yellow.shade100;
       case 4:
-        return Colors.blue.shade100;
+        return colorScheme.primaryContainer;
       case 5:
         return Colors.green.shade100;
       default:
-        return Colors.grey.shade200;
+        return colorScheme.surfaceContainerHighest;
     }
   }
 

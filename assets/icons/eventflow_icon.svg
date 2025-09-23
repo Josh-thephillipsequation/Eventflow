@@ -1,0 +1,70 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle with Gradient -->
+  <defs>
+    <linearGradient id="backgroundGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6750A4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0F0F0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="180" fill="url(#backgroundGrad)"/>
+  
+  <!-- Main Icon - Flow Lines and Calendar Element -->
+  <g transform="translate(512, 512)">
+    <!-- Calendar base -->
+    <rect x="-120" y="-140" width="240" height="200" rx="24" fill="url(#iconGrad)" opacity="0.9"/>
+    
+    <!-- Calendar header -->
+    <rect x="-120" y="-140" width="240" height="60" rx="24" fill="url(#iconGrad)"/>
+    
+    <!-- Calendar binding rings -->
+    <circle cx="-80" cy="-140" r="8" fill="#6750A4"/>
+    <circle cx="-40" cy="-140" r="8" fill="#6750A4"/>
+    <circle cx="0" cy="-140" r="8" fill="#6750A4"/>
+    <circle cx="40" cy="-140" r="8" fill="#6750A4"/>
+    <circle cx="80" cy="-140" r="8" fill="#6750A4"/>
+    
+    <!-- Calendar grid dots -->
+    <g opacity="0.7" fill="#6750A4">
+      <!-- Row 1 -->
+      <circle cx="-80" cy="-60" r="6"/>
+      <circle cx="-40" cy="-60" r="6"/>
+      <circle cx="0" cy="-60" r="6"/>
+      <circle cx="40" cy="-60" r="6"/>
+      <circle cx="80" cy="-60" r="6"/>
+      <!-- Row 2 -->
+      <circle cx="-80" cy="-20" r="6"/>
+      <circle cx="-40" cy="-20" r="6"/>
+      <circle cx="0" cy="-20" r="6"/>
+      <circle cx="40" cy="-20" r="6"/>
+      <circle cx="80" cy="-20" r="6"/>
+      <!-- Row 3 -->
+      <circle cx="-80" cy="20" r="6"/>
+      <circle cx="-40" cy="20" r="6"/>
+      <circle cx="0" cy="20" r="6"/>
+      <circle cx="40" cy="20" r="6"/>
+      <circle cx="80" cy="20" r="6"/>
+    </g>
+    
+    <!-- Flow arrows -->
+    <g stroke="url(#iconGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+      <!-- Top flow arrow -->
+      <path d="M-180 -200 Q-140 -220 -100 -200 Q-60 -180 -20 -200 Q20 -220 60 -200 Q100 -180 140 -200 Q180 -220 220 -200"/>
+      <polygon points="200,-210 230,-200 200,-190" fill="url(#iconGrad)"/>
+      
+      <!-- Bottom flow arrow -->
+      <path d="M-180 120 Q-140 140 -100 120 Q-60 100 -20 120 Q20 140 60 120 Q100 100 140 120 Q180 140 220 120"/>
+      <polygon points="200,110 230,120 200,130" fill="url(#iconGrad)"/>
+    </g>
+    
+    <!-- Highlight accent -->
+    <circle cx="0" cy="-60" r="10" fill="#E8DEF8" opacity="0.8"/>
+    <circle cx="40" cy="-20" r="8" fill="#E8DEF8" opacity="0.8"/>
+    <circle cx="-40" cy="20" r="8" fill="#E8DEF8" opacity="0.8"/>
+  </g>
+</svg>

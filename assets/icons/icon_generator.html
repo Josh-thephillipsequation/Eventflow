@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EventFlow Icon Generator</title>
+</head>
+<body>
+    <canvas id="canvas" width="1024" height="1024" style="border: 1px solid #ccc;"></canvas>
+    <br><br>
+    <button onclick="downloadIcon()">Download PNG</button>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Create gradient
+        const gradient = ctx.createLinearGradient(0, 0, 1024, 1024);
+        gradient.addColorStop(0, '#6750A4');
+        gradient.addColorStop(1, '#8B5CF6');
+        
+        // Draw background with rounded corners
+        ctx.fillStyle = gradient;
+        roundRect(ctx, 0, 0, 1024, 1024, 180);
+        ctx.fill();
+        
+        // Draw calendar icon
+        ctx.fillStyle = 'white';
+        roundRect(ctx, 352, 312, 320, 280, 32);
+        ctx.fill();
+        
+        // Calendar header
+        ctx.fillStyle = 'rgba(255,255,255,0.9)';
+        roundRect(ctx, 352, 312, 320, 80, 32);
+        ctx.fill();
+        
+        // Calendar binding rings
+        ctx.fillStyle = '#6750A4';
+        for (let i = 0; i < 5; i++) {
+            ctx.beginPath();
+            ctx.arc(392 + i * 48, 312, 12, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        // Calendar dots
+        ctx.fillStyle = 'rgba(103,80,164,0.7)';
+        for (let row = 0; row < 3; row++) {
+            for (let col = 0; col < 5; col++) {
+                ctx.beginPath();
+                ctx.arc(392 + col * 48, 432 + row * 50, 8, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Flow arrows
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 16;
+        ctx.lineCap = 'round';
+        
+        // Top flow
+        ctx.beginPath();
+        ctx.moveTo(200, 220);
+        ctx.quadraticCurveTo(400, 180, 600, 220);
+        ctx.quadraticCurveTo(700, 240, 824, 220);
+        ctx.stroke();
+        
+        // Bottom flow  
+        ctx.beginPath();
+        ctx.moveTo(200, 804);
+        ctx.quadraticCurveTo(400, 844, 600, 804);
+        ctx.quadraticCurveTo(700, 784, 824, 804);
+        ctx.stroke();
+        
+        // Arrow heads
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.moveTo(800, 210);
+        ctx.lineTo(830, 220);
+        ctx.lineTo(800, 230);
+        ctx.fill();
+        
+        ctx.beginPath();
+        ctx.moveTo(800, 794);
+        ctx.lineTo(830, 804);
+        ctx.lineTo(800, 814);
+        ctx.fill();
+        
+        function roundRect(ctx, x, y, width, height, radius) {
+            ctx.beginPath();
+            ctx.moveTo(x + radius, y);
+            ctx.lineTo(x + width - radius, y);
+            ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+            ctx.lineTo(x + width, y + height - radius);
+            ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+            ctx.lineTo(x + radius, y + height);
+            ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+            ctx.lineTo(x, y + radius);
+            ctx.quadraticCurveTo(x, y, x + radius, y);
+            ctx.closePath();
+        }
+        
+        function downloadIcon() {
+            const link = document.createElement('a');
+            link.download = 'eventflow_icon_1024.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html>

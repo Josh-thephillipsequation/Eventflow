@@ -55,7 +55,7 @@ class MyAgendaScreen extends StatelessWidget {
             // Header with stats
             Container(
               padding: const EdgeInsets.all(16.0),
-              color: Theme.of(context).colorScheme.surfaceVariant,
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

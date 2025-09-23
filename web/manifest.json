@@ -1,6 +1,6 @@
 {
-    "name": "conference_agenda_tracker",
-    "short_name": "conference_agenda_tracker",
+    "name": "EventFlow",
+    "short_name": "EventFlow",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
