@@ -1,0 +1,79 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:http/http.dart' as http;
+import 'package:icalendar_parser/icalendar_parser.dart';
+import '../models/calendar_event.dart';
+
+class CalendarService {
+  Future<List<CalendarEvent>> parseCalendarFromFile(File file) async {
+    final contents = await file.readAsString();
+    return _parseICalendarContent(contents);
+  }
+
+  Future<List<CalendarEvent>> parseCalendarFromUrl(String url) async {
+    try {
+      // Support webcal:// URIs by converting them to https:// for fetching.
+      var fetchUrl = url.trim();
+      if (fetchUrl.startsWith('webcal://')) {
+        fetchUrl = fetchUrl.replaceFirst('webcal://', 'https://');
+      }
+      final response = await http.get(Uri.parse(fetchUrl));
+      if (response.statusCode == 200) {
+        return _parseICalendarContent(response.body);
+      } else {
+        throw Exception('Failed to fetch calendar from URL: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception('Error fetching calendar: $e');
+    }
+  }
+
+  List<CalendarEvent> _parseICalendarContent(String content) {
+    final List<CalendarEvent> events = [];
+    
+    try {
+      final calendar = ICalendar.fromString(content);
+      // The new ICalendar API exposes parsed components in `data` as a
+      // List<Map<String, dynamic>> where each map contains a `type` (e.g.
+      // 'VEVENT') and parsed fields like 'dtstart' / 'dtend' (IcsDateTime),
+      // 'uid', 'summary', 'description', 'location', etc.
+      for (final component in calendar.data) {
+        try {
+          if (component['type'] != 'VEVENT') continue;
+
+          final startRaw = component['dtstart'];
+          final endRaw = component['dtend'];
+
+          DateTime? start;
+          DateTime? end;
+
+          if (startRaw is IcsDateTime) start = startRaw.toDateTime();
+          if (endRaw is IcsDateTime) end = endRaw.toDateTime();
+
+          if (start == null || end == null) continue;
+
+          final uid = (component['uid'] as String?) ?? DateTime.now().millisecondsSinceEpoch.toString();
+          final title = (component['summary'] as String?) ?? 'Untitled Event';
+          final description = (component['description'] as String?) ?? '';
+          final location = (component['location'] as String?) ?? '';
+
+          events.add(CalendarEvent(
+            uid: uid,
+            title: title,
+            description: description,
+            startTime: start,
+            endTime: end,
+            location: location,
+          ));
+        } catch (_) {
+          // Skip malformed components
+          continue;
+        }
+      }
+    } catch (e) {
+      throw Exception('Error parsing calendar content: $e');
+    }
+    
+    return events;
+  }
+}

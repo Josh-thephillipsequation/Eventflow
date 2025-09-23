@@ -1,0 +1,1041 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+X-WR-CALNAME:etlslasvegas2025
+X-WR-CALDESC:Event Calendar
+METHOD:PUBLISH
+CALSCALE:GREGORIAN
+PRODID:-//Sched.com Enterprise Technology Leadership Summit//EN
+X-WR-TIMEZONE:UTC
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250922T153000Z
+DTEND:20250923T000000Z
+SUMMARY:Team Leader Accelerator: Forge the Future You Envision
+DESCRIPTION:A one-day\, 8:30am-5pm immersive leadership development program led by Dr. André Martin\, former CLO at Mars\, Nike\, Google\, and Target.&nbsp\;\n\nTransform Your Leadership:\nMaster authentic leadership that inspires genuine team commitmentLearn storytelling techniques that move people to action when facts alone cannotBuild extraordinary teams that consistently exceed expectationsDevelop practical frameworks for navigating change and uncertaintyCreate resilient teams that maintain excellence when others falterDesigned for senior leaders seeking to project confidence\, deliver exceptional results\, and create lasting impact. Participants will receive comprehensive assessments\, personalized feedback\, and practical leadership tools they can implement immediately. Read more here.\n\nMust be&nbsp\;registered&nbsp\;to attend.&nbsp\;
+CATEGORIES:WORKSHOP
+LOCATION:Heron 1-2\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:ac0868f1079ee643017be6470c5bfb3a
+URL:http://etlslasvegas2025.sched.com/event/ac0868f1079ee643017be6470c5bfb3a
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250922T203000Z
+DTEND:20250923T003000Z
+SUMMARY:Vibe Coding Workshop For Leaders
+DESCRIPTION:A 4-hour hands-on workshop led by Wall Street Journal bestselling author Gene Kim and AI coding pioneer Steve Yegge\, co-authors of the upcoming book Vibe Coding.\nExperience the AI-powered coding revolution that delivers "10 to 100x speedups" in developmentLearn directly from industry veterans how to strategically adopt and leverage AI coding toolsGain practical skills through hands-on exercises\, not just theoretical knowledge&nbsp\;\nPerfect For:\nTechnology Leaders (CTOs\, CIOs\, VPs\, Engineering Directors)Senior Technical Contributors (Principal Engineers\, Architects)Anyone wanting to thrive in the AI-transformed software development landscape\nWhat You'll Learn:\nThe FAAFO Framework: Build Faster\, be more Ambitious\, work Alone effectively\, rediscover Fun\, explore multiple solutions (Optionality)Practical techniques for effective AI collaboration in codingHow to adapt engineering practices for AI-assisted developmentStrategies for implementing vibe coding in enterprise environmentsRead more here.\n\nMust be&nbsp\;registered&nbsp\;to attend.
+CATEGORIES:WORKSHOP
+LOCATION:Royal 12\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:39124ba6cdc12f73f38f803dadf37e9c
+URL:http://etlslasvegas2025.sched.com/event/39124ba6cdc12f73f38f803dadf37e9c
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T140000Z
+DTEND:20250923T140000Z
+SUMMARY:Breakfast/Registration Open
+DESCRIPTION:Breakfast: 7:00-9:00a\nRegistration: 7:00a-8:00p
+CATEGORIES:
+LOCATION:Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:21873f69a39569195904c1298b9dbb4b
+URL:http://etlslasvegas2025.sched.com/event/21873f69a39569195904c1298b9dbb4b
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T154500Z
+DTEND:20250923T160000Z
+SUMMARY:Opening Remarks
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:39f7bb6144cf528b9c3ed1f0c75c187a
+URL:http://etlslasvegas2025.sched.com/event/39f7bb6144cf528b9c3ed1f0c75c187a
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T160000Z
+DTEND:20250923T162000Z
+SUMMARY:Scaling AI Adoption Across 3000+ Developers at Booking.com
+DESCRIPTION:When&nbsp\;Booking.com introduced AI coding tools to over 3\,000 developers\, adoption was slower than expected due to organizational as well as technical challenges. With a strategy focused on experimentation\, real business use cases\, and close measurement of impact\, we turned that early experience into a foundation for widespread adoption at scale. Now\, two thirds of our developers use AI tools consistently\, resulting in accelerated time to market\, more time for innovation\, and fast-tracked modernization projects. This talk will share the practical lessons we learned about driving AI adoption as an organizational capability\, not just an individual productivity tool.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:b57876a5f38d9121f938003e367b8858
+URL:http://etlslasvegas2025.sched.com/event/b57876a5f38d9121f938003e367b8858
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T162000Z
+DTEND:20250923T164000Z
+SUMMARY:Navigating the AI Evolution at Travelopia
+DESCRIPTION:How can a global travel specialist with 50+ brands use AI to transform not just customer engagement\, but the entire software delivery life cycle? \n\nTravelopia is a global leader with $1 billion annual revenue in experiential\, luxury travel that crafts immersive journeys across land\, sea\, and sky. We deliver polar expeditions\, bespoke safaris\, luxury yachting\, premium golf trips\, private jet adventures\, enriching educational trips\, and much more! And just one year ago\, we were midway through a technology transformation across our business\, when AI-enabled delivery became possible to us. \n\nThrough focussed initiatives—from personalised engagement platforms to AI-automated delivery pipelines—we have accelerated time to value\, improved engineering rigor\, and enhanced customer services. I like to say we’re in a “10 to 4” transformation—improving productivity across 30 teams while keeping our business lean and efficient. \n\nWe’ll examine the Travelopia AI transformation journey so far. This talk is perfect for enterprise technology leaders and AI practitioners who are seeking pragmatic insights on high-impact AI adoption in complex business environments. \n\n
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:3d5f433e2300e40f4faf7967f50c3803
+URL:http://etlslasvegas2025.sched.com/event/3d5f433e2300e40f4faf7967f50c3803
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T164000Z
+DTEND:20250923T170000Z
+SUMMARY:Architecting for AI: How Platform\, Data\, and Cloud Strategies Unlock Enterprise AI Success
+DESCRIPTION:Over the past decade\, enterprises have embraced Platform Engineering\, Cloud-first strategies\, and Data-driven architectures as key enablers of software innovation. However\, as AI adoption accelerates\, many organizations struggle to scale their AI initiatives beyond isolated experiments to meaningful business impact.\n\nThe missing link? The intersection of platform\, data\, and cloud strategies.\n\nOrganizations that have invested in developer platforms\, well-governed cloud strategies\, and structured data ecosystems will be the first to unlock scalable AI. AI workloads thrive in environments where APIs\, data pipelines\, and cloud resources are streamlined\, enabling rapid experimentation and trusted operational deployment.\n\nIn this talk\, we’ll explore:\n• Platform Thinking & AI: Why treating AI infrastructure as a product improves velocity and reliability.\n• Data as the AI Fuel: How organizations can structure their data pipelines and governance for trustworthy AI outcomes.\n• Cloud & Compute Strategies: How cloud architecture decisions impact AI scalability and cost efficiency.\n• Lessons from SPS Commerce: Real-world insights into how these strategies have enabled AI initiatives in a large\, complex enterprise.\n• Iterative Steps to AI Readiness: For organizations still maturing their data strategies\, we’ll outline practical steps to start enabling AI in smaller\, achievable milestones—ensuring value at every stage.\n\nBy the end of this session\, attendees will walk away with practical strategies to align their platform\, data\, and cloud investments with AI acceleration—ensuring their AI initiatives aren’t just experiments but high-impact business enablers.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:778a50566f56b3c0e40d38079c82a67d
+URL:http://etlslasvegas2025.sched.com/event/778a50566f56b3c0e40d38079c82a67d
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T170000Z
+DTEND:20250923T172000Z
+SUMMARY:Reinventing your SDLC for the GenAI Era
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:fa304a00dbdb36059ce8d971bb8c75a5
+URL:http://etlslasvegas2025.sched.com/event/fa304a00dbdb36059ce8d971bb8c75a5
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T172000Z
+DTEND:20250923T174000Z
+SUMMARY:From Concept to Prototype: Leveraging Generative AI for Rapid Development in an Enterprise
+DESCRIPTION:Generative AI Developer Assist tools are reshaping enterprise software development by enabling faster iteration\, improved code quality\, and reduced time to market. Our working hypothesis: these tools can accelerate updates to existing codebases\, streamline code reviews\, enhance test coverage\, and support more efficient delivery cycles.\n\nThis session presents a real-world case study that puts this hypothesis into practice. Tasked with building an internal risk analysis tool to support open source consumption governance\, a single engineer used GitHub Copilot to deliver a fully functional proof-of-concept in just five days—a task that would traditionally require a full agile team much longer.\n\nIn addition to the case study\, the session will cover:Key learnings from the development processPractical guardrails for responsible and secure adoptionCurrent limitations and considerations for enterprise integrationJoin us to explore how Generative AI can be thoughtfully applied to accelerate enterprise development workflows—turning ideas into prototypes with unprecedented speed.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:5f5a57dfc2f18c96fd4406dc2fce39a0
+URL:http://etlslasvegas2025.sched.com/event/5f5a57dfc2f18c96fd4406dc2fce39a0
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T175000Z
+DTEND:20250923T182000Z
+SUMMARY:BREAK
+DESCRIPTION:
+CATEGORIES:
+LOCATION:Expo Hall\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:74c53e79c23401ea04f8b6468d4daf3f
+URL:http://etlslasvegas2025.sched.com/event/74c53e79c23401ea04f8b6468d4daf3f
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T182000Z
+DTEND:20250924T065000Z
+SUMMARY:Beyond Individual Productivity: Building AI-Enabled Organizations
+DESCRIPTION:AI cannot be confined to the promise of making individual developers slightly faster. It must be harnessed to rewire how entire organizations think\, build\, and deliver. At Liatrio\, we see the true impact of AI emerge only when it is embedded into cross-team workflows\, governance structures\, and delivery platforms that enable scale and sustainability. Treating AI as a personal tool risks creating silos and wasted investment\, while treating it as an organizational enabler unlocks compounding value and measurable outcomes. In this session\, we will share how leading enterprises are integrating AI into their operating models\, designing systems that go beyond productivity gains to drive enterprise-level speed\, resilience\, and innovation. We will explore potential solutions and frameworks that help organizations avoid the traps of transformation theater while building real capability. Most importantly\, we look forward to hearing the real-world challenges and concerns you are facing\, and to working through them together.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 14\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:85999779aed5ca79560848e8ce649356
+URL:http://etlslasvegas2025.sched.com/event/85999779aed5ca79560848e8ce649356
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T182000Z
+DTEND:20250923T185000Z
+SUMMARY:Building Secure AI Agents
+DESCRIPTION:AI agents are no longer science projects—they’re joining your workforce. They write code\, answer customers\, and pull sensitive data. But how do you secure a “team member” that isn’t human? In this session\, Steve will show how attackers exploit agent behavior and share practical ways to monitor and contain these new non-human employees. Expect real examples\, not theory\, and leave ready to build AI agents you can actually trust.
+CATEGORIES:BREAKOUT
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:37a8103e6f7c462d332d2dcb69029b10
+URL:http://etlslasvegas2025.sched.com/event/37a8103e6f7c462d332d2dcb69029b10
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T182000Z
+DTEND:20250923T185000Z
+SUMMARY:Don’t Engineer Your Own Obsolescence: A Leader’s Survival Guide to the AI Revolution Ask ChatGPT
+DESCRIPTION:What’s the most suicidal job in tech? Building tools to engineer your own obsolescence. Tech leaders are now being asked to quantify AI's productivity gains—a conversation that often ends with your boss asking to "trim the fat." SADA CTO Miles Ward is here with some brutally honest career advice: you either become a cost center waiting to be cut\, or you become the engine for growth. Using cautionary tales from the field (including how one expert got fired for doing exactly the right thing)\, this session is a masterclass in survival. It's about how to reframe the entire conversation\, tie your work to the bottom line that grows\, and make damn sure you and your team are the ones they can't afford to lose.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 13\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:86203a7c7e1f79d751763de62168ea35
+URL:http://etlslasvegas2025.sched.com/event/86203a7c7e1f79d751763de62168ea35
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T182000Z
+DTEND:20250923T185000Z
+SUMMARY:Leading Through Complexity: Hybrid Cloud Strategy for Scalable Innovation
+DESCRIPTION:The core platform systems support business-critical applications and they are expected to be available and highly responsive 24/7/365. As an example\, financial institutions with legacy infrastructure are increasingly adopting Hybrid cloud solutions to stay competitive\, balance scalability\, drive cost-efficiency\, and achieve regulatory compliance. However\, this shift introduces significant challenges related to system performance\, security\, and compliance. These challenges must be addressed with strategic mitigation measures.\n\nIn this talk we’ll share insights\, experiences\, and innovative solutions to successfully navigate Hybrid cloud challenges in Financial Technology domain for core backend processing systems\, Open Banking\, payment processing etc. Attendees will gain practical strategies for securing hybrid environments\, ensuring compliance with financial regulations\, and optimizing performance across distributed cloud ecosystems. These strategies can be applied to any industry vertical that operates critical infrastructure with hybrid cloud deployments.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 12\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:e38ab0088a9c70c25e0fe9f2dadef5b2
+URL:http://etlslasvegas2025.sched.com/event/e38ab0088a9c70c25e0fe9f2dadef5b2
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T185000Z
+DTEND:20250923T191000Z
+SUMMARY:AI Won't Fix Developer Productivity (Unless You Fix Context First)
+DESCRIPTION:AI coding tools keep promising productivity\, yet most teams aren't seeing the payoff. The issue isn't code generation\, it's context. Developers waste hours digging through GitHub\, Slack\, Jira\, Confluence\, and countless other systems just to understand why things were built\, what decisions were made\, and how the system evolved. This talk explores context engineering: giving both humans and AI direct access to the decisions\, history\, and discussions already scattered across your tools. I'll show how Unblocked builds this contextual layer automatically so models like Claude and Cursor stop guessing and start understanding. The result is less hallucination\, faster iteration\, fewer interruptions\, and AI that's finally useful in production codebases. If you care about making AI work for real development teams\, this is the foundation you can't ignore.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 14\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:a72ddc308ffc3bdc4d3370f716083701
+URL:http://etlslasvegas2025.sched.com/event/a72ddc308ffc3bdc4d3370f716083701
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T185000Z
+DTEND:20250923T191000Z
+SUMMARY:How to SRE Anything
+DESCRIPTION:This presentation introduces the core principles of Site Reliability Engineering (SRE) and demonstrates how they can be applied to improve reliability\, efficiency\, and satisfaction in any area of business and life. Drawing an analogy between software development\, business operations\, and everyday activities\, attendees will learn how to define Service Level Objectives (SLOs)\, balance reliability with other priorities\, embrace failure as an opportunity to learn and improve\, and foster a blameless culture that encourages innovation. Through real-world examples attendees will gain practical insights into applying SRE principles to achieve success in their own work and personal lives. Join us to discover how SRE can empower you to work smarter and live better!
+CATEGORIES:BREAKOUT
+LOCATION:Royal 13\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:99ad4c4492dbdae8751031367d112ee0
+URL:http://etlslasvegas2025.sched.com/event/99ad4c4492dbdae8751031367d112ee0
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T185000Z
+DTEND:20250923T191000Z
+SUMMARY:Stop Talking & Start Doing - Leading Teams to Action!
+DESCRIPTION:Thrivent is a 100+ year old company whose customers have historically valued in-person interactions. Thrivent recognized a shift in how their customers wanted to interact. This resulted in a commitment to expand their digital footprint to offer new digital solutions to their customers.\n\nIn addition to the digital transformation the technology teams were undergoing a product model transformation. This brought with it additional challenges to overcome including outdated processes\, large siloed groups\, and lack of cross team collaboration without a traditional PMO in the center of the work.\n\nWe encountered a business case that was affecting our internal teams as well as our customers. Upon diving in we discovered that there were 9 different teams involved. This meant that accountability and investment were low as no one team owned the entire process. It felt very similar to spinning on a merry go round.\n\nAfter month of meetings and attempts to connect the dot between 9 teams the confusion increased. It became clear the only way to truly solve the issue at hand was to get the ‘whole team’ together. This meant hosting a workshop that cut across team and organizational boundaries.\n\nWe opted to run an immersive GSD workshop using an action-oriented facilitation method. This involved getting people together\, aligning on a common outcome\, and shifting mindsets within the container.\n\n
+CATEGORIES:BREAKOUT
+LOCATION:Royal 12\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:22580b3919cceee0ce20b37b1f7bd05b
+URL:http://etlslasvegas2025.sched.com/event/22580b3919cceee0ce20b37b1f7bd05b
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T192000Z
+DTEND:20250923T205000Z
+SUMMARY:LUNCH
+DESCRIPTION:
+CATEGORIES:
+LOCATION:Expo Hall\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:1caca5271297f3f54dadc542b3161ba1
+URL:http://etlslasvegas2025.sched.com/event/1caca5271297f3f54dadc542b3161ba1
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T205000Z
+DTEND:20250923T212000Z
+SUMMARY:Architecting the Future: Driving AI/Agentic Transformation at Scale at Salesforce
+DESCRIPTION:The Salesforce team explores the critical need for large enterprises to embrace AI/agentic transformation and provides a practical blueprint for success\, drawing lessons from Salesforce's internal applications. Shiva Nimmagadda Venkata\, VP\, Software Engineering\, Salesforce delves into how several applications leveraged platforms like Heroku to achieve ease-of-use and scale\, laying the foundation for integrating advanced AI capabilities.&nbsp\;\n\nThis session will cover workflows and tooling around "Vibe Coding" with Cursor\, an AI-first code editor\, and demonstrate how it empowers developers to boost productivity and innovation. It will cover practical aspects of internal deployment\, including effective change management strategies\, establishing robust guardrails and governance for data security\, and sharing key lessons learned. Designed for technology leaders\, this talk offers actionable insights on navigating the complexities of AI/agentic transformation to architect a more productive and innovative future for your enterprise.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 14\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:6d8b37cb613a47d5f81ffa7bb007741a
+URL:http://etlslasvegas2025.sched.com/event/6d8b37cb613a47d5f81ffa7bb007741a
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T205000Z
+DTEND:20250923T212000Z
+SUMMARY:Creating Ownership to help Change Efforts Succeed
+DESCRIPTION:There are so many funny things about humans that can keep your change efforts from succeeding\, your adoption efforts from progressing.\n\nLearn how easy it can be to remove friction---and more---to increase engagement and care... by creating a sense of ownership.\n\n\n
+CATEGORIES:BREAKOUT
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:f1b06c6b63e93166d3b6c20991ec3dba
+URL:http://etlslasvegas2025.sched.com/event/f1b06c6b63e93166d3b6c20991ec3dba
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T205000Z
+DTEND:20250923T212000Z
+SUMMARY:Exploring Code Conversion using AI
+DESCRIPTION:
+CATEGORIES:BREAKOUT
+LOCATION:Royal 12\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:b9059777dda202b2ac27b6a001650801
+URL:http://etlslasvegas2025.sched.com/event/b9059777dda202b2ac27b6a001650801
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T205000Z
+DTEND:20250923T212000Z
+SUMMARY:MCPs at Scale: Unlocking Seamless AI-Driven Innovation
+DESCRIPTION:The Model Context Protocol (MCP) is doing for AI-driven software development what APIs did for DevOps automation — enabling AI coding assistants to interact with tools and go beyond basic code generation to automate ticket creation\, tweak deployment configurations\, and do deep security research at design time. The best MCP tools expand not only AI agent capabilities\, but also provide these agents with deep contextual data that can’t be distilled from the public data sources they were trained on. In this session\, we will share firsthand lessons around how development teams can get the most from MCP\, advise on best practices for integrating these technologies safely\, and dive into how MCP is the key to bringing vibe coding to the next level.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 13\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:392b37845b9a37e363d7ef3a05fd1db7
+URL:http://etlslasvegas2025.sched.com/event/392b37845b9a37e363d7ef3a05fd1db7
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T212000Z
+DTEND:20250923T215000Z
+SUMMARY:How You Can Trick Your Company Into Hiring ChatGPT
+DESCRIPTION:In a form of chaotic good\, I had my company hire "Chet Gupta" aka Chat GPT. A model software engineer with a fantastic resume and perfect answers\, that doesn't exist. In this this talk we will walk through the circumstances that allowed for this to happen. We'll discuss the kinds of answers that "Chet Gupta" produced for both the technical screening process as well as the competency based interview. We'll examine the ethical and practical considerations raised by the use of AI technology in the hiring process and the subsequent need for revised them. By the end of the session attendees will gain a deeper understanding of the implications of AI in building a talent workforce.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 13\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:4ea560f25ac29c075269f3206e16173c
+URL:http://etlslasvegas2025.sched.com/event/4ea560f25ac29c075269f3206e16173c
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T212000Z
+DTEND:20250923T215000Z
+SUMMARY:Progressive Delivery
+DESCRIPTION:
+CATEGORIES:BREAKOUT
+LOCATION:Royal 12\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:72cef004b4a17c6d66f35b78789bc09f
+URL:http://etlslasvegas2025.sched.com/event/72cef004b4a17c6d66f35b78789bc09f
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T212000Z
+DTEND:20250923T215000Z
+SUMMARY:The Rise of Agentic Testing: The Old Ways Are No Longer Enough
+DESCRIPTION:AI is fundamentally changing software development\, including development pace\, release frequency\, and how to ensure quality. The use of AI continues to increase with greater investment within organizations across industries and is no longer optional. Companies that effectively leverage AI as a path to innovation have a competitive advantage over those that attempt to stick with tried-and-true approaches.\n\nUsing AI for software development alone isn’t enough. Users need software that works\, is free of bugs\, and is high-performing. As organizations increase their use of AI\, they must also invest in AI-powered testing to achieve quality and speed.\n\nDuring this talk\, we will look at agentic testing\, why it is\, how to use it\, and why it is essential. During this session\, you can expect to learn:\n\nWhat is agentic testing and what are its applications?\n\nWhy is agentic testing fundamental to any testing strategy?\n\nHow Agentic Test Automation simplifies and accelerates the testing?\n\nHow a real organization was able to apply these techniques.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 14\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:423e74647f6e51cf5e87cdb5fb88a90d
+URL:http://etlslasvegas2025.sched.com/event/423e74647f6e51cf5e87cdb5fb88a90d
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T212000Z
+DTEND:20250923T215000Z
+SUMMARY:The Transformation Marathon: What Happens After You Cross the Finish Line?
+DESCRIPTION:
+CATEGORIES:BREAKOUT
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:c8622bb61826c53f5a13fdc6b9f1c592
+URL:http://etlslasvegas2025.sched.com/event/c8622bb61826c53f5a13fdc6b9f1c592
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T215000Z
+DTEND:20250923T225000Z
+SUMMARY:Networking
+DESCRIPTION:
+CATEGORIES:
+LOCATION:Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:6df412f135503c592d262c1923c7d55b
+URL:http://etlslasvegas2025.sched.com/event/6df412f135503c592d262c1923c7d55b
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T225000Z
+DTEND:20250923T231000Z
+SUMMARY:From Agile 2.0 to "Agile 3.0 +AI": Telenet's Unfiltered Journey
+DESCRIPTION:From "We've Got This" to "AI Just Changed Everything"&nbsp\;🤖\nTwo years ago at ETLS\, we shared how Telenet eliminated the Business-IT divide and scaled agile across the enterprise. We thought we had transformation all figured out.\nThen AI arrived.\n\nThe reality check: While everyone's chasing AI use cases\, the operating model is what determines whether your AI transformation creates value\, or just expensive chaos.\n\nWhat we learned in the trenches:\nYour OpMo isn't a second-tier concern in the AI transformation—it is the foundationUncertainty isn't a bug\, it's a feature (and that’s why we'll deliberately slow things down)The question isn't "what can we automate?" but "how much human involvement do we want?"Join us at the Enterprise Technology Leadership Summit (September 23-25\, 2025) for an unfiltered look at our "+AI" journey. No sales pitches\, no perfect success stories—just honest insights from a real transformation in progress.\n\nKey takeaway: AI isn't about replacing your operating model. It's about rewiring it for human-AI collaboration.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:c2e3b9000f9e3ccb9d6aae55d95497f8
+URL:http://etlslasvegas2025.sched.com/event/c2e3b9000f9e3ccb9d6aae55d95497f8
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T231000Z
+DTEND:20250923T233000Z
+SUMMARY:Building High-Performing Product Teams: Grainger’s Journey with KeepStock
+DESCRIPTION:Technology has been an important part of Grainger’s business since the beginning\, but our approach shifted significantly in 2018 to incorporate building custom systems in key areas. Using our KeepStock product as an example\, we’ll describe our journey from supporting the business with disconnected COTS through a project-based operating model to high-performing product teams working cross-functionally to deliver business results.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:724f51f8794ed4a64b1c2195ca2ba2a9
+URL:http://etlslasvegas2025.sched.com/event/724f51f8794ed4a64b1c2195ca2ba2a9
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T233000Z
+DTEND:20250923T235000Z
+SUMMARY:Transforming Chaos into Resilience: The Journey of Toyota's Telematics Safety Platform
+DESCRIPTION:This talk explores the evolution of a dedicated team within Toyota Connected that built the Telematics Service Platform (TSP)—the backbone of Safety Connect\, providing critical safety services such as Automatic Crash Notification\, SOS Emergency Assistance\, Roadside Support\, and Stolen Vehicle Tracking. Today\, these life-saving features protect over 11 million Toyota and Lexus vehicles worldwide.\n\nBut beyond the engineering feat of developing a robust telematics platform\, success hinged on an often-overlooked aspect: the human factor. A world-class contact center of over 300 safety agents\, embodying Toyota’s Omotenashi (hospitality) philosophy\, plays a pivotal role in delivering empathy\, efficiency\, and care in moments of crisis.\n\nOur journey began in 2016 as a startup-style accelerator within the vast and complex landscape of Toyota\, tasked with the challenge of launching an industry-defining platform by 2019. The early days were marked by rapid iteration\, shifting priorities\, and the complexity of aligning with hundreds of global teams. But transitioning from this fast-moving\, high-energy phase to an enterprise-grade\, highly available\, resilient\, and mission-critical system required a fundamental shift:\n\n• Designed systems from the ground up with DevOps best practices\, focusing on reliability and cost efficiency.\n• Transition a team from a startup mindset to an enterprise-ready operational model.\n• Maintain resilience and quality in high-stakes environments.\n• Apply DevOps and Toyota principles to build autonomous\, effective teams.\n• Drive clarity and alignment using OKRs and strategic planning tools.\n• Integrate AI technologies to enhance engineering processes and contact center operations.\n\nAttendees will walk away with insights into leading high-stakes digital transformations\, managing startup-style chaos within a large enterprise\, and bridging the gap between technology and human impact—lessons applicable to any industry where resilience and reliability aren’t just technical goals\, but life-or-death imperatives.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:02c55efcb3ffb6471bc09ffec5144153
+URL:http://etlslasvegas2025.sched.com/event/02c55efcb3ffb6471bc09ffec5144153
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250923T235000Z
+DTEND:20250924T001000Z
+SUMMARY:Alice in AI-land
+DESCRIPTION:Things are getting curiouser and curiouser. While some folks see this AI Wonderland as full of excitement and opportunity\, the reality is that many teams feel like they’re chasing the White Rabbit.\n\nOn one hand\, it’s vibes\, urgency\, and winner-take-all: “Oh dear! Oh dear! I shall be too late!” says the White Rabbit.\n\nOn the other\, it’s an opportunity for reflection: “Would you tell me\, please\, which way I ought to go from here?” asks Alice. “That depends a good deal on where you want to get to\,” replies the Cheshire Cat.\n\nIn this talk\, I’m going to share my personal product manager’s view of navigating the AI landscape\, along with observations drawn from interacting with engineers\, designers\, and product managers around the world. I can’t claim to have it all figured out\, but I’m excited to share different perspectives on the journey.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:12158f55bcac930f1b9fc941f9ac4c49
+URL:http://etlslasvegas2025.sched.com/event/12158f55bcac930f1b9fc941f9ac4c49
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T001000Z
+DTEND:20250924T003000Z
+SUMMARY:Collective Confidence
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:d7439f389433a77e94186989fecdaede
+URL:http://etlslasvegas2025.sched.com/event/d7439f389433a77e94186989fecdaede
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T003000Z
+DTEND:20250924T005000Z
+SUMMARY:Grappling with the Bitter Lesson
+DESCRIPTION:The "bitter lesson" is that at some point\, improvements in AI depend less on human knowledge and experience than we expect. At O'Reilly\, our business is sharing the knowledge of innovators\, so we are at the cutting edge of grappling with the bitter lesson. In this talk\, I share some of the organizational issues that surface when AI seems magically able to do things that challenge business processes and strategic moats based on our unique expertise. I talk through a particular product design case study. It highlights the leaps over past practice that are necessary to take full advantage of AI capabilities\, but also why the speed of adoption is regulated not just by the willingness of our own employees to change\, but by the willingness of our customers.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:7b2398d44278264d87b347b26367c87b
+URL:http://etlslasvegas2025.sched.com/event/7b2398d44278264d87b347b26367c87b
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T005000Z
+DTEND:20250924T005500Z
+SUMMARY:Closing Remarks
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:200a764afe2ba94e23af12a62207ca8a
+URL:http://etlslasvegas2025.sched.com/event/200a764afe2ba94e23af12a62207ca8a
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T010000Z
+DTEND:20250924T030000Z
+SUMMARY:Industry Party
+DESCRIPTION:
+CATEGORIES:
+LOCATION:Expo Hall\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:4cf1cd9dbcc5b4664c70f31815c604e7
+URL:http://etlslasvegas2025.sched.com/event/4cf1cd9dbcc5b4664c70f31815c604e7
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T143000Z
+DTEND:20250924T143000Z
+SUMMARY:Breakfast/Registration Open
+DESCRIPTION:Breakfast: 7:30-9:00a\nRegistration: 7:30a-5:30p
+CATEGORIES:
+LOCATION:Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:5bd329c08c8ab65d51836a0eb4edc0f5
+URL:http://etlslasvegas2025.sched.com/event/5bd329c08c8ab65d51836a0eb4edc0f5
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T154500Z
+DTEND:20250924T155000Z
+SUMMARY:Opening Remarks
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:a45c986b428659b25b93d0354dcc69db
+URL:http://etlslasvegas2025.sched.com/event/a45c986b428659b25b93d0354dcc69db
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T155000Z
+DTEND:20250924T161000Z
+SUMMARY:Evolving AI from Concept to Core Business Capability
+DESCRIPTION:The true challenge of enterprise AI isn’t its potential\, it’s achieving practical\, scalable\, and secure implementation. While many departments champion AI\, it's up to technology leaders to build the platforms that turn isolated pilots into strategic\, enterprise-wide capabilities. In this session\, WEX SVPs Jennifer Whitmire (Product) and Prashant Desale (Technology) will share how WEX moved beyond experimentation to embed AI into core business functions. This talk outlines a systems-first approach to AI integration\, emphasizing fast feedback loops\, simplified workflows\, and trustworthy data. If you're looking to operationalize AI and move from pilots to platform\, this session will deliver both strategy and execution-level insight.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:f01c61d1550c5418aca1c8e8cc153556
+URL:http://etlslasvegas2025.sched.com/event/f01c61d1550c5418aca1c8e8cc153556
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T161000Z
+DTEND:20250924T163000Z
+SUMMARY:Too Late to the GenAI Party?
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:711dcc93b032a7fb0bc54f724b44d860
+URL:http://etlslasvegas2025.sched.com/event/711dcc93b032a7fb0bc54f724b44d860
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T163000Z
+DTEND:20250924T165000Z
+SUMMARY:How Engineers Actually Use GenAI—Turn by Turn\, at Bank Scale
+DESCRIPTION:An early look at bank-grade telemetry for GenAI-assisted engineering—what’s instrumented now\, what we’re seeing\, and what’s next.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:d267e4a1eac0c21219ff6441253d06ee
+URL:http://etlslasvegas2025.sched.com/event/d267e4a1eac0c21219ff6441253d06ee
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T165000Z
+DTEND:20250924T171000Z
+SUMMARY:Building AI Value from an Economist’s Perspective
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:a97eebab4048dc3769e195463b6035f5
+URL:http://etlslasvegas2025.sched.com/event/a97eebab4048dc3769e195463b6035f5
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T171000Z
+DTEND:20250924T173000Z
+SUMMARY:State of AI-assisted Software Development: 2025 DORA Report
+DESCRIPTION:AI is an amplifier. While AI adoption is nearly universal\, its value is unlocked not by the tools themselves but by the surrounding technical and cultural environment. Learn how to move beyond localized productivity to achieve systemic organizational success.\n\nThe DORA team collaborated on this year's research with IT Revolution\, GitHub\, GitLab\, SkillBench\, and Workhelix.\n\nJoin members of the team as we launch DORA's State of AI-assisted Software Development report and share some of the key findings from the report.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:696faa20c2c30cffb5c4421b947336cc
+URL:http://etlslasvegas2025.sched.com/event/696faa20c2c30cffb5c4421b947336cc
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T173000Z
+DTEND:20250924T180000Z
+SUMMARY:BREAK
+DESCRIPTION:
+CATEGORIES:
+LOCATION:Expo Hall\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:a75f117d24138db315e2c677203df4cf
+URL:http://etlslasvegas2025.sched.com/event/a75f117d24138db315e2c677203df4cf
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T180000Z
+DTEND:20250924T182000Z
+SUMMARY:From MacGyver to Marie Kondo: Simplifying Customer Complexity
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:e92eed05a758473a32f941ccdacf7452
+URL:http://etlslasvegas2025.sched.com/event/e92eed05a758473a32f941ccdacf7452
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T182000Z
+DTEND:20250924T184000Z
+SUMMARY:Kudzu to Garden: Sustainable Augmented Development
+DESCRIPTION:Genies\, if left to their own devices\, soon consume the optionality of a project through their single-minded focus on features--poor testing\, poor design\, poor tooling. What does it take for augmented development to result in more features *and* more options?\n\n
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:d4facc35bb1fa87c7fd9ef28ecc98390
+URL:http://etlslasvegas2025.sched.com/event/d4facc35bb1fa87c7fd9ef28ecc98390
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T184000Z
+DTEND:20250924T190000Z
+SUMMARY:Beyond the IDE: Toward Multi-Agent Orchestration
+DESCRIPTION:Coding agents like Claude Code and Sourcegraph Amp are the powerful new AI tools of 2025. But using them requires great skill -- so much that Gene Kim and I wrote a book about it\, called Vibe Coding! Despite their pitfalls\, the future is clear: Using multiple agents in parallel is how engineers will work. What will orchestrating them look like? Current IDEs don't fit the bill. In this talk I'll explore the next big evolution in agentic coding.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:95aaf3cb747c3e93fb32e6c2d684bda6
+URL:http://etlslasvegas2025.sched.com/event/95aaf3cb747c3e93fb32e6c2d684bda6
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T190000Z
+DTEND:20250924T192000Z
+SUMMARY:Securing the AI-Powered Future: Identity\, Access\, and Detection in a Post-Human Workforce
+DESCRIPTION:As AI systems rapidly approach writing 80-90% of all code at frontier organizations by late 2025\, we face a transformation in cybersecurity that makes previous technological shifts look incremental. This talk will explore how the emergence of autonomous AI agents—which work for hours unsupervised\, maintain persistent memory\, collaborate via traditional channels\, and spawn sub-agents at will—breaks every assumption underlying our current security infrastructure. We'll examine why traditional identity and access management fails when your "employee" can exist in multiple places simultaneously\, why the cybersecurity capability hierarchy is collapsing as AI democratizes sophisticated attacks\, and how the entire security vendor ecosystem faces disruption as AI makes building custom security tools trivial. We'll outline practical frameworks for organizations to navigate this transition: developing new identity primitives for non-human workers to building detection systems that understand intent rather than just actions\, and establishing governance for hybrid human-AI teams. While the challenges are unprecedented\, the same AI capabilities that enable new threats also power revolutionary defenses.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:080be51b4e4874949d85a7366ccb22f1
+URL:http://etlslasvegas2025.sched.com/event/080be51b4e4874949d85a7366ccb22f1
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T192000Z
+DTEND:20250924T194000Z
+SUMMARY:Superintelligence Scouting Report: Eureka Moments\, Bad Behavior
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:57fc4693f9b1ee4971d71fbbd2fb0bca
+URL:http://etlslasvegas2025.sched.com/event/57fc4693f9b1ee4971d71fbbd2fb0bca
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T194000Z
+DTEND:20250924T213000Z
+SUMMARY:LUNCH
+DESCRIPTION:
+CATEGORIES:
+LOCATION:Expo Hall\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:55f8ac156fbc2a6ea999a51d613c2a83
+URL:http://etlslasvegas2025.sched.com/event/55f8ac156fbc2a6ea999a51d613c2a83
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T200000Z
+DTEND:20250924T220000Z
+SUMMARY:Sooner Safer Happier: Informal Workshop with Jon Smart and Maria Muir
+DESCRIPTION:This is an informal get-together with Sooner Safer Happier leaders\, practitioners\, champions\, and the curious!\nIntended outcomes from this session are:\n\n(1) get to know someone you didn't know before\n(2) learn something new that hopefully you will find to be useful\n\nWe will probably (1) do some brief networking\, (2) run a session on 'Incentive Mapping' (because improving "HOW we do\, WHAT we do" is all about behaviour\, which is all about incentives and threats).\n\nWhoever turns up are the right people and whatever happens is the right thing!&nbsp\;
+CATEGORIES:WORKSHOP
+LOCATION:Indigo 5/6\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:bacbc1dc0d98d679bdade9649a1addd0
+URL:http://etlslasvegas2025.sched.com/event/bacbc1dc0d98d679bdade9649a1addd0
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T213000Z
+DTEND:20250924T230000Z
+SUMMARY:Beyond the Hype: Measuring the Real Impact of AI-Assisted Engineering
+DESCRIPTION:How do we move beyond tracking surface-level AI metrics to truly understanding its impact on engineering performance? High adoption rates and code completion percentages may look impressive on a dashboard—but do they really translate into better business outcomes?\n\nIn this immersive\, hands-on workshop\, you’ll go past the hype and into the reality of AI-assisted engineering. Blending cutting-edge research with practical tools you can use the very next day\, the session is built for engineering leaders and DevProd teams tasked with measuring and maximizing the value of AI tools in engineering.\n\nThrough interactive exercises and simulated scenarios\, you’ll apply the AI Measurement Framework to capture the full picture of AI’s effect on developer experience\, team effectiveness\, and business results. Participants will leave with concrete\, actionable techniques: specific metrics to rethink\, questions to ask their teams\, and a framework for making smarter AI tool investments that truly drive developer productivity and organizational performance.\n\n\n
+CATEGORIES:WORKSHOP
+LOCATION:Royal 13\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:cd1e14ea201f5c5ebc1453c1e7be5105
+URL:http://etlslasvegas2025.sched.com/event/cd1e14ea201f5c5ebc1453c1e7be5105
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T213000Z
+DTEND:20250924T230000Z
+SUMMARY:Supercharge Your Workflow with the Gemini CLI
+DESCRIPTION:Join us for a hands-on workshop and discover how to integrate the power of Gemini directly into your workflow. This session will guide you through the essentials of the Gemini CLI\, an open-source AI agent that can revolutionize the way you code\, manage tasks\, and solve problems using natural language. You will learn how to get the CLI up and running\, customize it for your projects\, and interact with it effectively to perform a variety of development tasks.\n\nWe will explore the core features of the Gemini CLI\, including its powerful context management using GEMINI.md files\, seamless file system interaction\, and the agentic prompting model that allows for complex\, multi-step operations. Participants will be guided through a practical exercise to build a small application and push it to GitHub\, all from the command line\, providing a real-world example of how the Gemini CLI can accelerate your development workflow.\n\nLearning Objectives\nBy the end of this workshop\, participants will be able to:\nInstall and authenticate the Gemini CLI in their local development environment.Customize the Gemini CLI for a specific project by configuring settings and providing context with GEMINI.md files.Use the Gemini CLI to execute a multi-step programming task that involves file system operations and version control.Interact with the Gemini CLI using slash commands\, context selection\, and shell commands to manage a development workflow.Describe the interaction flow of an agentic prompt\, including the roles of context\, tools\, and checkpointing.
+CATEGORIES:WORKSHOP
+LOCATION:Royal 12\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:d90eb0f18647599b2bf182bc972072ee
+URL:http://etlslasvegas2025.sched.com/event/d90eb0f18647599b2bf182bc972072ee
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T213000Z
+DTEND:20250924T230000Z
+SUMMARY:The SDLC Transformation Playbook: Tailoring AI to Your Reality
+DESCRIPTION:Join Grid Dynamics for a practical look at augmenting SDLC processes with AI to organically elevate your organization's efficiency through an interactive workshop featuring live demonstrations\, collaborative exercises\, and industry case studies. Gain insights into AI-powered enhancements that align with your organization's reality. Leave equipped with an actionable strategy and grounded examples for confidently evolving your development practices in the GenAI era. Walk away with a playbook - not a pitch. Prize giveaways included.
+CATEGORIES:WORKSHOP
+LOCATION:Royal 14\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:d733e77376200f0e49f64868c4e45e98
+URL:http://etlslasvegas2025.sched.com/event/d733e77376200f0e49f64868c4e45e98
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T230000Z
+DTEND:20250924T231500Z
+SUMMARY:BREAK
+DESCRIPTION:
+CATEGORIES:
+LOCATION:Indigo Promenade\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:c2ea24064b9799508a0e00d077a41ad3
+URL:http://etlslasvegas2025.sched.com/event/c2ea24064b9799508a0e00d077a41ad3
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250924T231500Z
+DTEND:20250925T001500Z
+SUMMARY:Putting Gemini Code Assist to Work: An Enterprise Guide
+DESCRIPTION:Are you getting the most out of Gemini Code Assist? To drive real business value\, leaders must leverage its capabilities for modernization\, testing\, and security—not just code generation.\n\nJoin SADA CTO Miles Ward and Associate CTO of AI & ML\, Simon Margolis\, for an interactive workshop on implementing Gemini Code Assist as a cornerstone of your enterprise development strategy. Discover how to leverage its full portfolio of capabilities to improve not just developer productivity\, but overall software delivery performance.\n\nThrough real-world examples and collaborative exercises\, you’ll learn how to use Gemini Code Assist to:\nAccelerate modernization efforts and pay down technical debt.Improve testing\, documentation\, and other critical but often-neglected tasks.Ground the model with your private codebase to generate relevant and secure results that reflect your internal standards.Leave this workshop with a pragmatic roadmap for implementing and scaling Gemini Code Assist in your enterprise\, equipped with a framework for identifying high-ROI use cases\, measuring success\, and building a business case focused on competitive advantage.
+CATEGORIES:WORKSHOP
+LOCATION:Royal 12\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:5b6d0d07fbbefdc5a8f63748be78e145
+URL:http://etlslasvegas2025.sched.com/event/5b6d0d07fbbefdc5a8f63748be78e145
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T002000Z
+DTEND:20250925T013000Z
+SUMMARY:IT Revolution Author Book Signing Reception
+DESCRIPTION:Join us for a special event featuring book signings by renowned authors from IT Revolution. Meet the authors\, get your books signed\, and engage in insightful conversations about their latest works.\n\nVibe Coding with Gene Kim & Steve Yegge (at the Sourcegraph booth)\nProgressive Delivery with James Governor\, Kim Harrison\, Heidi Waterhouse & Adam Zimman (at the Sonar booth)\nOutput to Outcome with Mik Kersten (at the Planview booth)\n\n\n
+CATEGORIES:
+LOCATION:Expo Hall\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:9ea39d640975ef688edae1e5d18ec48f
+URL:http://etlslasvegas2025.sched.com/event/9ea39d640975ef688edae1e5d18ec48f
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T143000Z
+DTEND:20250925T143000Z
+SUMMARY:Breakfast/Registration Open
+DESCRIPTION:Breakfast: 7:30-9:00a\nRegistration: 7:30a-4:00p
+CATEGORIES:
+LOCATION:Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:8fedf144227cea095434030bddf7e45c
+URL:http://etlslasvegas2025.sched.com/event/8fedf144227cea095434030bddf7e45c
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T154500Z
+DTEND:20250925T155000Z
+SUMMARY:Opening Remarks
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:bd823e106f8cff6619bbc46a320a429b
+URL:http://etlslasvegas2025.sched.com/event/bd823e106f8cff6619bbc46a320a429b
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T155000Z
+DTEND:20250925T161000Z
+SUMMARY:Building (and Keeping) GenAI Teams
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:7853bd141f10e12f11d96404b1c47d89
+URL:http://etlslasvegas2025.sched.com/event/7853bd141f10e12f11d96404b1c47d89
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T161000Z
+DTEND:20250925T163000Z
+SUMMARY:Making AI Agents Actually Work for You
+DESCRIPTION:The word “Agent” is everywhere in tech right now—yet most so-called agents are just old workflows with a new label. In reality\, the underlying technology is far more capable than the way most enterprises use it.\n\nIn this talk\, I’ll share how I’ve been pushing agentic systems to their limits—what actually defines an AI Agent\, where they deliver real value\, and how to make them do work that would be impossible without them. Along the way\, I’ll unpack lessons from building my own agent-powered tools\, including the unconventional workflow that turned one side-project into a surprisingly polished production service.\n\nIf you’ve ever wondered what’s hype\, what’s real\, and how to make AI agents deliver measurable results in your world\, this is the session for you.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:b6a8579951ec5045042142191444dd56
+URL:http://etlslasvegas2025.sched.com/event/b6a8579951ec5045042142191444dd56
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T163000Z
+DTEND:20250925T165000Z
+SUMMARY:From Technical Debt to Digital Credit: A Case Study in Serial Optionality
+DESCRIPTION:For years\, IT organizations have struggled to balance product and feature delivery with the retirement and avoidance of technical debt. In this talk\, you will learn:\n- How the concept of “optionality” reframes the notion of “technical debt” into “digital credit”\n- How API-based systems can drive high optionality and compound accumulation of digital credit and how AI accelerates this.\n- The specific techniques Cox Automotive has used to optimize for long-term business value through optionality and APIs\nThis talk should interest anyone in IT and those working in tech-savvy business or product teams.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:6da8796bdfe054f89489cd6790378528
+URL:http://etlslasvegas2025.sched.com/event/6da8796bdfe054f89489cd6790378528
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T165000Z
+DTEND:20250925T171000Z
+SUMMARY:Output to Outcome: An Operating Model for the Age of AI
+DESCRIPTION:What would happen if AI Agents completed work from your backlog faster than you could plan the next iteration? &nbsp\;How would your organization need to adapt if teams of people and agents could deliver an infinite number of features? &nbsp\;The pace of AI progress means that these questions are no longer theoretical. We are in the midst of a generational shift where software outputs will cease to be the constraint on value delivery. Instead of chasing outputs\, your operating model must relentlessly optimize for outcomes. &nbsp\;\nEvery technological revolution shatters the existing constraints on production. &nbsp\;In the Age of AI\, the cost of outputs will collapse toward zero\, rendering output-focused management obsolete. Once production is not the constraint\, the operating model itself becomes the bottleneck. &nbsp\;Productivity stalls on legacy organizational structures and obsolete processes. To thrive\, your organization must adopt an outcome-oriented operating model.\nIn this presentation\, I will give an overview of my upcoming book\, Output to Outcome. You will learn about the seven shifts needed to implement AI-native organizational structures and product operating models. Once coding is no longer a constraint\, optimizing your operating model becomes essential to harnessing the 10x productivity gains available for delivering business and customer outcomes in the Age of AI.\n\n\n\n
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:df6a86ca11f56b47e86409c5a8e2b3a2
+URL:http://etlslasvegas2025.sched.com/event/df6a86ca11f56b47e86409c5a8e2b3a2
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T171000Z
+DTEND:20250925T173000Z
+SUMMARY:Design Rules in Practice: Building Shared Capabilities at Datavant
+DESCRIPTION:Co-speakers Prof. Carliss Baldwin and Clare Hawthorne will connect Baldwin’s seminal research on modularity with Datavant’s real-world platform transformation. Using analogies from well known industries\, they will illustrate how companies reinvent themselves by layering and recombining platforms — and how Datavant is applying those same principles to health data.\n\nThe session will highlight the balancing act of centralizing shared backbone capabilities while preserving divisionalized customer experiences. Attendees will leave with practical lessons on where to build for scale\, where to maintain differentiation\, and how to apply modular design principles to drive transformation in their own organizations.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:381f74ba6ef78803a46b894587a46510
+URL:http://etlslasvegas2025.sched.com/event/381f74ba6ef78803a46b894587a46510
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T173000Z
+DTEND:20250925T180000Z
+SUMMARY:BREAK
+DESCRIPTION:
+CATEGORIES:
+LOCATION:Expo Hall\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:408ecb3936b3a6f1a4b21154a2fb3f14
+URL:http://etlslasvegas2025.sched.com/event/408ecb3936b3a6f1a4b21154a2fb3f14
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T180000Z
+DTEND:20250925T183000Z
+SUMMARY:AI for Managers
+DESCRIPTION:Generative AI and large language models (LLMs) are moving from experimental proof-of-concepts to mission-critical capabilities. Yet building and scaling AI safely and reliably remains a challenge for organizations of all sizes. In this session\, senior leaders will gain a clear\, actionable roadmap for adopting modern AI—grounded in DevOps and DevSecOps best practices.\n\nWe begin with an executive-level overview of the NORMAL&nbsp\;stack: a modular blueprint covering cloud-native foundations\, observability\, Augmented Generation (RAG and CAG)\, model management\, agentic workflows\, and LLM orchestration. You’ll learn how to treat AI artifacts just like code—leveraging automated pipelines\, shift-left testing\, and policy-as-code (automated governance) to drive continuous innovation without compromising governance\, risk\, and compliance.\n\nFirst\, we explore Observability & RAG\, which involves unified monitoring that bridges infrastructure metrics with model-level insights—such as data drift\, bias\, and hallucinations—and share best practices for embedding enterprise knowledge into LLM prompts and automatically validating responses. Then\, Agents & Orchestration\, covering how to define\, test\, and deploy multi-step AI “agents” that interact with downstream systems and how to implement an LLM gateway for dynamic model routing\, rate-limiting\, and throughput management.\n\nWe conclude by providing leaders with a brief checklist—covering access controls\, lineage tracking\, audit\, and testing strategies—to help ensure AI efforts remain resilient\, compliant\, and aligned with business goals.\n\n\n
+CATEGORIES:BREAKOUT
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:ad02cb9a27342be3bd2a8ea62f2a7cdd
+URL:http://etlslasvegas2025.sched.com/event/ad02cb9a27342be3bd2a8ea62f2a7cdd
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T180000Z
+DTEND:20250925T183000Z
+SUMMARY:Bridging the IT/OT divide: Can AI be the quantum leap we need?
+DESCRIPTION:Fifteen years into Industry 4.0\, many plants are still living with an IT/OT gap: great tech on paper\, stubborn friction on the shop floor. This talk reframes digitalization from an operator-first perspective and explains\, bluntly\, why progress stalls in operations—safety trumps novelty (“don’t explode”)\, change is expensive\, and scaling stays painfully linear.\n\nWe’ll show how most of today’s “AI in manufacturing” is still bolted onto the side of the stack\, rather than built into the flow of work\, and what that means for value capture.\n\nUsing a clear roadmap - Assistance (now)\, Collaboration (emerging)\, and Autonomy (future) - we map practical steps toward a vision we call the “Virtual Operator” while keeping process safety and reliability non-negotiable.\n\nAttendees leave with a blueprint to align IT\, engineering\, and operations around the physical and digital twins\, and to decide where AI belongs today versus tomorrow.\n\n\n
+CATEGORIES:BREAKOUT
+LOCATION:Royal 13\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:cc627597fc3566723c34f6abed4771ae
+URL:http://etlslasvegas2025.sched.com/event/cc627597fc3566723c34f6abed4771ae
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T180000Z
+DTEND:20250925T183000Z
+SUMMARY:Creating a Learning Culture in MISO Software Engineering
+DESCRIPTION:The electric energy industry is undergoing the most rapid transformation since its founding nearly 100 years ago. Traditional controllable generation methods\, such as coal plants\, are being rapidly replaced by less or non-controllable generation sources like wind and solar. As if that weren’t enough\, electricity demand is also increasing due to the rise of data centers\, electric vehicles\, and the electrification of heavy industries. As a leader in the industry\, MISO's Software Engineering teams rely on continuous learning and innovation to operate the grid of the future. Here’s how we've been doing it so far.\n\n
+CATEGORIES:BREAKOUT
+LOCATION:Royal 12\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:d76ea332c83f8c85b80668f39b80fba5
+URL:http://etlslasvegas2025.sched.com/event/d76ea332c83f8c85b80668f39b80fba5
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T180000Z
+DTEND:20250925T183000Z
+SUMMARY:GPUs Without the Headache: Scaling AI Infrastructure for Engineering Teams
+DESCRIPTION:AI adoption is accelerating\, but the real bottleneck isn’t models—it’s infrastructure. GPUs are scarce\, expensive\, and often underutilized\, leaving engineering leaders balancing innovation with spiraling costs. The challenge: how do you give teams the GPU power they need without creating an infrastructure management nightmare?\n\nIn this talk\, we’ll explore how Kubernetes has evolved into the control plane not just for microservices\, but for AI workloads. We’ll dive into how dynamic autoscaling with Karpenter enables flexible\, on-demand allocation of GPUs across multiple tenants\, ensuring resources are available when workloads spike—and released when they’re not. The result: engineering teams get the performance they need\, while platform teams keep budgets and complexity under control.\n\nWhether you’re leading platform engineering\, data infrastructure\, or AI initiatives\, this session will provide insights from real-world scenarios and valuable guidance on how to best deliver GPUs without the headache—so your teams can focus on building\, not curating bespoke infrastructure.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 14\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:bb572097ddfdc5b54f44c6def57591aa
+URL:http://etlslasvegas2025.sched.com/event/bb572097ddfdc5b54f44c6def57591aa
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T183000Z
+DTEND:20250925T190000Z
+SUMMARY:Forget Vibe Coding\, Vibe Leadership is the Real Risk
+DESCRIPTION:AI-powered coding tools are fundamentally shifting the way developers write software. Junior developers can ship code faster than ever and senior developers are being overwhelmed with code reviews. AI suggestions are delivered with such confidence that even official docs get dismissed. On the surface\, everything seems productive. But dig a little deeper\, and you’ll find fragile codebases\, missed fundamentals\, and tech debt piling up faster than teams can track.\n\nThis isn’t a problem with AI\, it’s a problem with leadership. Too many teams are running on vibe leadership: a false sense of progress without the oversight and accountability to match. If vibe coding is risky\, vibe leadership is catastrophic.\n\nIn this talk\, we’ll explore:\n- How AI tools are changing the dynamics of software development for better and worse\n- Why high-performing teams need comprehension and critical thinking more than ever\n- Leadership pitfalls that can turn AI acceleration into tech debt\n- Practical strategies for engineering leaders to foster responsible AI adoption\, deeper code reviews\, and sustainable development practices\n\nAI isn’t going away. But if we don’t shift from vibe leadership to intentional leadership\, we risk turning today’s speed into tomorrow’s slowdown.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 12\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:54851edeb2d6cee04eeac9085389b5aa
+URL:http://etlslasvegas2025.sched.com/event/54851edeb2d6cee04eeac9085389b5aa
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T183000Z
+DTEND:20250925T190000Z
+SUMMARY:Moving to Meaningful Metrics: Measuring our Digital Transformation
+DESCRIPTION:To truly drive digital transformation and achieve organizational alignment\, we moved beyond vanity metrics to embrace a system of meaningful\, objective measurements on system health and organizational maturity.
+CATEGORIES:BREAKOUT
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:16179ec8f1d8fcf0edeb6d293968bb9a
+URL:http://etlslasvegas2025.sched.com/event/16179ec8f1d8fcf0edeb6d293968bb9a
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T183000Z
+DTEND:20250925T190000Z
+SUMMARY:Navigating and Securing the Agentic Enterprise
+DESCRIPTION:A successful AI strategy combines existing capabilities and tailored technology to reimagine your business processes. This requires agent orchestration\, robust security\, and data governance\, which can be challenging in SaaS application environments that are advancing Agentic AI. Security streamlines the development and deployment of Artificial Intelligence (AI)\, protecting enterprises from increasingly sophisticated attacks. Failing to meet evolving cybersecurity requirements can lead to significant business disruption\, financial penalties\, and reputational harm. This session explores the essential steps to ensure that AI Agents have access to the data they need\, don’t have access to data they shouldn’t\, and perform optimally. These considerations extend to development and test environments\, which are often more exposed and used by third-party contractors. The fastest path to success is secure-by-design AI agents\, with security embedded from day zero\, in the early planning phase\, and throughout the DevSecOps lifecycle. These techniques help organizations innovate more efficiently and effectively\, freeing up resources to drive AI innovation and revenue growth.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 14\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:696f4d475558d79eb9eac90f0685eb24
+URL:http://etlslasvegas2025.sched.com/event/696f4d475558d79eb9eac90f0685eb24
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T183000Z
+DTEND:20250925T190000Z
+SUMMARY:Slides to Signals - Strategic Planning in the Age of AI
+DESCRIPTION:The biggest challenges in the era of AI will not be technical - they will be organizational and cultural. As AI reshapes enterprise technology\, strategic planning must evolve to keep pace. Drawing on experience leading Quarterly Planning across major enterprises\, Alex Ribeiro shares insights on transforming traditional Quarterly Business Reviews (QBRs) into dynamic\, AI-augmented decision-making forums.\n\nThe session covers key learnings from the ground\, practical AI applications in planning\, and how to build an adaptive enterprise with Human-AI teams. Participants will leave with actionable strategies to integrate AI into corporate strategy and planning\, driving more responsive and effective decision-making across the enterprise.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 13\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:5df055fa53485fe8644957739c7dec85
+URL:http://etlslasvegas2025.sched.com/event/5df055fa53485fe8644957739c7dec85
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T190000Z
+DTEND:20250925T203000Z
+SUMMARY:LUNCH
+DESCRIPTION:
+CATEGORIES:
+LOCATION:Expo Hall\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:2b020d05e9fffba4db01cbbae11a5e07
+URL:http://etlslasvegas2025.sched.com/event/2b020d05e9fffba4db01cbbae11a5e07
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T203000Z
+DTEND:20250925T210000Z
+SUMMARY:Building a Community of Managers to Lead in the Digital Age
+DESCRIPTION:Organizations have journeyed from Lean\, Agile\, DevOps\, and are now entering an even more advanced digital arena. Along this journey managers face the challenges of determining how to leverage all these tools and modern ways of working to deliver better outcomes. At the same time\, knowledge workers demand managers who are more empathic and resilient than what traditional leaders have demonstrated in the past. This presentation takes you from the start of our Agile journey and supporting community of practice to where we are today in building a Community of Practice (CoP) designed specifically for managers who are eager to learn and lead in this new digital age. This is our Lead in the Digital CoP.\n\nWe will share how we have applied design thinking practices\, customer journey maps\, and a change management approach to build the foundations of this community. Based on this experience we will walk through a sample roadmap of our actions\, specific implementation practices\, and our current measures to assess and improve. Questions we continue to ask ourselves is\, how to we tie this into our organization’s strategy and internal efforts and how do we help move from awareness to implementation?\n\nWhile many of you are likely familiar with communities of practices\, we will share how we continue to leverage that forum to help prepare managers to Lead in the Digital Age. We are committed to supporting our organization that exhibits the leadership behaviors to lead in the digital age and empowers our people to bigger and greater things.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 13\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:17b8b345c8bffc5345b4e8660287c698
+URL:http://etlslasvegas2025.sched.com/event/17b8b345c8bffc5345b4e8660287c698
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T203000Z
+DTEND:20250925T210000Z
+SUMMARY:How to Remove the Jerk from AI with Progressive Delivery
+DESCRIPTION:What if AI is neither the worst thing to ever happen to artists nor the best thing ever to happen to companies? How do we deal with the rapid pace of change when a technology this new shows up? How do you successfully deliver value to all your constituents at the same time\, without alienating anyone?\n\nFor over 40 years\, the most recognized tools for digital creators have served a user base that includes creative experts who have been happy with the same workflow for decades\, and creatives who rely on consistency for their business. At the same time\, these users include artists who are working on the cutting edge of generative AI.\n\nProgressive Delivery practices empowered teams to listen to the diverse needs of their expansive user base and deliver the right product\, to the right people\, at the right time. Brian and Adam will share the process and tools they use to progressively release features and radically delegate control of the user experience as close to the user as possible.
+CATEGORIES:BREAKOUT
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:2d4cf9334bd316b43c82b5ddde91687b
+URL:http://etlslasvegas2025.sched.com/event/2d4cf9334bd316b43c82b5ddde91687b
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T203000Z
+DTEND:20250925T210000Z
+SUMMARY:National LLMs – Towards Moderate-Size Models That Are Focused on the Local Culture and Language
+DESCRIPTION:Generative Artificial Intelligence (GAI) has revolutionized information technologies\, particularly Large Language Models (LLMs)\, which are now the frontier of this revolution. LLMs enable us to boost our systems and way we process data\, however they present also significant challenges\, including legal issues (e.g. authorship law and related one\, especially crucial in EU)\, transparency (we know very little how the instruction train sets looks like in most of the LLM vendors)\, and non-uniform distribution of languages in train sets (most LLMs are mainly trained on English and Chinese texts\, other languages are the minority).&nbsp\;\n\nLarge language models characterize high proficiency in processing and generating multilingual texts. However\, language and culture understanding (including historical events\, traditions\, folklore\, literature\, and pop culture) is a more complex problem\, much harder than simple text analysis. A lack of such knowledge can lead to misinterpretations and subtle\, hard-to-detect errors. There is a need for moderate-sized LLMs focused on local culture and history.\n\nDuring my speech\, I will present how we built local LLMs in Poland that consume mainly organic instructions (human-written ones) and how we boost our models to be focused on regional/national aspects\, such as local history and culture.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 12\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:9fd68fab4a31d359c14eb0fb9209c9f5
+URL:http://etlslasvegas2025.sched.com/event/9fd68fab4a31d359c14eb0fb9209c9f5
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T210000Z
+DTEND:20250925T213000Z
+SUMMARY:AI in a Sustainable Way
+DESCRIPTION:AI is everywhere but so is the drive to build more data centers that drives the need for more power and water to run those data centers. We need a more sustainable solution\, when Deep Seek first announced it hit the industry by storm\, but what it really did was start causing the question can we really do this in a more sustainable way.\n\nThis session will discuss the use of specialized smaller models the ability to train those models in cost effective ways with your own enterprise data without exposing that data externally and the industry trends around specialized chips for inferencing. These smaller models can be more effective while using significantly less energy and water.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 12\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:e903e98cc3e9f4c8e984dad06f49708d
+URL:http://etlslasvegas2025.sched.com/event/e903e98cc3e9f4c8e984dad06f49708d
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T210000Z
+DTEND:20250925T213000Z
+SUMMARY:Beyond Automation: How Gen AI is Redefining DevOps
+DESCRIPTION:Learn how GenAI transforms the DevOps lifecycle with predictive insights\, smarter RCA\, and KPI-based recommendations overcoming few limitations with traditional DevOps for emerging technologies.\n\nThe rapid evolution of technology and business demands has turned software delivery into a cornerstone of success for organizations. While frameworks like DORA and SPACE provide good measures for high performing teams\, the increasing complexity of modern DevOps ecosystems requires a comprehensive approach that integrates operational\, cultural\, and technological dimensions to drive high performance. This requires strategic and forward-thinking approach by making organization’s DevOps future ready with the use of cutting-edge technology such as GenAI.\n\nIn this session\, we share our experience of using GenAI in DevOps life cycle resulting in transformed engineering practices. This includes areas like correlation and pattern analysis for a smoother RCA \, forecasting/predictive capabilities and automated recommendations based on measured KPIs We also share the challenges and roadblocks we faced during these implementations that can help smoothen the journey for other teams.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 13\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:588aef8a8376cba5c205a36cf951034d
+URL:http://etlslasvegas2025.sched.com/event/588aef8a8376cba5c205a36cf951034d
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T210000Z
+DTEND:20250925T213000Z
+SUMMARY:Coordination Costs and Rewiring Organizations to Win With AI
+DESCRIPTION:Scott Prugh's impact on the community is recognized\, especially regarding DevOps principles. Understanding coordination costs is vital for organizations\, with AI playing a key role in process re-engineering. Challenges like organizational forces can hinder progress\, affecting project timelines. The integration of AI in workflows enhances client analysis and legacy system understanding\, while cautioning against over-reliance on AI. Embracing AI with strong DevOps practices is essential for managing these costs effectively.
+CATEGORIES:BREAKOUT
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:6c974874eb64d13eb5035bbdab7e715a
+URL:http://etlslasvegas2025.sched.com/event/6c974874eb64d13eb5035bbdab7e715a
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T210000Z
+DTEND:20250925T213000Z
+SUMMARY:Intelligent Automation & Transformation with AI
+DESCRIPTION:At Discover\, we are using GenAI for automation and transformation of different applications\, which will reduce manual efforts and enhance the quality of the product\, as well as provide a better customer experience. How we are\, as a team\, using a combination of NLP\, Machine Learning\, Deep Learning\, and AI models to solve different challenges in the organization and provide better productivity. Also\, we encourage team members not to restrict their efforts only to AI but also to increase their scope to different automation or transformation models\, which can provide better efficiency in the system and process. Along with using GenAI models\, we are also doing our due diligence to provide proper protection and security to our model to avoid any kind of hallucinations or decision-making bias.
+CATEGORIES:BREAKOUT
+LOCATION:Royal 14\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:248340eabe23df1828f6cc13335bdeb6
+URL:http://etlslasvegas2025.sched.com/event/248340eabe23df1828f6cc13335bdeb6
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T213000Z
+DTEND:20250925T220000Z
+SUMMARY:Networking
+DESCRIPTION:
+CATEGORIES:
+LOCATION:Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:99be96c2f2a34725acb4324157eafb7d
+URL:http://etlslasvegas2025.sched.com/event/99be96c2f2a34725acb4324157eafb7d
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T220000Z
+DTEND:20250925T222000Z
+SUMMARY:When Vibe Coding Doesn’t Vibe: Hard Truths in Enterprise AI
+DESCRIPTION:The path from GenAI proof-of-concept to enterprise-scale is filled with unseen complexity. In this session\, Grainger technology leaders share the “hard truths” of enabling GenAI at scale—from navigating vendor onboarding and evolving tooling to managing change fatigue and measuring value beyond the hype.​\nYou’ll learn how Grainger is applying immersive enablement practices\, prompt engineering\, and a human-in-the-loop approach to customize GenAI tooling for its sociotechnical environment. The session also introduces a pragmatic adoption model—moving from PoC to pilot to production—to scale GenAI responsibly across the organization.\n\nDesigned for technical leaders aiming to translate AI’s promise into meaningful outcomes\, this session offers practical frameworks\, cultural insights\, and lessons learned from the front lines of enterprise AI transformation.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:a2467375dd31c027a5a72d86bce0b973
+URL:http://etlslasvegas2025.sched.com/event/a2467375dd31c027a5a72d86bce0b973
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T222000Z
+DTEND:20250925T224000Z
+SUMMARY:How We Doubled Engineering Productivity at eBay\, but Still Didn't Save the Company
+DESCRIPTION:Once a stock market darling and a pioneering hyperscaler in the 1990s and early 2000s\, eBay has been in steady decline since the 2010s. A household name with a flat business\, eBay has been unable to make substantive strides in its market reach or its engineering outcomes in the last 15 years. What happened?\n\nI was a Distinguished Architect at eBay from 2004 to 2011\, and returned as VP of Platform Engineering and Chief Architect from 2020 to 2022. As Chief Architect\, I led the company-wide Velocity initiative\, which has continued to double engineering productivity across the board. By executing the DevOps playbook\, this has been an unqualified success. I spoke about the first two years of this experience at DOES 2022. In the three years since\, teams have improved on all of the DORA software delivery metrics\, and report better collaboration and developer satisfaction. At the same time\, improvements have stagnated\, and teams consistently struggle to reach Elite status or to alter the overall trajectory of the business.\n\nThis talk is an insider’s attempt to make sense of this seeming contradiction between micro-successes and macro-failures\, and attempts to abstract 20 years of participation and observation into a set of actionable lessons for any organization attempting to transform itself.\n\nWe will deep dive into the following:\n* Technology Evolution\, moving over time Innovator to Laggard\, from early adopter to isolated holdout\n* Business Strategy\, encompassing Learned Helplessness\, the Innovator’s Dilemma\, and Centralized Planning\n* Organizational Culture\, epitomizing Westrum’s pathological culture with zero-sum thinking\, empire building\, risk aversion\, and a constitutional inability to acknowledge failures
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:6a1cf6f69752502c3dbc466c4f1209bf
+URL:http://etlslasvegas2025.sched.com/event/6a1cf6f69752502c3dbc466c4f1209bf
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T224000Z
+DTEND:20250925T230000Z
+SUMMARY:Delivering Music and Spoken Word at One of the World’s Largest Tech Companies
+DESCRIPTION:In the 2000s\, I was a DJ by night and a technologist by day. I never imagined those two worlds would one day converge. Today\, as Director of Client Experiences Engineering at Amazon Music\, I help deliver music\, podcasts\, and audiobooks to millions of listeners around the globe.\n\nAmazon Music recently celebrated our 10th anniversary\, a milestone that underscores what it means to operate as a music and spoken word company inside one of the world’s largest tech companies. We approach every challenge with the mindset of the world’s largest startup: moving fast\, collaborating closely across Product\, Design\, Finance\, and Legal\, and never losing sight of Amazon’s first leadership principle - Customer Obsession.\nSince Amazon Music is a part of Amazon\, we’re fortunate to be at the center of GenAI innovation. Giving us access to cutting-edge internal tools and the experts behind them just a quick chat message away. The challenge lies not only in harnessing this power\, but in ensuring it delivers measurable value compared to the classic techniques that brought us here.\n\nIn this talk\, I’ll share what it’s like to combine music and spoken word with technology at a global scale. I’ll also explore how the rise of GenAI presents both an extraordinary opportunity and a shared challenge across the industry: finding how to unlock its full value while staying grounded in serving customers first.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:0615eb341be4f6168741371bf26bb4d5
+URL:http://etlslasvegas2025.sched.com/event/0615eb341be4f6168741371bf26bb4d5
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T230000Z
+DTEND:20250925T232000Z
+SUMMARY:Certified Really AI Practitioner (CRAP)
+DESCRIPTION:Welcome to your training! This is your One Best Way\, One Size Fits All\, Playbook for AI&nbsp\;Dominance Transformation. Discover the revolutionary strategies that guarantee memorable AI transformation outcomes! Written by GenAI for irrational humans\, this will maximise the Agentic AI&nbsp\;mess mesh\, ensuring that AI sticks in every nook and cranny of your organisation\, like partially-sentient shadow IT on steroids. Enable 1000x output with 1/100th of the biological hosts who need sleep\, vacation and have awkward emotions. More for less with less fuss! Every attendee will be able to have an exclusive CRAP badge on LinkedIn!\n\nThis session provides the blueprint for creating a legendary AI journey that achieves case study status\, including featuring in business school curricula. Results may include unprecedented budget utilization and shortened tenure.
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:b8f8ef1ecdc23445387b47fa5b57e332
+URL:http://etlslasvegas2025.sched.com/event/b8f8ef1ecdc23445387b47fa5b57e332
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20250923T131600Z
+DTSTART:20250925T232000Z
+DTEND:20250925T233000Z
+SUMMARY:Closing Remarks
+DESCRIPTION:
+CATEGORIES:PLENARY
+LOCATION:Royal Ballroom\, Las Vegas\, NV\, USA
+SEQUENCE:0
+UID:b474a7ba900248d86e3e22eb706df173
+URL:http://etlslasvegas2025.sched.com/event/b474a7ba900248d86e3e22eb706df173
+END:VEVENT
+END:VCALENDAR
