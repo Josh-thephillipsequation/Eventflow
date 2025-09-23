@@ -199,6 +199,18 @@ Notes:
 - If you get CocoaPods warnings about the iOS deployment target, update `ios/Podfile` to set `platform :ios, '13.0'` (or newer) and re-run `pod install`.
 - For contributors who only want to run the app on Android or web, iOS-specific steps (CocoaPods, Xcode) are not required.
 
+## Screenshots
+
+App screenshots (captured from a working build):
+
+![Events list screenshot](img/IMG_0484122DD2F1-1.jpeg)
+
+Events list showing grouped events and priority chips.
+
+![Import screen screenshot](img/IMG_0484122DD2F1-2.jpeg)
+
+Import screen with URL input and sample ICS loaded.
+
 ## iOS Configuration
 
 The app is configured for iOS with:
