@@ -211,17 +211,6 @@ Notes:
 - If CocoaPods complains about the deployment target, set `platform :ios, '13.0'` (or newer) in `ios/Podfile` and re-run `pod install`.
 - If you only plan to run on Android or web, you can skip the iOS-specific steps.
 
-## Screenshots
-
-App screenshots (captured from a working build):
-
-![Events list screenshot](img/IMG_0484122DD2F1-1.jpeg)
-
-Events list showing grouped events and priority chips.
-
-![Import screen screenshot](img/IMG_0484122DD2F1-2.jpeg)
-
-Import screen with URL input and sample ICS loaded.
 
 ## iOS Configuration
 
