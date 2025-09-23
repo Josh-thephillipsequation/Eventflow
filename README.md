@@ -2,6 +2,17 @@
 
 A Flutter iOS application for tracking conference agendas. Users can upload or import calendar files from URLs, select events they want to attend, and prioritize them.
 
+<!-- Screenshots moved here -->
+## Screenshots
+
+App screenshots (captured from a working build):
+
+Events list showing grouped events and priority chips.
+
+![Import screen screenshot](img/IMG_0484122DD2F1-2.jpeg)
+
+Import screen with URL input and sample ICS loaded.
+
 ## Features
 
 - **Import Calendar Files**: Upload .ics calendar files or import from URLs
