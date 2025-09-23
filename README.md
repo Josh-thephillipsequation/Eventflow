@@ -143,6 +143,62 @@ Notes and limitations:
 - `intl`: Date formatting
 - `path_provider`: File system paths
 
+## Dependencies & installation
+
+This project has two kinds of dependencies: Dart/Flutter packages (declared in `pubspec.yaml`) and system tools needed for iOS development. The commands below assume you're on macOS (the typical environment for iOS builds).
+
+1. Install Flutter SDK (if you haven't already)
+
+   Follow the official guide for macOS: https://flutter.dev/docs/get-started/install
+
+2. Verify your environment
+
+   ```bash
+   flutter doctor
+   ```
+
+3. Install CocoaPods (required for iOS native dependencies)
+
+   If you use Homebrew:
+
+   ```bash
+   brew install cocoapods
+   ```
+
+   Or via RubyGems (macOS):
+
+   ```bash
+   sudo gem install cocoapods
+   ```
+
+4. Fetch Dart/Flutter packages for this project
+
+   From the project root:
+
+   ```bash
+   flutter pub get
+   ```
+
+5. Install iOS pods
+
+   ```bash
+   cd ios
+   pod install
+   cd ..
+   ```
+
+6. Run the app on an iOS device or simulator
+
+   ```bash
+   flutter devices         # list available devices
+   flutter run -d <id>     # run on a specific device
+   flutter build ios --release   # build a release ipa (requires Xcode code signing)
+   ```
+
+Notes:
+- If you get CocoaPods warnings about the iOS deployment target, update `ios/Podfile` to set `platform :ios, '13.0'` (or newer) and re-run `pod install`.
+- For contributors who only want to run the app on Android or web, iOS-specific steps (CocoaPods, Xcode) are not required.
+
 ## iOS Configuration
 
 The app is configured for iOS with:
