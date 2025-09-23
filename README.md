@@ -1,17 +1,23 @@
 # Conference Agenda Tracker
 
-A Flutter iOS toy app for experimenting with agentic coding workflows and rapid feature iteration. Users can upload or import .ics calendar files from URLs, select events they want to attend, and prioritize them. This project is intended for learning and experimentation, not production use.
+A small Flutter iOS app built as a playground for experimenting with agentic coding workflows and rapid feature iteration. It demonstrates importing .ics calendars, browsing events, marking which ones you plan to attend, and assigning a priority to each selection. This repository is intended for learning and prototyping rather than production use.
 
-<!-- Screenshots moved here -->
+<!-- Screenshots moved here (smaller for readability) -->
 ## Screenshots
 
 App screenshots (captured from a working build):
 
+<p align="center">
+   <img src="img/IMG_0484122DD2F1-1.jpeg" alt="Events list screenshot" width="640" />
+</p>
+
 Events list showing grouped events and priority chips.
 
-![Import screen screenshot](img/IMG_0484122DD2F1-2.jpeg)
+<p align="center">
+   <img src="img/IMG_0484122DD2F1-2.jpeg" alt="Import screen screenshot" width="640" />
+</p>
 
-Import screen with URL input and sample ICS loaded.
+Import screen with URL input and a sample ICS loaded.
 
 ## Features
 
@@ -156,33 +162,28 @@ Notes and limitations:
 
 ## Dependencies & installation
 
-This project has two kinds of dependencies: Dart/Flutter packages (declared in `pubspec.yaml`) and system tools needed for iOS development. The commands below assume you're on macOS (the typical environment for iOS builds).
+This project requires two sets of dependencies: Dart/Flutter packages (listed in `pubspec.yaml`) and platform tools for iOS. The steps below assume macOS and Xcode.
 
-1. Install Flutter SDK (if you haven't already)
+1) Install the Flutter SDK
 
-   Follow the official guide for macOS: https://flutter.dev/docs/get-started/install
+   Follow the official macOS install guide: https://flutter.dev/docs/get-started/install
 
-2. Verify your environment
+2) Verify your environment
 
    ```bash
    flutter doctor
    ```
 
-3. Install CocoaPods (required for iOS native dependencies)
+3) Install CocoaPods (for iOS native dependencies)
 
-   If you use Homebrew:
+   Using Homebrew (recommended):
 
    ```bash
    brew install cocoapods
+   # or: sudo gem install cocoapods
    ```
 
-   Or via RubyGems (macOS):
-
-   ```bash
-   sudo gem install cocoapods
-   ```
-
-4. Fetch Dart/Flutter packages for this project
+4) Fetch Dart/Flutter packages
 
    From the project root:
 
@@ -190,7 +191,7 @@ This project has two kinds of dependencies: Dart/Flutter packages (declared in `
    flutter pub get
    ```
 
-5. Install iOS pods
+5) Install iOS pods
 
    ```bash
    cd ios
@@ -198,17 +199,17 @@ This project has two kinds of dependencies: Dart/Flutter packages (declared in `
    cd ..
    ```
 
-6. Run the app on an iOS device or simulator
+6) Run the app
 
    ```bash
-   flutter devices         # list available devices
-   flutter run -d <id>     # run on a specific device
-   flutter build ios --release   # build a release ipa (requires Xcode code signing)
+   flutter devices          # list attached devices and simulators
+   flutter run -d <id>      # run on a specific device
+   flutter build ios --release  # build a release app (requires signing)
    ```
 
 Notes:
-- If you get CocoaPods warnings about the iOS deployment target, update `ios/Podfile` to set `platform :ios, '13.0'` (or newer) and re-run `pod install`.
-- For contributors who only want to run the app on Android or web, iOS-specific steps (CocoaPods, Xcode) are not required.
+- If CocoaPods complains about the deployment target, set `platform :ios, '13.0'` (or newer) in `ios/Podfile` and re-run `pod install`.
+- If you only plan to run on Android or web, you can skip the iOS-specific steps.
 
 ## Screenshots
 
