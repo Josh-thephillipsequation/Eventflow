@@ -1,6 +1,6 @@
 # Conference Agenda Tracker
 
-A Flutter iOS application for tracking conference agendas. Users can upload or import calendar files from URLs, select events they want to attend, and prioritize them.
+A Flutter iOS toy app for experimenting with agentic coding workflows and rapid feature iteration. Users can upload or import .ics calendar files from URLs, select events they want to attend, and prioritize them. This project is intended for learning and experimentation, not production use.
 
 <!-- Screenshots moved here -->
 ## Screenshots
