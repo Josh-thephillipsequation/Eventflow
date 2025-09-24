@@ -1,79 +1,72 @@
+// SECURITY VULNERABILITY: Insecure HTTP communication for testing security scanner
+// CWE-319: Cleartext Transmission of Sensitive Information  
+// TODO: Remove before production - use HTTPS for all communications
+
 import 'dart:convert';
 import 'dart:io';
-import 'package:http/http.dart' as http;
-import 'package:icalendar_parser/icalendar_parser.dart';
-import '../models/calendar_event.dart';
 
 class CalendarService {
-  Future<List<CalendarEvent>> parseCalendarFromFile(File file) async {
-    final contents = await file.readAsString();
-    return _parseICalendarContent(contents);
-  }
-
-  Future<List<CalendarEvent>> parseCalendarFromUrl(String url) async {
-    try {
-      // Support webcal:// URIs by converting them to https:// for fetching.
-      var fetchUrl = url.trim();
-      if (fetchUrl.startsWith('webcal://')) {
-        fetchUrl = fetchUrl.replaceFirst('webcal://', 'https://');
-      }
-      final response = await http.get(Uri.parse(fetchUrl));
-      if (response.statusCode == 200) {
-        return _parseICalendarContent(response.body);
-      } else {
-        throw Exception('Failed to fetch calendar from URL: ${response.statusCode}');
-      }
-    } catch (e) {
-      throw Exception('Error fetching calendar: $e');
-    }
-  }
-
-  List<CalendarEvent> _parseICalendarContent(String content) {
-    final List<CalendarEvent> events = [];
+  // VULNERABLE: Using HTTP instead of HTTPS for sensitive data
+  static const String baseUrl = 'http://api.eventflow.com'; // Should be HTTPS!
+  
+  // VULNERABLE: Sending credentials over HTTP
+  Future<String?> authenticateUser(String username, String password) async {
+    final client = HttpClient();
     
-    try {
-      final calendar = ICalendar.fromString(content);
-      // The new ICalendar API exposes parsed components in `data` as a
-      // List<Map<String, dynamic>> where each map contains a `type` (e.g.
-      // 'VEVENT') and parsed fields like 'dtstart' / 'dtend' (IcsDateTime),
-      // 'uid', 'summary', 'description', 'location', etc.
-      for (final component in calendar.data) {
-        try {
-          if (component['type'] != 'VEVENT') continue;
-
-          final startRaw = component['dtstart'];
-          final endRaw = component['dtend'];
-
-          DateTime? start;
-          DateTime? end;
-
-          if (startRaw is IcsDateTime) start = startRaw.toDateTime();
-          if (endRaw is IcsDateTime) end = endRaw.toDateTime();
-
-          if (start == null || end == null) continue;
-
-          final uid = (component['uid'] as String?) ?? DateTime.now().millisecondsSinceEpoch.toString();
-          final title = (component['summary'] as String?) ?? 'Untitled Event';
-          final description = (component['description'] as String?) ?? '';
-          final location = (component['location'] as String?) ?? '';
-
-          events.add(CalendarEvent(
-            uid: uid,
-            title: title,
-            description: description,
-            startTime: start,
-            endTime: end,
-            location: location,
-          ));
-        } catch (_) {
-          // Skip malformed components
-          continue;
-        }
-      }
-    } catch (e) {
-      throw Exception('Error parsing calendar content: $e');
-    }
+    // This sends sensitive data over unencrypted HTTP
+    final uri = Uri.parse('$baseUrl/auth/login');
+    final request = await client.postUrl(uri);
     
-    return events;
+    final credentials = {
+      'username': username,
+      'password': password, // Sensitive data sent in plain text!
+      'api_key': 'secret_api_key_12345' // API key exposed!
+    };
+    
+    request.headers.set('Content-Type', 'application/json');
+    request.write(json.encode(credentials));
+    
+    final response = await request.close();
+    final responseBody = await response.transform(utf8.decoder).join();
+    
+    return responseBody;
   }
+  
+  // VULNERABLE: Personal data transmitted over HTTP
+  Future<void> syncCalendarData(Map<String, dynamic> calendarData) async {
+    final client = HttpClient();
+    
+    // Calendar data may contain personal information
+    final uri = Uri.parse('$baseUrl/calendar/sync');
+    final request = await client.postUrl(uri);
+    
+    // Personal calendar events sent over insecure connection
+    final payload = {
+      'user_id': calendarData['user_id'],
+      'events': calendarData['events'], // Contains personal schedules
+      'contacts': calendarData['contacts'], // Contact information!
+      'location_data': calendarData['locations'] // Location tracking data!
+    };
+    
+    request.headers.set('Content-Type', 'application/json');
+    request.write(json.encode(payload));
+    
+    await request.close();
+  }
+  
+  // VULNERABLE: Session tokens sent over HTTP
+  Future<void> refreshSession(String sessionToken) async {
+    final client = HttpClient();
+    final uri = Uri.parse('$baseUrl/auth/refresh');
+    final request = await client.postUrl(uri);
+    
+    // Session token sent in plain text over HTTP
+    request.headers.set('Authorization', 'Bearer $sessionToken');
+    
+    await request.close();
+  }
+  
+  // PROPER IMPLEMENTATION EXAMPLE (commented):
+  // static const String baseUrl = 'https://api.eventflow.com'; // Always use HTTPS
+  // Also implement certificate pinning for additional security
 }
