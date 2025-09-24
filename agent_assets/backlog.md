@@ -131,8 +131,68 @@ Conventions
 - When the PR merges, set `Status: done` and add the merge commit or PR link.
 
 
+## App Store Preparation (Post-MVP)
+
+### P0 - Critical for App Store
+- **App Store Connect Setup**
+  - Status: todo
+  - Steps:
+    1. Create Apple Developer Account ($99/year)
+    2. Set up App Store Connect app listing
+    3. Configure app metadata, descriptions, keywords
+    4. Upload app icons and screenshots (use M6 optimized versions)
+
+- **Code Signing & Provisioning**
+  - Status: todo
+  - Steps:
+    1. Create distribution certificate
+    2. Create App Store provisioning profile
+    3. Update bundle identifier from `com.example.conferenceAgendaTracker` to unique ID
+    4. Configure release build settings
+
+- **Privacy Policy & Terms**
+  - Status: todo
+  - Steps:
+    1. Create privacy policy (calendar data, local storage)
+    2. Add terms of service
+    3. Link from app settings/about screen
+
+### P1 - Important for Launch
+- **App Store Optimization**
+  - Status: todo
+  - Steps:
+    1. Write compelling app description highlighting EventFlow benefits
+    2. Research and select optimal keywords
+    3. Create App Store preview video (optional but recommended)
+
+- **Beta Testing**
+  - Status: todo
+  - Steps:
+    1. Set up TestFlight for beta testing
+    2. Test on multiple iOS devices and versions
+    3. Gather user feedback and iterate
+
+- **Marketing Preparation**
+  - Status: todo
+  - Steps:
+    1. Create app website/landing page
+    2. Prepare social media assets
+    3. Plan launch strategy
+
+### P2 - Nice to Have
+- **Analytics & Crash Reporting**
+  - Add Firebase Analytics or similar
+  - Implement crash reporting (Crashlytics)
+
+- **Feature Enhancements**
+  - Push notifications for upcoming events
+  - Dark mode polish and testing
+  - iPad-optimized layouts
+  - Apple Watch companion app
+
 ## Recent activity
 - 2025-09-23: Created backlog and initial branches: `feature/optimize-screenshots`, `feature/add-contributing`, `feature/ci-workflow`.
+- 2025-09-23: **COMPLETED MVP MODERNIZATION** - M1-M3, M5 completed. App successfully rebranded to EventFlow with Material 3 design, custom app icon, and polished import screen.
 
 ---
 *This backlog is intentionally lightweight and agent-friendly — update as you go.*
