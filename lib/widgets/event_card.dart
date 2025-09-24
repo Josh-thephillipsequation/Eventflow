@@ -68,7 +68,7 @@ class EventCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 6),
                     Text(
-                      DateFormat('MMM d, yyyy').format(event.startTime),
+                      DateFormat('MMM d, yyyy').format(event.startTime.toLocal()),
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: colorScheme.onSurfaceVariant,
                       ),
@@ -88,7 +88,7 @@ class EventCard extends StatelessWidget {
                   const SizedBox(width: 6),
                   Expanded(
                     child: Text(
-                      '${DateFormat('HH:mm').format(event.startTime)} - ${DateFormat('HH:mm').format(event.endTime)}',
+                      '${DateFormat('h:mm a').format(event.startTime.toLocal())} - ${DateFormat('h:mm a').format(event.endTime.toLocal())}',
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: colorScheme.onSurfaceVariant,
                       ),

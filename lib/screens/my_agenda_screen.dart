@@ -5,14 +5,35 @@ import '../providers/event_provider.dart';
 import '../models/calendar_event.dart';
 import '../widgets/event_card.dart';
 
-class MyAgendaScreen extends StatelessWidget {
+class MyAgendaScreen extends StatefulWidget {
   const MyAgendaScreen({super.key});
+  
+  @override
+  State<MyAgendaScreen> createState() => _MyAgendaScreenState();
+}
+
+class _MyAgendaScreenState extends State<MyAgendaScreen> {
+  String _timeFilter = 'upcoming';
 
   @override
   Widget build(BuildContext context) {
     return Consumer<EventProvider>(
       builder: (context, provider, child) {
-        final selectedEvents = provider.getEventsByPriority();
+        final allSelectedEvents = provider.getEventsByPriority();
+        final now = DateTime.now();
+        
+        // Filter events by time
+        final selectedEvents = allSelectedEvents.where((event) {
+          switch (_timeFilter) {
+            case 'upcoming':
+              return event.endTime.toLocal().isAfter(now);
+            case 'past':
+              return event.endTime.toLocal().isBefore(now);
+            case 'all':
+            default:
+              return true;
+          }
+        }).toList();
 
         if (selectedEvents.isEmpty) {
           return const Center(
@@ -39,7 +60,7 @@ class MyAgendaScreen extends StatelessWidget {
         // Group events by date
         Map<String, List<CalendarEvent>> eventsByDate = {};
         for (var event in selectedEvents) {
-          String dateKey = DateFormat('yyyy-MM-dd').format(event.startTime);
+          String dateKey = DateFormat('yyyy-MM-dd').format(event.startTime.toLocal());
           if (!eventsByDate.containsKey(dateKey)) {
             eventsByDate[dateKey] = [];
           }
@@ -52,6 +73,35 @@ class MyAgendaScreen extends StatelessWidget {
 
         return Column(
           children: [
+            // Time filter selector
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  const Text('Show: '),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: DropdownButton<String>(
+                      value: _timeFilter,
+                      isExpanded: true,
+                      items: const [
+                        DropdownMenuItem(value: 'upcoming', child: Text('Upcoming Events')),
+                        DropdownMenuItem(value: 'all', child: Text('All My Events')),
+                        DropdownMenuItem(value: 'past', child: Text('Past Events')),
+                      ],
+                      onChanged: (value) {
+                        if (value != null) {
+                          setState(() {
+                            _timeFilter = value;
+                          });
+                        }
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            
             // Header with stats
             Container(
               padding: const EdgeInsets.all(16.0),
@@ -91,7 +141,7 @@ class MyAgendaScreen extends StatelessWidget {
                   List<CalendarEvent> dayEvents = eventsByDate[dateKey]!;
                   
                   // Sort events within the day by start time
-                  dayEvents.sort((a, b) => a.startTime.compareTo(b.startTime));
+                  dayEvents.sort((a, b) => a.startTime.toLocal().compareTo(b.startTime.toLocal()));
                   
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,14 +150,59 @@ class MyAgendaScreen extends StatelessWidget {
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-                        color: Theme.of(context).colorScheme.primaryContainer,
-                        child: Text(
-                          DateFormat('EEEE, MMMM d, yyyy').format(date),
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Theme.of(context).colorScheme.onPrimaryContainer,
+                        margin: const EdgeInsets.only(top: 8.0),
+                        decoration: BoxDecoration(
+                          color: _isToday(date) 
+                              ? Theme.of(context).colorScheme.primaryContainer
+                              : _isPast(date) 
+                                  ? Theme.of(context).colorScheme.surfaceContainerHighest
+                                  : Theme.of(context).colorScheme.secondaryContainer,
+                          borderRadius: const BorderRadius.horizontal(
+                            right: Radius.circular(24),
                           ),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              _isToday(date) 
+                                  ? Icons.today 
+                                  : _isPast(date) 
+                                      ? Icons.history 
+                                      : Icons.upcoming,
+                              color: _isToday(date) 
+                                  ? Theme.of(context).colorScheme.onPrimaryContainer
+                                  : _isPast(date) 
+                                      ? Theme.of(context).colorScheme.onSurface
+                                      : Theme.of(context).colorScheme.onSecondaryContainer,
+                              size: 20,
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                _getDayLabel(date),
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: _isToday(date) 
+                                      ? Theme.of(context).colorScheme.onPrimaryContainer
+                                      : _isPast(date) 
+                                          ? Theme.of(context).colorScheme.onSurface
+                                          : Theme.of(context).colorScheme.onSecondaryContainer,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              '${dayEvents.length} event${dayEvents.length != 1 ? 's' : ''}',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: _isToday(date) 
+                                    ? Theme.of(context).colorScheme.onPrimaryContainer.withValues(alpha: 0.7)
+                                    : _isPast(date) 
+                                        ? Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7)
+                                        : Theme.of(context).colorScheme.onSecondaryContainer.withValues(alpha: 0.7),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       
@@ -133,6 +228,30 @@ class MyAgendaScreen extends StatelessWidget {
         );
       },
     );
+  }
+
+  bool _isToday(DateTime date) {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final compareDate = DateTime(date.year, date.month, date.day);
+    return compareDate.isAtSameMomentAs(today);
+  }
+
+  bool _isPast(DateTime date) {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final compareDate = DateTime(date.year, date.month, date.day);
+    return compareDate.isBefore(today);
+  }
+
+  String _getDayLabel(DateTime date) {
+    final dayLabel = DateFormat('EEEE, MMMM d, yyyy').format(date);
+    if (_isToday(date)) {
+      return 'Today - $dayLabel';
+    } else if (_isPast(date)) {
+      return 'Past - $dayLabel';
+    }
+    return dayLabel;
   }
 
   Widget _buildStatCard(BuildContext context, String title, String value, IconData icon) {

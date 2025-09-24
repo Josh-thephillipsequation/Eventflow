@@ -56,6 +56,28 @@ Conventions
   - Status: todo
   - Estimate: 0.5-1h
 
+- M7 — UX Improvements Phase 1 (Smart Views)
+  - Branch: `feature/ux-improvements-smart-views`
+  - Goal: Improve splash screen timing, implement smart day grouping, and time-based filtering
+  - Priority: P1
+  - Status: done
+  - Estimate: 2-3h
+  - Completed: 2025-09-24 - Fixed splash screen timing, added smart day grouping with visual indicators, implemented time-based filtering for current/future/past events
+
+- M8 — Event Insights Dashboard
+  - Branch: `feature/event-insights-dashboard`
+  - Goal: Create insights tab showing time per topic, frequent words in titles, event statistics
+  - Priority: P2
+  - Status: todo
+  - Estimate: 3-4h
+
+- M9 — AI Talk Proposal Generator
+  - Branch: `feature/ai-talk-generator`
+  - Goal: Fun tab for AI-generated fake event talk proposals with user name input based on event data
+  - Priority: P3
+  - Status: todo
+  - Estimate: 2-3h
+
 
 ## Task Backlog (detailed)
 
@@ -117,7 +139,30 @@ Conventions
   - Steps:
     1. Add `CONTRIBUTING.md` with setup, coding style, and PR process.
 
+### P2
+- M8 — Event Insights Dashboard
+  - Status: todo
+  - Branch: `feature/event-insights-dashboard`
+  - Steps:
+    1. Create new insights screen/tab showing event statistics
+    2. Implement time per topic analysis (duration calculations)
+    3. Add frequent words analysis from event titles/descriptions
+    4. Create visualizations (charts/graphs) using Flutter charts library
+    5. Add export functionality for insights data
+  - Notes: Consider using fl_chart package for visualizations
+
 ### P3 / Future ideas
+- M9 — AI Talk Proposal Generator
+  - Status: todo
+  - Branch: `feature/ai-talk-generator`
+  - Steps:
+    1. Analyze existing event data to determine themes/topics
+    2. Create AI-powered title generator based on patterns
+    3. Add user input form for name and preferences
+    4. Implement fun, professional-looking proposal generator UI
+    5. Add sharing/export functionality for generated proposals
+  - Notes: Use simple text generation algorithms or consider integrating with AI APIs
+
 - Dark mode polish and dynamic color extraction (Material You) — P3
 - Sticky day headers in event list, timeline view — P3
 - Pagination/virtual list for very large calendars — P3
@@ -132,6 +177,7 @@ Conventions
 
 
 ## Recent activity
+- 2025-09-24: Added UX improvements phase 1 - smart views, day grouping, and time-based filtering. Added M8 (Event Insights) and M9 (AI Talk Generator) to roadmap.
 - 2025-09-23: Created backlog and initial branches: `feature/optimize-screenshots`, `feature/add-contributing`, `feature/ci-workflow`.
 
 ---
