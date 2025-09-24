@@ -28,6 +28,108 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('EventFlow'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         actions: [
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('About EventFlow'),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'EventFlow',
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 8),
+                        const Text('A modern conference schedule management app'),
+                        const SizedBox(height: 16),
+                        const Text(
+                          'Developed by:',
+                          style: TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          children: [
+                            Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: Colors.white,
+                                border: Border.all(color: Colors.grey.shade300),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: Image.asset(
+                                  'assets/icons/tpe-logo.png',
+                                  width: 40,
+                                  height: 40,
+                                  fit: BoxFit.contain,
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return Container(
+                                      width: 40,
+                                      height: 40,
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context).colorScheme.primary,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: const Center(
+                                        child: Text(
+                                          'TPE',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'thephillipsequation llc',
+                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                ),
+                                Text(
+                                  'www.thephillipsequation.com',
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 16),
+                        const Text(
+                          'Version 1.0.0',
+                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: const Text('Close'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          ),
           Consumer<EventProvider>(
             builder: (context, provider, child) {
               if (provider.allEvents.isNotEmpty) {
