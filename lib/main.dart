@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'screens/home_screen.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'screens/splash_screen.dart';
 import 'providers/event_provider.dart';
 import 'theme/app_theme.dart';
 
 void main() {
+  // Preserve the native splash screen
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  
   runApp(const ConferenceAgendaApp());
 }
 
@@ -22,7 +27,7 @@ class ConferenceAgendaApp extends StatelessWidget {
         theme: AppTheme.lightTheme,
         darkTheme: AppTheme.darkTheme,
         themeMode: ThemeMode.system,
-        home: const HomeScreen(),
+        home: const SplashScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

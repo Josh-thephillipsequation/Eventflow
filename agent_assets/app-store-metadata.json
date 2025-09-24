@@ -1,0 +1,57 @@
+{
+  "app_metadata": {
+    "app_name": "EventFlow",
+    "subtitle": "Smart Conference Schedule Manager",
+    "description": {
+      "short": "Transform any conference schedule into your personal agenda. Import calendars, track sessions, and never miss important events with EventFlow's clean, intuitive interface.",
+      "full": "EventFlow revolutionizes how you manage conference schedules. Whether attending tech conferences, academic symposiums, or business events, EventFlow transforms complex schedules into your personalized agenda.\n\n🎯 KEY FEATURES\n• Import calendars from any .ics URL or file\n• Smart event filtering and search\n• Clean, Material 3 design interface\n• Offline access to your schedule\n• Personal agenda creation\n• Session tracking and notes\n\n✨ PERFECT FOR\n• Conference attendees\n• Event organizers\n• Business professionals\n• Students and academics\n• Anyone managing complex schedules\n\n🏆 WHY EVENTFLOW?\n• Lightning-fast calendar import\n• Intuitive event management\n• Beautiful, modern design\n• Completely private - your data stays on your device\n• No ads, no subscriptions\n\nDeveloped by thephillipsequation llc, EventFlow brings professional-grade schedule management to your fingertips. Download now and never miss another important session!"
+    },
+    "keywords": "calendar,conference,schedule,agenda,events,ics,import,planner,organizer,sessions",
+    "category": "Productivity",
+    "content_rating": "4+",
+    "pricing": {
+      "model": "Free",
+      "price": "0.00"
+    },
+    "availability": {
+      "countries": ["US", "CA", "GB", "AU", "DE", "FR", "JP", "IN", "BR"],
+      "release_date": "auto"
+    }
+  },
+  "version_info": {
+    "version": "1.0.0",
+    "whats_new": "🎉 Welcome to EventFlow!\n\n✨ Initial Release Features:\n• Import conference calendars from .ics files or URLs\n• Beautiful Material 3 design interface\n• Smart event filtering and search\n• Personal agenda creation\n• Offline access to your schedule\n• Clean, intuitive user experience\n\nPerfect for conference attendees, event organizers, and anyone who wants to stay on top of their schedule. Download EventFlow and transform how you manage events!"
+  },
+  "contact_info": {
+    "developer": "thephillipsequation llc",
+    "website": "https://www.thephillipsequation.com",
+    "support_email": "support@thephillipsequation.com",
+    "privacy_policy": "https://www.thephillipsequation.com/eventflow/privacy",
+    "terms_of_service": "https://www.thephillipsequation.com/eventflow/terms"
+  },
+  "app_review_info": {
+    "demo_account": {
+      "required": false,
+      "username": "",
+      "password": ""
+    },
+    "review_notes": "EventFlow is a conference schedule management app that imports .ics calendar files. The app works offline and doesn't require any accounts or personal information. For testing:\n\n1. Tap 'Import Calendar' on the main screen\n2. Use the pre-filled demo URL: webcal://etlslasvegas2025.sched.com/all.ics\n3. Tap 'Import from URL' to see the calendar import functionality\n4. Browse imported events in the 'My Agenda' tab\n5. Use the search functionality to filter events\n\nThe app is fully functional without any setup or accounts."
+  },
+  "technical_details": {
+    "bundle_id": "com.thephillipsequation.eventflow",
+    "minimum_ios_version": "13.0",
+    "device_compatibility": ["iPhone", "iPad"],
+    "languages": ["English"],
+    "file_size_estimate": "< 50MB",
+    "permissions": [
+      {
+        "permission": "NSAppTransportSecurity",
+        "reason": "To import calendar files from secure HTTPS URLs"
+      },
+      {
+        "permission": "NSLocalNetworkUsageDescription", 
+        "reason": "For Flutter development tools (removed in release builds)"
+      }
+    ]
+  }
+}
