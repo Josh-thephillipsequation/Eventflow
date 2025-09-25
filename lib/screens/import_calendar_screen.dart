@@ -31,7 +31,7 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    
+
     return Consumer<EventProvider>(
       builder: (context, provider, child) {
         return SingleChildScrollView(
@@ -64,7 +64,8 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                     ),
                     // Content - Centered
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 24.0, vertical: 16.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,7 +74,8 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                           Container(
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
-                              color: colorScheme.onPrimary.withValues(alpha: 0.1),
+                              color:
+                                  colorScheme.onPrimary.withValues(alpha: 0.1),
                               shape: BoxShape.circle,
                             ),
                             child: Icon(
@@ -95,7 +97,8 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                           Text(
                             'Import your conference schedule to stay organized and never miss important sessions.',
                             style: theme.textTheme.bodyMedium?.copyWith(
-                              color: colorScheme.onPrimary.withValues(alpha: 0.9),
+                              color:
+                                  colorScheme.onPrimary.withValues(alpha: 0.9),
                             ),
                             textAlign: TextAlign.center,
                             maxLines: 2,
@@ -106,7 +109,7 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                   ],
                 ),
               ),
-              
+
               // Content Section
               Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -114,7 +117,7 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     const SizedBox(height: 16),
-                    
+
                     // Import Options Header
                     Text(
                       'Choose Import Method',
@@ -133,11 +136,12 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 24),
-                    
+
                     // File Upload Section
                     Card(
                       elevation: 2,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16)),
                       child: Padding(
                         padding: const EdgeInsets.all(24.0),
                         child: Column(
@@ -146,7 +150,8 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                             Container(
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
-                                color: colorScheme.primaryContainer.withValues(alpha: 0.3),
+                                color: colorScheme.primaryContainer
+                                    .withValues(alpha: 0.3),
                                 shape: BoxShape.circle,
                               ),
                               child: Icon(
@@ -189,13 +194,14 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                         ),
                       ),
                     ),
-                    
+
                     const SizedBox(height: 24),
-                    
+
                     // URL Input Section
                     Card(
                       elevation: 2,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16)),
                       child: Padding(
                         padding: const EdgeInsets.all(24.0),
                         child: Form(
@@ -206,7 +212,8 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                               Container(
                                 padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
-                                  color: colorScheme.secondaryContainer.withValues(alpha: 0.3),
+                                  color: colorScheme.secondaryContainer
+                                      .withValues(alpha: 0.3),
                                   shape: BoxShape.circle,
                                 ),
                                 child: Icon(
@@ -256,7 +263,8 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                               ),
                               const SizedBox(height: 20),
                               ElevatedButton.icon(
-                                onPressed: provider.isLoading ? null : _loadFromUrl,
+                                onPressed:
+                                    provider.isLoading ? null : _loadFromUrl,
                                 icon: const Icon(Icons.download_rounded),
                                 label: const Text('Import from URL'),
                                 style: ElevatedButton.styleFrom(
@@ -272,9 +280,9 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                         ),
                       ),
                     ),
-                    
+
                     const SizedBox(height: 20),
-                    
+
                     // Loading indicator
                     if (provider.isLoading)
                       Card(
@@ -292,7 +300,7 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                           ),
                         ),
                       ),
-                    
+
                     // Error message
                     if (provider.errorMessage.isNotEmpty)
                       Card(
@@ -329,7 +337,7 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                           ),
                         ),
                       ),
-                    
+
                     // Success message
                     if (provider.allEvents.isNotEmpty)
                       Card(
@@ -395,7 +403,9 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
 
   Future<void> _loadFromUrl() async {
     if (_formKey.currentState?.validate() == true) {
-      await context.read<EventProvider>().loadCalendarFromUrl(_urlController.text);
+      await context
+          .read<EventProvider>()
+          .loadCalendarFromUrl(_urlController.text);
       _urlController.clear();
     }
   }
@@ -404,15 +414,15 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
 // Custom painter for geometric pattern
 class _GeometricPatternPainter extends CustomPainter {
   final Color color;
-  
+
   _GeometricPatternPainter({required this.color});
-  
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..color = color
       ..style = PaintingStyle.fill;
-    
+
     // Draw a simple geometric pattern
     const spacing = 40.0;
     for (double x = 0; x < size.width; x += spacing) {
@@ -422,14 +432,17 @@ class _GeometricPatternPainter extends CustomPainter {
         // Draw small squares
         if ((x / spacing + y / spacing) % 2 == 0) {
           canvas.drawRect(
-            Rect.fromCenter(center: Offset(x + spacing/2, y + spacing/2), width: 4, height: 4),
+            Rect.fromCenter(
+                center: Offset(x + spacing / 2, y + spacing / 2),
+                width: 4,
+                height: 4),
             paint,
           );
         }
       }
     }
   }
-  
+
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

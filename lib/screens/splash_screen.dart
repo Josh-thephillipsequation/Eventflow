@@ -19,15 +19,16 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _initializeSplash() async {
     // Remove native splash immediately, then show our custom splash briefly
     FlutterNativeSplash.remove();
-    
+
     // Wait for just 1 second for custom splash - simplified timing
     await Future.delayed(const Duration(milliseconds: 1000));
-    
+
     // Navigate to home screen
     if (mounted) {
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => const HomeScreen(),
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const HomeScreen(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(opacity: animation, child: child);
           },

@@ -7,7 +7,7 @@ import '../services/storage_service.dart';
 class EventProvider extends ChangeNotifier {
   final CalendarService _calendarService = CalendarService();
   final StorageService _storageService = StorageService();
-  
+
   List<CalendarEvent> _allEvents = [];
   List<CalendarEvent> _selectedEvents = [];
   bool _isLoading = false;
@@ -95,9 +95,11 @@ class EventProvider extends ChangeNotifier {
   void updateEventPriority(CalendarEvent event, int priority) {
     final eventIndex = _allEvents.indexWhere((e) => e.uid == event.uid);
     if (eventIndex != -1) {
-      _allEvents[eventIndex] = _allEvents[eventIndex].copyWith(priority: priority);
-      
-      final selectedIndex = _selectedEvents.indexWhere((e) => e.uid == event.uid);
+      _allEvents[eventIndex] =
+          _allEvents[eventIndex].copyWith(priority: priority);
+
+      final selectedIndex =
+          _selectedEvents.indexWhere((e) => e.uid == event.uid);
       if (selectedIndex != -1) {
         _selectedEvents[selectedIndex] = _allEvents[eventIndex];
       }
@@ -108,8 +110,7 @@ class EventProvider extends ChangeNotifier {
   }
 
   List<CalendarEvent> getEventsByPriority() {
-    return _selectedEvents
-      ..sort((a, b) => a.priority.compareTo(b.priority));
+    return _selectedEvents..sort((a, b) => a.priority.compareTo(b.priority));
   }
 
   Future<void> _saveEvents() async {

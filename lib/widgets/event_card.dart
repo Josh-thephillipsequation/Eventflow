@@ -20,13 +20,11 @@ class EventCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
       elevation: event.isSelected ? 2 : 1,
-      color: event.isSelected 
-          ? colorScheme.primaryContainer 
-          : null,
+      color: event.isSelected ? colorScheme.primaryContainer : null,
       child: InkWell(
         onTap: onSelectionChanged,
         borderRadius: BorderRadius.circular(12),
@@ -42,7 +40,7 @@ class EventCard extends StatelessWidget {
                       event.title,
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.w600,
-                        color: event.isSelected 
+                        color: event.isSelected
                             ? colorScheme.onPrimaryContainer
                             : null,
                       ),
@@ -56,7 +54,6 @@ class EventCard extends StatelessWidget {
                   ),
                 ],
               ),
-              
               if (showDate) ...[
                 const SizedBox(height: 4),
                 Row(
@@ -68,7 +65,8 @@ class EventCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 6),
                     Text(
-                      DateFormat('MMM d, yyyy').format(event.startTime.toLocal()),
+                      DateFormat('MMM d, yyyy')
+                          .format(event.startTime.toLocal()),
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: colorScheme.onSurfaceVariant,
                       ),
@@ -76,7 +74,6 @@ class EventCard extends StatelessWidget {
                   ],
                 ),
               ],
-              
               const SizedBox(height: 4),
               Row(
                 children: [
@@ -98,7 +95,6 @@ class EventCard extends StatelessWidget {
                   ),
                 ],
               ),
-              
               if (event.location.isNotEmpty) ...[
                 const SizedBox(height: 4),
                 Row(
@@ -120,7 +116,6 @@ class EventCard extends StatelessWidget {
                   ],
                 ),
               ],
-              
               if (event.speaker.isNotEmpty) ...[
                 const SizedBox(height: 4),
                 Row(
@@ -143,7 +138,6 @@ class EventCard extends StatelessWidget {
                   ],
                 ),
               ],
-              
               if (event.description.isNotEmpty) ...[
                 const SizedBox(height: 8),
                 Column(
@@ -158,10 +152,12 @@ class EventCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                     // Show "more" button if description has multiple lines or is long
-                    if (event.description.length > 150 || event.description.contains('\n')) ...[
+                    if (event.description.length > 150 ||
+                        event.description.contains('\n')) ...[
                       const SizedBox(height: 4),
                       GestureDetector(
-                        onTap: () => _showExpandedEvent(context, event, theme, colorScheme),
+                        onTap: () => _showExpandedEvent(
+                            context, event, theme, colorScheme),
                         child: Text(
                           'more',
                           style: theme.textTheme.bodySmall?.copyWith(
@@ -174,7 +170,6 @@ class EventCard extends StatelessWidget {
                   ],
                 ),
               ],
-              
               if (event.isSelected) ...[
                 const SizedBox(height: 12),
                 const Divider(height: 1),
@@ -205,8 +200,10 @@ class EventCard extends StatelessWidget {
                                 onPriorityChanged(priority);
                               }
                             },
-                            backgroundColor: _getPriorityColor(priority, false, colorScheme),
-                            selectedColor: _getPriorityColor(priority, true, colorScheme),
+                            backgroundColor:
+                                _getPriorityColor(priority, false, colorScheme),
+                            selectedColor:
+                                _getPriorityColor(priority, true, colorScheme),
                           );
                         }),
                       ),
@@ -229,13 +226,15 @@ class EventCard extends StatelessWidget {
     );
   }
 
-  void _showExpandedEvent(BuildContext context, CalendarEvent event, ThemeData theme, ColorScheme colorScheme) {
+  void _showExpandedEvent(BuildContext context, CalendarEvent event,
+      ThemeData theme, ColorScheme colorScheme) {
     showDialog(
       context: context,
       barrierDismissible: true,
       builder: (BuildContext context) {
         return Dialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           child: Container(
             constraints: const BoxConstraints(maxHeight: 600),
             padding: const EdgeInsets.all(24.0),
@@ -262,9 +261,9 @@ class EventCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                
+
                 const SizedBox(height: 16),
-                
+
                 // Event details
                 Flexible(
                   child: SingleChildScrollView(
@@ -274,14 +273,16 @@ class EventCard extends StatelessWidget {
                         // Date & Time
                         Row(
                           children: [
-                            Icon(Icons.access_time, size: 20, color: colorScheme.onSurfaceVariant),
+                            Icon(Icons.access_time,
+                                size: 20, color: colorScheme.onSurfaceVariant),
                             const SizedBox(width: 8),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    DateFormat('EEEE, MMMM d, yyyy').format(event.startTime.toLocal()),
+                                    DateFormat('EEEE, MMMM d, yyyy')
+                                        .format(event.startTime.toLocal()),
                                     style: theme.textTheme.bodyMedium?.copyWith(
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -297,13 +298,15 @@ class EventCard extends StatelessWidget {
                             ),
                           ],
                         ),
-                        
+
                         if (event.location.isNotEmpty) ...[
                           const SizedBox(height: 16),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Icon(Icons.location_on, size: 20, color: colorScheme.onSurfaceVariant),
+                              Icon(Icons.location_on,
+                                  size: 20,
+                                  color: colorScheme.onSurfaceVariant),
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
@@ -314,13 +317,15 @@ class EventCard extends StatelessWidget {
                             ],
                           ),
                         ],
-                        
+
                         if (event.speaker.isNotEmpty) ...[
                           const SizedBox(height: 16),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Icon(Icons.person, size: 20, color: colorScheme.onSurfaceVariant),
+                              Icon(Icons.person,
+                                  size: 20,
+                                  color: colorScheme.onSurfaceVariant),
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
@@ -333,7 +338,7 @@ class EventCard extends StatelessWidget {
                             ],
                           ),
                         ],
-                        
+
                         if (event.description.isNotEmpty) ...[
                           const SizedBox(height: 16),
                           Text(
@@ -360,9 +365,9 @@ class EventCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                
+
                 const SizedBox(height: 16),
-                
+
                 // Action buttons
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -381,9 +386,10 @@ class EventCard extends StatelessWidget {
     );
   }
 
-  Color _getPriorityColor(int priority, bool isSelected, ColorScheme colorScheme) {
+  Color _getPriorityColor(
+      int priority, bool isSelected, ColorScheme colorScheme) {
     if (!isSelected) return colorScheme.surfaceContainerHighest;
-    
+
     switch (priority) {
       case 1:
         return colorScheme.errorContainer;

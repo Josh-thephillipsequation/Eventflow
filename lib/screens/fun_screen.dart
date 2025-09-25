@@ -17,18 +17,18 @@ class _FunScreenState extends State<FunScreen> {
   String _generatedTitle = '';
   String _generatedAbstract = '';
   bool _isGenerating = false;
-  
+
   // Product generator state
   String _generatedProductName = '';
   String _generatedTagline = '';
   bool _isGeneratingProduct = false;
-  
+
   // Bingo generator state
   List<String> _bingoSquares = [];
   List<bool> _bingoMarked = [];
   bool _isGeneratingBingo = false;
   bool _hasBingo = false;
-  
+
   final Random _random = Random();
 
   @override
@@ -42,7 +42,7 @@ class _FunScreenState extends State<FunScreen> {
     return Consumer<EventProvider>(
       builder: (context, provider, child) {
         final events = provider.allEvents;
-        
+
         return SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -69,9 +69,10 @@ class _FunScreenState extends State<FunScreen> {
                     const SizedBox(height: 8),
                     Text(
                       'Fun Zone',
-                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style:
+                          Theme.of(context).textTheme.headlineMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
                     ),
                     const SizedBox(height: 8),
                     Text(
@@ -82,7 +83,7 @@ class _FunScreenState extends State<FunScreen> {
                   ],
                 ),
               ),
-              
+
               const SizedBox(height: 24),
 
               if (events.isEmpty) ...[
@@ -92,7 +93,8 @@ class _FunScreenState extends State<FunScreen> {
                     padding: const EdgeInsets.all(24.0),
                     child: Column(
                       children: [
-                        const Icon(Icons.data_usage, size: 64, color: Colors.grey),
+                        const Icon(Icons.data_usage,
+                            size: 64, color: Colors.grey),
                         const SizedBox(height: 16),
                         Text(
                           'No Event Data Available',
@@ -121,13 +123,17 @@ class _FunScreenState extends State<FunScreen> {
                               padding: const EdgeInsets.all(16.0),
                               child: Column(
                                 children: [
-                                  const Text('🎤', style: TextStyle(fontSize: 32)),
+                                  const Text('🎤',
+                                      style: TextStyle(fontSize: 32)),
                                   const SizedBox(height: 8),
                                   Text(
                                     'Talk Generator',
-                                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                     textAlign: TextAlign.center,
                                   ),
                                   const SizedBox(height: 8),
@@ -149,13 +155,17 @@ class _FunScreenState extends State<FunScreen> {
                               padding: const EdgeInsets.all(16.0),
                               child: Column(
                                 children: [
-                                  const Text('💡', style: TextStyle(fontSize: 32)),
+                                  const Text('💡',
+                                      style: TextStyle(fontSize: 32)),
                                   const SizedBox(height: 8),
                                   Text(
                                     'Product Ideas',
-                                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                     textAlign: TextAlign.center,
                                   ),
                                   const SizedBox(height: 8),
@@ -182,9 +192,12 @@ class _FunScreenState extends State<FunScreen> {
                             const SizedBox(height: 8),
                             Text(
                               'Conference Bingo',
-                              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.w600,
-                              ),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium
+                                  ?.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
                               textAlign: TextAlign.center,
                             ),
                             const SizedBox(height: 8),
@@ -199,9 +212,9 @@ class _FunScreenState extends State<FunScreen> {
                     ),
                   ],
                 ),
-                
+
                 const SizedBox(height: 24),
-                
+
                 // Input section
                 Card(
                   child: Padding(
@@ -230,34 +243,46 @@ class _FunScreenState extends State<FunScreen> {
                               children: [
                                 Expanded(
                                   child: ElevatedButton.icon(
-                                    onPressed: _isGenerating ? null : () => _generateTalk(events),
-                                    icon: _isGenerating 
+                                    onPressed: _isGenerating
+                                        ? null
+                                        : () => _generateTalk(events),
+                                    icon: _isGenerating
                                         ? const SizedBox(
                                             width: 20,
                                             height: 20,
-                                            child: CircularProgressIndicator(strokeWidth: 2),
+                                            child: CircularProgressIndicator(
+                                                strokeWidth: 2),
                                           )
                                         : const Icon(Icons.mic_rounded),
-                                    label: Text(_isGenerating ? 'Generating...' : 'Talk Proposal'),
+                                    label: Text(_isGenerating
+                                        ? 'Generating...'
+                                        : 'Talk Proposal'),
                                     style: ElevatedButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(vertical: 16),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 16),
                                     ),
                                   ),
                                 ),
                                 const SizedBox(width: 12),
                                 Expanded(
                                   child: ElevatedButton.icon(
-                                    onPressed: _isGeneratingProduct ? null : () => _generateProduct(events),
-                                    icon: _isGeneratingProduct 
+                                    onPressed: _isGeneratingProduct
+                                        ? null
+                                        : () => _generateProduct(events),
+                                    icon: _isGeneratingProduct
                                         ? const SizedBox(
                                             width: 20,
                                             height: 20,
-                                            child: CircularProgressIndicator(strokeWidth: 2),
+                                            child: CircularProgressIndicator(
+                                                strokeWidth: 2),
                                           )
                                         : const Icon(Icons.lightbulb_rounded),
-                                    label: Text(_isGeneratingProduct ? 'Generating...' : 'Product Idea'),
+                                    label: Text(_isGeneratingProduct
+                                        ? 'Generating...'
+                                        : 'Product Idea'),
                                     style: ElevatedButton.styleFrom(
-                                      padding: const EdgeInsets.symmetric(vertical: 16),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 16),
                                     ),
                                   ),
                                 ),
@@ -268,19 +293,29 @@ class _FunScreenState extends State<FunScreen> {
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton.icon(
-                                onPressed: _isGeneratingBingo ? null : () => _generateBingo(events),
-                                icon: _isGeneratingBingo 
+                                onPressed: _isGeneratingBingo
+                                    ? null
+                                    : () => _generateBingo(events),
+                                icon: _isGeneratingBingo
                                     ? const SizedBox(
                                         width: 20,
                                         height: 20,
-                                        child: CircularProgressIndicator(strokeWidth: 2),
+                                        child: CircularProgressIndicator(
+                                            strokeWidth: 2),
                                       )
                                     : const Icon(Icons.grid_on_rounded),
-                                label: Text(_isGeneratingBingo ? 'Generating...' : 'Conference Bingo'),
+                                label: Text(_isGeneratingBingo
+                                    ? 'Generating...'
+                                    : 'Conference Bingo'),
                                 style: ElevatedButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(vertical: 16),
-                                  backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-                                  foregroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  backgroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .secondaryContainer,
+                                  foregroundColor: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer,
                                 ),
                               ),
                             ),
@@ -290,9 +325,9 @@ class _FunScreenState extends State<FunScreen> {
                     ),
                   ),
                 ),
-                
+
                 const SizedBox(height: 24),
-                
+
                 // Generated Bingo content
                 if (_bingoSquares.isNotEmpty) ...[
                   Card(
@@ -321,13 +356,14 @@ class _FunScreenState extends State<FunScreen> {
                             ],
                           ),
                           const SizedBox(height: 16),
-                          
+
                           // 5x5 Bingo Grid
                           AspectRatio(
                             aspectRatio: 1.0,
                             child: GridView.builder(
                               physics: const NeverScrollableScrollPhysics(),
-                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 5,
                                 crossAxisSpacing: 4,
                                 mainAxisSpacing: 4,
@@ -335,31 +371,50 @@ class _FunScreenState extends State<FunScreen> {
                               itemCount: 25,
                               itemBuilder: (context, index) {
                                 final isCenter = index == 12; // Center square
-                                final text = isCenter ? 'FREE' : _bingoSquares[index < 12 ? index : index - 1];
-                                final isMarked = isCenter ? true : _bingoMarked[index < 12 ? index : index - 1];
-                                
+                                final text = isCenter
+                                    ? 'FREE'
+                                    : _bingoSquares[
+                                        index < 12 ? index : index - 1];
+                                final isMarked = isCenter
+                                    ? true
+                                    : _bingoMarked[
+                                        index < 12 ? index : index - 1];
+
                                 return GestureDetector(
-                                  onTap: isCenter ? null : () {
-                                    setState(() {
-                                      final realIndex = index < 12 ? index : index - 1;
-                                      _bingoMarked[realIndex] = !_bingoMarked[realIndex];
-                                    });
-                                    
-                                    // Check for bingo after marking
-                                    if (!_hasBingo && _checkForBingo()) {
-                                      _celebrateBingo();
-                                    }
-                                  },
+                                  onTap: isCenter
+                                      ? null
+                                      : () {
+                                          setState(() {
+                                            final realIndex =
+                                                index < 12 ? index : index - 1;
+                                            _bingoMarked[realIndex] =
+                                                !_bingoMarked[realIndex];
+                                          });
+
+                                          // Check for bingo after marking
+                                          if (!_hasBingo && _checkForBingo()) {
+                                            _celebrateBingo();
+                                          }
+                                        },
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: isMarked 
-                                          ? Theme.of(context).colorScheme.primary
-                                          : Theme.of(context).colorScheme.surfaceContainerHighest,
+                                      color: isMarked
+                                          ? Theme.of(context)
+                                              .colorScheme
+                                              .primary
+                                          : Theme.of(context)
+                                              .colorScheme
+                                              .surfaceContainerHighest,
                                       borderRadius: BorderRadius.circular(8),
                                       border: Border.all(
-                                        color: isMarked 
-                                            ? Theme.of(context).colorScheme.primary
-                                            : Theme.of(context).colorScheme.outline.withValues(alpha: 0.3),
+                                        color: isMarked
+                                            ? Theme.of(context)
+                                                .colorScheme
+                                                .primary
+                                            : Theme.of(context)
+                                                .colorScheme
+                                                .outline
+                                                .withValues(alpha: 0.3),
                                         width: isMarked ? 2 : 1,
                                       ),
                                     ),
@@ -370,13 +425,22 @@ class _FunScreenState extends State<FunScreen> {
                                           fit: BoxFit.scaleDown,
                                           child: Text(
                                             text,
-                                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                              color: isMarked 
-                                                  ? Theme.of(context).colorScheme.onPrimary
-                                                  : Theme.of(context).colorScheme.onSurface,
-                                              fontWeight: isMarked ? FontWeight.bold : FontWeight.normal,
-                                              fontSize: 8,
-                                            ),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall
+                                                ?.copyWith(
+                                                  color: isMarked
+                                                      ? Theme.of(context)
+                                                          .colorScheme
+                                                          .onPrimary
+                                                      : Theme.of(context)
+                                                          .colorScheme
+                                                          .onSurface,
+                                                  fontWeight: isMarked
+                                                      ? FontWeight.bold
+                                                      : FontWeight.normal,
+                                                  fontSize: 8,
+                                                ),
                                             textAlign: TextAlign.center,
                                             maxLines: 2,
                                           ),
@@ -388,13 +452,16 @@ class _FunScreenState extends State<FunScreen> {
                               },
                             ),
                           ),
-                          
+
                           const SizedBox(height: 12),
-                          
+
                           Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.tertiaryContainer.withValues(alpha: 0.5),
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .tertiaryContainer
+                                  .withValues(alpha: 0.5),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Row(
@@ -402,15 +469,22 @@ class _FunScreenState extends State<FunScreen> {
                                 Icon(
                                   Icons.info_outline,
                                   size: 16,
-                                  color: Theme.of(context).colorScheme.onTertiaryContainer,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onTertiaryContainer,
                                 ),
                                 const SizedBox(width: 8),
                                 Expanded(
                                   child: Text(
                                     'Tap squares to mark them as you hear these topics during the conference! 🎯',
-                                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                      color: Theme.of(context).colorScheme.onTertiaryContainer,
-                                    ),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall
+                                        ?.copyWith(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onTertiaryContainer,
+                                        ),
                                   ),
                                 ),
                               ],
@@ -420,10 +494,9 @@ class _FunScreenState extends State<FunScreen> {
                       ),
                     ),
                   ),
-                  
                   const SizedBox(height: 16),
                 ],
-                
+
                 // Generated Product content
                 if (_generatedProductName.isNotEmpty) ...[
                   Card(
@@ -452,13 +525,15 @@ class _FunScreenState extends State<FunScreen> {
                             ],
                           ),
                           const SizedBox(height: 16),
-                          
+
                           // Product Name
                           Container(
                             width: double.infinity,
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .surfaceContainerHighest,
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Column(
@@ -466,29 +541,40 @@ class _FunScreenState extends State<FunScreen> {
                               children: [
                                 Text(
                                   'Product Name',
-                                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSurfaceVariant,
+                                      ),
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
                                   _generatedProductName,
-                                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall
+                                      ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
                               ],
                             ),
                           ),
-                          
+
                           const SizedBox(height: 16),
-                          
+
                           // Tagline
                           Container(
                             width: double.infinity,
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.secondaryContainer.withValues(alpha: 0.3),
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .secondaryContainer
+                                  .withValues(alpha: 0.3),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Column(
@@ -496,16 +582,24 @@ class _FunScreenState extends State<FunScreen> {
                               children: [
                                 Text(
                                   'Tagline',
-                                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSurfaceVariant,
+                                      ),
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
                                   _generatedTagline,
-                                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                    fontStyle: FontStyle.italic,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.copyWith(
+                                        fontStyle: FontStyle.italic,
+                                      ),
                                 ),
                               ],
                             ),
@@ -514,10 +608,9 @@ class _FunScreenState extends State<FunScreen> {
                       ),
                     ),
                   ),
-                  
                   const SizedBox(height: 16),
                 ],
-                
+
                 // Generated Talk content
                 if (_generatedTitle.isNotEmpty) ...[
                   Card(
@@ -551,13 +644,15 @@ class _FunScreenState extends State<FunScreen> {
                             ],
                           ),
                           const SizedBox(height: 16),
-                          
+
                           // Title
                           Container(
                             width: double.infinity,
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .surfaceContainerHighest,
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Column(
@@ -565,29 +660,40 @@ class _FunScreenState extends State<FunScreen> {
                               children: [
                                 Text(
                                   'Title',
-                                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSurfaceVariant,
+                                      ),
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
                                   _generatedTitle,
-                                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall
+                                      ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
                               ],
                             ),
                           ),
-                          
+
                           const SizedBox(height: 16),
-                          
+
                           // Abstract
                           Container(
                             width: double.infinity,
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.3),
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .primaryContainer
+                                  .withValues(alpha: 0.3),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Column(
@@ -595,9 +701,14 @@ class _FunScreenState extends State<FunScreen> {
                               children: [
                                 Text(
                                   'Abstract',
-                                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSurfaceVariant,
+                                      ),
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
@@ -607,17 +718,23 @@ class _FunScreenState extends State<FunScreen> {
                               ],
                             ),
                           ),
-                          
+
                           const SizedBox(height: 16),
-                          
+
                           // Disclaimer
                           Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.secondaryContainer.withValues(alpha: 0.5),
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .secondaryContainer
+                                  .withValues(alpha: 0.5),
                               borderRadius: BorderRadius.circular(8),
                               border: Border.all(
-                                color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.3),
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .outline
+                                    .withValues(alpha: 0.3),
                               ),
                             ),
                             child: Row(
@@ -625,15 +742,22 @@ class _FunScreenState extends State<FunScreen> {
                                 Icon(
                                   Icons.info_outline,
                                   size: 16,
-                                  color: Theme.of(context).colorScheme.onSecondaryContainer,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer,
                                 ),
                                 const SizedBox(width: 8),
                                 Expanded(
                                   child: Text(
                                     'This is a fun AI-generated proposal based on your event data. Results may be hilariously creative! 🤖',
-                                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                      color: Theme.of(context).colorScheme.onSecondaryContainer,
-                                    ),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall
+                                        ?.copyWith(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSecondaryContainer,
+                                        ),
                                   ),
                                 ),
                               ],
@@ -668,7 +792,8 @@ class _FunScreenState extends State<FunScreen> {
     Future.delayed(const Duration(milliseconds: 1500), () {
       final analysis = _analyzeEvents(events);
       final title = _generateTitle(analysis, _nameController.text.trim());
-      final abstract = _generateAbstract(title, analysis, _nameController.text.trim());
+      final abstract =
+          _generateAbstract(title, analysis, _nameController.text.trim());
 
       setState(() {
         _generatedTitle = title;
@@ -683,16 +808,17 @@ class _FunScreenState extends State<FunScreen> {
     final allWords = <String>[];
     final technologies = <String>[];
     final actions = <String>[];
-    
+
     for (final event in events) {
-      final words = event.title.toLowerCase()
+      final words = event.title
+          .toLowerCase()
           .replaceAll(RegExp(r'[^\w\s]'), '')
           .split(' ')
           .where((word) => word.length > 2)
           .where((word) => !_commonWords.contains(word));
-      
+
       allWords.addAll(words);
-      
+
       // Look for tech terms
       for (final word in words) {
         if (_techTerms.contains(word)) {
@@ -710,9 +836,7 @@ class _FunScreenState extends State<FunScreen> {
       wordCount[word] = (wordCount[word] ?? 0) + 1;
     }
 
-    final topWords = wordCount.entries
-        .where((e) => e.value > 1)
-        .toList()
+    final topWords = wordCount.entries.where((e) => e.value > 1).toList()
       ..sort((a, b) => b.value.compareTo(a.value));
 
     return {
@@ -744,20 +868,26 @@ class _FunScreenState extends State<FunScreen> {
 
     final template = templates[_random.nextInt(templates.length)];
     final primaryTopic = topWords.isNotEmpty ? topWords.first : 'Innovation';
-    final tech = technologies.isNotEmpty ? technologies[_random.nextInt(technologies.length)] : 'AI';
-    final action = actions.isNotEmpty ? actions[_random.nextInt(actions.length)] : 'Transform';
-    
+    final tech = technologies.isNotEmpty
+        ? technologies[_random.nextInt(technologies.length)]
+        : 'AI';
+    final action = actions.isNotEmpty
+        ? actions[_random.nextInt(actions.length)]
+        : 'Transform';
+
     return template
         .replaceAll('{topic}', _capitalize(primaryTopic))
         .replaceAll('{tech}', _capitalize(tech))
         .replaceAll('{action}', _capitalize(action))
         .replaceAll('{name}', name.split(' ').first)
         .replaceAll('{number}', '${_random.nextInt(7) + 3}')
-        .replaceAll('{adjective}', _adjectives[_random.nextInt(_adjectives.length)])
+        .replaceAll(
+            '{adjective}', _adjectives[_random.nextInt(_adjectives.length)])
         .replaceAll('{role}', _roles[_random.nextInt(_roles.length)]);
   }
 
-  String _generateAbstract(String title, Map<String, dynamic> analysis, String name) {
+  String _generateAbstract(
+      String title, Map<String, dynamic> analysis, String name) {
     final topWords = analysis['topWords'] as List<String>;
     final technologies = analysis['technologies'] as List<String>;
     final eventCount = analysis['eventCount'] as int;
@@ -836,39 +966,69 @@ class _FunScreenState extends State<FunScreen> {
     });
   }
 
-  Map<String, dynamic> _analyzeProductOpportunities(List<CalendarEvent> events) {
+  Map<String, dynamic> _analyzeProductOpportunities(
+      List<CalendarEvent> events) {
     final problems = <String>[];
     final solutions = <String>[];
     final industries = <String>[];
-    
+
     for (final event in events) {
       final text = '${event.title} ${event.description}'.toLowerCase();
-      
+
       // Extract problem indicators
-      final problemWords = ['problem', 'challenge', 'issue', 'difficulty', 'struggle', 'pain', 'bottleneck', 'inefficient'];
+      final problemWords = [
+        'problem',
+        'challenge',
+        'issue',
+        'difficulty',
+        'struggle',
+        'pain',
+        'bottleneck',
+        'inefficient'
+      ];
       for (final word in problemWords) {
         if (text.contains(word)) {
           problems.add(word);
         }
       }
-      
+
       // Extract solution indicators
-      final solutionWords = ['solution', 'fix', 'improve', 'optimize', 'automate', 'streamline', 'enhance', 'accelerate'];
+      final solutionWords = [
+        'solution',
+        'fix',
+        'improve',
+        'optimize',
+        'automate',
+        'streamline',
+        'enhance',
+        'accelerate'
+      ];
       for (final word in solutionWords) {
         if (text.contains(word)) {
           solutions.add(word);
         }
       }
-      
+
       // Extract industry terms
-      final industryTerms = ['ai', 'machine learning', 'data', 'cloud', 'mobile', 'web', 'fintech', 'healthcare', 'education', 'retail'];
+      final industryTerms = [
+        'ai',
+        'machine learning',
+        'data',
+        'cloud',
+        'mobile',
+        'web',
+        'fintech',
+        'healthcare',
+        'education',
+        'retail'
+      ];
       for (final term in industryTerms) {
         if (text.contains(term)) {
           industries.add(term);
         }
       }
     }
-    
+
     return {
       'problems': problems.toSet().toList(),
       'solutions': solutions.toSet().toList(),
@@ -878,18 +1038,41 @@ class _FunScreenState extends State<FunScreen> {
   }
 
   String _generateProductName(Map<String, dynamic> analysis) {
-    final problems = analysis['problems'] as List<String>;
     final solutions = analysis['solutions'] as List<String>;
     final industries = analysis['industries'] as List<String>;
 
-    final prefixes = ['Smart', 'Quick', 'Easy', 'Auto', 'Instant', 'Pro', 'Super', 'Mega', 'Ultra', 'Hyper'];
-    final suffixes = ['ly', 'ify', 'Hub', 'Pro', 'Flow', 'Sync', 'Wave', 'Lab', 'Zone', 'Works'];
-    
-    final industry = industries.isNotEmpty ? _capitalize(industries.first) : 'Tech';
-    final solution = solutions.isNotEmpty ? _capitalize(solutions.first) : 'Solve';
+    final prefixes = [
+      'Smart',
+      'Quick',
+      'Easy',
+      'Auto',
+      'Instant',
+      'Pro',
+      'Super',
+      'Mega',
+      'Ultra',
+      'Hyper'
+    ];
+    final suffixes = [
+      'ly',
+      'ify',
+      'Hub',
+      'Pro',
+      'Flow',
+      'Sync',
+      'Wave',
+      'Lab',
+      'Zone',
+      'Works'
+    ];
+
+    final industry =
+        industries.isNotEmpty ? _capitalize(industries.first) : 'Tech';
+    final solution =
+        solutions.isNotEmpty ? _capitalize(solutions.first) : 'Solve';
     final prefix = prefixes[_random.nextInt(prefixes.length)];
     final suffix = suffixes[_random.nextInt(suffixes.length)];
-    
+
     final patterns = [
       '$prefix$industry$suffix',
       '$solution$suffix',
@@ -898,16 +1081,17 @@ class _FunScreenState extends State<FunScreen> {
       '${industry}Genie',
       '${solution}Master',
     ];
-    
+
     return patterns[_random.nextInt(patterns.length)];
   }
 
-  String _generateProductTagline(String productName, Map<String, dynamic> analysis) {
+  String _generateProductTagline(
+      String productName, Map<String, dynamic> analysis) {
     final industries = analysis['industries'] as List<String>;
     final eventCount = analysis['eventCount'] as int;
-    
+
     final industry = industries.isNotEmpty ? industries.first : 'technology';
-    
+
     final taglines = [
       'Revolutionizing $industry, one solution at a time',
       'The future of $industry is here',
@@ -918,7 +1102,7 @@ class _FunScreenState extends State<FunScreen> {
       'The smart way to handle $industry challenges',
       'Inspired by $eventCount industry insights',
     ];
-    
+
     return taglines[_random.nextInt(taglines.length)];
   }
 
@@ -932,7 +1116,8 @@ class _FunScreenState extends State<FunScreen> {
       final bingo = _createBingoSquares(events);
       setState(() {
         _bingoSquares = bingo;
-        _bingoMarked = List.filled(24, false); // 24 squares (excluding center FREE)
+        _bingoMarked =
+            List.filled(24, false); // 24 squares (excluding center FREE)
         _isGeneratingBingo = false;
         _hasBingo = false;
       });
@@ -941,38 +1126,61 @@ class _FunScreenState extends State<FunScreen> {
 
   List<String> _createBingoSquares(List<CalendarEvent> events) {
     final phrases = <String>[];
-    
+
     // Extract common conference phrases
     final bingoTerms = [
-      'AI/ML', 'Cloud Native', 'Microservices', 'DevOps', 'Blockchain',
-      'APIs', 'Digital Transformation', 'Agile', 'Innovation', 'Security',
-      'Data Science', 'Machine Learning', 'Best Practices', 'Scalability',
-      'Architecture', 'Framework', 'Platform', 'Automation', 'Analytics',
-      'User Experience', 'Performance', 'Integration', 'Open Source',
-      'Strategy', 'Leadership', 'Future of', 'Next Generation'
+      'AI/ML',
+      'Cloud Native',
+      'Microservices',
+      'DevOps',
+      'Blockchain',
+      'APIs',
+      'Digital Transformation',
+      'Agile',
+      'Innovation',
+      'Security',
+      'Data Science',
+      'Machine Learning',
+      'Best Practices',
+      'Scalability',
+      'Architecture',
+      'Framework',
+      'Platform',
+      'Automation',
+      'Analytics',
+      'User Experience',
+      'Performance',
+      'Integration',
+      'Open Source',
+      'Strategy',
+      'Leadership',
+      'Future of',
+      'Next Generation'
     ];
-    
+
     // Add event-specific terms
     for (final event in events) {
-      final words = event.title.toLowerCase()
+      final words = event.title
+          .toLowerCase()
           .replaceAll(RegExp(r'[^\w\s]'), '')
           .split(' ')
           .where((word) => word.length > 3)
           .where((word) => !_commonWords.contains(word));
-      
+
       phrases.addAll(words.map((w) => _capitalize(w)));
     }
-    
+
     // Combine generic terms with event-specific ones
     final allTerms = [...bingoTerms, ...phrases.toSet()];
     allTerms.shuffle(_random);
-    
+
     // Return 24 squares (center is FREE)
     return allTerms.take(24).toList();
   }
 
   void _copyProductToClipboard() {
-    final content = 'Product: $_generatedProductName\nTagline: $_generatedTagline';
+    final content =
+        'Product: $_generatedProductName\nTagline: $_generatedTagline';
     Clipboard.setData(ClipboardData(text: content));
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Product idea copied to clipboard!')),
@@ -980,14 +1188,14 @@ class _FunScreenState extends State<FunScreen> {
   }
 
   void _copyBingoToClipboard() {
-    final content = 'Conference Bingo Card:\n\n' + 
+    final content = 'Conference Bingo Card:\n\n' +
         _bingoSquares.asMap().entries.map((e) {
           final index = e.key;
           final square = e.value;
           if ((index + 1) % 5 == 0) return '$square\n';
           return square.padRight(15);
         }).join('');
-    
+
     Clipboard.setData(ClipboardData(text: content));
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Bingo card copied to clipboard!')),
@@ -996,28 +1204,33 @@ class _FunScreenState extends State<FunScreen> {
 
   bool _checkForBingo() {
     if (_bingoMarked.length != 24) return false;
-    
+
     // Convert to 5x5 grid (excluding center which is always marked)
-    List<List<bool>> grid = List.generate(5, (row) => List.generate(5, (col) {
-      final index = row * 5 + col;
-      if (index == 12) return true; // Center FREE square
-      return _bingoMarked[index < 12 ? index : index - 1];
-    }));
-    
+    List<List<bool>> grid = List.generate(
+        5,
+        (row) => List.generate(5, (col) {
+              final index = row * 5 + col;
+              if (index == 12) return true; // Center FREE square
+              return _bingoMarked[index < 12 ? index : index - 1];
+            }));
+
     // Check rows
     for (int row = 0; row < 5; row++) {
       if (grid[row].every((marked) => marked)) return true;
     }
-    
+
     // Check columns
     for (int col = 0; col < 5; col++) {
-      if (List.generate(5, (row) => grid[row][col]).every((marked) => marked)) return true;
+      if (List.generate(5, (row) => grid[row][col]).every((marked) => marked))
+        return true;
     }
-    
+
     // Check diagonals
-    if (List.generate(5, (i) => grid[i][i]).every((marked) => marked)) return true;
-    if (List.generate(5, (i) => grid[i][4-i]).every((marked) => marked)) return true;
-    
+    if (List.generate(5, (i) => grid[i][i]).every((marked) => marked))
+      return true;
+    if (List.generate(5, (i) => grid[i][4 - i]).every((marked) => marked))
+      return true;
+
     return false;
   }
 
@@ -1025,7 +1238,7 @@ class _FunScreenState extends State<FunScreen> {
     setState(() {
       _hasBingo = true;
     });
-    
+
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -1037,9 +1250,9 @@ class _FunScreenState extends State<FunScreen> {
             Text(
               'BINGO!',
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
             ),
             const SizedBox(width: 8),
             const Text('🎉'),
@@ -1053,8 +1266,8 @@ class _FunScreenState extends State<FunScreen> {
             Text(
               'Congratulations!',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+                    fontWeight: FontWeight.bold,
+                  ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 8),
@@ -1070,7 +1283,8 @@ class _FunScreenState extends State<FunScreen> {
             onPressed: () {
               Navigator.of(context).pop();
               // Generate new bingo card
-              final events = Provider.of<EventProvider>(context, listen: false).allEvents;
+              final events =
+                  Provider.of<EventProvider>(context, listen: false).allEvents;
               _generateBingo(events);
             },
             child: const Text('New Game'),
@@ -1086,30 +1300,137 @@ class _FunScreenState extends State<FunScreen> {
 
   // Data sets for generating creative content
   static const Set<String> _commonWords = {
-    'the', 'and', 'for', 'are', 'but', 'not', 'you', 'all', 'can', 'had', 'her', 'was', 'one', 'our',
-    'out', 'day', 'get', 'has', 'him', 'his', 'how', 'its', 'may', 'new', 'now', 'old', 'see', 'two',
-    'who', 'boy', 'did', 'she', 'use', 'way', 'what', 'with', 'have', 'from', 'they', 'know', 'want',
-    'been', 'good', 'much', 'some', 'time', 'very', 'when', 'come', 'here', 'just', 'like', 'long',
+    'the',
+    'and',
+    'for',
+    'are',
+    'but',
+    'not',
+    'you',
+    'all',
+    'can',
+    'had',
+    'her',
+    'was',
+    'one',
+    'our',
+    'out',
+    'day',
+    'get',
+    'has',
+    'him',
+    'his',
+    'how',
+    'its',
+    'may',
+    'new',
+    'now',
+    'old',
+    'see',
+    'two',
+    'who',
+    'boy',
+    'did',
+    'she',
+    'use',
+    'way',
+    'what',
+    'with',
+    'have',
+    'from',
+    'they',
+    'know',
+    'want',
+    'been',
+    'good',
+    'much',
+    'some',
+    'time',
+    'very',
+    'when',
+    'come',
+    'here',
+    'just',
+    'like',
+    'long',
   };
 
   static const Set<String> _techTerms = {
-    'ai', 'ml', 'data', 'cloud', 'api', 'web', 'mobile', 'app', 'software', 'platform', 'digital',
-    'analytics', 'automation', 'blockchain', 'iot', 'security', 'database', 'frontend', 'backend',
-    'framework', 'algorithm', 'neural', 'machine', 'learning', 'artificial', 'intelligence',
+    'ai',
+    'ml',
+    'data',
+    'cloud',
+    'api',
+    'web',
+    'mobile',
+    'app',
+    'software',
+    'platform',
+    'digital',
+    'analytics',
+    'automation',
+    'blockchain',
+    'iot',
+    'security',
+    'database',
+    'frontend',
+    'backend',
+    'framework',
+    'algorithm',
+    'neural',
+    'machine',
+    'learning',
+    'artificial',
+    'intelligence',
   };
 
   static const Set<String> _actionWords = {
-    'build', 'create', 'develop', 'design', 'implement', 'optimize', 'scale', 'deploy', 'manage',
-    'analyze', 'transform', 'integrate', 'innovate', 'automate', 'enhance', 'improve', 'solve',
+    'build',
+    'create',
+    'develop',
+    'design',
+    'implement',
+    'optimize',
+    'scale',
+    'deploy',
+    'manage',
+    'analyze',
+    'transform',
+    'integrate',
+    'innovate',
+    'automate',
+    'enhance',
+    'improve',
+    'solve',
   };
 
   static const List<String> _adjectives = [
-    'Ultimate', 'Complete', 'Comprehensive', 'Advanced', 'Modern', 'Innovative', 'Strategic',
-    'Practical', 'Essential', 'Revolutionary', 'Cutting-edge', 'Next-generation',
+    'Ultimate',
+    'Complete',
+    'Comprehensive',
+    'Advanced',
+    'Modern',
+    'Innovative',
+    'Strategic',
+    'Practical',
+    'Essential',
+    'Revolutionary',
+    'Cutting-edge',
+    'Next-generation',
   ];
 
   static const List<String> _roles = [
-    'Developer', 'Designer', 'Manager', 'Leader', 'Professional', 'Innovator', 'Strategist',
-    'Analyst', 'Engineer', 'Architect', 'Consultant', 'Specialist',
+    'Developer',
+    'Designer',
+    'Manager',
+    'Leader',
+    'Professional',
+    'Innovator',
+    'Strategist',
+    'Analyst',
+    'Engineer',
+    'Architect',
+    'Consultant',
+    'Specialist',
   ];
 }

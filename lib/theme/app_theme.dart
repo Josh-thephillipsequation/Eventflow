@@ -7,7 +7,7 @@ class AppTheme {
       seedColor: Colors.blue,
       brightness: Brightness.light,
     );
-    
+
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
@@ -47,7 +47,7 @@ class AppTheme {
       seedColor: Colors.blue,
       brightness: Brightness.dark,
     );
-    
+
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,

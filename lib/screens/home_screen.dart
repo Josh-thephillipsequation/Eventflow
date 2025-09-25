@@ -43,7 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       builder: (BuildContext context) {
                         return AlertDialog(
                           title: const Text('Clear All Data'),
-                          content: const Text('Are you sure you want to clear all calendar data and selections?'),
+                          content: const Text(
+                              'Are you sure you want to clear all calendar data and selections?'),
                           actions: [
                             TextButton(
                               onPressed: () => Navigator.of(context).pop(),

@@ -3,6 +3,7 @@
 ## 🚀 **For the Next Agent: Mission Critical Priorities**
 
 ### **📋 Pre-Flight Check**
+- [ ] **CRITICAL**: Run `./scripts/validate_handoff.sh` - Must show 99%+ confidence before starting
 - [ ] Read [`agent_assets/backlog.md`](backlog.md) - Focus on M21-M24 (P0 priorities)
 - [ ] Review [`agent_assets/current-status.md`](current-status.md) - Current state and issues
 - [ ] Check [`AGENTS.md`](../AGENTS.md) - Development guidelines and design principles

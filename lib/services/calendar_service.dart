@@ -20,7 +20,8 @@ class CalendarService {
       if (response.statusCode == 200) {
         return parseICalendarContent(response.body);
       } else {
-        throw Exception('Failed to fetch calendar from URL: ${response.statusCode}');
+        throw Exception(
+            'Failed to fetch calendar from URL: ${response.statusCode}');
       }
     } catch (e) {
       throw Exception('Error fetching calendar: $e');
@@ -29,7 +30,7 @@ class CalendarService {
 
   List<CalendarEvent> parseICalendarContent(String content) {
     final List<CalendarEvent> events = [];
-    
+
     try {
       final calendar = ICalendar.fromString(content);
       // The new ICalendar API exposes parsed components in `data` as a
@@ -51,21 +52,27 @@ class CalendarService {
 
           if (start == null || end == null) continue;
 
-          final uid = (component['uid'] as String?) ?? DateTime.now().millisecondsSinceEpoch.toString();
+          final uid = (component['uid'] as String?) ??
+              DateTime.now().millisecondsSinceEpoch.toString();
           final title = (component['summary'] as String?) ?? 'Untitled Event';
           final description = (component['description'] as String?) ?? '';
           final location = (component['location'] as String?) ?? '';
-          
+
           // Extract speaker/organizer information
           String speaker = '';
-          
+
           // Try multiple field names that might contain speaker info
-          final speakerFields = ['organizer', 'ORGANIZER', 'attendee', 'ATTENDEE'];
-          
+          final speakerFields = [
+            'organizer',
+            'ORGANIZER',
+            'attendee',
+            'ATTENDEE'
+          ];
+
           for (final field in speakerFields) {
             if (component[field] != null) {
               final fieldValue = component[field].toString();
-              
+
               // Extract name from various formats
               RegExp cnRegex = RegExp(r'CN=([^;,]+)', caseSensitive: false);
               final cnMatch = cnRegex.firstMatch(fieldValue);
@@ -73,18 +80,22 @@ class CalendarService {
                 speaker = cnMatch.group(1)?.trim().replaceAll('"', '') ?? '';
                 break;
               }
-              
+
               // If no CN format, try to use the value directly if it looks like a name
-              if (speaker.isEmpty && !fieldValue.contains('@') && fieldValue.length < 50) {
+              if (speaker.isEmpty &&
+                  !fieldValue.contains('@') &&
+                  fieldValue.length < 50) {
                 speaker = fieldValue.trim().replaceAll('"', '');
                 break;
               }
             }
           }
-          
+
           // Fallback: try to extract from description if it mentions a speaker
           if (speaker.isEmpty && description.isNotEmpty) {
-            final speakerMatch = RegExp(r'(?:Speaker|Presenter|By):?\s*([^\n,;]+)', caseSensitive: false)
+            final speakerMatch = RegExp(
+                    r'(?:Speaker|Presenter|By):?\s*([^\n,;]+)',
+                    caseSensitive: false)
                 .firstMatch(description);
             if (speakerMatch != null) {
               speaker = speakerMatch.group(1)?.trim() ?? '';
@@ -108,7 +119,7 @@ class CalendarService {
     } catch (e) {
       throw Exception('Error parsing calendar content: $e');
     }
-    
+
     return events;
   }
 }
