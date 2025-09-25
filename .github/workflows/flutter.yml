@@ -1,17 +1,19 @@
-name: Flutter CI
+name: EventFlow CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, develop, 'feature/**' ]
   pull_request:
     branches: [ main, develop ]
 
 jobs:
   test:
+    name: Test & Coverage
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
     
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
@@ -22,11 +24,86 @@ jobs:
     - name: Install dependencies
       run: flutter pub get
     
+    - name: Create test reports directory
+      run: mkdir -p test_reports coverage
+    
     - name: Verify formatting
-      run: dart format --output=none --set-exit-if-changed .
+      run: |
+        dart format --output=none --set-exit-if-changed . || echo "❌ Format check failed" >> test_reports/failures.txt
     
     - name: Analyze project source
-      run: flutter analyze --fatal-infos
+      run: |
+        flutter analyze --fatal-infos > test_reports/analysis.txt 2>&1 || echo "❌ Analysis failed" >> test_reports/failures.txt
     
-    - name: Run tests
-      run: flutter test
+    - name: Run unit tests with coverage
+      run: |
+        flutter test --coverage --reporter json > test_reports/test_results.json 2>&1 || echo "❌ Tests failed" >> test_reports/failures.txt
+    
+    - name: Generate coverage report
+      run: |
+        if [ -f coverage/lcov.info ]; then
+          lcov --summary coverage/lcov.info > test_reports/coverage_summary.txt 2>&1 || true
+        else
+          echo "No coverage data generated" > test_reports/coverage_summary.txt
+        fi
+    
+    - name: Check test results and generate agent feedback
+      run: |
+        if [ -f test_reports/failures.txt ]; then
+          echo "📋 Test failures detected. Check test_reports/ for details."
+          echo "
+        ## 🚨 Agent Feedback Required
+        
+        Test failures detected in this CI run. Please check:
+        - test_reports/failures.txt for summary
+        - test_reports/analysis.txt for static analysis issues  
+        - test_reports/test_results.json for test results
+        - test_reports/coverage_summary.txt for coverage issues
+        
+        **Next Steps:**
+        1. Copy AGENT_FEEDBACK_TEMPLATE.md to AGENT_FEEDBACK.md
+        2. Fill in the failure details from reports above
+        3. Ask agent to fix issues using the feedback file
+        " > test_reports/AGENT_INSTRUCTIONS.md
+          exit 1
+        else
+          echo "✅ All tests passed successfully!"
+        fi
+    
+    - name: Upload test reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-reports
+        path: test_reports/
+    
+    - name: Upload coverage reports  
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: coverage-reports
+        path: coverage/
+
+  build:
+    name: Build Verification
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.24.0'
+        cache: true
+    
+    - name: Install dependencies
+      run: flutter pub get
+    
+    - name: Build Android APK
+      run: flutter build apk --debug
+    
+    - name: Build iOS (no signing)
+      run: flutter build ios --no-codesign --debug
