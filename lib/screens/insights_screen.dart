@@ -19,7 +19,7 @@ class _InsightsScreenState extends State<InsightsScreen> {
     return Consumer<EventProvider>(
       builder: (context, provider, child) {
         final allEvents = provider.allEvents;
-        
+
         if (allEvents.isEmpty) {
           return const Center(
             child: Column(
@@ -79,9 +79,13 @@ class _InsightsScreenState extends State<InsightsScreen> {
                         value: _timeFilter,
                         isExpanded: true,
                         items: const [
-                          DropdownMenuItem(value: 'all', child: Text('All Events')),
-                          DropdownMenuItem(value: 'upcoming', child: Text('Upcoming Events')),
-                          DropdownMenuItem(value: 'past', child: Text('Past Events')),
+                          DropdownMenuItem(
+                              value: 'all', child: Text('All Events')),
+                          DropdownMenuItem(
+                              value: 'upcoming',
+                              child: Text('Upcoming Events')),
+                          DropdownMenuItem(
+                              value: 'past', child: Text('Past Events')),
                         ],
                         onChanged: (value) {
                           if (value != null) {
@@ -95,24 +99,24 @@ class _InsightsScreenState extends State<InsightsScreen> {
                   ],
                 ),
               ),
-              
+
               const SizedBox(height: 24),
-              
+
               // Overview Stats
               _buildOverviewSection(context, filteredEvents, insights),
-              
+
               const SizedBox(height: 24),
-              
+
               // Time Analysis
               _buildTimeAnalysisSection(context, insights),
-              
+
               const SizedBox(height: 24),
-              
+
               // Word Frequency Analysis
               _buildWordAnalysisSection(context, insights),
-              
+
               const SizedBox(height: 24),
-              
+
               // Priority Distribution
               _buildPriorityAnalysisSection(context, filteredEvents),
             ],
@@ -134,12 +138,13 @@ class _InsightsScreenState extends State<InsightsScreen> {
     // Calculate word frequencies from titles
     final Map<String, int> wordFreq = {};
     for (final event in events) {
-      final words = event.title.toLowerCase()
+      final words = event.title
+          .toLowerCase()
           .replaceAll(RegExp(r'[^\w\s]'), '') // Remove punctuation
           .split(' ')
           .where((word) => word.length > 2) // Filter out short words
           .where((word) => !_commonWords.contains(word)); // Filter common words
-      
+
       for (final word in words) {
         wordFreq[word] = (wordFreq[word] ?? 0) + 1;
       }
@@ -166,20 +171,22 @@ class _InsightsScreenState extends State<InsightsScreen> {
     return {
       'totalDuration': totalDuration,
       'averageDuration': Duration(
-        milliseconds: events.isNotEmpty 
-            ? totalDuration.inMilliseconds ~/ events.length 
-            : 0
-      ),
+          milliseconds: events.isNotEmpty
+              ? totalDuration.inMilliseconds ~/ events.length
+              : 0),
       'topWords': topWords.take(10).toList(),
       'dailyDistribution': dailyCount,
       'hourlyDistribution': hourlyCount,
     };
   }
 
-  Widget _buildOverviewSection(BuildContext context, List<CalendarEvent> events, Map<String, dynamic> insights) {
-    final totalDuration = insights['totalDuration'] as Duration? ?? Duration.zero;
-    final avgDuration = insights['averageDuration'] as Duration? ?? Duration.zero;
-    
+  Widget _buildOverviewSection(BuildContext context, List<CalendarEvent> events,
+      Map<String, dynamic> insights) {
+    final totalDuration =
+        insights['totalDuration'] as Duration? ?? Duration.zero;
+    final avgDuration =
+        insights['averageDuration'] as Duration? ?? Duration.zero;
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -188,7 +195,8 @@ class _InsightsScreenState extends State<InsightsScreen> {
           children: [
             Row(
               children: [
-                Icon(Icons.analytics, color: Theme.of(context).colorScheme.primary),
+                Icon(Icons.analytics,
+                    color: Theme.of(context).colorScheme.primary),
                 const SizedBox(width: 8),
                 Text(
                   'Overview',
@@ -233,10 +241,11 @@ class _InsightsScreenState extends State<InsightsScreen> {
     );
   }
 
-  Widget _buildTimeAnalysisSection(BuildContext context, Map<String, dynamic> insights) {
+  Widget _buildTimeAnalysisSection(
+      BuildContext context, Map<String, dynamic> insights) {
     final dailyDist = insights['dailyDistribution'] as Map<String, int>? ?? {};
     final hourlyDist = insights['hourlyDistribution'] as Map<int, int>? ?? {};
-    
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -245,7 +254,8 @@ class _InsightsScreenState extends State<InsightsScreen> {
           children: [
             Row(
               children: [
-                Icon(Icons.access_time, color: Theme.of(context).colorScheme.primary),
+                Icon(Icons.access_time,
+                    color: Theme.of(context).colorScheme.primary),
                 const SizedBox(width: 8),
                 Text(
                   'Time Patterns',
@@ -254,7 +264,7 @@ class _InsightsScreenState extends State<InsightsScreen> {
               ],
             ),
             const SizedBox(height: 16),
-            
+
             // Peak hours - Visual timeline
             if (hourlyDist.isNotEmpty) ...[
               Text(
@@ -267,18 +277,27 @@ class _InsightsScreenState extends State<InsightsScreen> {
                 child: Row(
                   children: List.generate(24, (hour) {
                     final count = hourlyDist[hour] ?? 0;
-                    final maxHourly = hourlyDist.values.isNotEmpty ? hourlyDist.values.reduce((a, b) => a > b ? a : b) : 1;
+                    final maxHourly = hourlyDist.values.isNotEmpty
+                        ? hourlyDist.values.reduce((a, b) => a > b ? a : b)
+                        : 1;
                     final intensity = count / maxHourly;
-                    
+
                     return Expanded(
                       child: GestureDetector(
-                        onTap: count > 0 ? () => _showHourDetails(context, hour, count) : null,
+                        onTap: count > 0
+                            ? () => _showHourDetails(context, hour, count)
+                            : null,
                         child: Container(
                           margin: const EdgeInsets.symmetric(horizontal: 1),
                           decoration: BoxDecoration(
-                            color: count > 0 
-                                ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.2 + (intensity * 0.6))
-                                : Theme.of(context).colorScheme.surfaceContainerHighest,
+                            color: count > 0
+                                ? Theme.of(context)
+                                    .colorScheme
+                                    .primary
+                                    .withValues(alpha: 0.2 + (intensity * 0.6))
+                                : Theme.of(context)
+                                    .colorScheme
+                                    .surfaceContainerHighest,
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Column(
@@ -287,7 +306,9 @@ class _InsightsScreenState extends State<InsightsScreen> {
                               if (count > 0)
                                 Text(
                                   count.toString(),
-                                  style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                                  style: const TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               const SizedBox(height: 4),
                               Text(
@@ -306,13 +327,13 @@ class _InsightsScreenState extends State<InsightsScreen> {
               Text(
                 'Tap any hour to see events • Darker = More Events',
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  fontStyle: FontStyle.italic,
-                ),
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      fontStyle: FontStyle.italic,
+                    ),
               ),
               const SizedBox(height: 16),
             ],
-            
+
             // Busiest days
             if (dailyDist.isNotEmpty) ...[
               Text(
@@ -320,26 +341,31 @@ class _InsightsScreenState extends State<InsightsScreen> {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 8),
-              ...dailyDist.entries
-                  .map((e) => Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 80,
-                              child: Text(e.key),
-                            ),
-                            Expanded(
-                              child: LinearProgressIndicator(
-                                value: e.value / (dailyDist.values.isNotEmpty ? dailyDist.values.reduce((a, b) => a > b ? a : b) : 1),
-                                backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                            Text('${e.value}'),
-                          ],
+              ...dailyDist.entries.map((e) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 80,
+                          child: Text(e.key),
                         ),
-                      )),
+                        Expanded(
+                          child: LinearProgressIndicator(
+                            value: e.value /
+                                (dailyDist.values.isNotEmpty
+                                    ? dailyDist.values
+                                        .reduce((a, b) => a > b ? a : b)
+                                    : 1),
+                            backgroundColor: Theme.of(context)
+                                .colorScheme
+                                .surfaceContainerHighest,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Text('${e.value}'),
+                      ],
+                    ),
+                  )),
             ],
           ],
         ),
@@ -347,15 +373,16 @@ class _InsightsScreenState extends State<InsightsScreen> {
     );
   }
 
-  Widget _buildWordAnalysisSection(BuildContext context, Map<String, dynamic> insights) {
+  Widget _buildWordAnalysisSection(
+      BuildContext context, Map<String, dynamic> insights) {
     final topWords = insights['topWords'] as List<MapEntry<String, int>>? ?? [];
-    
+
     if (topWords.isEmpty) {
       return const SizedBox.shrink();
     }
-    
+
     final maxCount = topWords.isNotEmpty ? topWords.first.value : 1;
-    
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -364,7 +391,8 @@ class _InsightsScreenState extends State<InsightsScreen> {
           children: [
             Row(
               children: [
-                Icon(Icons.cloud_rounded, color: Theme.of(context).colorScheme.primary),
+                Icon(Icons.cloud_rounded,
+                    color: Theme.of(context).colorScheme.primary),
                 const SizedBox(width: 8),
                 Text(
                   'Topic Cloud',
@@ -373,50 +401,58 @@ class _InsightsScreenState extends State<InsightsScreen> {
               ],
             ),
             const SizedBox(height: 16),
-            
+
             // Word heatmap/cloud with varying sizes
             Wrap(
               spacing: 8,
               runSpacing: 8,
-              children: topWords
-                  .take(20)
-                  .map((entry) {
-                    final intensity = entry.value / maxCount;
-                    final fontSize = 12 + (intensity * 6); // 12-18px range
-                    final opacity = 0.4 + (intensity * 0.6); // 0.4-1.0 opacity range
-                    
-                    return GestureDetector(
-                      onTap: () => _showWordDetails(context, entry.key, entry.value),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: opacity),
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(
-                            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
-                          ),
-                        ),
-                        child: Text(
-                          '${entry.key} (${entry.value})',
-                          style: TextStyle(
-                            fontSize: fontSize,
-                            fontWeight: intensity > 0.7 ? FontWeight.bold : FontWeight.normal,
-                            color: Theme.of(context).colorScheme.onPrimaryContainer,
-                          ),
-                        ),
+              children: topWords.take(20).map((entry) {
+                final intensity = entry.value / maxCount;
+                final fontSize = 12 + (intensity * 6); // 12-18px range
+                final opacity =
+                    0.4 + (intensity * 0.6); // 0.4-1.0 opacity range
+
+                return GestureDetector(
+                  onTap: () =>
+                      _showWordDetails(context, entry.key, entry.value),
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primaryContainer
+                          .withValues(alpha: opacity),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary
+                            .withValues(alpha: 0.3),
                       ),
-                    );
-                  })
-                  .toList(),
+                    ),
+                    child: Text(
+                      '${entry.key} (${entry.value})',
+                      style: TextStyle(
+                        fontSize: fontSize,
+                        fontWeight: intensity > 0.7
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
+                    ),
+                  ),
+                );
+              }).toList(),
             ),
-            
+
             const SizedBox(height: 12),
             Text(
               'Tap any topic to see which events mention it',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-                fontStyle: FontStyle.italic,
-              ),
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    fontStyle: FontStyle.italic,
+                  ),
             ),
           ],
         ),
@@ -447,30 +483,32 @@ class _InsightsScreenState extends State<InsightsScreen> {
               ),
               const SizedBox(height: 12),
               ...mentioningEvents.take(5).map((event) => Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                child: Row(
-                  children: [
-                    Icon(Icons.event, size: 16, color: Theme.of(context).colorScheme.primary),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        event.title,
-                        style: Theme.of(context).textTheme.bodySmall,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: Row(
+                      children: [
+                        Icon(Icons.event,
+                            size: 16,
+                            color: Theme.of(context).colorScheme.primary),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            event.title,
+                            style: Theme.of(context).textTheme.bodySmall,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              )),
+                  )),
               if (mentioningEvents.length > 5)
                 Padding(
                   padding: const EdgeInsets.only(top: 8),
                   child: Text(
                     '...and ${mentioningEvents.length - 5} more events',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
                   ),
                 ),
             ],
@@ -495,7 +533,8 @@ class _InsightsScreenState extends State<InsightsScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Events at ${DateFormat('h a').format(DateTime(2025, 1, 1, hour))}'),
+        title: Text(
+            'Events at ${DateFormat('h a').format(DateTime(2025, 1, 1, hour))}'),
         content: SizedBox(
           width: double.maxFinite,
           child: Column(
@@ -507,43 +546,54 @@ class _InsightsScreenState extends State<InsightsScreen> {
               ),
               const SizedBox(height: 12),
               ...hourEvents.take(5).map((event) => Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                child: Row(
-                  children: [
-                    Icon(Icons.schedule, size: 16, color: Theme.of(context).colorScheme.primary),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            event.title,
-                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              fontWeight: FontWeight.w500,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: Row(
+                      children: [
+                        Icon(Icons.schedule,
+                            size: 16,
+                            color: Theme.of(context).colorScheme.primary),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                event.title,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall
+                                    ?.copyWith(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              Text(
+                                DateFormat('MMM d')
+                                    .format(event.startTime.toLocal()),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall
+                                    ?.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurfaceVariant,
+                                    ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            DateFormat('MMM d').format(event.startTime.toLocal()),
-                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Theme.of(context).colorScheme.onSurfaceVariant,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              )),
+                  )),
               if (hourEvents.length > 5)
                 Padding(
                   padding: const EdgeInsets.only(top: 8),
                   child: Text(
                     '...and ${hourEvents.length - 5} more events',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
                   ),
                 ),
             ],
@@ -559,12 +609,14 @@ class _InsightsScreenState extends State<InsightsScreen> {
     );
   }
 
-  Widget _buildPriorityAnalysisSection(BuildContext context, List<CalendarEvent> events) {
+  Widget _buildPriorityAnalysisSection(
+      BuildContext context, List<CalendarEvent> events) {
     final priorityCounts = <int, int>{};
     for (final event in events) {
-      priorityCounts[event.priority] = (priorityCounts[event.priority] ?? 0) + 1;
+      priorityCounts[event.priority] =
+          (priorityCounts[event.priority] ?? 0) + 1;
     }
-    
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -573,7 +625,8 @@ class _InsightsScreenState extends State<InsightsScreen> {
           children: [
             Row(
               children: [
-                Icon(Icons.priority_high, color: Theme.of(context).colorScheme.primary),
+                Icon(Icons.priority_high,
+                    color: Theme.of(context).colorScheme.primary),
                 const SizedBox(width: 8),
                 Text(
                   'Priority Distribution',
@@ -610,7 +663,8 @@ class _InsightsScreenState extends State<InsightsScreen> {
                     'Low Priority',
                     (priorityCounts[3] ?? 0).toString(),
                     Icons.keyboard_arrow_down,
-                    color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                    color:
+                        Theme.of(context).colorScheme.surfaceContainerHighest,
                   ),
                 ),
               ],
@@ -621,7 +675,9 @@ class _InsightsScreenState extends State<InsightsScreen> {
     );
   }
 
-  Widget _buildStatCard(BuildContext context, String title, String value, IconData icon, {Color? color}) {
+  Widget _buildStatCard(
+      BuildContext context, String title, String value, IconData icon,
+      {Color? color}) {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -661,10 +717,69 @@ class _InsightsScreenState extends State<InsightsScreen> {
 
   // Common words to filter out
   static const Set<String> _commonWords = {
-    'the', 'and', 'for', 'are', 'but', 'not', 'you', 'all', 'can', 'had', 'her', 'was', 'one', 'our',
-    'out', 'day', 'get', 'has', 'him', 'his', 'how', 'its', 'may', 'new', 'now', 'old', 'see', 'two',
-    'who', 'boy', 'did', 'she', 'use', 'way', 'what', 'with', 'have', 'from', 'they', 'know', 'want',
-    'been', 'good', 'much', 'some', 'time', 'very', 'when', 'come', 'here', 'just', 'like', 'long',
-    'make', 'many', 'over', 'such', 'take', 'than', 'them', 'well', 'were', 'will', 'your'
+    'the',
+    'and',
+    'for',
+    'are',
+    'but',
+    'not',
+    'you',
+    'all',
+    'can',
+    'had',
+    'her',
+    'was',
+    'one',
+    'our',
+    'out',
+    'day',
+    'get',
+    'has',
+    'him',
+    'his',
+    'how',
+    'its',
+    'may',
+    'new',
+    'now',
+    'old',
+    'see',
+    'two',
+    'who',
+    'boy',
+    'did',
+    'she',
+    'use',
+    'way',
+    'what',
+    'with',
+    'have',
+    'from',
+    'they',
+    'know',
+    'want',
+    'been',
+    'good',
+    'much',
+    'some',
+    'time',
+    'very',
+    'when',
+    'come',
+    'here',
+    'just',
+    'like',
+    'long',
+    'make',
+    'many',
+    'over',
+    'such',
+    'take',
+    'than',
+    'them',
+    'well',
+    'were',
+    'will',
+    'your'
   };
 }

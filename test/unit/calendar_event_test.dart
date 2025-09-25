@@ -4,7 +4,7 @@ import 'package:conference_agenda_tracker/models/calendar_event.dart';
 void main() {
   group('CalendarEvent Model Tests', () {
     late CalendarEvent testEvent;
-    
+
     setUp(() {
       testEvent = CalendarEvent(
         uid: 'test-uid-123',
@@ -39,7 +39,7 @@ void main() {
         endTime: DateTime.now().add(const Duration(hours: 1)),
         location: '',
       );
-      
+
       expect(defaultEvent.speaker, equals(''));
       expect(defaultEvent.isSelected, isFalse);
       expect(defaultEvent.priority, equals(3));
@@ -47,7 +47,7 @@ void main() {
 
     test('should serialize to JSON correctly', () {
       final json = testEvent.toJson();
-      
+
       expect(json['uid'], equals('test-uid-123'));
       expect(json['title'], equals('Test Event'));
       expect(json['speaker'], equals('John Doe'));
@@ -67,9 +67,9 @@ void main() {
         'isSelected': true,
         'priority': 1,
       };
-      
+
       final event = CalendarEvent.fromJson(json);
-      
+
       expect(event.uid, equals('json-uid'));
       expect(event.title, equals('JSON Event'));
       expect(event.speaker, equals('Jane Doe'));
@@ -83,7 +83,7 @@ void main() {
         priority: 1,
         isSelected: true,
       );
-      
+
       expect(updated.title, equals('Updated Title'));
       expect(updated.priority, equals(1));
       expect(updated.isSelected, isTrue);
@@ -101,9 +101,9 @@ void main() {
         'endTime': '2025-01-15T15:00:00.000',
         'location': '',
       };
-      
+
       final event = CalendarEvent.fromJson(minimalJson);
-      
+
       expect(event.speaker, equals(''));
       expect(event.isSelected, isFalse);
       expect(event.priority, equals(3));

@@ -7,7 +7,7 @@ import '../widgets/event_card.dart';
 
 class MyAgendaScreen extends StatefulWidget {
   const MyAgendaScreen({super.key});
-  
+
   @override
   State<MyAgendaScreen> createState() => _MyAgendaScreenState();
 }
@@ -21,7 +21,7 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
       builder: (context, provider, child) {
         final allSelectedEvents = provider.getEventsByPriority();
         final now = DateTime.now();
-        
+
         // Filter events by time
         final selectedEvents = allSelectedEvents.where((event) {
           switch (_timeFilter) {
@@ -60,7 +60,8 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
         // Group events by date
         Map<String, List<CalendarEvent>> eventsByDate = {};
         for (var event in selectedEvents) {
-          String dateKey = DateFormat('yyyy-MM-dd').format(event.startTime.toLocal());
+          String dateKey =
+              DateFormat('yyyy-MM-dd').format(event.startTime.toLocal());
           if (!eventsByDate.containsKey(dateKey)) {
             eventsByDate[dateKey] = [];
           }
@@ -68,8 +69,7 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
         }
 
         // Sort dates
-        var sortedDates = eventsByDate.keys.toList()
-          ..sort();
+        var sortedDates = eventsByDate.keys.toList()..sort();
 
         return Column(
           children: [
@@ -85,9 +85,12 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
                       value: _timeFilter,
                       isExpanded: true,
                       items: const [
-                        DropdownMenuItem(value: 'upcoming', child: Text('Upcoming Events')),
-                        DropdownMenuItem(value: 'all', child: Text('All My Events')),
-                        DropdownMenuItem(value: 'past', child: Text('Past Events')),
+                        DropdownMenuItem(
+                            value: 'upcoming', child: Text('Upcoming Events')),
+                        DropdownMenuItem(
+                            value: 'all', child: Text('All My Events')),
+                        DropdownMenuItem(
+                            value: 'past', child: Text('Past Events')),
                       ],
                       onChanged: (value) {
                         if (value != null) {
@@ -101,7 +104,7 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
                 ],
               ),
             ),
-            
+
             // Header with stats
             Container(
               padding: const EdgeInsets.all(16.0),
@@ -124,13 +127,16 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
                   _buildStatCard(
                     context,
                     'High Priority',
-                    selectedEvents.where((e) => e.priority == 1).length.toString(),
+                    selectedEvents
+                        .where((e) => e.priority == 1)
+                        .length
+                        .toString(),
                     Icons.priority_high,
                   ),
                 ],
               ),
             ),
-            
+
             // Events grouped by date
             Expanded(
               child: ListView.builder(
@@ -139,24 +145,30 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
                   String dateKey = sortedDates[dateIndex];
                   DateTime date = DateTime.parse(dateKey);
                   List<CalendarEvent> dayEvents = eventsByDate[dateKey]!;
-                  
+
                   // Sort events within the day by start time
-                  dayEvents.sort((a, b) => a.startTime.toLocal().compareTo(b.startTime.toLocal()));
-                  
+                  dayEvents.sort((a, b) =>
+                      a.startTime.toLocal().compareTo(b.startTime.toLocal()));
+
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Date header
                       Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 12.0),
                         margin: const EdgeInsets.only(top: 8.0),
                         decoration: BoxDecoration(
-                          color: _isToday(date) 
+                          color: _isToday(date)
                               ? Theme.of(context).colorScheme.primaryContainer
-                              : _isPast(date) 
-                                  ? Theme.of(context).colorScheme.surfaceContainerHighest
-                                  : Theme.of(context).colorScheme.secondaryContainer,
+                              : _isPast(date)
+                                  ? Theme.of(context)
+                                      .colorScheme
+                                      .surfaceContainerHighest
+                                  : Theme.of(context)
+                                      .colorScheme
+                                      .secondaryContainer,
                           borderRadius: const BorderRadius.horizontal(
                             right: Radius.circular(24),
                           ),
@@ -164,16 +176,20 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
                         child: Row(
                           children: [
                             Icon(
-                              _isToday(date) 
-                                  ? Icons.today 
-                                  : _isPast(date) 
-                                      ? Icons.history 
+                              _isToday(date)
+                                  ? Icons.today
+                                  : _isPast(date)
+                                      ? Icons.history
                                       : Icons.upcoming,
-                              color: _isToday(date) 
-                                  ? Theme.of(context).colorScheme.onPrimaryContainer
-                                  : _isPast(date) 
+                              color: _isToday(date)
+                                  ? Theme.of(context)
+                                      .colorScheme
+                                      .onPrimaryContainer
+                                  : _isPast(date)
                                       ? Theme.of(context).colorScheme.onSurface
-                                      : Theme.of(context).colorScheme.onSecondaryContainer,
+                                      : Theme.of(context)
+                                          .colorScheme
+                                          .onSecondaryContainer,
                               size: 20,
                             ),
                             const SizedBox(width: 8),
@@ -183,11 +199,17 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
-                                  color: _isToday(date) 
-                                      ? Theme.of(context).colorScheme.onPrimaryContainer
-                                      : _isPast(date) 
-                                          ? Theme.of(context).colorScheme.onSurface
-                                          : Theme.of(context).colorScheme.onSecondaryContainer,
+                                  color: _isToday(date)
+                                      ? Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer
+                                      : _isPast(date)
+                                          ? Theme.of(context)
+                                              .colorScheme
+                                              .onSurface
+                                          : Theme.of(context)
+                                              .colorScheme
+                                              .onSecondaryContainer,
                                 ),
                               ),
                             ),
@@ -195,29 +217,41 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
                               '${dayEvents.length} event${dayEvents.length != 1 ? 's' : ''}',
                               style: TextStyle(
                                 fontSize: 12,
-                                color: _isToday(date) 
-                                    ? Theme.of(context).colorScheme.onPrimaryContainer.withValues(alpha: 0.7)
-                                    : _isPast(date) 
-                                        ? Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7)
-                                        : Theme.of(context).colorScheme.onSecondaryContainer.withValues(alpha: 0.7),
+                                color: _isToday(date)
+                                    ? Theme.of(context)
+                                        .colorScheme
+                                        .onPrimaryContainer
+                                        .withValues(alpha: 0.7)
+                                    : _isPast(date)
+                                        ? Theme.of(context)
+                                            .colorScheme
+                                            .onSurface
+                                            .withValues(alpha: 0.7)
+                                        : Theme.of(context)
+                                            .colorScheme
+                                            .onSecondaryContainer
+                                            .withValues(alpha: 0.7),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      
+
                       // Events for this date
-                      ...dayEvents.map((event) => EventCard(
-                        event: event,
-                        showDate: false, // Don't show date since we're grouping by date
-                        onSelectionChanged: () {
-                          provider.toggleEventSelection(event);
-                        },
-                        onPriorityChanged: (priority) {
-                          provider.updateEventPriority(event, priority);
-                        },
-                      )).toList(),
-                      
+                      ...dayEvents
+                          .map((event) => EventCard(
+                                event: event,
+                                showDate:
+                                    false, // Don't show date since we're grouping by date
+                                onSelectionChanged: () {
+                                  provider.toggleEventSelection(event);
+                                },
+                                onPriorityChanged: (priority) {
+                                  provider.updateEventPriority(event, priority);
+                                },
+                              ))
+                          .toList(),
+
                       const SizedBox(height: 8),
                     ],
                   );
@@ -254,7 +288,8 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
     return dayLabel;
   }
 
-  Widget _buildStatCard(BuildContext context, String title, String value, IconData icon) {
+  Widget _buildStatCard(
+      BuildContext context, String title, String value, IconData icon) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(12.0),

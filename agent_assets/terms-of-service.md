@@ -1,3 +1,8 @@
+---
+ai.include_by_default: false
+ai.weight: 0.1
+---
+
 # EventFlow Terms of Service
 
 **Effective Date:** [Insert Date]  

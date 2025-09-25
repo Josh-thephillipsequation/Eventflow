@@ -1,3 +1,8 @@
+---
+ai.include_by_default: false
+ai.weight: 0.1
+---
+
 # EventFlow Privacy Policy
 
 **Effective Date:** [Insert Date]  

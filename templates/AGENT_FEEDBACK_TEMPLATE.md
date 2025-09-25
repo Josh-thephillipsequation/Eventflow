@@ -1,3 +1,9 @@
+---
+ai:
+  include_by_default: false
+  weight: 0.1
+---
+
 # Agent Feedback Template
 
 This file provides a template for test reports that can be fed back to agents for automated issue resolution.

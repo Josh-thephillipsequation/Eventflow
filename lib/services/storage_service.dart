@@ -15,30 +15,33 @@ class StorageService {
   Future<List<CalendarEvent>> loadEvents() async {
     final prefs = await SharedPreferences.getInstance();
     final eventsString = prefs.getString(_eventsKey);
-    
+
     if (eventsString != null) {
       final List<dynamic> eventsJson = jsonDecode(eventsString);
       return eventsJson.map((json) => CalendarEvent.fromJson(json)).toList();
     }
-    
+
     return [];
   }
 
   Future<void> saveSelectedEvents(List<CalendarEvent> selectedEvents) async {
     final prefs = await SharedPreferences.getInstance();
-    final selectedEventsJson = selectedEvents.map((event) => event.toJson()).toList();
+    final selectedEventsJson =
+        selectedEvents.map((event) => event.toJson()).toList();
     await prefs.setString(_selectedEventsKey, jsonEncode(selectedEventsJson));
   }
 
   Future<List<CalendarEvent>> loadSelectedEvents() async {
     final prefs = await SharedPreferences.getInstance();
     final selectedEventsString = prefs.getString(_selectedEventsKey);
-    
+
     if (selectedEventsString != null) {
       final List<dynamic> selectedEventsJson = jsonDecode(selectedEventsString);
-      return selectedEventsJson.map((json) => CalendarEvent.fromJson(json)).toList();
+      return selectedEventsJson
+          .map((json) => CalendarEvent.fromJson(json))
+          .toList();
     }
-    
+
     return [];
   }
 

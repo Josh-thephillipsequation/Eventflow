@@ -1,5 +1,5 @@
 name: conference_agenda_tracker
-description: EventFlow - A modern conference schedule management app
+description: EventFlow - A modern conference schedule management app by thephillipsequation llc
 
 version: 1.0.0+202509240617
 
@@ -35,7 +35,7 @@ dependencies:
   
   # Material 3 theme and fonts
   google_fonts: ^6.1.0
-  flutter_native_splash: ^2.4.6
+  flutter_native_splash: ^2.4.4
 
 dev_dependencies:
   flutter_test:

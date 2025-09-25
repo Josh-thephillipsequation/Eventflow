@@ -9,7 +9,7 @@ void main() {
   // Preserve the native splash screen
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  
+
   runApp(const ConferenceAgendaApp());
 }
 

@@ -1,13 +1,44 @@
+---
+ai.include_by_default: false
+ai.weight: 0.1
+---
+
 # AGENTS.md - Development Guide for EventFlow
 
-This file provides guidance for AI agents and developers working on the EventFlow conference agenda tracker app.
+> **⚠️ DEPRECATION NOTICE**: This file has been restructured for better agent context management.  
+> **Use AGENTS_TLDR.md instead** for agent handoffs and current context.  
+> **See agents/README.md** for the new documentation structure.  
+> This file is kept for reference only.
+
+---
+
+This file provides comprehensive guidance for AI agents working on EventFlow. **CRITICAL**: We are currently building a mission-critical automated CI/CD pipeline from agent interaction to App Store publication.
 
 ## Project Overview
 
 **App Name:** EventFlow  
 **Company:** thephillipsequation llc  
 **Platform:** Flutter (iOS/Android)  
-**Purpose:** Conference agenda management with smart filtering, insights, and modern Material 3 UI
+**Purpose:** Conference agenda management with smart filtering, insights, AI-powered features, and modern Material 3 UI
+**Development Story:** Built in 36 hours using Amp AI - now expanding to full production automation
+
+## 🚨 **CURRENT MISSION-CRITICAL FOCUS**
+
+**Target State**: Complete automation pipeline from agent changes to App Store publication while waiting for Apple Developer Account approval.
+
+**Current Priority**: **M21-M24** - Automated CI/CD pipeline (see backlog.md)
+
+**Pipeline Vision**:
+```
+Agent Changes → Local Testing → GitHub Actions → iOS Build → TestFlight → App Store
+```
+
+**Current Status**: 
+- ✅ Basic CI/testing foundation implemented
+- ⚠️ CI feedback loop needs full automation (M21)
+- ⚠️ Test failures must be resolved (M22) 
+- 🚧 iOS build automation needed (M23)
+- 🚧 App Store Connect integration needed (M24)
 
 ## Backlog Management
 
@@ -16,8 +47,9 @@ This file provides guidance for AI agents and developers working on the EventFlo
 2. **Check [`agent_assets/backlog.md`](agent_assets/backlog.md)** before starting any work
 3. **Create separate branches** for each milestone/feature using suggested branch names
 4. **Update task status** as you progress: `todo` → `in-progress` → `review` → `done`
-5. **Human-in-the-loop testing**: Deploy each completed feature to iPhone for testing before moving to next feature
-6. **Add completion notes** with date and key changes when marking items `done`
+5. **Human-in-the-loop testing**: Deploy each completed feature to iPhone for testing before moving to next feature using `flutter run --release -d "00008140-0002248A0E12801C"`
+6. **CRITICAL: No feature is complete unless CI tests pass** - Run GitHub Actions locally before pushing
+7. **Add completion notes** with date and key changes when marking items `done`
 
 ### Priority Levels
 - **P0:** Blocking/critical issues
@@ -49,9 +81,13 @@ Use the branch names suggested in backlog.md, e.g.:
 ### User Experience Patterns
 - **Smart defaults:** Show upcoming events by default, collapse past events
 - **Visual hierarchy:** Use color-coded day headers (today/past/future)
-- **Time-aware filtering:** Filter by upcoming/all/past events
+- **Time-aware filtering:** Filter by upcoming/all/past events with device timezone
 - **Day-grouped views:** Group events by day with clear visual separation
 - **Contextual information:** Show event counts, time indicators, priority chips
+- **Interactive analytics:** Tap-to-explore topic clouds and schedule heatmaps
+- **Expandable content:** "More" buttons for long descriptions with popup details
+- **Speaker integration:** Display speakers with person icons when available
+- **AI-powered engagement:** Context-aware generators using actual event data
 
 ### Component Design
 - **Consistent EventCard** design across all screens
@@ -88,13 +124,18 @@ lib/
 - **Widget tests** for UI components
 - **Unit tests** for business logic
 - **Integration tests** for key user flows
-- **Human-in-the-loop testing**: Deploy each feature to iPhone for real-world validation
+- **Human-in-the-loop testing**: Deploy each feature to iPhone for real-world validation using `flutter run --release -d "00008140-0002248A0E12801C"`
+- **CRITICAL: No feature is complete unless CI tests pass** - Run GitHub Actions locally before pushing
+- **GitHub Actions locally**: Use `act` or run test commands before pushing
 - Run tests with: `flutter test`
 
 ## Development Commands
 
 ### Build & Run
 ```bash
+# PREFERRED: Deploy to iPhone for wireless usage (human-in-the-loop testing)
+flutter run --release -d "00008140-0002248A0E12801C"
+
 # Run on device/simulator
 flutter run
 
@@ -131,6 +172,16 @@ flutter test test/widget_test.dart
 
 # Generate coverage
 flutter test --coverage
+
+# CRITICAL: Run GitHub Actions locally before pushing
+./scripts/run_ci_locally.sh
+
+# Or run individual CI steps manually:
+dart format --output=none --set-exit-if-changed .
+flutter analyze --fatal-infos
+flutter test --coverage
+flutter build ios --no-codesign --debug
+flutter build apk --debug
 ```
 
 ### Asset Management
@@ -144,12 +195,21 @@ flutter pub run flutter_native_splash:create
 
 ## App-Specific Context
 
-### Key Features
-1. **Calendar Import:** ICS file import with validation
-2. **Event Management:** Selection, priority setting, filtering
-3. **Smart Views:** Time-based filtering, day grouping
-4. **My Agenda:** Curated personal schedule view
-5. **Statistics:** Event insights and analytics
+### Current Features (Complete)
+1. **Calendar Import:** ICS file import with validation, speaker extraction, timezone handling
+2. **Event Management:** Selection, priority setting, advanced filtering, search with speakers
+3. **Smart Views:** Time-based filtering (upcoming/past), visual day grouping with today/future indicators
+4. **My Agenda:** Curated personal schedule view with time-aware filtering
+5. **Interactive Analytics:** Topic clouds, 24-hour heatmaps, tap-to-explore insights
+6. **AI-Powered Fun:** Talk proposal generator, product name generator, interactive conference bingo
+7. **Professional UI:** Material 3 design, expandable cards, AM/PM timezone display
+
+### Recent Major Additions
+- **Speaker Data Integration:** Automatic extraction from ICS ORGANIZER/ATTENDEE fields
+- **Interactive Insights:** Topic cloud with tap-to-explore, 24-hour schedule heatmap
+- **Fun Tab:** Talk generator, product generator, interactive bingo with win detection
+- **Enhanced UX:** Smart day grouping, time-based filtering, proper timezone handling
+- **CI/Testing Foundation:** 17+ tests, GitHub Actions, agent feedback loops
 
 ### Data Model
 - **CalendarEvent:** Core event data structure
@@ -225,14 +285,35 @@ flutter pub run flutter_native_splash:create
 
 ## Quick Reference
 
-**Backlog:** `agent_assets/backlog.md`  
-**Theme:** `lib/theme/app_theme.dart`  
-**Main Provider:** `lib/providers/event_provider.dart`  
-**Entry Point:** `lib/main.dart`  
+**🚨 MISSION CRITICAL FILES:**
+- **Backlog:** `agent_assets/backlog.md` (M21-M24 priorities)
+- **Current Status:** `agent_assets/current-status.md` (handoff info)
+- **CI Feedback:** `AGENT_FEEDBACK.md` (current test failures)
+- **Local CI:** `./scripts/run_ci_locally.sh` (run before pushing)
 
-**Test Device:** `flutter run -d "00008140-0002248A0E12801C"`  
-**Build iOS:** `flutter build ios --release`  
-**Analyze:** `flutter analyze`
+**🏗️ KEY APP FILES:**
+- **Theme:** `lib/theme/app_theme.dart`  
+- **Main Provider:** `lib/providers/event_provider.dart`  
+- **Entry Point:** `lib/main.dart`
+- **Screens:** `lib/screens/` (5 tabs all working)
+
+**📱 DEPLOYMENT:**
+- **Test Device:** `flutter run -d "00008140-0002248A0E12801C"`  
+- **Build iOS:** `flutter build ios --release`  
+- **Analyze:** `flutter analyze`
+- **Test All:** `flutter test --coverage`
+
+**🤖 CI/CD PIPELINE:**
+- **GitHub Actions:** `.github/workflows/flutter.yml`
+- **Webhook Server:** VS Code → Command Palette → "Start Webhook Server for Amp"
+- **Auto Feedback:** `python3 scripts/auto_ci_feedback.py`
+
+**🔍 HANDOFF VALIDATION:**
+- **Verify Readiness:** `./scripts/validate_handoff.sh` (must show 99%+ before starting)
+- **Quick Wins:** `agent_assets/quick-wins.md` (momentum building)
+- **Current Issues:** `AGENT_FEEDBACK.md` (specific failures to fix)
+
+**⚠️ CRITICAL**: Next agent must run `./scripts/validate_handoff.sh` FIRST - if it doesn't show 99%+ confidence, fix issues before starting work.
 
 ---
 

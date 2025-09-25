@@ -1,4 +1,10 @@
 
+---
+ai:
+  include_by_default: false
+  weight: 0.1
+---
+
 # Automated CI Failure Report - 2025-09-25 07:56
 
 ## 🤖 GitHub Actions Failure Detected

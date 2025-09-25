@@ -45,7 +45,8 @@ class _EventsListScreenState extends State<EventsListScreen> {
           );
         }
 
-        List<CalendarEvent> filteredEvents = _getFilteredAndSortedEvents(provider.allEvents);
+        List<CalendarEvent> filteredEvents =
+            _getFilteredAndSortedEvents(provider.allEvents);
 
         // Populate item keys for scrolling
         for (final e in filteredEvents) {
@@ -93,9 +94,14 @@ class _EventsListScreenState extends State<EventsListScreen> {
                                 value: _timeFilter,
                                 isExpanded: true,
                                 items: const [
-                                  DropdownMenuItem(value: 'upcoming', child: Text('Upcoming')),
-                                  DropdownMenuItem(value: 'all', child: Text('All Events')),
-                                  DropdownMenuItem(value: 'past', child: Text('Past Events')),
+                                  DropdownMenuItem(
+                                      value: 'upcoming',
+                                      child: Text('Upcoming')),
+                                  DropdownMenuItem(
+                                      value: 'all', child: Text('All Events')),
+                                  DropdownMenuItem(
+                                      value: 'past',
+                                      child: Text('Past Events')),
                                 ],
                                 onChanged: (value) {
                                   if (value != null) {
@@ -121,11 +127,18 @@ class _EventsListScreenState extends State<EventsListScreen> {
                                 value: _sortBy,
                                 isExpanded: true,
                                 items: const [
-                                  DropdownMenuItem(value: 'day', child: Text('By Day')),
-                                  DropdownMenuItem(value: 'time', child: Text('By Time')),
-                                  DropdownMenuItem(value: 'title', child: Text('By Title')),
-                                  DropdownMenuItem(value: 'speaker', child: Text('By Speaker')),
-                                  DropdownMenuItem(value: 'priority', child: Text('By Priority')),
+                                  DropdownMenuItem(
+                                      value: 'day', child: Text('By Day')),
+                                  DropdownMenuItem(
+                                      value: 'time', child: Text('By Time')),
+                                  DropdownMenuItem(
+                                      value: 'title', child: Text('By Title')),
+                                  DropdownMenuItem(
+                                      value: 'speaker',
+                                      child: Text('By Speaker')),
+                                  DropdownMenuItem(
+                                      value: 'priority',
+                                      child: Text('By Priority')),
                                 ],
                                 onChanged: (value) {
                                   if (value != null) {
@@ -145,7 +158,7 @@ class _EventsListScreenState extends State<EventsListScreen> {
                 ],
               ),
             ),
-            
+
             // Events List
             Expanded(
               child: _sortBy == 'day'
@@ -176,10 +189,11 @@ class _EventsListScreenState extends State<EventsListScreen> {
     );
   }
 
-  Widget _buildGroupedListView(List<CalendarEvent> events, EventProvider provider) {
+  Widget _buildGroupedListView(
+      List<CalendarEvent> events, EventProvider provider) {
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);
-    
+
     // Group events by date (local date)
     final Map<String, List<CalendarEvent>> groups = {};
     for (final e in events) {
@@ -195,12 +209,14 @@ class _EventsListScreenState extends State<EventsListScreen> {
       itemBuilder: (context, sectionIndex) {
         final dayKey = sortedKeys[sectionIndex];
         final dayDate = DateTime.parse(dayKey);
-        final dayEvents = groups[dayKey]!..sort((a, b) => a.startTime.toLocal().compareTo(b.startTime.toLocal()));
-        
+        final dayEvents = groups[dayKey]!
+          ..sort(
+              (a, b) => a.startTime.toLocal().compareTo(b.startTime.toLocal()));
+
         // Determine if this is today, past, or future
         final isPast = dayDate.isBefore(today);
         final isToday = dayDate.isAtSameMomentAs(today);
-        
+
         // Create the day label with context
         String dayLabel = DateFormat.yMMMMEEEEd().format(dayDate);
         if (isToday) {
@@ -214,12 +230,13 @@ class _EventsListScreenState extends State<EventsListScreen> {
           children: [
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
               margin: const EdgeInsets.only(top: 8.0),
               decoration: BoxDecoration(
-                color: isToday 
+                color: isToday
                     ? Theme.of(context).colorScheme.primaryContainer
-                    : isPast 
+                    : isPast
                         ? Theme.of(context).colorScheme.surfaceContainerHighest
                         : Theme.of(context).colorScheme.secondaryContainer,
                 borderRadius: const BorderRadius.horizontal(
@@ -229,16 +246,18 @@ class _EventsListScreenState extends State<EventsListScreen> {
               child: Row(
                 children: [
                   Icon(
-                    isToday 
-                        ? Icons.today 
-                        : isPast 
-                            ? Icons.history 
+                    isToday
+                        ? Icons.today
+                        : isPast
+                            ? Icons.history
                             : Icons.upcoming,
-                    color: isToday 
+                    color: isToday
                         ? Theme.of(context).colorScheme.onPrimaryContainer
-                        : isPast 
+                        : isPast
                             ? Theme.of(context).colorScheme.onSurface
-                            : Theme.of(context).colorScheme.onSecondaryContainer,
+                            : Theme.of(context)
+                                .colorScheme
+                                .onSecondaryContainer,
                     size: 20,
                   ),
                   const SizedBox(width: 8),
@@ -248,11 +267,13 @@ class _EventsListScreenState extends State<EventsListScreen> {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: isToday 
+                        color: isToday
                             ? Theme.of(context).colorScheme.onPrimaryContainer
-                            : isPast 
+                            : isPast
                                 ? Theme.of(context).colorScheme.onSurface
-                                : Theme.of(context).colorScheme.onSecondaryContainer,
+                                : Theme.of(context)
+                                    .colorScheme
+                                    .onSecondaryContainer,
                       ),
                     ),
                   ),
@@ -260,11 +281,20 @@ class _EventsListScreenState extends State<EventsListScreen> {
                     '${dayEvents.length} event${dayEvents.length != 1 ? 's' : ''}',
                     style: TextStyle(
                       fontSize: 12,
-                      color: isToday 
-                          ? Theme.of(context).colorScheme.onPrimaryContainer.withValues(alpha: 0.7)
-                          : isPast 
-                              ? Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7)
-                              : Theme.of(context).colorScheme.onSecondaryContainer.withValues(alpha: 0.7),
+                      color: isToday
+                          ? Theme.of(context)
+                              .colorScheme
+                              .onPrimaryContainer
+                              .withValues(alpha: 0.7)
+                          : isPast
+                              ? Theme.of(context)
+                                  .colorScheme
+                                  .onSurface
+                                  .withValues(alpha: 0.7)
+                              : Theme.of(context)
+                                  .colorScheme
+                                  .onSecondaryContainer
+                                  .withValues(alpha: 0.7),
                     ),
                   ),
                 ],
@@ -297,7 +327,8 @@ class _EventsListScreenState extends State<EventsListScreen> {
     final threshold = now.subtract(const Duration(hours: 1));
     CalendarEvent? target;
     for (final e in events) {
-      if (e.startTime.toLocal().isAfter(threshold) || e.startTime.toLocal().isAtSameMomentAs(threshold)) {
+      if (e.startTime.toLocal().isAfter(threshold) ||
+          e.startTime.toLocal().isAtSameMomentAs(threshold)) {
         target = e;
         break;
       }
@@ -318,16 +349,18 @@ class _EventsListScreenState extends State<EventsListScreen> {
 
   List<CalendarEvent> _getFilteredAndSortedEvents(List<CalendarEvent> events) {
     final now = DateTime.now();
-    
+
     // Filter by search query and time filter
     List<CalendarEvent> filtered = events.where((event) {
       // Search query filter
       bool matchesSearch = _searchQuery.isEmpty ||
           event.title.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-          event.description.toLowerCase().contains(_searchQuery.toLowerCase()) ||
+          event.description
+              .toLowerCase()
+              .contains(_searchQuery.toLowerCase()) ||
           event.location.toLowerCase().contains(_searchQuery.toLowerCase()) ||
           event.speaker.toLowerCase().contains(_searchQuery.toLowerCase());
-      
+
       // Time filter
       bool matchesTime = true;
       switch (_timeFilter) {
@@ -344,7 +377,7 @@ class _EventsListScreenState extends State<EventsListScreen> {
           matchesTime = true;
           break;
       }
-      
+
       return matchesSearch && matchesTime;
     }).toList();
 
@@ -378,7 +411,8 @@ class _EventsListScreenState extends State<EventsListScreen> {
         break;
       case 'time':
       default:
-        filtered.sort((a, b) => a.startTime.toLocal().compareTo(b.startTime.toLocal()));
+        filtered.sort(
+            (a, b) => a.startTime.toLocal().compareTo(b.startTime.toLocal()));
         break;
     }
 
