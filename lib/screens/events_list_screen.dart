@@ -14,7 +14,8 @@ class EventsListScreen extends StatefulWidget {
 
 class _EventsListScreenState extends State<EventsListScreen> {
   String _searchQuery = '';
-  String _sortBy = 'time'; // 'time', 'title', 'priority'
+  String _sortBy = 'day'; // Default to 'day' for better UX
+  String _timeFilter = 'upcoming'; // 'all', 'upcoming', 'past'
   final ScrollController _scrollController = ScrollController();
   final Map<String, GlobalKey> _itemKeys = {};
   bool _hasScrolled = false;
@@ -82,26 +83,61 @@ class _EventsListScreenState extends State<EventsListScreen> {
                   const SizedBox(height: 8),
                   Row(
                     children: [
-                      const Text('Sort by: '),
-                      const SizedBox(width: 8),
                       Expanded(
-                        child: DropdownButton<String>(
-                          value: _sortBy,
-                          isExpanded: true,
-                          items: const [
-                            DropdownMenuItem(value: 'time', child: Text('Start Time')),
-                            DropdownMenuItem(value: 'day', child: Text('Day')),
-                            DropdownMenuItem(value: 'title', child: Text('Title')),
-                            DropdownMenuItem(value: 'priority', child: Text('Priority')),
+                        child: Row(
+                          children: [
+                            const Text('Filter: '),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: DropdownButton<String>(
+                                value: _timeFilter,
+                                isExpanded: true,
+                                items: const [
+                                  DropdownMenuItem(value: 'upcoming', child: Text('Upcoming')),
+                                  DropdownMenuItem(value: 'all', child: Text('All Events')),
+                                  DropdownMenuItem(value: 'past', child: Text('Past Events')),
+                                ],
+                                onChanged: (value) {
+                                  if (value != null) {
+                                    setState(() {
+                                      _timeFilter = value;
+                                      _hasScrolled = false;
+                                    });
+                                  }
+                                },
+                              ),
+                            ),
                           ],
-                          onChanged: (value) {
-                            if (value != null) {
-                              setState(() {
-                                _sortBy = value;
-                                _hasScrolled = false;
-                              });
-                            }
-                          },
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Row(
+                          children: [
+                            const Text('Sort: '),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: DropdownButton<String>(
+                                value: _sortBy,
+                                isExpanded: true,
+                                items: const [
+                                  DropdownMenuItem(value: 'day', child: Text('By Day')),
+                                  DropdownMenuItem(value: 'time', child: Text('By Time')),
+                                  DropdownMenuItem(value: 'title', child: Text('By Title')),
+                                  DropdownMenuItem(value: 'speaker', child: Text('By Speaker')),
+                                  DropdownMenuItem(value: 'priority', child: Text('By Priority')),
+                                ],
+                                onChanged: (value) {
+                                  if (value != null) {
+                                    setState(() {
+                                      _sortBy = value;
+                                      _hasScrolled = false;
+                                    });
+                                  }
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
@@ -141,6 +177,9 @@ class _EventsListScreenState extends State<EventsListScreen> {
   }
 
   Widget _buildGroupedListView(List<CalendarEvent> events, EventProvider provider) {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    
     // Group events by date (local date)
     final Map<String, List<CalendarEvent>> groups = {};
     for (final e in events) {
@@ -155,16 +194,80 @@ class _EventsListScreenState extends State<EventsListScreen> {
       itemCount: sortedKeys.length,
       itemBuilder: (context, sectionIndex) {
         final dayKey = sortedKeys[sectionIndex];
-        final dayEvents = groups[dayKey]!..sort((a, b) => a.startTime.compareTo(b.startTime));
+        final dayDate = DateTime.parse(dayKey);
+        final dayEvents = groups[dayKey]!..sort((a, b) => a.startTime.toLocal().compareTo(b.startTime.toLocal()));
+        
+        // Determine if this is today, past, or future
+        final isPast = dayDate.isBefore(today);
+        final isToday = dayDate.isAtSameMomentAs(today);
+        
+        // Create the day label with context
+        String dayLabel = DateFormat.yMMMMEEEEd().format(dayDate);
+        if (isToday) {
+          dayLabel = 'Today - $dayLabel';
+        } else if (isPast) {
+          dayLabel = 'Past - $dayLabel';
+        }
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: Text(
-                DateFormat.yMMMMEEEEd().format(DateTime.parse(dayKey)),
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+              margin: const EdgeInsets.only(top: 8.0),
+              decoration: BoxDecoration(
+                color: isToday 
+                    ? Theme.of(context).colorScheme.primaryContainer
+                    : isPast 
+                        ? Theme.of(context).colorScheme.surfaceContainerHighest
+                        : Theme.of(context).colorScheme.secondaryContainer,
+                borderRadius: const BorderRadius.horizontal(
+                  right: Radius.circular(24),
+                ),
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    isToday 
+                        ? Icons.today 
+                        : isPast 
+                            ? Icons.history 
+                            : Icons.upcoming,
+                    color: isToday 
+                        ? Theme.of(context).colorScheme.onPrimaryContainer
+                        : isPast 
+                            ? Theme.of(context).colorScheme.onSurface
+                            : Theme.of(context).colorScheme.onSecondaryContainer,
+                    size: 20,
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      dayLabel,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: isToday 
+                            ? Theme.of(context).colorScheme.onPrimaryContainer
+                            : isPast 
+                                ? Theme.of(context).colorScheme.onSurface
+                                : Theme.of(context).colorScheme.onSecondaryContainer,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '${dayEvents.length} event${dayEvents.length != 1 ? 's' : ''}',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: isToday 
+                          ? Theme.of(context).colorScheme.onPrimaryContainer.withValues(alpha: 0.7)
+                          : isPast 
+                              ? Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7)
+                              : Theme.of(context).colorScheme.onSecondaryContainer.withValues(alpha: 0.7),
+                    ),
+                  ),
+                ],
               ),
             ),
             ...dayEvents.map((event) => KeyedSubtree(
@@ -178,7 +281,8 @@ class _EventsListScreenState extends State<EventsListScreen> {
                       provider.updateEventPriority(event, priority);
                     },
                   ),
-                ))
+                )),
+            const SizedBox(height: 4),
           ],
         );
       },
@@ -193,7 +297,7 @@ class _EventsListScreenState extends State<EventsListScreen> {
     final threshold = now.subtract(const Duration(hours: 1));
     CalendarEvent? target;
     for (final e in events) {
-      if (e.startTime.isAfter(threshold) || e.startTime.isAtSameMomentAs(threshold)) {
+      if (e.startTime.toLocal().isAfter(threshold) || e.startTime.toLocal().isAtSameMomentAs(threshold)) {
         target = e;
         break;
       }
@@ -213,12 +317,35 @@ class _EventsListScreenState extends State<EventsListScreen> {
   }
 
   List<CalendarEvent> _getFilteredAndSortedEvents(List<CalendarEvent> events) {
-    // Filter by search query
+    final now = DateTime.now();
+    
+    // Filter by search query and time filter
     List<CalendarEvent> filtered = events.where((event) {
-      if (_searchQuery.isEmpty) return true;
-      return event.title.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-             event.description.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-             event.location.toLowerCase().contains(_searchQuery.toLowerCase());
+      // Search query filter
+      bool matchesSearch = _searchQuery.isEmpty ||
+          event.title.toLowerCase().contains(_searchQuery.toLowerCase()) ||
+          event.description.toLowerCase().contains(_searchQuery.toLowerCase()) ||
+          event.location.toLowerCase().contains(_searchQuery.toLowerCase()) ||
+          event.speaker.toLowerCase().contains(_searchQuery.toLowerCase());
+      
+      // Time filter
+      bool matchesTime = true;
+      switch (_timeFilter) {
+        case 'upcoming':
+          // Show events that end after now (current or future events)
+          matchesTime = event.endTime.toLocal().isAfter(now);
+          break;
+        case 'past':
+          // Show events that ended before now
+          matchesTime = event.endTime.toLocal().isBefore(now);
+          break;
+        case 'all':
+        default:
+          matchesTime = true;
+          break;
+      }
+      
+      return matchesSearch && matchesTime;
     }).toList();
 
     // Sort events
@@ -226,22 +353,32 @@ class _EventsListScreenState extends State<EventsListScreen> {
       case 'title':
         filtered.sort((a, b) => a.title.compareTo(b.title));
         break;
+      case 'speaker':
+        filtered.sort((a, b) {
+          // Sort by speaker, empty speakers go to end
+          if (a.speaker.isEmpty && b.speaker.isNotEmpty) return 1;
+          if (a.speaker.isNotEmpty && b.speaker.isEmpty) return -1;
+          return a.speaker.compareTo(b.speaker);
+        });
+        break;
       case 'priority':
         filtered.sort((a, b) => a.priority.compareTo(b.priority));
         break;
       case 'day':
         // Sort by date then time
         filtered.sort((a, b) {
-          final ad = DateTime(a.startTime.year, a.startTime.month, a.startTime.day);
-          final bd = DateTime(b.startTime.year, b.startTime.month, b.startTime.day);
+          final aLocal = a.startTime.toLocal();
+          final bLocal = b.startTime.toLocal();
+          final ad = DateTime(aLocal.year, aLocal.month, aLocal.day);
+          final bd = DateTime(bLocal.year, bLocal.month, bLocal.day);
           final cmp = ad.compareTo(bd);
           if (cmp != 0) return cmp;
-          return a.startTime.compareTo(b.startTime);
+          return aLocal.compareTo(bLocal);
         });
         break;
       case 'time':
       default:
-        filtered.sort((a, b) => a.startTime.compareTo(b.startTime));
+        filtered.sort((a, b) => a.startTime.toLocal().compareTo(b.startTime.toLocal()));
         break;
     }
 

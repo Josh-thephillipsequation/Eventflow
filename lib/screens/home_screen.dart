@@ -4,6 +4,8 @@ import '../providers/event_provider.dart';
 import 'import_calendar_screen.dart';
 import 'events_list_screen.dart';
 import 'my_agenda_screen.dart';
+import 'insights_screen.dart';
+import 'fun_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,6 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
     const ImportCalendarScreen(),
     const EventsListScreen(),
     const MyAgendaScreen(),
+    const InsightsScreen(),
+    const FunScreen(),
   ];
 
   @override
@@ -72,6 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
             _selectedIndex = index;
           });
         },
+        type: BottomNavigationBarType.fixed, // Needed for 4+ tabs
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.file_upload),
@@ -84,6 +89,14 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
             label: 'My Agenda',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.insights),
+            label: 'Insights',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.extension_rounded),
+            label: 'Fun',
           ),
         ],
       ),

@@ -56,6 +56,50 @@ Conventions
   - Status: todo
   - Estimate: 0.5-1h
 
+- M7 — UX Improvements Phase 1 (Smart Views)
+  - Branch: `feature/ux-improvements-smart-views`
+  - Goal: Improve splash screen timing, implement smart day grouping, and time-based filtering
+  - Priority: P1
+  - Status: done
+  - Estimate: 2-3h
+  - Completed: 2025-09-24 - Fixed splash screen timing, added smart day grouping with visual indicators, implemented time-based filtering for current/future/past events
+
+- M8 — Event Insights Dashboard
+  - Branch: `feature/event-insights-dashboard`
+  - Goal: Create insights tab showing time per topic, frequent words in titles, event statistics
+  - Priority: P2
+  - Status: todo
+  - Estimate: 3-4h
+
+- M9 — AI Talk Proposal Generator
+  - Branch: `feature/ai-talk-generator`
+  - Goal: Fun tab for AI-generated fake event talk proposals with user name input based on event data
+  - Priority: P3
+  - Status: done
+  - Estimate: 2-3h
+  - Completed: 2025-09-24 - Created AI Talk Proposal Generator with creative title/abstract generation
+
+- M10 — Speaker Data Integration
+  - Branch: `feature/speaker-data-integration`
+  - Goal: Extract and display speaker information from ICS files, add sorting by author
+  - Priority: P1
+  - Status: todo
+  - Estimate: 2-3h
+
+- M11 — Import Screen UI Polish
+  - Branch: `feature/import-ui-polish`
+  - Goal: Improve import calendar screen layout, center elements, enhance professional appearance
+  - Priority: P2
+  - Status: todo
+  - Estimate: 1-2h
+
+- M12 — Fun Tab Enhancements
+  - Branch: `feature/fun-tab-enhancements`
+  - Goal: Rebrand AI Generator as "Fun" tab, add AI product name generator
+  - Priority: P3
+  - Status: todo
+  - Estimate: 2-3h
+
 
 ## Task Backlog (detailed)
 
@@ -71,6 +115,17 @@ Conventions
   - Notes: keep PR focused — no asset changes in this PR.
 
 ### P1
+- M10 — Speaker Data Integration  
+  - Status: todo
+  - Branch: `feature/speaker-data-integration`
+  - Steps:
+    1. Update calendar_service.dart to extract speaker/organizer data from ICS files
+    2. Add speaker field to CalendarEvent model 
+    3. Update EventCard to display speaker information when available
+    4. Add "Sort by Author/Speaker" option to events list dropdown
+    5. Update filtering logic to include speaker data in search
+  - Notes: Look for ORGANIZER and ATTENDEE fields in ICS parsing, handle multiple speakers gracefully
+
 - M2 — Modernize `EventCard` and event list
   - Status: todo
   - Branch: `feature/ui-refactor-eventcard`
@@ -117,7 +172,98 @@ Conventions
   - Steps:
     1. Add `CONTRIBUTING.md` with setup, coding style, and PR process.
 
+### P2
+- M11 — Import Screen UI Polish
+  - Status: todo
+  - Branch: `feature/import-ui-polish`
+  - Steps:
+    1. Redesign import_calendar_screen.dart layout for better visual hierarchy
+    2. Center the calendar icon and "Import Calendar" text properly  
+    3. Improve spacing and alignment of all UI elements
+    4. Add subtle animations or micro-interactions for professional feel
+    5. Consider replacing hero section with cleaner, more focused design
+  - Notes: Focus on professional appearance while maintaining Material 3 consistency
+
+- M8 — Event Insights Dashboard
+  - Status: todo
+  - Branch: `feature/event-insights-dashboard`
+  - Steps:
+    1. Create new insights screen/tab showing event statistics
+    2. Implement time per topic analysis (duration calculations)
+    3. Add frequent words analysis from event titles/descriptions
+    4. Create visualizations (charts/graphs) using Flutter charts library
+    5. Add export functionality for insights data
+  - Notes: Consider using fl_chart package for visualizations
+
+- M13 — Enhanced Insights & Visualizations
+  - Branch: `feature/enhanced-insights`
+  - Goal: Improve data visualization with word heatmaps, better charts, and more explorable analytics
+  - Priority: P1
+  - Status: done
+  - Estimate: 3-4h
+  - Completed: 2025-09-24 - Added interactive topic cloud with tap-to-explore, 24-hour schedule heatmap
+
+- M14 — Calendar Export Integration
+  - Branch: `feature/calendar-export`
+  - Goal: Export selected events to Google Calendar and Apple Calendar
+  - Priority: P1  
+  - Status: todo
+  - Estimate: 4-5h
+  - Steps:
+    1. Add calendar export packages (google_calendar_api, add_2_calendar)
+    2. Create export service for generating ICS files from selected events
+    3. Add "Export to Calendar" button in My Agenda screen
+    4. Implement Google Calendar API integration for direct export
+    5. Add iOS calendar integration using EventKit
+    6. Handle authentication and permissions gracefully
+
+- M15 — App Bar & Branding Polish
+  - Branch: `feature/appbar-branding`
+  - Goal: Add TPE logo to app bar, improve title styling, enhance overall branding
+  - Priority: P2
+  - Status: todo
+  - Estimate: 1-2h
+
+- M16 — Event Card UX Enhancements
+  - Branch: `feature/event-card-ux`
+  - Goal: Add live event indicators, time-until-event display, swipe actions
+  - Priority: P2
+  - Status: todo
+  - Estimate: 2-3h
+
+- M17 — Micro-Interactions & Polish
+  - Branch: `feature/micro-interactions`
+  - Goal: Add pull-to-refresh, loading skeletons, button animations, haptic feedback
+  - Priority: P3
+  - Status: todo
+  - Estimate: 2-3h
+
 ### P3 / Future ideas
+- M12 — Fun Tab Enhancements
+  - Status: done
+  - Branch: `feature/fun-tab-enhancements`
+  - Completed: 2025-09-24 - Rebranded to Fun tab, added AI product name generator
+  - Steps:
+    1. Rename "AI Generator" tab to "Fun" in navigation and screen titles
+    2. Update tab icon from auto_awesome to something more fun (e.g., sports_esports)
+    3. Add AI Product Name Generator section to the Fun tab
+    4. Analyze event descriptions to extract problem statements and topics
+    5. Generate creative product names based on identified problems/solutions
+    6. Include product tagline generation with the product names
+    7. Add sharing/copy functionality for generated product ideas
+  - Notes: Make product generator feel like a separate "tool" within the Fun tab alongside talk generator
+
+- M9 — AI Talk Proposal Generator
+  - Status: todo
+  - Branch: `feature/ai-talk-generator`
+  - Steps:
+    1. Analyze existing event data to determine themes/topics
+    2. Create AI-powered title generator based on patterns
+    3. Add user input form for name and preferences
+    4. Implement fun, professional-looking proposal generator UI
+    5. Add sharing/export functionality for generated proposals
+  - Notes: Use simple text generation algorithms or consider integrating with AI APIs
+
 - Dark mode polish and dynamic color extraction (Material You) — P3
 - Sticky day headers in event list, timeline view — P3
 - Pagination/virtual list for very large calendars — P3
@@ -132,6 +278,8 @@ Conventions
 
 
 ## Recent activity
+- 2025-09-24: Completed M7-M9 UX improvements. Added M10-M12 for speaker data, import UI polish, and Fun tab enhancements.
+- 2025-09-24: Added UX improvements phase 1 - smart views, day grouping, and time-based filtering. Added M8 (Event Insights) and M9 (AI Talk Generator) to roadmap.
 - 2025-09-23: Created backlog and initial branches: `feature/optimize-screenshots`, `feature/add-contributing`, `feature/ci-workflow`.
 
 ---

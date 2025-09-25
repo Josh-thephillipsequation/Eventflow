@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:icalendar_parser/icalendar_parser.dart';
@@ -56,6 +55,41 @@ class CalendarService {
           final title = (component['summary'] as String?) ?? 'Untitled Event';
           final description = (component['description'] as String?) ?? '';
           final location = (component['location'] as String?) ?? '';
+          
+          // Extract speaker/organizer information
+          String speaker = '';
+          
+          // Try multiple field names that might contain speaker info
+          final speakerFields = ['organizer', 'ORGANIZER', 'attendee', 'ATTENDEE'];
+          
+          for (final field in speakerFields) {
+            if (component[field] != null) {
+              final fieldValue = component[field].toString();
+              
+              // Extract name from various formats
+              RegExp cnRegex = RegExp(r'CN=([^;,]+)', caseSensitive: false);
+              final cnMatch = cnRegex.firstMatch(fieldValue);
+              if (cnMatch != null) {
+                speaker = cnMatch.group(1)?.trim().replaceAll('"', '') ?? '';
+                break;
+              }
+              
+              // If no CN format, try to use the value directly if it looks like a name
+              if (speaker.isEmpty && !fieldValue.contains('@') && fieldValue.length < 50) {
+                speaker = fieldValue.trim().replaceAll('"', '');
+                break;
+              }
+            }
+          }
+          
+          // Fallback: try to extract from description if it mentions a speaker
+          if (speaker.isEmpty && description.isNotEmpty) {
+            final speakerMatch = RegExp(r'(?:Speaker|Presenter|By):?\s*([^\n,;]+)', caseSensitive: false)
+                .firstMatch(description);
+            if (speakerMatch != null) {
+              speaker = speakerMatch.group(1)?.trim() ?? '';
+            }
+          }
 
           events.add(CalendarEvent(
             uid: uid,
@@ -64,6 +98,7 @@ class CalendarService {
             startTime: start,
             endTime: end,
             location: location,
+            speaker: speaker,
           ));
         } catch (_) {
           // Skip malformed components
