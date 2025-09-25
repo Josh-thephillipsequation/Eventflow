@@ -1,0 +1,86 @@
+<svg width="375" height="812" viewBox="0 0 375 812" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="launchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6750A4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="375" height="812" fill="url(#launchGrad)"/>
+  
+  <!-- Main content centered -->
+  <g transform="translate(187.5, 406)">
+    <!-- App Icon -->
+    <g transform="translate(0, -40)">
+      <!-- Icon background circle -->
+      <rect x="-45" y="-45" width="90" height="90" rx="20" fill="white" opacity="0.95"/>
+      
+      <!-- Simplified calendar icon -->
+      <rect x="-25" y="-25" width="50" height="40" rx="4" fill="#6750A4"/>
+      
+      <!-- Calendar header -->
+      <rect x="-25" y="-25" width="50" height="12" rx="4" fill="#6750A4"/>
+      <rect x="-25" y="-18" width="50" height="3" fill="#6750A4"/>
+      
+      <!-- Calendar binding holes -->
+      <circle cx="-15" cy="-20" r="2" fill="white"/>
+      <circle cx="-5" cy="-20" r="2" fill="white"/>
+      <circle cx="5" cy="-20" r="2" fill="white"/>
+      <circle cx="15" cy="-20" r="2" fill="white"/>
+      
+      <!-- Calendar dots -->
+      <g fill="white" opacity="0.8">
+        <circle cx="-15" cy="-8" r="2"/>
+        <circle cx="-5" cy="-8" r="2"/>
+        <circle cx="5" cy="-8" r="2"/>
+        <circle cx="15" cy="-8" r="2"/>
+        
+        <circle cx="-15" cy="2" r="2"/>
+        <circle cx="-5" cy="2" r="2"/>
+        <circle cx="5" cy="2" r="2"/>
+        <circle cx="15" cy="2" r="2"/>
+        
+        <circle cx="-15" cy="12" r="2"/>
+        <circle cx="-5" cy="12" r="2"/>
+        <circle cx="5" cy="12" r="2"/>
+        <circle cx="15" cy="12" r="2"/>
+      </g>
+      
+      <!-- Highlighted events -->
+      <g fill="#E8DEF8">
+        <circle cx="-5" cy="-8" r="2"/>
+        <circle cx="15" cy="2" r="2"/>
+        <circle cx="5" cy="12" r="2"/>
+      </g>
+    </g>
+    
+    <!-- App Name -->
+    <text x="0" y="80" text-anchor="middle" fill="white" font-family="system-ui, -apple-system" font-size="32" font-weight="600">EventFlow</text>
+    
+    <!-- Company branding section -->
+    <g transform="translate(0, 140)">
+      <!-- "by" text -->
+      <text x="0" y="-10" text-anchor="middle" fill="white" font-family="system-ui, -apple-system" font-size="12" font-weight="400" opacity="0.8">by</text>
+      
+      <!-- Company logo placeholder (would be replaced with actual logo in implementation) -->
+      <rect x="-20" y="5" width="40" height="20" rx="4" fill="white" opacity="0.9"/>
+      <text x="0" y="18" text-anchor="middle" fill="#6750A4" font-family="system-ui, -apple-system" font-size="8" font-weight="600">TPE</text>
+      
+      <!-- Company name -->
+      <text x="0" y="40" text-anchor="middle" fill="white" font-family="system-ui, -apple-system" font-size="11" font-weight="400" opacity="0.8">thephillipsequation llc</text>
+      <text x="0" y="55" text-anchor="middle" fill="white" font-family="system-ui, -apple-system" font-size="10" font-weight="300" opacity="0.6">www.thephillipsequation.com</text>
+    </g>
+  </g>
+  
+  <!-- Subtle pattern overlay -->
+  <g opacity="0.1" fill="white">
+    <circle cx="50" cy="100" r="2"/>
+    <circle cx="325" cy="150" r="2"/>
+    <circle cx="100" cy="700" r="2"/>
+    <circle cx="300" cy="650" r="2"/>
+    <circle cx="75" cy="400" r="1.5"/>
+    <circle cx="300" cy="450" r="1.5"/>
+  </g>
+</svg>

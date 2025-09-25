@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- EventFlow Launch Screen -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background gradient -->
     <item>
-        <bitmap android:gravity="fill" android:src="@drawable/background"/>
+        <shape>
+            <gradient
+                android:startColor="#6750A4"
+                android:endColor="#8B5CF6"
+                android:angle="135" />
+        </shape>
     </item>
+
+    <!-- EventFlow branding -->
     <item>
-        <bitmap android:gravity="center" android:src="@drawable/splash"/>
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/launch_image" />
     </item>
 </layer-list>
