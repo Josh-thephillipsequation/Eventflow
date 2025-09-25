@@ -124,4 +124,10 @@ class EventProvider extends ChangeNotifier {
     _errorMessage = '';
     notifyListeners();
   }
+
+  // Test helper method - only for testing
+  void addEventsForTesting(List<CalendarEvent> events) {
+    _allEvents.addAll(events);
+    notifyListeners();
+  }
 }

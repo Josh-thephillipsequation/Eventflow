@@ -6,7 +6,7 @@ import '../models/calendar_event.dart';
 class CalendarService {
   Future<List<CalendarEvent>> parseCalendarFromFile(File file) async {
     final contents = await file.readAsString();
-    return _parseICalendarContent(contents);
+    return parseICalendarContent(contents);
   }
 
   Future<List<CalendarEvent>> parseCalendarFromUrl(String url) async {
@@ -18,7 +18,7 @@ class CalendarService {
       }
       final response = await http.get(Uri.parse(fetchUrl));
       if (response.statusCode == 200) {
-        return _parseICalendarContent(response.body);
+        return parseICalendarContent(response.body);
       } else {
         throw Exception('Failed to fetch calendar from URL: ${response.statusCode}');
       }
@@ -27,7 +27,7 @@ class CalendarService {
     }
   }
 
-  List<CalendarEvent> _parseICalendarContent(String content) {
+  List<CalendarEvent> parseICalendarContent(String content) {
     final List<CalendarEvent> events = [];
     
     try {

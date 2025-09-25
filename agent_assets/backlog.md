@@ -172,7 +172,46 @@ Conventions
   - Steps:
     1. Add `CONTRIBUTING.md` with setup, coding style, and PR process.
 
+### P0 (Critical)
+- M18 — Core CI/Testing Foundation
+  - Status: todo
+  - Branch: `feature/core-ci-testing`
+  - Steps:
+    1. Enhanced GitHub Actions workflow with comprehensive Flutter testing
+    2. Unit tests for CalendarEvent, EventProvider, CalendarService
+    3. Widget tests for EventCard, all screen components  
+    4. Code coverage reporting with lcov output
+    5. Test report generation in `test_reports/` directory with agent-readable format
+    6. Failed test instructions in `AGENT_FEEDBACK.md` for human-to-agent communication
+    7. Build verification for iOS/Android on multiple Flutter versions
+  - Notes: Test reports must be parseable by agents for automated fixes
+
+### P1 (High Priority)  
+- M19 — UI/UX Testing Suite
+  - Status: todo
+  - Branch: `feature/ui-ux-testing`
+  - Steps:
+    1. Golden tests for all screens to detect UI regressions
+    2. Integration tests for complete user flows (import → filter → select → generate)
+    3. Accessibility testing with semantic labels and screen reader compatibility
+    4. Cross-screen navigation tests ensuring tab functionality
+    5. Performance tests for large calendar imports (1000+ events)
+    6. Error state testing for network failures and invalid files
+  - Notes: Generate visual diff reports when golden tests fail
+
 ### P2
+- M20 — Advanced Testing & Automation
+  - Status: todo
+  - Branch: `feature/advanced-testing`
+  - Steps:
+    1. Automated iOS/Android build verification on multiple devices
+    2. Memory leak detection and performance profiling
+    3. TestFlight automation for beta distribution
+    4. App Store compliance validation (metadata, icons, privacy)
+    5. Load testing with various calendar sizes and formats
+    6. Security testing automation for injected vulnerabilities
+  - Notes: Full deployment pipeline with rollback capabilities
+
 - M11 — Import Screen UI Polish
   - Status: todo
   - Branch: `feature/import-ui-polish`
@@ -237,6 +276,27 @@ Conventions
   - Priority: P3
   - Status: todo
   - Estimate: 2-3h
+
+- M18 — Core CI/Testing Foundation
+  - Branch: `feature/core-ci-testing`
+  - Goal: Implement regression testing fundamentals with agent-readable reports
+  - Priority: P0
+  - Status: todo
+  - Estimate: 3-4h
+
+- M19 — UI/UX Testing Suite
+  - Branch: `feature/ui-ux-testing`
+  - Goal: Golden tests, integration tests, and accessibility validation
+  - Priority: P1
+  - Status: todo
+  - Estimate: 4-5h
+
+- M20 — Advanced Testing & Automation
+  - Branch: `feature/advanced-testing`
+  - Goal: Performance testing, cross-device validation, automated deployments
+  - Priority: P2
+  - Status: todo
+  - Estimate: 5-6h
 
 ### P3 / Future ideas
 - M12 — Fun Tab Enhancements
