@@ -21,6 +21,12 @@ void main() {
         if (methodCall.method == 'setString') {
           return true;
         }
+        if (methodCall.method == 'remove') {
+          return true;
+        }
+        if (methodCall.method == 'clear') {
+          return true;
+        }
         return null;
       });
       
@@ -82,9 +88,11 @@ void main() {
     });
 
     test('should return events by priority correctly', () {
-      testEvent1.isSelected = true;
-      testEvent2.isSelected = true;
       eventProvider.addEventsForTesting([testEvent1, testEvent2]);
+      
+      // Select the events using the provider method
+      eventProvider.toggleEventSelection(testEvent1);
+      eventProvider.toggleEventSelection(testEvent2);
       
       final selectedEvents = eventProvider.getEventsByPriority();
       
@@ -95,9 +103,10 @@ void main() {
     });
 
     test('should return only selected events', () {
-      testEvent1.isSelected = true;
-      testEvent2.isSelected = false;
       eventProvider.addEventsForTesting([testEvent1, testEvent2]);
+      
+      // Select only the first event
+      eventProvider.toggleEventSelection(testEvent1);
       
       final selectedEvents = eventProvider.getEventsByPriority();
       

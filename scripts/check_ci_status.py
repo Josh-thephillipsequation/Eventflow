@@ -4,11 +4,13 @@ GitHub Actions Status Checker for Amp Integration
 Polls GitHub Actions API to detect CI failures and generate Amp feedback
 """
 
-import requests
 import json
 import os
 import time
+import subprocess
 from datetime import datetime
+from urllib.request import urlopen
+from urllib.error import URLError
 
 def check_github_actions_status():
     """Check GitHub Actions status for the current repository"""
@@ -27,10 +29,13 @@ def check_github_actions_status():
             "per_page": 5
         }
         
-        response = requests.get(api_url, params=params)
+        # Build URL with parameters
+        url = f"{api_url}?branch={branch}&per_page=5"
         
-        if response.status_code == 200:
-            runs = response.json().get('workflow_runs', [])
+        with urlopen(url) as response:
+            if response.status == 200:
+                data = json.loads(response.read().decode())
+                runs = data.get('workflow_runs', [])
             
             if not runs:
                 print("📭 No recent workflow runs found")
@@ -50,8 +55,8 @@ def check_github_actions_status():
             else:
                 print(f"⏳ CI in progress: {status}")
                 
-        else:
-            print(f"❌ Failed to fetch CI status: {response.status_code}")
+        except URLError as e:
+            print(f"❌ Failed to fetch CI status: {e}")
             
     except Exception as e:
         print(f"❌ Error checking CI status: {e}")

@@ -8,6 +8,24 @@ Conventions
 - Branch: use the suggested branch name when creating a branch for the task
 - Estimate: rough hours
 
+## 🎯 **Target State: Complete Automation Pipeline**
+
+**Mission**: Build automated pipeline from agent interaction to App Store publication while waiting for Apple Developer Account approval.
+
+**Pipeline Flow**:
+```
+Agent Changes → Local Testing → GitHub Actions → iOS Build → TestFlight → App Store
+     ↓              ↓              ↓             ↓           ↓            ↓
+  VS Code      Pre-push CI    Automated      Code Signing  Beta Test   Production
+  Tasks        Validation     Feedback       & IPA Build   Upload      Release
+```
+
+**Success Criteria**: 
+- ✅ Zero manual intervention from code change to App Store
+- ✅ Automated feedback loops for all failure points
+- ✅ Agent can read, fix, and verify issues automatically
+- ✅ Production-ready deployment pipeline
+
 ## Epics / Milestones
 
 - M1 — Material 3 theme + fonts
@@ -172,9 +190,61 @@ Conventions
   - Steps:
     1. Add `CONTRIBUTING.md` with setup, coding style, and PR process.
 
-### P0 (Critical)
-- M18 — Core CI/Testing Foundation
+### P0 (Mission Critical - App Store Automation Pipeline)
+- M21 — Automated CI Feedback Loop (Zero Manual Intervention)
+  - Branch: `feature/automated-ci-feedback`
+  - Goal: Fully automated GitHub Actions feedback to agents without any manual steps
+  - Priority: P0
   - Status: todo
+  - Estimate: 2-3h
+  - Steps:
+    1. GitHub API integration for automated CI log fetching and analysis
+    2. Real-time failure notification system with intelligent error extraction
+    3. Automated AGENT_FEEDBACK.md generation from live CI data
+    4. Local CI runner script for pre-push validation and issue prevention
+    5. VS Code task integration for seamless agent workflow automation
+
+- M22 — Complete Test Suite & CI Stability  
+  - Branch: `feature/stable-ci-tests`
+  - Goal: Achieve 100% CI pass rate and fix all current test failures
+  - Priority: P0
+  - Status: todo
+  - Estimate: 3-4h
+  - Steps:
+    1. Fix EventProvider async loading and state management test issues
+    2. Resolve widget test timing problems (splash screen, provider lifecycle)
+    3. Fix UI overflow issues detected during automated testing
+    4. Add proper test isolation, cleanup, and SharedPreferences mocking
+    5. Achieve stable 100% test pass rate both locally and in GitHub Actions
+
+- M23 — Automated iOS Build & Distribution Pipeline
+  - Branch: `feature/ios-build-automation`
+  - Goal: Automated iOS builds with TestFlight distribution on successful CI
+  - Priority: P0
+  - Status: todo
+  - Estimate: 4-5h
+  - Steps:
+    1. Configure GitHub Actions with macOS runners for iOS build environment
+    2. Implement code signing automation with certificates and provisioning profiles
+    3. Automated IPA generation and validation on successful test runs
+    4. TestFlight upload automation via App Store Connect API integration
+    5. Beta distribution pipeline for stakeholder testing and feedback
+
+- M24 — App Store Connect Full Automation
+  - Branch: `feature/appstore-automation`
+  - Goal: Complete pipeline from agent changes to App Store submission
+  - Priority: P0
+  - Status: todo
+  - Estimate: 5-6h
+  - Steps:
+    1. App Store Connect API integration for metadata and asset management
+    2. Automated screenshot generation and App Store preview asset creation
+    3. Version bump automation based on semantic commits and PR merges
+    4. Automated App Store submission with release notes and review information
+    5. Production release pipeline triggered by main branch stable releases
+
+- M18 — Core CI/Testing Foundation
+  - Status: in-progress
   - Branch: `feature/core-ci-testing`
   - Steps:
     1. Enhanced GitHub Actions workflow with comprehensive Flutter testing
@@ -337,8 +407,30 @@ Conventions
 - When the PR merges, set `Status: done` and add the merge commit or PR link.
 
 
+## 🚀 **App Store Automation Roadmap**
+
+### **Phase 1: Foundation (M21-M22) - Days 1-2**
+- **M21**: Automated CI feedback (no manual pasting)
+- **M22**: 100% stable test suite and CI pass rate
+- **Outcome**: Reliable foundation for automated pipeline
+
+### **Phase 2: Build Automation (M23) - Days 3-4**  
+- **M23**: iOS build automation with TestFlight distribution
+- **Outcome**: Automated builds ready for beta testing
+
+### **Phase 3: App Store Integration (M24) - Days 5-6**
+- **M24**: Complete App Store Connect automation  
+- **Outcome**: Full pipeline from agent to App Store
+
+### **Dependencies & Blockers**
+- **M21 → M22**: Need automated feedback before stabilizing tests
+- **M22 → M23**: Need stable CI before automated builds
+- **M23 → M24**: Need working builds before App Store automation
+- **Apple Dev Account**: Required for M23-M24 (TestFlight + App Store submission)
+
 ## Recent activity
-- 2025-09-24: Completed M7-M9 UX improvements. Added M10-M12 for speaker data, import UI polish, and Fun tab enhancements.
+- 2025-09-24: **MISSION CRITICAL**: Added P0 App Store automation pipeline (M21-M24) for complete CI/CD to production
+- 2025-09-24: Completed M7-M13 UX improvements. Added M10-M12 for speaker data, import UI polish, and Fun tab enhancements.
 - 2025-09-24: Added UX improvements phase 1 - smart views, day grouping, and time-based filtering. Added M8 (Event Insights) and M9 (AI Talk Generator) to roadmap.
 - 2025-09-23: Created backlog and initial branches: `feature/optimize-screenshots`, `feature/add-contributing`, `feature/ci-workflow`.
 
