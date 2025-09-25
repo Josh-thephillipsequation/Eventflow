@@ -1,0 +1,24 @@
+title: EventFlow
+description: Conference agenda management app built in 36 hours with Amp AI
+theme: minima
+url: "https://josh-thephillipsequation.github.io"
+baseurl: "/Eventflow"
+
+# SEO
+author: thephillipsequation llc
+twitter:
+  username: thephillipsequation
+  card: summary_large_image
+
+# GitHub Pages settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
