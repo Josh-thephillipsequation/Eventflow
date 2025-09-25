@@ -27,6 +27,7 @@ class _FunScreenState extends State<FunScreen> {
   List<String> _bingoSquares = [];
   List<bool> _bingoMarked = [];
   bool _isGeneratingBingo = false;
+  bool _hasBingo = false;
   
   final Random _random = Random();
 
@@ -343,6 +344,11 @@ class _FunScreenState extends State<FunScreen> {
                                       final realIndex = index < 12 ? index : index - 1;
                                       _bingoMarked[realIndex] = !_bingoMarked[realIndex];
                                     });
+                                    
+                                    // Check for bingo after marking
+                                    if (!_hasBingo && _checkForBingo()) {
+                                      _celebrateBingo();
+                                    }
                                   },
                                   child: Container(
                                     decoration: BoxDecoration(
@@ -919,6 +925,7 @@ class _FunScreenState extends State<FunScreen> {
   void _generateBingo(List<CalendarEvent> events) {
     setState(() {
       _isGeneratingBingo = true;
+      _hasBingo = false;
     });
 
     Future.delayed(const Duration(milliseconds: 800), () {
@@ -927,6 +934,7 @@ class _FunScreenState extends State<FunScreen> {
         _bingoSquares = bingo;
         _bingoMarked = List.filled(24, false); // 24 squares (excluding center FREE)
         _isGeneratingBingo = false;
+        _hasBingo = false;
       });
     });
   }
@@ -983,6 +991,96 @@ class _FunScreenState extends State<FunScreen> {
     Clipboard.setData(ClipboardData(text: content));
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Bingo card copied to clipboard!')),
+    );
+  }
+
+  bool _checkForBingo() {
+    if (_bingoMarked.length != 24) return false;
+    
+    // Convert to 5x5 grid (excluding center which is always marked)
+    List<List<bool>> grid = List.generate(5, (row) => List.generate(5, (col) {
+      final index = row * 5 + col;
+      if (index == 12) return true; // Center FREE square
+      return _bingoMarked[index < 12 ? index : index - 1];
+    }));
+    
+    // Check rows
+    for (int row = 0; row < 5; row++) {
+      if (grid[row].every((marked) => marked)) return true;
+    }
+    
+    // Check columns
+    for (int col = 0; col < 5; col++) {
+      if (List.generate(5, (row) => grid[row][col]).every((marked) => marked)) return true;
+    }
+    
+    // Check diagonals
+    if (List.generate(5, (i) => grid[i][i]).every((marked) => marked)) return true;
+    if (List.generate(5, (i) => grid[i][4-i]).every((marked) => marked)) return true;
+    
+    return false;
+  }
+
+  void _celebrateBingo() {
+    setState(() {
+      _hasBingo = true;
+    });
+    
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            const Text('🎉'),
+            const SizedBox(width: 8),
+            Text(
+              'BINGO!',
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+            const SizedBox(width: 8),
+            const Text('🎉'),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('🏆', style: TextStyle(fontSize: 48)),
+            const SizedBox(height: 16),
+            Text(
+              'Congratulations!',
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'You got a bingo! Time to celebrate your conference achievements.',
+              style: Theme.of(context).textTheme.bodyMedium,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              // Generate new bingo card
+              final events = Provider.of<EventProvider>(context, listen: false).allEvents;
+              _generateBingo(events);
+            },
+            child: const Text('New Game'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Keep Playing'),
+          ),
+        ],
+      ),
     );
   }
 
