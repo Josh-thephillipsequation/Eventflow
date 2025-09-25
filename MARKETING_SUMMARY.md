@@ -1,8 +1,8 @@
 # EventFlow: 36 Hours, One AI Agent, Full iOS App
 
-Just shipped EventFlow, a conference agenda management app, in 36 hours using Amp. Still waiting on Apple to approve my dev account for App Store publication, but the app is feature-complete and running perfectly.
+Just vibe coded EventFlow, a conference agenda management app, in 36 hours using Amp. Still waiting on Apple to approve my dev account for App Store publication, but the app is feature-complete and running perfectly.
 
-## What Amp Built
+## What We Built
 
 EventFlow handles the full conference experience: ICS calendar import, smart timezone conversion, event analytics, AI-powered content generators, and Material 3 UI throughout. It extracts speaker data, groups events by day with visual indicators, provides priority management, and includes expandable event cards with full details.
 
@@ -16,6 +16,6 @@ The difference is Amp's ability to understand how changes propagate through a co
 
 ## Thanks
 
-Huge thanks to Steve Yegge, Brady Jeong, and the entire Amp team at Sourcegraph for building something that fundamentally changes how software gets made—and for putting up with all my questions along the way.
+Huge thanks to Steve Yegge, Brady Jeong, Travis Lyons the entire Amp team at Sourcegraph for building something that fundamentally changes how software gets made—and for putting up with all my questions along the way.
 
 *Built by thephillipsequation llc using Flutter and Amp AI*
