@@ -1,3 +1,9 @@
+---
+ai:
+  include_by_default: false
+  weight: 0.1
+---
+
 # EventFlow App Store Final Submission Checklist
 
 ## 🎉 Automation Completed Successfully!

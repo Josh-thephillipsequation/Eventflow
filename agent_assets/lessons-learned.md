@@ -1,3 +1,8 @@
+---
+ai.include_by_default: false
+ai.weight: 0.2
+---
+
 # Lessons Learned & Technical Insights
 
 ## 🧠 **Critical Knowledge for Next Agent**

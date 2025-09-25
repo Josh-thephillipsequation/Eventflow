@@ -1,3 +1,9 @@
+---
+ai:
+  include_by_default: false
+  weight: 0.1
+---
+
 # Release Checklist — Conference Agenda Tracker
 
 This file is a step-by-step checklist to prepare and publish a release of the Conference Agenda Tracker iOS app (TestFlight and App Store). It is written to be followed from a development machine with Xcode and Flutter installed.

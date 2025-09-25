@@ -1,3 +1,9 @@
+---
+ai:
+  include_by_default: false
+  weight: 0.2
+---
+
 # 🚨 Amp: Live GitHub Actions Failure - Fix Required
 
 ## Real CI Failure Report - 2025-09-24

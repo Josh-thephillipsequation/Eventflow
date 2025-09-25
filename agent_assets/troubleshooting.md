@@ -1,3 +1,9 @@
+---
+ai.include_by_default: false
+ai.profiles: [debugging]
+ai.weight: 0.3
+---
+
 # Troubleshooting Guide for Agents
 
 ## 🚨 **Common Issues & Quick Fixes**

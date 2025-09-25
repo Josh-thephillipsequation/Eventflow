@@ -1,3 +1,8 @@
+---
+ai.include_by_default: false
+ai.weight: 0.2
+---
+
 # Quick Wins for Next Agent - Build Momentum
 
 ## 🚀 **Immediate Success Tasks (15-30 minutes each)**

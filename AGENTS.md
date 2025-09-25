@@ -1,4 +1,16 @@
+---
+ai.include_by_default: false
+ai.weight: 0.1
+---
+
 # AGENTS.md - Development Guide for EventFlow
+
+> **⚠️ DEPRECATION NOTICE**: This file has been restructured for better agent context management.  
+> **Use AGENTS_TLDR.md instead** for agent handoffs and current context.  
+> **See agents/README.md** for the new documentation structure.  
+> This file is kept for reference only.
+
+---
 
 This file provides comprehensive guidance for AI agents working on EventFlow. **CRITICAL**: We are currently building a mission-critical automated CI/CD pipeline from agent interaction to App Store publication.
 
@@ -35,7 +47,7 @@ Agent Changes → Local Testing → GitHub Actions → iOS Build → TestFlight 
 2. **Check [`agent_assets/backlog.md`](agent_assets/backlog.md)** before starting any work
 3. **Create separate branches** for each milestone/feature using suggested branch names
 4. **Update task status** as you progress: `todo` → `in-progress` → `review` → `done`
-5. **Human-in-the-loop testing**: Deploy each completed feature to iPhone for testing before moving to next feature
+5. **Human-in-the-loop testing**: Deploy each completed feature to iPhone for testing before moving to next feature using `flutter run --release -d "00008140-0002248A0E12801C"`
 6. **CRITICAL: No feature is complete unless CI tests pass** - Run GitHub Actions locally before pushing
 7. **Add completion notes** with date and key changes when marking items `done`
 
@@ -112,7 +124,7 @@ lib/
 - **Widget tests** for UI components
 - **Unit tests** for business logic
 - **Integration tests** for key user flows
-- **Human-in-the-loop testing**: Deploy each feature to iPhone for real-world validation
+- **Human-in-the-loop testing**: Deploy each feature to iPhone for real-world validation using `flutter run --release -d "00008140-0002248A0E12801C"`
 - **CRITICAL: No feature is complete unless CI tests pass** - Run GitHub Actions locally before pushing
 - **GitHub Actions locally**: Use `act` or run test commands before pushing
 - Run tests with: `flutter test`
@@ -121,6 +133,9 @@ lib/
 
 ### Build & Run
 ```bash
+# PREFERRED: Deploy to iPhone for wireless usage (human-in-the-loop testing)
+flutter run --release -d "00008140-0002248A0E12801C"
+
 # Run on device/simulator
 flutter run
 
@@ -294,9 +309,11 @@ flutter pub run flutter_native_splash:create
 - **Auto Feedback:** `python3 scripts/auto_ci_feedback.py`
 
 **🔍 HANDOFF VALIDATION:**
-- **Verify Readiness:** `./scripts/validate_handoff.sh`
+- **Verify Readiness:** `./scripts/validate_handoff.sh` (must show 99%+ before starting)
 - **Quick Wins:** `agent_assets/quick-wins.md` (momentum building)
 - **Current Issues:** `AGENT_FEEDBACK.md` (specific failures to fix)
+
+**⚠️ CRITICAL**: Next agent must run `./scripts/validate_handoff.sh` FIRST - if it doesn't show 99%+ confidence, fix issues before starting work.
 
 ---
 

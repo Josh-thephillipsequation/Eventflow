@@ -1,3 +1,9 @@
+---
+ai:
+  include_by_default: false
+  weight: 0.1
+---
+
 # Agent Handoff Verification Checklist
 
 ## ✅ **Handoff Completeness Check**
