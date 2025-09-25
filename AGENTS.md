@@ -16,7 +16,8 @@ This file provides guidance for AI agents and developers working on the EventFlo
 2. **Check [`agent_assets/backlog.md`](agent_assets/backlog.md)** before starting any work
 3. **Create separate branches** for each milestone/feature using suggested branch names
 4. **Update task status** as you progress: `todo` → `in-progress` → `review` → `done`
-5. **Add completion notes** with date and key changes when marking items `done`
+5. **Human-in-the-loop testing**: Deploy each completed feature to iPhone for testing before moving to next feature
+6. **Add completion notes** with date and key changes when marking items `done`
 
 ### Priority Levels
 - **P0:** Blocking/critical issues
@@ -87,6 +88,7 @@ lib/
 - **Widget tests** for UI components
 - **Unit tests** for business logic
 - **Integration tests** for key user flows
+- **Human-in-the-loop testing**: Deploy each feature to iPhone for real-world validation
 - Run tests with: `flutter test`
 
 ## Development Commands

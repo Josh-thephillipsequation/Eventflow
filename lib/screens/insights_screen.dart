@@ -255,23 +255,60 @@ class _InsightsScreenState extends State<InsightsScreen> {
             ),
             const SizedBox(height: 16),
             
-            // Peak hours
+            // Peak hours - Visual timeline
             if (hourlyDist.isNotEmpty) ...[
               Text(
-                'Peak Hours',
+                'Daily Schedule Heatmap',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
+              const SizedBox(height: 12),
+              Container(
+                height: 60,
+                child: Row(
+                  children: List.generate(24, (hour) {
+                    final count = hourlyDist[hour] ?? 0;
+                    final maxHourly = hourlyDist.values.isNotEmpty ? hourlyDist.values.reduce((a, b) => a > b ? a : b) : 1;
+                    final intensity = count / maxHourly;
+                    
+                    return Expanded(
+                      child: GestureDetector(
+                        onTap: count > 0 ? () => _showHourDetails(context, hour, count) : null,
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 1),
+                          decoration: BoxDecoration(
+                            color: count > 0 
+                                ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.2 + (intensity * 0.6))
+                                : Theme.of(context).colorScheme.surfaceContainerHighest,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              if (count > 0)
+                                Text(
+                                  count.toString(),
+                                  style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                                ),
+                              const SizedBox(height: 4),
+                              Text(
+                                '${hour.toString().padLeft(2, '0')}',
+                                style: const TextStyle(fontSize: 8),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  }),
+                ),
+              ),
               const SizedBox(height: 8),
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: hourlyDist.entries
-                    .where((e) => e.value > 1)
-                    .map((e) => Chip(
-                          label: Text('${DateFormat('h a').format(DateTime(2025, 1, 1, e.key))} (${e.value})'),
-                          backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-                        ))
-                    .toList(),
+              Text(
+                'Tap any hour to see events • Darker = More Events',
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
               const SizedBox(height: 16),
             ],
@@ -317,6 +354,8 @@ class _InsightsScreenState extends State<InsightsScreen> {
       return const SizedBox.shrink();
     }
     
+    final maxCount = topWords.isNotEmpty ? topWords.first.value : 1;
+    
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -325,31 +364,197 @@ class _InsightsScreenState extends State<InsightsScreen> {
           children: [
             Row(
               children: [
-                Icon(Icons.text_fields, color: Theme.of(context).colorScheme.primary),
+                Icon(Icons.cloud_rounded, color: Theme.of(context).colorScheme.primary),
                 const SizedBox(width: 8),
                 Text(
-                  'Frequent Topics',
+                  'Topic Cloud',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ],
             ),
             const SizedBox(height: 16),
+            
+            // Word heatmap/cloud with varying sizes
             Wrap(
               spacing: 8,
               runSpacing: 8,
               children: topWords
-                  .take(15)
-                  .map((entry) => Chip(
-                        label: Text('${entry.key} (${entry.value})'),
-                        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-                        labelStyle: TextStyle(
-                          color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  .take(20)
+                  .map((entry) {
+                    final intensity = entry.value / maxCount;
+                    final fontSize = 12 + (intensity * 6); // 12-18px range
+                    final opacity = 0.4 + (intensity * 0.6); // 0.4-1.0 opacity range
+                    
+                    return GestureDetector(
+                      onTap: () => _showWordDetails(context, entry.key, entry.value),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: opacity),
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(
+                            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
+                          ),
                         ),
-                      ))
+                        child: Text(
+                          '${entry.key} (${entry.value})',
+                          style: TextStyle(
+                            fontSize: fontSize,
+                            fontWeight: intensity > 0.7 ? FontWeight.bold : FontWeight.normal,
+                            color: Theme.of(context).colorScheme.onPrimaryContainer,
+                          ),
+                        ),
+                      ),
+                    );
+                  })
                   .toList(),
+            ),
+            
+            const SizedBox(height: 12),
+            Text(
+              'Tap any topic to see which events mention it',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+                fontStyle: FontStyle.italic,
+              ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _showWordDetails(BuildContext context, String word, int count) {
+    // Find events that mention this word
+    final provider = Provider.of<EventProvider>(context, listen: false);
+    final mentioningEvents = provider.allEvents.where((event) {
+      final text = '${event.title} ${event.description}'.toLowerCase();
+      return text.contains(word.toLowerCase());
+    }).toList();
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Events mentioning "$word"'),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Found in $count events:',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 12),
+              ...mentioningEvents.take(5).map((event) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Row(
+                  children: [
+                    Icon(Icons.event, size: 16, color: Theme.of(context).colorScheme.primary),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        event.title,
+                        style: Theme.of(context).textTheme.bodySmall,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+              )),
+              if (mentioningEvents.length > 5)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text(
+                    '...and ${mentioningEvents.length - 5} more events',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Close'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showHourDetails(BuildContext context, int hour, int count) {
+    final provider = Provider.of<EventProvider>(context, listen: false);
+    final hourEvents = provider.allEvents.where((event) {
+      return event.startTime.toLocal().hour == hour;
+    }).toList();
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Events at ${DateFormat('h a').format(DateTime(2025, 1, 1, hour))}'),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                '$count events start at this hour:',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 12),
+              ...hourEvents.take(5).map((event) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Row(
+                  children: [
+                    Icon(Icons.schedule, size: 16, color: Theme.of(context).colorScheme.primary),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            event.title,
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              fontWeight: FontWeight.w500,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          Text(
+                            DateFormat('MMM d').format(event.startTime.toLocal()),
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: Theme.of(context).colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )),
+              if (hourEvents.length > 5)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text(
+                    '...and ${hourEvents.length - 5} more events',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Close'),
+          ),
+        ],
       ),
     );
   }

@@ -124,6 +124,7 @@ class _EventsListScreenState extends State<EventsListScreen> {
                                   DropdownMenuItem(value: 'day', child: Text('By Day')),
                                   DropdownMenuItem(value: 'time', child: Text('By Time')),
                                   DropdownMenuItem(value: 'title', child: Text('By Title')),
+                                  DropdownMenuItem(value: 'speaker', child: Text('By Speaker')),
                                   DropdownMenuItem(value: 'priority', child: Text('By Priority')),
                                 ],
                                 onChanged: (value) {
@@ -324,7 +325,8 @@ class _EventsListScreenState extends State<EventsListScreen> {
       bool matchesSearch = _searchQuery.isEmpty ||
           event.title.toLowerCase().contains(_searchQuery.toLowerCase()) ||
           event.description.toLowerCase().contains(_searchQuery.toLowerCase()) ||
-          event.location.toLowerCase().contains(_searchQuery.toLowerCase());
+          event.location.toLowerCase().contains(_searchQuery.toLowerCase()) ||
+          event.speaker.toLowerCase().contains(_searchQuery.toLowerCase());
       
       // Time filter
       bool matchesTime = true;
@@ -350,6 +352,14 @@ class _EventsListScreenState extends State<EventsListScreen> {
     switch (_sortBy) {
       case 'title':
         filtered.sort((a, b) => a.title.compareTo(b.title));
+        break;
+      case 'speaker':
+        filtered.sort((a, b) {
+          // Sort by speaker, empty speakers go to end
+          if (a.speaker.isEmpty && b.speaker.isNotEmpty) return 1;
+          if (a.speaker.isNotEmpty && b.speaker.isEmpty) return -1;
+          return a.speaker.compareTo(b.speaker);
+        });
         break;
       case 'priority':
         filtered.sort((a, b) => a.priority.compareTo(b.priority));

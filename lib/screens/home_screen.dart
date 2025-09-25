@@ -5,7 +5,7 @@ import 'import_calendar_screen.dart';
 import 'events_list_screen.dart';
 import 'my_agenda_screen.dart';
 import 'insights_screen.dart';
-import 'talk_generator_screen.dart';
+import 'fun_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const EventsListScreen(),
     const MyAgendaScreen(),
     const InsightsScreen(),
-    const TalkGeneratorScreen(),
+    const FunScreen(),
   ];
 
   @override
@@ -95,8 +95,8 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Insights',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.auto_awesome),
-            label: 'AI Generator',
+            icon: Icon(Icons.extension_rounded),
+            label: 'Fun',
           ),
         ],
       ),

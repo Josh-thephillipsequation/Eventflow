@@ -5,6 +5,7 @@ class CalendarEvent {
   final DateTime startTime;
   final DateTime endTime;
   final String location;
+  final String speaker;
   bool isSelected;
   int priority; // 1-5, 1 being highest priority
 
@@ -15,6 +16,7 @@ class CalendarEvent {
     required this.startTime,
     required this.endTime,
     required this.location,
+    this.speaker = '',
     this.isSelected = false,
     this.priority = 3,
   });
@@ -27,6 +29,7 @@ class CalendarEvent {
       'startTime': startTime.toIso8601String(),
       'endTime': endTime.toIso8601String(),
       'location': location,
+      'speaker': speaker,
       'isSelected': isSelected,
       'priority': priority,
     };
@@ -40,6 +43,7 @@ class CalendarEvent {
       startTime: DateTime.parse(json['startTime']),
       endTime: DateTime.parse(json['endTime']),
       location: json['location'],
+      speaker: json['speaker'] ?? '',
       isSelected: json['isSelected'] ?? false,
       priority: json['priority'] ?? 3,
     );
@@ -52,6 +56,7 @@ class CalendarEvent {
     DateTime? startTime,
     DateTime? endTime,
     String? location,
+    String? speaker,
     bool? isSelected,
     int? priority,
   }) {
@@ -62,6 +67,7 @@ class CalendarEvent {
       startTime: startTime ?? this.startTime,
       endTime: endTime ?? this.endTime,
       location: location ?? this.location,
+      speaker: speaker ?? this.speaker,
       isSelected: isSelected ?? this.isSelected,
       priority: priority ?? this.priority,
     );

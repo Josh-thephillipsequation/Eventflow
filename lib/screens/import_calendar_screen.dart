@@ -62,33 +62,43 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                         ),
                       ),
                     ),
-                    // Content
+                    // Content - Centered
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(
-                            Icons.calendar_month_rounded,
-                            size: 40,
-                            color: colorScheme.onPrimary,
+                          Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: colorScheme.onPrimary.withValues(alpha: 0.1),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.cloud_download_rounded,
+                              size: 48,
+                              color: colorScheme.onPrimary,
+                            ),
                           ),
-                          const SizedBox(height: 12),
+                          const SizedBox(height: 16),
                           Text(
                             'Import Calendar',
                             style: theme.textTheme.headlineMedium?.copyWith(
                               color: colorScheme.onPrimary,
                               fontWeight: FontWeight.bold,
                             ),
+                            textAlign: TextAlign.center,
                           ),
-                          const SizedBox(height: 6),
+                          const SizedBox(height: 8),
                           Text(
                             'Import your conference schedule to stay organized and never miss important sessions.',
-                            style: theme.textTheme.bodyLarge?.copyWith(
+                            style: theme.textTheme.bodyMedium?.copyWith(
                               color: colorScheme.onPrimary.withValues(alpha: 0.9),
                             ),
+                            textAlign: TextAlign.center,
+                            maxLines: 2,
                           ),
                         ],
                       ),
@@ -99,37 +109,80 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
               
               // Content Section
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    const SizedBox(height: 16),
+                    
+                    // Import Options Header
+                    Text(
+                      'Choose Import Method',
+                      style: theme.textTheme.headlineSmall?.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: colorScheme.onSurface,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                     const SizedBox(height: 8),
+                    Text(
+                      'Select how you\'d like to import your calendar events',
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: colorScheme.onSurfaceVariant,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 24),
                     
                     // File Upload Section
                     Card(
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                       child: Padding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.all(24.0),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+                            Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: colorScheme.primaryContainer.withValues(alpha: 0.3),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.upload_file_rounded,
+                                size: 32,
+                                color: colorScheme.primary,
+                              ),
+                            ),
+                            const SizedBox(height: 16),
                             Text(
                               'Upload Calendar File',
-                              style: theme.textTheme.titleMedium?.copyWith(
+                              style: theme.textTheme.titleLarge?.copyWith(
                                 fontWeight: FontWeight.w600,
+                                color: colorScheme.onSurface,
                               ),
+                              textAlign: TextAlign.center,
                             ),
                             const SizedBox(height: 8),
                             Text(
                               'Select an .ics calendar file from your device',
-                              style: theme.textTheme.bodyMedium,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: colorScheme.onSurfaceVariant,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            const SizedBox(height: 16),
+                            const SizedBox(height: 20),
                             ElevatedButton.icon(
                               onPressed: provider.isLoading ? null : _pickFile,
-                              icon: const Icon(Icons.file_upload),
+                              icon: const Icon(Icons.file_upload_outlined),
                               label: const Text('Choose File'),
                               style: ElevatedButton.styleFrom(
-                                minimumSize: const Size(double.infinity, 50),
+                                minimumSize: const Size(double.infinity, 56),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                elevation: 0,
                               ),
                             ),
                           ],
@@ -137,35 +190,58 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                       ),
                     ),
                     
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 24),
                     
                     // URL Input Section
                     Card(
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                       child: Padding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.all(24.0),
                         child: Form(
                           key: _formKey,
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
+                              Container(
+                                padding: const EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: colorScheme.secondaryContainer.withValues(alpha: 0.3),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Icon(
+                                  Icons.link_rounded,
+                                  size: 32,
+                                  color: colorScheme.secondary,
+                                ),
+                              ),
+                              const SizedBox(height: 16),
                               Text(
                                 'Import from URL',
-                                style: theme.textTheme.titleMedium?.copyWith(
+                                style: theme.textTheme.titleLarge?.copyWith(
                                   fontWeight: FontWeight.w600,
+                                  color: colorScheme.onSurface,
                                 ),
+                                textAlign: TextAlign.center,
                               ),
                               const SizedBox(height: 8),
                               Text(
                                 'Enter the URL of a calendar file (.ics)',
-                                style: theme.textTheme.bodyMedium,
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: colorScheme.onSurfaceVariant,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 20),
                               TextFormField(
                                 controller: _urlController,
-                                decoration: const InputDecoration(
+                                decoration: InputDecoration(
                                   labelText: 'Calendar URL',
                                   hintText: 'https://example.com/calendar.ics',
-                                  border: OutlineInputBorder(),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  prefixIcon: const Icon(Icons.http_rounded),
                                 ),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -178,13 +254,17 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                                   return null;
                                 },
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 20),
                               ElevatedButton.icon(
                                 onPressed: provider.isLoading ? null : _loadFromUrl,
-                                icon: const Icon(Icons.download),
+                                icon: const Icon(Icons.download_rounded),
                                 label: const Text('Import from URL'),
                                 style: ElevatedButton.styleFrom(
-                                  minimumSize: const Size(double.infinity, 50),
+                                  minimumSize: const Size(double.infinity, 56),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  elevation: 0,
                                 ),
                               ),
                             ],
