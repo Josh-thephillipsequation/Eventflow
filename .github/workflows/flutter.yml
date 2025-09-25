@@ -1,4 +1,4 @@
-name: EventFlow CI/CD Pipeline
+name: EventFlow iOS CI/CD Pipeline
 
 on:
   push:
@@ -118,7 +118,7 @@ jobs:
         echo "🔔 Webhook notification payload created for integration"
 
   build:
-    name: Build Verification
+    name: iOS Build
     runs-on: macos-latest
     needs: test
     
@@ -135,16 +135,11 @@ jobs:
     - name: Install dependencies
       run: flutter pub get
     
-    - name: Build Android APK
-      run: flutter build apk --debug
-    
     - name: Build iOS (no signing)
       run: flutter build ios --no-codesign --debug
     
-    - name: Upload build artifacts
+    - name: Upload iOS build
       uses: actions/upload-artifact@v4
       with:
-        name: build-artifacts
-        path: |
-          build/app/outputs/flutter-apk/app-debug.apk
-          build/ios/
+        name: ios-build
+        path: build/ios/iphoneos/Runner.app
