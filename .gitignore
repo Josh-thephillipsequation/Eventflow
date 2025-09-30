@@ -18,6 +18,19 @@ migrate_working_dir/
 *.iws
 .idea/
 
+# Temporary and cache files
+*.tmp
+*.temp
+*.cache
+*.pid
+*.lock
+
+# Test and coverage reports
+coverage/
+test_reports/
+test-reports/
+lcov.info
+
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
 # is commented out by default.
@@ -79,3 +92,13 @@ GoogleService-Info.plist
 
 # macOS
 .DS_Store
+**/.DS_Store
+
+# Development artifacts
+scripts/webhook_server.pid
+agents/context.md
+*.debug
+*.profile
+
+# Large media files (duplicates)
+# docs/EventflowUxDemo.MP4 - needed for GitHub Pages

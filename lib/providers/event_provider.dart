@@ -12,6 +12,7 @@ class EventProvider extends ChangeNotifier {
   List<CalendarEvent> _selectedEvents = [];
   bool _isLoading = false;
   String _errorMessage = '';
+  bool _disposed = false;
 
   List<CalendarEvent> get allEvents => _allEvents;
   List<CalendarEvent> get selectedEvents => _selectedEvents;
@@ -24,7 +25,7 @@ class EventProvider extends ChangeNotifier {
 
   Future<void> _loadStoredEvents() async {
     _isLoading = true;
-    notifyListeners();
+    if (!_disposed) notifyListeners();
 
     try {
       _allEvents = await _storageService.loadEvents();
@@ -35,13 +36,13 @@ class EventProvider extends ChangeNotifier {
     }
 
     _isLoading = false;
-    notifyListeners();
+    if (!_disposed) notifyListeners();
   }
 
   Future<void> loadCalendarFromFile(File file) async {
     _isLoading = true;
     _errorMessage = '';
-    notifyListeners();
+    if (!_disposed) notifyListeners();
 
     try {
       _allEvents = await _calendarService.parseCalendarFromFile(file);
@@ -53,13 +54,13 @@ class EventProvider extends ChangeNotifier {
     }
 
     _isLoading = false;
-    notifyListeners();
+    if (!_disposed) notifyListeners();
   }
 
   Future<void> loadCalendarFromUrl(String url) async {
     _isLoading = true;
     _errorMessage = '';
-    notifyListeners();
+    if (!_disposed) notifyListeners();
 
     try {
       _allEvents = await _calendarService.parseCalendarFromUrl(url);
@@ -71,7 +72,7 @@ class EventProvider extends ChangeNotifier {
     }
 
     _isLoading = false;
-    notifyListeners();
+    if (!_disposed) notifyListeners();
   }
 
   void toggleEventSelection(CalendarEvent event) {
@@ -130,5 +131,11 @@ class EventProvider extends ChangeNotifier {
   void addEventsForTesting(List<CalendarEvent> events) {
     _allEvents.addAll(events);
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    _disposed = true;
+    super.dispose();
   }
 }

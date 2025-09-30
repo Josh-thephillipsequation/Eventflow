@@ -1,66 +1,70 @@
----
-ai:
-  include_by_default: false
-  weight: 0.2
----
+# 🤖 Automated CI Failure Report - 2025-09-30 12:44
 
-# 🚨 Amp: Live GitHub Actions Failure - Fix Required
+## GitHub Actions Analysis - Fully Automated
 
-## Real CI Failure Report - 2025-09-24
+**Repository**: Josh-thephillipsequation/Eventflow
+**Run ID**: 18137012679
+**Workflow**: EventFlow iOS CI/CD Pipeline
+**Branch**: github-pages-edits
+**Commit**: 12b23d43
+**Status**: failure
+**Run URL**: https://github.com/Josh-thephillipsequation/Eventflow/actions/runs/18137012679
 
-### GitHub Actions Failure Details
-- **Repository**: Josh-thephillipsequation/Eventflow
-- **Branch**: feature/core-ci-testing-foundation
-- **Status**: ❌ FAILED at dependency resolution
-- **Error Type**: Dependency version conflict
+## 🔍 Automated Error Analysis
 
-### Specific Error Message
-```
-Because every version of flutter_test from sdk depends on path 1.9.0 and 
-flutter_native_splash 2.4.6 depends on path ^1.9.1, flutter_test from sdk 
-is incompatible with flutter_native_splash 2.4.6.
+### Key Errors Detected:
 
-So, because conference_agenda_tracker depends on both flutter_native_splash ^2.4.6 
-and flutter_test from sdk, version solving failed.
-```
 
-### Root Cause Analysis
-- **flutter_test** (SDK) requires `path 1.9.0` exactly
-- **flutter_native_splash 2.4.6** requires `path ^1.9.1` (1.9.1 or higher)
-- **Version conflict** prevents dependency resolution
-- **Suggested fix**: Downgrade flutter_native_splash to ^2.4.4
+## 🎯 Amp Action Plan
 
-## 🎯 Amp Instructions
+Based on automated analysis of CI logs:
 
-### Fix Command (Provided by GitHub Actions)
+### 1. Primary Issues to Fix
+- **Dependency conflicts**: Check pubspec.yaml for version issues
+- **Test failures**: Multiple unit and widget tests failing
+- **Widget test timing**: Splash screen and async loading issues
+- **Provider lifecycle**: EventProvider disposal and async loading problems
+
+### 2. Commands to Run
 ```bash
-flutter pub add flutter_native_splash:^2.4.4
-```
-
-### Verification Steps
-```bash
-# 1. Fix the dependency version
-flutter pub add flutter_native_splash:^2.4.4
-
-# 2. Verify dependencies resolve
+# Check dependencies
 flutter pub get
 
-# 3. Run local CI to confirm fix
-./scripts/run_ci_locally.sh
+# Run specific failing tests
+flutter test test/unit/event_provider_test.dart -v
+flutter test test/widget_test.dart -v
 
-# 4. Test that splash screen still works
-flutter test test/widget_test.dart
+# Fix formatting
+dart format .
+
+# Analyze code
+flutter analyze
 ```
 
-### Files to Check
-- **pubspec.yaml** - Update flutter_native_splash version constraint
-- **pubspec.lock** - Verify new versions resolved correctly
+### 3. Systematic Fix Approach
+1. **Fix EventProvider tests** - async loading and state management
+2. **Fix widget test timing** - splash screen timer handling
+3. **Fix UI overflow** - import screen layout issues
+4. **Verify fixes** - ensure all tests pass locally
+
+## 📊 Test Status (Auto-Generated)
+- **Total Tests**: ~30+ tests
+- **Failed**: ~20 tests
+- **Passed**: ~10 tests
+- **Main Issues**: EventProvider state, widget timing, async loading
 
 ## ✅ Success Criteria
-- [ ] Dependencies resolve without conflicts: `flutter pub get`
 - [ ] All tests pass: `flutter test`
-- [ ] Static analysis clean: `flutter analyze`
-- [ ] Local CI script passes: `./scripts/run_ci_locally.sh`
-- [ ] Splash screen functionality preserved
+- [ ] Dependencies resolve: `flutter pub get`
+- [ ] Code formatted: `dart format .`
+- [ ] Analysis clean: `flutter analyze`
 
-**Amp**: This is a simple dependency version fix. Please update pubspec.yaml and verify the fix works.
+**Amp**: This report was generated automatically from GitHub Actions API. Fix the issues systematically and push updates.
+
+## 🔄 Automation Status
+- ✅ **CI data fetched** automatically via GitHub API
+- ✅ **Error extraction** from CI logs
+- ✅ **Structured feedback** generated without manual intervention
+- ✅ **Agent instructions** ready for automated processing
+
+**No manual pasting required!** 🚀
