@@ -22,7 +22,6 @@ class CalendarEvent {
   });
 
   Map<String, dynamic> toJson() {
-    // DELIBERATE TEST FAILURE: Missing closing brace to test auto-feedback
     return {
       'uid': uid,
       'title': title,
@@ -33,7 +32,7 @@ class CalendarEvent {
       'speaker': speaker,
       'isSelected': isSelected,
       'priority': priority,
-    ;  // <-- SYNTAX ERROR: Missing closing brace
+    };
   }
 
   static CalendarEvent fromJson(Map<String, dynamic> json) {
