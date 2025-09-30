@@ -368,6 +368,33 @@ Agent Changes → Local Testing → GitHub Actions → iOS Build → TestFlight 
   - Status: todo
   - Estimate: 5-6h
 
+- M25 — GitHub Page Video Fix
+  - Branch: `feature/github-page-video-fix`
+  - Goal: Fix embedded video that is not working on GitHub repository page
+  - Priority: P2
+  - Status: todo
+  - Estimate: 1h
+  - Steps:
+    1. Investigate current video embedding issue on GitHub page
+    2. Fix video format/hosting issues or replace with working alternative
+    3. Test video playback in GitHub repository view
+    4. Update documentation if needed
+
+- M26 — GitHub Page Branding & Design Modernization
+  - Branch: `feature/github-page-modernization`  
+  - Goal: Add thephillipsequation logo, EventFlow branding, reduce whitespace, modernize overall design
+  - Priority: P2
+  - Status: todo
+  - Estimate: 2-3h
+  - Steps:
+    1. Add thephillipsequation company logo to README header
+    2. Add EventFlow app icon and improve visual hierarchy
+    3. Reduce excessive whitespace and improve layout density
+    4. Research and compile list of modern GitHub page templates for inspiration
+    5. Implement responsive design with better visual balance
+    6. Add professional branding elements and company attribution
+  - Notes: Focus on modern, professional appearance while maintaining GitHub compatibility
+
 ### P3 / Future ideas
 - M12 — Fun Tab Enhancements
   - Status: done
