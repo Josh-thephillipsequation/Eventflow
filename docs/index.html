@@ -188,10 +188,53 @@
             padding: 40px 0;
         }
         
+        .offer-highlight {
+            background: linear-gradient(120deg, #ffffff, #f0f8ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+        
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1.1rem; }
             .features { grid-template-columns: 1fr; }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header-content nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .header-content nav a {
+                margin: 0 8px !important;
+                font-size: 0.9rem;
+            }
+            
+            /* Mobile improvements for journey section */
+            #journey .container > div {
+                padding: 0 10px;
+            }
+            
+            /* Mobile improvements for offer section */
+            #offer h2 {
+                font-size: 2rem !important;
+            }
+            
+            #offer h3 {
+                font-size: 1.4rem !important;
+            }
+            
+            #offer p {
+                font-size: 1rem !important;
+            }
         }
     </style>
 </head>
@@ -199,11 +242,15 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">EventFlow</div>
+                <div style="display: flex; align-items: center;">
+                    <img src="tpe-logo.png" alt="ThePhillipsEquation LLC" style="height: 40px; margin-right: 15px;">
+                    <div class="logo">EventFlow</div>
+                </div>
                 <nav>
                     <a href="#demo" style="text-decoration: none; color: #667eea; margin: 0 15px;">Demo</a>
                     <a href="#features" style="text-decoration: none; color: #667eea; margin: 0 15px;">Features</a>
-                    <a href="#tech" style="text-decoration: none; color: #667eea; margin: 0 15px;">Tech Story</a>
+                    <a href="#journey" style="text-decoration: none; color: #667eea; margin: 0 15px;">Journey</a>
+                    <a href="#offer" style="text-decoration: none; color: #667eea; margin: 0 15px;">Build Your App</a>
                 </nav>
             </div>
         </div>
@@ -213,6 +260,9 @@
         <div class="container">
             <h1>EventFlow</h1>
             <p>A comprehensive conference agenda management app built in just 36 hours using Amp AI</p>
+            <p style="font-size: 1rem; margin-top: 20px; background: rgba(255,255,255,0.2); padding: 15px 25px; border-radius: 50px; display: inline-block;">
+                <strong>By ThePhillipsEquation LLC</strong> • Production-grade app development through human-AI collaboration
+            </p>
         </div>
     </section>
 
@@ -285,6 +335,119 @@
         </div>
     </section>
 
+    <section id="journey" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #333;">The 36-Hour Journey</h2>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="background: #f8fafc; padding: 40px; border-radius: 20px; margin-bottom: 40px; border-left: 6px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 20px; font-size: 1.4rem;">From Skeptical Engineer to Production App</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 15px;">
+                        "Four days. That's how long it took to go from skeptical enterprise engineer to building a production-ready app that would earn a main-stage shoutout from industry legends Gene Kim and Jeff Gallimore."
+                    </p>
+                    <p style="font-size: 1rem; color: #666; font-style: italic;">
+                        — From "EventFlow: From Specification to Production with AI Agents"
+                    </p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                    <div style="background: #667eea; color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                        <h4 style="font-size: 2rem; margin-bottom: 10px;">Day 0</h4>
+                        <p style="font-weight: 600; margin-bottom: 15px;">Vibe Coding Workshop</p>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">Gene Kim & Steve Yegge introduce rapid AI-assisted development</p>
+                    </div>
+                    
+                    <div style="background: #764ba2; color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                        <h4 style="font-size: 2rem; margin-bottom: 10px;">Day 1</h4>
+                        <p style="font-weight: 600; margin-bottom: 15px;">MVP & Methodology</p>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">From vibe coding to systematic specification-driven development</p>
+                    </div>
+                    
+                    <div style="background: #667eea; color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                        <h4 style="font-size: 2rem; margin-bottom: 10px;">Day 2</h4>
+                        <p style="font-weight: 600; margin-bottom: 15px;">Main Stage Recognition</p>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">Gene Kim & Jeff Gallimore showcase the app to ETLS audience</p>
+                    </div>
+                    
+                    <div style="background: #764ba2; color: white; padding: 30px; border-radius: 15px; text-align: center;">
+                        <h4 style="font-size: 2rem; margin-bottom: 10px;">Day 3</h4>
+                        <p style="font-weight: 600; margin-bottom: 15px;">Production Pipeline</p>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">Full CI/CD, security scanning, and enterprise-grade infrastructure</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <p style="font-size: 1.1rem; color: #666; margin-bottom: 20px;">
+                        This journey demonstrates a systematic methodology for production-grade AI-assisted development, 
+                        combining Deming's PDCA principles with modern AI capabilities.
+                    </p>
+                    <a href="https://github.com/Josh-thephillipsequation/Eventflow/blob/main/README.md" 
+                       style="display: inline-block; background: #667eea; color: white; padding: 12px 24px; text-decoration: none; border-radius: 25px; font-weight: 600;">
+                        Read the Full Journey →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0;" id="offer">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Ready to Build Your App?</h2>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; margin-bottom: 40px; backdrop-filter: blur(10px);">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: #fff;">Limited Time Offer: $500 Prototype Development</h3>
+                    
+                    <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 25px; opacity: 0.9;">
+                        "I'll build a working prototype of any app idea you've been sitting on — scoped and timeboxed — for $500. Real code. Running on your phone."
+                    </p>
+                    
+                    <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; margin: 30px 0; text-align: left;">
+                        <h4 style="margin-bottom: 15px; color: #fff;">What You Get:</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #fff;">✓</span>
+                                Working prototype running on your phone
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #fff;">✓</span>
+                                Production-ready code with testing infrastructure
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #fff;">✓</span>
+                                Cross-platform Flutter development (iOS & Android)
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #fff;">✓</span>
+                                Same AI-assisted methodology that built EventFlow
+                            </li>
+                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                                <span style="position: absolute; left: 0; color: #fff;">✓</span>
+                                Foundation for App Store monetization
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p style="font-size: 1rem; opacity: 0.8; margin-bottom: 30px; font-style: italic;">
+                        "Because my job only pays for one tech conference a year, and I want to hit a few more. 
+                        So instead of hitting VCs to fund my own startup first, I'd rather help friends and family build their ideas and get them out into the world."
+                    </p>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="mailto:josh@thephillipsequation.com?subject=App Prototype Development - $500 Offer" 
+                           style="display: inline-block; background: white; color: #667eea; padding: 18px 36px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; margin: 10px; transition: transform 0.2s;">
+                            Start Your App Project →
+                        </a>
+                    </div>
+                </div>
+                
+                <p style="font-size: 0.9rem; opacity: 0.7;">
+                    This is my soft launch for a new business focused on building production-grade apps that can actually be monetized and safely deployed to the App Store.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section class="tech-section" id="tech">
         <div class="container">
             <h2>Built with <span class="highlight">Amp AI</span></h2>
@@ -316,7 +479,18 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 thephillipsequation llc • Built with Flutter & Amp AI • <a href="https://ampcode.com" style="color: #667eea;">Powered by Amp</a></p>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <img src="tpe-logo.png" alt="ThePhillipsEquation LLC" style="height: 30px;">
+                    <span style="color: white; font-weight: 600;">ThePhillipsEquation LLC</span>
+                </div>
+                <p style="margin: 0; text-align: center;">
+                    &copy; 2025 thephillipsequation llc • Built with Flutter & Amp AI • <a href="https://ampcode.com" style="color: #667eea;">Powered by Amp</a>
+                </p>
+                <p style="margin: 0; font-size: 0.9rem; opacity: 0.8; text-align: center;">
+                    Ready to build your app? <a href="mailto:josh@thephillipsequation.com" style="color: #667eea; font-weight: 600;">Contact us for your $500 prototype</a>
+                </p>
+            </div>
         </div>
     </footer>
 </body>
