@@ -144,6 +144,18 @@ button, .btn { cursor: pointer; border: 0; }
   font-weight: 800; 
   font-size: 1.25rem; 
   text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+  animation: logo-flicker 4s infinite;
+}
+
+@keyframes logo-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(255, 107, 53, 0.8), 0 0 20px rgba(255, 107, 53, 0.6);
+  }
+  20%, 24%, 55% {
+    opacity: 0.7;
+    text-shadow: 0 0 5px rgba(255, 107, 53, 0.5);
+  }
 }
 
 .nav { 
@@ -164,12 +176,22 @@ button, .btn { cursor: pointer; border: 0; }
   color: #fff; 
   text-align: center; 
   padding: var(--space-9) 0 var(--space-8);
-  background: linear-gradient(-45deg, #1a0f0a, #2d1b12, #1a0f0a, #0f0e17);
-  background-size: 400% 400%;
-  animation: haunted-shimmer 15s ease infinite;
+  background: 
+    linear-gradient(-45deg, rgba(26, 15, 10, 0.9), rgba(45, 27, 18, 0.9)),
+    url('https://images.unsplash.com/photo-1508519147924-ee0c8bc7d02c?w=1920&q=80') center/cover;
   position: relative;
   overflow: hidden;
   border-bottom: 3px solid var(--brand-1);
+  animation: haunted-pulse 8s ease-in-out infinite;
+}
+
+@keyframes haunted-pulse {
+  0%, 100% {
+    filter: brightness(1) hue-rotate(0deg);
+  }
+  50% {
+    filter: brightness(1.1) hue-rotate(5deg);
+  }
 }
 
 .hero::before {

@@ -1,16 +1,16 @@
 // Theme Switcher for EventFlow GitHub Pages
 const themes = {
-  'default': {
-    name: 'Default (Purple Gradient)',
-    file: 'styles.css'
+  'cyberpunk': {
+    name: 'Neon Dreams 2077 ⚡',
+    file: 'themes/cyberpunk.css'
   },
   'halloween': {
     name: 'Spooky Pumpkin Patches 🎃',
     file: 'themes/halloween.css'
   },
-  'cyberpunk': {
-    name: 'Neon Dreams 2077 ⚡',
-    file: 'themes/cyberpunk.css'
+  'default': {
+    name: 'Default (Purple Gradient)',
+    file: 'styles.css'
   },
   'cassette': {
     name: 'VHS Analog Tomorrow 📼',
