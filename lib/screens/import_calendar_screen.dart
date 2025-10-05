@@ -63,14 +63,15 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                       ),
                     ),
                     // Content - Centered
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 24.0, vertical: 16.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
+                    Positioned.fill(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 24.0, vertical: 8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
                           Container(
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
@@ -104,6 +105,7 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                             maxLines: 2,
                           ),
                         ],
+                        ),
                       ),
                     ),
                   ],

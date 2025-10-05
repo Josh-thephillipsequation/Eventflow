@@ -19,10 +19,17 @@ def get_latest_ci_run():
         branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]).decode().strip()
         repo = "Josh-thephillipsequation/Eventflow"
         
-        # GitHub API call
+        # GitHub API call with authentication if available
         api_url = f"https://api.github.com/repos/{repo}/actions/runs?branch={branch}&per_page=1"
         
-        with urlopen(api_url) as response:
+        # Use GITHUB_TOKEN if available (for CI environment)
+        headers = {}
+        github_token = os.environ.get('GITHUB_TOKEN')
+        if github_token:
+            headers['Authorization'] = f'token {github_token}'
+        
+        request = Request(api_url, headers=headers)
+        with urlopen(request) as response:
             data = json.loads(response.read().decode())
             runs = data.get('workflow_runs', [])
             
@@ -40,20 +47,30 @@ def get_ci_logs(run_id):
     try:
         repo = "Josh-thephillipsequation/Eventflow"
         
-        # Get jobs for this run
+        # Get jobs for this run with authentication
         jobs_url = f"https://api.github.com/repos/{repo}/actions/runs/{run_id}/jobs"
         
-        with urlopen(jobs_url) as response:
+        headers = {}
+        github_token = os.environ.get('GITHUB_TOKEN')
+        if github_token:
+            headers['Authorization'] = f'token {github_token}'
+        
+        request = Request(jobs_url, headers=headers)
+        with urlopen(request) as response:
             data = json.loads(response.read().decode())
             jobs = data.get('jobs', [])
             
             all_logs = []
             for job in jobs:
                 if job.get('conclusion') == 'failure':
-                    # Get logs for failed job
+                    # Get logs for failed job with authentication
                     logs_url = f"https://api.github.com/repos/{repo}/actions/jobs/{job['id']}/logs"
                     try:
-                        req = Request(logs_url, headers={'Accept': 'application/vnd.github.v3.raw'})
+                        log_headers = {'Accept': 'application/vnd.github.v3.raw'}
+                        if github_token:
+                            log_headers['Authorization'] = f'token {github_token}'
+                        
+                        req = Request(logs_url, headers=log_headers)
                         with urlopen(req) as log_response:
                             logs = log_response.read().decode('utf-8', errors='ignore')
                             all_logs.append({
