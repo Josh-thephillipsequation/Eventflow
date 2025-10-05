@@ -404,6 +404,7 @@ button, .btn { cursor: pointer; border: 0; }
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: var(--shadow-lg);
+  color: var(--text);
 }
 
 .offer-card h3 {
@@ -411,6 +412,16 @@ button, .btn { cursor: pointer; border: 0; }
   font-size: clamp(1.4rem, 2.5vw, 1.8rem);
   margin-bottom: var(--space-5);
   font-weight: 400;
+}
+
+.offer-card p,
+.offer-card ul,
+.offer-card ul li {
+  color: var(--text);
+}
+
+.offer-card strong {
+  color: var(--text);
 }
 
 .offer-card ul li:before {
