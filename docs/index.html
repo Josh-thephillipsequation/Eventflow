@@ -25,6 +25,46 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Theme Switcher -->
+    <script src="theme-switcher.js"></script>
+    <style>
+        .theme-selector-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .theme-selector {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 2px solid var(--brand-1);
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .theme-selector:hover {
+            background: var(--brand-1);
+            color: #fff;
+        }
+        
+        .theme-selector:focus {
+            outline: 2px solid var(--brand-2);
+            outline-offset: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .theme-selector {
+                font-size: 0.85rem;
+                padding: 6px 10px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
