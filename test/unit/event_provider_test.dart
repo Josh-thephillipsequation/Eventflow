@@ -13,8 +13,10 @@ void main() {
       TestWidgetsFlutterBinding.ensureInitialized();
 
       // Mock SharedPreferences to return empty data
-      const MethodChannel('plugins.flutter.io/shared_preferences')
-          .setMockMethodCallHandler((MethodCall methodCall) async {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+              const MethodChannel('plugins.flutter.io/shared_preferences'),
+              (MethodCall methodCall) async {
         if (methodCall.method == 'getAll') {
           return <String, Object>{}; // Return empty preferences
         }

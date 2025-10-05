@@ -82,7 +82,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             leading: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: theme.colorScheme.primaryContainer.withOpacity(0.3),
+                color: theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(
@@ -209,7 +209,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             leading: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: theme.colorScheme.tertiaryContainer.withOpacity(0.3),
+                color: theme.colorScheme.tertiaryContainer.withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(
@@ -242,7 +242,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         leading: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: theme.colorScheme.errorContainer.withOpacity(0.3),
+            color: theme.colorScheme.errorContainer.withValues(alpha: 0.3),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Icon(
