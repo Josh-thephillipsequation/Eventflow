@@ -30,8 +30,19 @@ html, body { margin: 0; padding: 0; overflow-x: hidden; }
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text);
-  background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
   line-height: 1.6;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .container {
@@ -125,6 +136,27 @@ button, .btn { cursor: pointer; border: 0; }
   color: #fff; 
   text-align: center; 
   padding: var(--space-9) 0 var(--space-8);
+  background: linear-gradient(-45deg, #667eea, #764ba2, #667eea, #5568d3);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px, 100px 100px;
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .hero .badge {
@@ -137,6 +169,8 @@ button, .btn { cursor: pointer; border: 0; }
   font-weight: 600;
   font-size: clamp(0.85rem, 1.5vw, 0.95rem);
   margin-bottom: var(--space-5);
+  position: relative;
+  z-index: 1;
 }
 
 .hero .sub { 
@@ -151,6 +185,14 @@ button, .btn { cursor: pointer; border: 0; }
   align-items: center;
   flex-wrap: wrap;
   margin-top: var(--space-6);
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1,
+.hero p {
+  position: relative;
+  z-index: 1;
 }
 
 .surface {
@@ -275,7 +317,29 @@ button, .btn { cursor: pointer; border: 0; }
 .section-dark { 
   background: #111; 
   color: #fff; 
-  text-align: center; 
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 30%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.section-dark > * {
+  position: relative;
+  z-index: 1;
 }
 
 .section-dark p {
@@ -285,9 +349,36 @@ button, .btn { cursor: pointer; border: 0; }
 }
 
 .section-cta { 
-  background: linear-gradient(135deg, var(--brand-1), var(--brand-2)); 
+  background: linear-gradient(-45deg, #667eea, #764ba2, #667eea, #5568d3);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
   color: #fff; 
-  text-align: center; 
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(30deg, rgba(255, 255, 255, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.05)),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.05)),
+    linear-gradient(30deg, rgba(255, 255, 255, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.05)),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.05));
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.section-cta > * {
+  position: relative;
+  z-index: 1;
 }
 
 .section-cta .container > * {
