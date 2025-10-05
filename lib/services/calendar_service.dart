@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:icalendar_parser/icalendar_parser.dart';
 import '../models/calendar_event.dart';
@@ -25,6 +26,15 @@ class CalendarService {
       }
     } catch (e) {
       throw Exception('Error fetching calendar: $e');
+    }
+  }
+
+  Future<List<CalendarEvent>> parseCalendarFromAsset(String assetPath) async {
+    try {
+      final contents = await rootBundle.loadString(assetPath);
+      return parseICalendarContent(contents);
+    } catch (e) {
+      throw Exception('Error loading calendar asset: $e');
     }
   }
 

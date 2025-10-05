@@ -20,7 +20,8 @@ class EventProvider extends ChangeNotifier {
   String get errorMessage => _errorMessage;
 
   EventProvider() {
-    _loadStoredEvents();
+    // Load stored events in the background without blocking initialization
+    Future.microtask(_loadStoredEvents);
   }
 
   Future<void> _loadStoredEvents() async {
@@ -69,6 +70,24 @@ class EventProvider extends ChangeNotifier {
       await _storageService.saveSelectedEvents(_selectedEvents);
     } catch (e) {
       _errorMessage = 'Error loading calendar from URL: $e';
+    }
+
+    _isLoading = false;
+    if (!_disposed) notifyListeners();
+  }
+
+  Future<void> loadCalendarFromAsset(String assetPath) async {
+    _isLoading = true;
+    _errorMessage = '';
+    if (!_disposed) notifyListeners();
+
+    try {
+      _allEvents = await _calendarService.parseCalendarFromAsset(assetPath);
+      await _storageService.saveEvents(_allEvents);
+      _selectedEvents.clear();
+      await _storageService.saveSelectedEvents(_selectedEvents);
+    } catch (e) {
+      _errorMessage = 'Error loading calendar from asset: $e';
     }
 
     _isLoading = false;
@@ -129,7 +148,12 @@ class EventProvider extends ChangeNotifier {
 
   // Test helper method - only for testing
   void addEventsForTesting(List<CalendarEvent> events) {
-    _allEvents.addAll(events);
+    for (var event in events) {
+      // Check for duplicates by uid
+      if (!_allEvents.any((e) => e.uid == event.uid)) {
+        _allEvents.add(event);
+      }
+    }
     notifyListeners();
   }
 

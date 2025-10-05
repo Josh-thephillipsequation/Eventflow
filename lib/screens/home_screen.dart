@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../providers/event_provider.dart';
 import 'import_calendar_screen.dart';
 import 'events_list_screen.dart';
 import 'my_agenda_screen.dart';
 import 'insights_screen.dart';
 import 'fun_screen.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,9 +28,46 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('EventFlow'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(6),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Icon(
+                Icons.event_note_rounded,
+                color: Theme.of(context).colorScheme.onPrimary,
+                size: 20,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Text(
+              'EventFlow',
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        elevation: 0,
+        scrolledUnderElevation: 1,
+        surfaceTintColor: Theme.of(context).colorScheme.surfaceTint,
         actions: [
+          IconButton(
+            icon: const Icon(Icons.settings_outlined),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const SettingsScreen(),
+                ),
+              );
+            },
+            tooltip: 'Settings',
+          ),
           IconButton(
             icon: const Icon(Icons.info_outline),
             onPressed: () {
@@ -133,41 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               );
             },
-          ),
-          Consumer<EventProvider>(
-            builder: (context, provider, child) {
-              if (provider.allEvents.isNotEmpty) {
-                return IconButton(
-                  icon: const Icon(Icons.clear_all),
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text('Clear All Data'),
-                          content: const Text(
-                              'Are you sure you want to clear all calendar data and selections?'),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: const Text('Cancel'),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                provider.clearAllData();
-                                Navigator.of(context).pop();
-                              },
-                              child: const Text('Clear All'),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                );
-              }
-              return const SizedBox.shrink();
-            },
+            tooltip: 'About',
           ),
         ],
       ),
