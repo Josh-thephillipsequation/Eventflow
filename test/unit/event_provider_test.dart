@@ -32,8 +32,9 @@ void main() {
 
       eventProvider = EventProvider();
 
-      // Wait for storage loading to complete
+      // Wait for storage loading to complete and ensure clean state
       await Future.delayed(const Duration(milliseconds: 100));
+      await eventProvider.clearAllData();
       testEvent1 = CalendarEvent(
         uid: 'event-1',
         title: 'First Event',
@@ -52,6 +53,12 @@ void main() {
         location: 'Location 2',
         priority: 3,
       );
+    });
+
+    tearDown(() async {
+      // Ensure clean state between tests
+      await eventProvider.clearAllData();
+      eventProvider.dispose();
     });
 
     test('should start with empty events list', () {
@@ -117,9 +124,11 @@ void main() {
       expect(selectedEvents[0].uid, equals('event-1'));
     });
 
-    test('should clear all data', () {
+    test('should clear all data', () async {
       eventProvider.addEventsForTesting([testEvent1, testEvent2]);
-      eventProvider.clearAllData();
+      expect(eventProvider.allEvents.length, equals(2));
+      
+      await eventProvider.clearAllData();
 
       expect(eventProvider.allEvents, isEmpty);
     });

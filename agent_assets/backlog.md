@@ -396,6 +396,21 @@ Agent Changes → Local Testing → GitHub Actions → iOS Build → TestFlight 
   - Notes: Focus on modern, professional appearance while maintaining GitHub compatibility
 
 ### P3 / Future ideas
+- M27 — User Onboarding & Guided Tutorial System
+  - Branch: `feature/user-onboarding-tutorial`
+  - Goal: Create first-time user experience with guided tour of app features
+  - Priority: P2
+  - Status: todo
+  - Estimate: 4-6h
+  - Steps:
+    1. Design user onboarding flow (hero's journey style progression)
+    2. Implement tutorial overlay system with highlights and explanations
+    3. Create skippable step-by-step feature discovery walkthrough
+    4. Add welcome screen for first-time users with app value proposition
+    5. Implement progress tracking and ability to replay tutorials
+    6. Add contextual hints and tooltips for advanced features
+  - Notes: Consider using packages like flutter_intro or showcaseview for overlay tutorials
+
 - M12 — Fun Tab Enhancements
   - Status: done
   - Branch: `feature/fun-tab-enhancements`

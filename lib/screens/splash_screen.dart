@@ -17,13 +17,16 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _initializeSplash() async {
-    // Remove native splash immediately, then show our custom splash briefly
+    // Small delay to ensure the widget is fully built before removing native splash
+    await Future.delayed(const Duration(milliseconds: 100));
+    
+    // Remove native splash after our custom splash is ready
     FlutterNativeSplash.remove();
 
-    // Wait for just 1 second for custom splash - simplified timing
-    await Future.delayed(const Duration(milliseconds: 1000));
+    // Brief custom splash display - keep it snappy
+    await Future.delayed(const Duration(milliseconds: 500));
 
-    // Navigate to home screen
+    // Navigate to home screen with faster transition
     if (mounted) {
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
@@ -32,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(opacity: animation, child: child);
           },
-          transitionDuration: const Duration(milliseconds: 300),
+          transitionDuration: const Duration(milliseconds: 200),
         ),
       );
     }
@@ -41,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -60,27 +63,27 @@ class _SplashScreenState extends State<SplashScreen> {
                     color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: const Center(
-                    child: Text(
-                      'TPE',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                  child: Center(
+                  child: Text(
+                  'TPE',
+                  style: TextStyle(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  ),
+                  ),
                   ),
                 );
               },
             ),
             const SizedBox(height: 24),
             // App name
-            const Text(
+            Text(
               'EventFlow',
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF6750A4),
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
             const SizedBox(height: 8),
@@ -89,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen> {
               'by thephillipsequation llc',
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey[600],
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
                 fontWeight: FontWeight.w400,
               ),
             ),
