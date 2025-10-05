@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventFlow: From Specification to Production with AI Agents | ThePhillipsEquation LLC</title>
+    <meta name="description" content="Building production-grade software through systematic human-AI collaboration at ETLS 2025 - a 36-hour journey from concept to App Store.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            background: var(--bg);
+        }
+        
+        .article { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: var(--space-9) var(--space-5); 
+        }
+        
+        .article h1 { 
+            font-size: clamp(1.8rem, 4vw, 2.8rem); 
+            margin-bottom: var(--space-4); 
+            text-wrap: balance;
+            color: var(--text);
+        }
+        
+        .article h2 {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            margin-top: var(--space-8);
+            margin-bottom: var(--space-5);
+            color: var(--brand-1);
+        }
+        
+        .article h3 {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-top: var(--space-6);
+            margin-bottom: var(--space-4);
+        }
+        
+        .article p, .article li { 
+            font-size: 1.05rem; 
+            line-height: 1.8; 
+            color: var(--text);
+            max-width: 100%;
+        }
+        
+        .article ul, .article ol {
+            padding-left: var(--space-6);
+            margin: var(--space-4) 0;
+        }
+        
+        .article li {
+            margin: var(--space-3) 0;
+        }
+        
+        .article img { 
+            border-radius: var(--radius); 
+            box-shadow: var(--shadow); 
+            margin: var(--space-6) 0; 
+        }
+        
+        .byline { 
+            color: var(--muted); 
+            margin-bottom: var(--space-7);
+            font-size: 1rem;
+        }
+        
+        .prose > * + * { 
+            margin-top: var(--space-5); 
+        }
+        
+        .article blockquote {
+            border-left: 4px solid var(--brand-1);
+            padding-left: var(--space-5);
+            margin: var(--space-6) 0;
+            font-style: italic;
+            color: var(--muted);
+        }
+        
+        .article code {
+            background: var(--bg-alt);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        .article pre {
+            background: var(--bg-alt);
+            padding: var(--space-5);
+            border-radius: var(--radius);
+            overflow-x: auto;
+            margin: var(--space-5) 0;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--brand-1);
+            font-weight: 600;
+            margin-bottom: var(--space-6);
+        }
+        
+        .back-link:hover {
+            text-decoration: none;
+            transform: translateX(-4px);
+            transition: transform 0.2s;
+        }
+        
+        @media (max-width: 768px) {
+            .article {
+                padding: var(--space-7) var(--space-4);
+            }
+            
+            .article p, .article li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="brand">
+                    <a href="../"><img src="../tpe-logo.png" alt="ThePhillipsEquation LLC"></a>
+                    <a href="../" class="brand-name" style="text-decoration: none;">EventFlow</a>
+                </div>
+                <nav class="nav">
+                    <a href="../">Home</a>
+                    <a href="../#features">Features</a>
+                    <a href="../#offer">Build Your App</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="article">
+        <a href="../" class="back-link">← Back to EventFlow</a>
+        
+        <h1>EventFlow: From Specification to Production with AI Agents</h1>
+        <div class="byline">By ThePhillipsEquation LLC • October 2024 • 10–12 min read</div>
+        
+        <div class="prose">
+            <p><em>Building production-grade software through systematic human-AI collaboration at ETLS 2025</em></p>
+
+            <p>Four days. That's how long it took to go from skeptical enterprise engineer to building a production-ready app that would earn a main-stage shoutout from industry legends Gene Kim and Jeff Gallimore. But more importantly, it's how long it took to discover a systematic methodology that could transform how we build software at enterprise scale.</p>
+
+            <p>When I landed in Las Vegas on Monday, September 22nd, at 11:30 AM, I had a problem. Not a technical problem - those I could solve. This was a deeply human challenge that every working parent knows: How do you maximize professional growth while staying connected to the people you love most? As the father of an absolutely delightful 15-month-old boy, I was juggling conference sessions, networking meetings, and scheduled FaceTime calls using a messy spreadsheet that barely worked.</p>
+
+            <p>I also had extensive experience with chat-assisted programming from my previous role as a lead engineer and manager at Brivo, where I'd helped teams adopt AI-powered development tools while establishing safe practices around their use. But agentic AI was entirely different territory. Capital One was still in early AI adoption phases, and I'd been laser-focused on delivering immediate results with our Financial Core Modernization teams (we'd just crushed our goal of reducing software delivery lead time from 30 days to less than 1). My total agentic AI experience? A single 15-minute session asking OpenAI to create a business funding spreadsheet.</p>
+
+            <p>What I discovered over the next four days would fundamentally change how I think about software development, team productivity, and the future of enterprise technology.</p>
+
+            <h2>Day 0: The Vibe Coding Revelation</h2>
+
+            <p>The Enterprise Tech + AI Leadership Summit officially started on Tuesday, but Monday featured something special: a Vibe Coding Workshop led by Gene Kim and Steve Yegge. I'd followed both of their work for years, so when I managed to check in just 15 minutes before it began, I was already excited.</p>
+
+            <p>Gene and Steve introduced us to "Vibe Coding," their philosophy of crafting code by feel. The principles resonated immediately:</p>
+
+            <ul>
+                <li>Rapid iteration guided by intuitive feedback</li>
+                <li>Clean, expressive naming and structure</li>
+                <li>Aligning code style with team culture and project vibe</li>
+            </ul>
+
+            <p>But theory quickly gave way to magic. Within the first 45 minutes, I'd gone from zero AI agent experience to building functional web games: brick breaker and tetris. Just by describing what I wanted. The technology didn't just work; it felt intuitive, almost conversational.</p>
+
+            <p>Then came the challenge that would change everything. Gene offered us a choice: group discussion or continued vibe coding. For those who chose to keep building, he suggested recreating a mobile app that could play both podcasts and videos.</p>
+
+            <p>Here's where having a brand new laptop became a strategic advantage rather than a limitation. While other attendees dove into coding, I didn't have Xcode installed or any mobile development environment set up. Instead of seeing this as a blocker, I used the workshop time to do what I do best as an enterprise engineer: create a systematic plan.</p>
+
+            <p>I spent the session developing a spec-driven approach based on <strong>Deming's Plan-Do-Check-Act (PDCA) cycle</strong>:</p>
+
+            <ul>
+                <li><strong>Plan:</strong> Define clear specifications, tool selection rationale, and success criteria</li>
+                <li><strong>Do:</strong> Execute implementation through AI agents within well-defined guardrails</li>
+                <li><strong>Check:</strong> Validate results through comprehensive testing and human oversight</li>
+                <li><strong>Act:</strong> Iterate based on feedback loops and continuous improvement</li>
+            </ul>
+
+            <p>My two primary research questions became:</p>
+            <ol>
+                <li>How to create a spec-driven feedback process that could scale beyond individual coding sessions</li>
+                <li>Where are the optimal human-in-the-loop points in AI-assisted development?</li>
+            </ol>
+
+            <p>Instead of following the workshop prompt, I had my architectural insight: why not solve my actual problem while systematically testing this methodology? A conference agenda tracker would provide real-world validation of production-grade AI-assisted development.</p>
+
+            <h2>Day 1: Developing the Specification-Driven Approach</h2>
+
+            <p>When I woke up on Day 2 of the conference (the first official day after the workshop), I had a clear objective: implement the systematic approach I'd planned while setting up my development environment.</p>
+
+            <p>The first critical decision was tool selection. After installing Xcode and the necessary dependencies, I chose <strong>Flutter</strong> as the development platform based on systematic criteria:</p>
+
+            <ul>
+                <li>Cross-platform from day one (iOS, Android, web) for maximum reach</li>
+                <li>Hot reload enabling instant iteration feedback with AI agents</li>
+                <li>Mature ecosystem with comprehensive packages and community support</li>
+                <li>Excellent documentation that AI agents can reference effectively</li>
+                <li>Material 3 design system providing consistent, professional UI patterns</li>
+                <li>Strong CI/CD integration for automated testing and deployment</li>
+            </ul>
+
+            <p>I started by embracing the vibe coding approach from the workshop - rapid iteration, intuitive feedback, and conversational development. This was perfect for exploring the problem space, understanding Flutter's capabilities, and building an initial MVP.</p>
+
+            <p>But within an hour, I'd discovered something crucial: while vibe coding excels at exploration and rapid prototyping, building production-grade software requires a more systematic approach. I needed to evolve from vibe coding to specification-driven development as the complexity and quality requirements increased.</p>
+
+            <p>This realization led me to independently create an <code>agent_assets/</code> directory structure to organize specification materials, backlog items, and documentation that would guide AI agents throughout the development process.</p>
+
+            <h2>Day 2: The Unexpected Recognition</h2>
+
+            <p>The second day brought an honor I never expected: a main stage shoutout from Gene Kim and Jeff Gallimore for my "vibe coded conference agenda tracker app."</p>
+
+            <p>Standing in the audience, hearing these industry legends mention my project, was surreal. It wasn't just recognition of the app. It was validation of a new approach to software development that the entire ETLS community was witnessing in real-time.</p>
+
+            <p>That moment crystallized something important: we weren't just building software anymore. We were demonstrating a fundamental shift in how quickly ideas could become reality when human creativity partners effectively with AI agents.</p>
+
+            <h2>Day 3: Building Production-Grade CI/CD Infrastructure</h2>
+
+            <p>I woke up at 4 AM on Day 3, energized by the challenge of building a complete production pipeline. This wasn't just about tinkering - I was systematically implementing the infrastructure patterns I'd learned delivering enterprise software at Capital One.</p>
+
+            <p>The key insight was that AI-assisted development accelerates you directly into the parts of the SDLC that have always been the most challenging but most worthwhile: continuous delivery, automated testing, feedback loops, and quality gates.</p>
+
+            <p>More importantly, I wanted users to feel completely assured that EventFlow was secure when they downloaded it to their phones. Here's what I built:</p>
+
+            <h3>Comprehensive GitHub Actions Pipeline</h3>
+            <ul>
+                <li>Cross-platform build verification for iOS, Android, and web targets</li>
+                <li>macOS runners for iOS build verification (essential for App Store deployment)</li>
+                <li>Automated testing suite with unit, widget, and integration tests</li>
+                <li>Code coverage reporting with detailed metrics</li>
+                <li>Static analysis with Flutter's built-in linter</li>
+                <li>Security scanning integration with DryRun Security</li>
+            </ul>
+
+            <h3>The Agent Feedback Loop Architecture</h3>
+            <p>The breakthrough was creating automated feedback systems that AI agents could read and act upon, enabling a continuous improvement cycle where agents could automatically identify root causes, implement fixes, and verify through the same automated pipeline.</p>
+
+            <h2>The Dinner That Changed My Perspective</h2>
+
+            <p>Closing out the conference, I had an experience that perfectly captured the magic of the ETLS community. Jason Cox, executive director of Global Hosting & SRE at Disney, not only gave me incredible advice about my app and career but invited me to dinner with all the keynote speakers and industry leaders.</p>
+
+            <p>Walking into that dinner, I was terrified. Here I was, about to sit at a table with people whose ideas I'd seen published in books that changed my career. At first, I was afraid to speak up, convinced someone would realize I wasn't qualified to be there.</p>
+
+            <p>But the opposite happened. Within minutes, legends like Randy Shoup, Scott Prugh, Christine Hudson, Jeff Gallimore, Gene Kim, Leaf (Jessica) Roy, Topo Pal, and Jon Smart made me feel not just welcome, but like part of the circle.</p>
+
+            <p>This experience perfectly captured what makes the ETLS community special. It's not just about the technology or the methodologies. It's about creating spaces where ideas can flourish, where newcomers are welcomed, and where the future is being built through genuine collaboration and shared curiosity.</p>
+
+            <h2>What This Means for Enterprise Leaders</h2>
+
+            <p>The EventFlow experience offers several critical insights for technology leaders navigating the AI transformation:</p>
+
+            <h3>1. AI Amplifies the Importance of SDLC Fundamentals</h3>
+            <p>The most significant bottlenecks shift from "how do we implement this feature?" to "how do we ensure quality, maintain control, and prevent AI agents from introducing subtle regressions?"</p>
+
+            <h3>2. Quality Gates Need Fundamental Redesign</h3>
+            <p>When feature development accelerates 10x, quality assurance processes designed for traditional development cycles become inadequate.</p>
+
+            <h3>3. The Skills Gap Is Changing, Not Disappearing</h3>
+            <p>Domain expertise, systems thinking, and the ability to define clear acceptance criteria become differentiating skills.</p>
+
+            <h3>4. Technical Leadership Becomes More Important</h3>
+            <p>When anyone can generate working code, the ability to make sound architectural decisions, establish coding standards, and guide technical strategy becomes the primary value differentiator.</p>
+
+            <h2>Looking Forward</h2>
+
+            <p>EventFlow started as a simple conference agenda tracker and became something much more significant: a real-world demonstration of what's possible when human creativity partners effectively with AI assistance.</p>
+
+            <p>The magic isn't in the AI technology itself. It's in the amplification of human creativity and problem-solving capability. When developers can focus on defining problems clearly and designing elegant solutions rather than wrestling with implementation details, we unlock new levels of innovation.</p>
+
+            <p>The future of software development isn't human versus AI. It's human <strong>with</strong> AI, creating solutions that neither could achieve alone.</p>
+
+            <p>After building a production-ready conference agenda app in under 36 hours using Amp, I'm convinced: this technology is going to reshape thought work in ways we're only beginning to imagine.</p>
+
+            <p>The energy at ETLS was electric. The ideas were bold. And it reminded me why I got into tech in the first place: it's the closest thing to being a wizard.</p>
+
+            <hr style="margin: var(--space-8) 0; border: 0; border-top: 1px solid var(--muted);">
+
+            <p><em>EventFlow is available as an open-source project at <a href="https://github.com/Josh-thephillipsequation/Eventflow">github.com/Josh-thephillipsequation/Eventflow</a>. The app demonstrates production-ready AI-assisted development practices and continues to evolve as a testing ground for agent-driven development methodologies.</em></p>
+
+            <p><em>This post was written collaboratively with Amp AI, demonstrating the same human-AI partnership approach used to build the application it describes.</em></p>
+        </div>
+
+        <div class="center" style="margin-top: var(--space-9); padding-top: var(--space-8); border-top: 2px solid var(--bg-alt);">
+            <h2 style="color: var(--brand-1);">Ready to Build Your App?</h2>
+            <p class="muted">Limited time offer: Working prototype for $500</p>
+            <a href="../#offer" class="btn btn-primary">Learn More</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="foot-inner">
+                <div class="brand">
+                    <img src="../tpe-logo.png" alt="ThePhillipsEquation LLC">
+                    <span class="brand-name">ThePhillipsEquation LLC</span>
+                </div>
+                <p>&copy; 2025 ThePhillipsEquation LLC • Built with Flutter & Amp AI</p>
+                <p class="muted"><a href="mailto:josh@thephillipsequation.com">josh@thephillipsequation.com</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

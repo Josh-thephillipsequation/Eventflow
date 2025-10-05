@@ -3,254 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EventFlow - 36 Hours, One AI Agent, Full iOS App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #667eea;
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 80px 0;
-            color: white;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .demo-section {
-            background: white;
-            padding: 80px 0;
-            margin-top: -50px;
-            border-radius: 50px 50px 0 0;
-        }
-        
-        .video-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto 60px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-        }
-        
-        .video-container video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .feature {
-            background: #f8fafc;
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .feature h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .feature ul {
-            list-style: none;
-        }
-        
-        .feature li {
-            padding: 5px 0;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .feature li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-        
-        .tech-section {
-            background: #1a1a1a;
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .tech-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-        
-        .tech-content {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        .highlight {
-            background: linear-gradient(120deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 600;
-        }
-        
-        .cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .cta h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            margin: 10px;
-            transition: transform 0.2s;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        footer {
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-        }
-        
-        .offer-highlight {
-            background: linear-gradient(120deg, #ffffff, #f0f8ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            .features { grid-template-columns: 1fr; }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .header-content nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            
-            .header-content nav a {
-                margin: 0 8px !important;
-                font-size: 0.9rem;
-            }
-            
-            /* Mobile improvements for journey section */
-            #journey .container > div {
-                padding: 0 10px;
-            }
-            
-            /* Mobile improvements for offer section */
-            #offer h2 {
-                font-size: 2rem !important;
-            }
-            
-            #offer h3 {
-                font-size: 1.4rem !important;
-            }
-            
-            #offer p {
-                font-size: 1rem !important;
-            }
-        }
-    </style>
+    <title>EventFlow — Conference Agenda App Built in 36 Hours with AI</title>
+    <meta name="description" content="A comprehensive conference agenda management app with smart filtering, interactive analytics, and AI-powered features. Built in 36 hours using Amp AI.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="EventFlow — Built in 36 Hours with AI">
+    <meta property="og:description" content="Production-grade conference agenda app with analytics, AI generators, and delightful UX.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://josh-thephillipsequation.github.io/Eventflow/">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <div class="header-content">
-                <div style="display: flex; align-items: center;">
-                    <img src="tpe-logo.png" alt="ThePhillipsEquation LLC" style="height: 40px; margin-right: 15px;">
-                    <div class="logo">EventFlow</div>
+            <div class="header-inner">
+                <div class="brand">
+                    <img src="tpe-logo.png" alt="ThePhillipsEquation LLC">
+                    <div class="brand-name">EventFlow</div>
                 </div>
-                <nav>
-                    <a href="#demo" style="text-decoration: none; color: #667eea; margin: 0 15px;">Demo</a>
-                    <a href="#features" style="text-decoration: none; color: #667eea; margin: 0 15px;">Features</a>
-                    <a href="#journey" style="text-decoration: none; color: #667eea; margin: 0 15px;">Journey</a>
-                    <a href="#offer" style="text-decoration: none; color: #667eea; margin: 0 15px;">Build Your App</a>
+                <nav class="nav">
+                    <a href="#demo">Demo</a>
+                    <a href="#features">Features</a>
+                    <a href="blog/journey.html">Journey</a>
+                    <a href="#offer">Build Your App</a>
                 </nav>
             </div>
         </div>
@@ -258,237 +40,197 @@
 
     <section class="hero">
         <div class="container">
+            <div class="badge">
+                <strong>ThePhillipsEquation LLC</strong> • Human–AI App Development
+            </div>
             <h1>EventFlow</h1>
-            <p>A comprehensive conference agenda management app built in just 36 hours using Amp AI</p>
-            <p style="font-size: 1rem; margin-top: 20px; background: rgba(255,255,255,0.2); padding: 15px 25px; border-radius: 50px; display: inline-block;">
-                <strong>By ThePhillipsEquation LLC</strong> • Production-grade app development through human-AI collaboration
+            <p class="lead sub">
+                A comprehensive conference agenda app built in 36 hours using Amp AI
             </p>
+            <div class="cta-group">
+                <a href="#demo" class="btn btn-primary">Watch the Demo</a>
+                <a href="https://github.com/Josh-thephillipsequation/Eventflow" class="btn btn-ghost">View on GitHub</a>
+            </div>
         </div>
     </section>
 
-    <section class="demo-section" id="demo">
+    <section class="surface" id="demo">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #333;">See It In Action</h2>
-            
-            <div class="video-container">
-                <video controls poster="video-poster.jpg">
+            <h2 class="center">See It in Action</h2>
+            <div class="media">
+                <video controls preload="metadata">
                     <source src="EventflowUxDemo.MP4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
+            <p class="center muted">
+                Smart filtering, interactive analytics, AI generators, and conference bingo.
+            </p>
             
-            <p style="text-align: center; color: #666; font-style: italic;">
-                Watch the complete UX demo featuring smart filtering, interactive analytics, AI generators, and conference bingo!
+            <div class="social-proof">
+                <p>
+                    "Recognized on the main stage at Enterprise Tech + AI Leadership Summit 2025 by Gene Kim and Jeff Gallimore."
+                </p>
+                <cite>— Built during the ETLS Vibe Coding Workshop</cite>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-muted" id="features">
+        <div class="container">
+            <h2 class="center">What EventFlow Delivers</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>🎯 Smart Event Management</h3>
+                    <ul>
+                        <li>ICS import with timezone intelligence</li>
+                        <li>Upcoming/past filters and day grouping</li>
+                        <li>Speaker extraction and search</li>
+                        <li>5-level priority with color coding</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>📊 Interactive Analytics</h3>
+                    <ul>
+                        <li>Topic cloud with tap-to-explore</li>
+                        <li>24-hour schedule heatmap</li>
+                        <li>Peak hours and busiest days</li>
+                        <li>Priority distribution and stats</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>🎮 AI-Powered Fun</h3>
+                    <ul>
+                        <li>Talk proposal generator</li>
+                        <li>Product name generator</li>
+                        <li>Conference bingo with win detection</li>
+                        <li>Context-aware content</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>💎 Professional Polish</h3>
+                    <ul>
+                        <li>Material 3 design throughout</li>
+                        <li>Expandable event cards</li>
+                        <li>Privacy-first (data stays local)</li>
+                        <li>Enterprise-grade testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container center">
+            <h2>The 36-Hour Journey</h2>
+            <p class="muted" style="margin-bottom: var(--space-6);">
+                From skeptical engineer to production app and main-stage recognition—how a systematic AI methodology shipped EventFlow fast.
+            </p>
+            <a class="btn btn-primary" href="blog/journey.html">Read the Full Story →</a>
+        </div>
+    </section>
+
+    <section class="section-cta" id="offer">
+        <div class="container">
+            <h2>Ready to Build Your App?</h2>
+            <div class="offer-card">
+                <h3>Limited Time Offer: $500 Prototype Development</h3>
+                <p style="font-size: clamp(1rem, 1.6vw, 1.15rem); margin-bottom: var(--space-5);">
+                    "I'll build a working prototype of any app idea you've been sitting on — scoped and timeboxed — for $500. Real code. Running on your phone."
+                </p>
+                
+                <ul>
+                    <li>Working prototype on your phone</li>
+                    <li>Production-ready code and tests</li>
+                    <li>Cross-platform Flutter (iOS & Android)</li>
+                    <li>Same AI-assisted methodology</li>
+                    <li>Foundation for App Store monetization</li>
+                </ul>
+                
+                <p style="font-size: 0.95rem; opacity: 0.85; font-style: italic; margin: var(--space-6) 0;">
+                    "This is my soft launch for a new business focused on building production-grade apps that can actually be monetized and safely deployed to the App Store."
+                </p>
+                
+                <a class="btn btn-primary" href="mailto:josh@thephillipsequation.com?subject=App Prototype Development - $500 Offer">
+                    Start Your Project →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark" id="tech">
+        <div class="container">
+            <h2>Built with Amp AI</h2>
+            <p>
+                EventFlow demonstrates the power of AI-assisted development. When I said "add speaker data from ICS files," 
+                Amp updated the data model, parsing logic, UI components, and search functionality across multiple screens. 
+                When I mentioned timezone issues, it fixed time display throughout the entire app.
+            </p>
+            <p>
+                The key difference is Amp's ability to understand how changes propagate through a codebase and maintain 
+                design patterns without constant specification. Traditional AI tools would require extensive manual coordination 
+                for this scope of work.
             </p>
         </div>
     </section>
 
-    <section id="features" style="padding: 80px 0; background: #f8fafc;">
+    <section class="section-muted">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #333;">What EventFlow Delivers</h2>
-            
-            <div class="features">
-                <div class="feature">
-                    <h3>🎯 Smart Event Management</h3>
-                    <ul>
-                        <li>ICS calendar import with timezone intelligence</li>
-                        <li>Smart filtering by upcoming/past events</li>
-                        <li>Visual day grouping with today/future indicators</li>
-                        <li>Speaker extraction and search</li>
-                        <li>5-level priority system with color coding</li>
-                    </ul>
+            <h2 class="center">Frequently Asked Questions</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>What do I get for $500?</h3>
+                    <p>A scoped, working prototype running on your device, with production-ready codebase and comprehensive tests.</p>
                 </div>
                 
-                <div class="feature">
-                    <h3>📊 Interactive Analytics</h3>
-                    <ul>
-                        <li>Topic cloud with tap-to-explore functionality</li>
-                        <li>24-hour schedule heatmap visualization</li>
-                        <li>Peak hours and busiest days analysis</li>
-                        <li>Priority distribution insights</li>
-                        <li>Time analysis and event statistics</li>
-                    </ul>
+                <div class="card">
+                    <h3>How long does it take?</h3>
+                    <p>Typically 2–5 days depending on scope alignment and complexity of your idea.</p>
                 </div>
                 
-                <div class="feature">
-                    <h3>🎮 AI-Powered Fun Features</h3>
-                    <ul>
-                        <li>Talk proposal generator with creative titles</li>
-                        <li>Product name generator from event problems</li>
-                        <li>Interactive conference bingo with win detection</li>
-                        <li>Contextual content based on your event data</li>
-                        <li>Copy/share functionality for all generated content</li>
-                    </ul>
+                <div class="card">
+                    <h3>Who owns the IP?</h3>
+                    <p>You do. All code is delivered to your repository under agreed terms.</p>
                 </div>
                 
-                <div class="feature">
-                    <h3>💎 Professional Polish</h3>
-                    <ul>
-                        <li>Material 3 design throughout</li>
-                        <li>Expandable event cards with full details</li>
-                        <li>Proper timezone handling and AM/PM display</li>
-                        <li>Privacy-first approach (all data stays local)</li>
-                        <li>Enterprise-grade testing infrastructure</li>
-                    </ul>
+                <div class="card">
+                    <h3>Is my data private?</h3>
+                    <p>EventFlow is privacy-first, and your app can be too. We design for local-first architecture wherever possible.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="journey" style="padding: 80px 0; background: white;">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #333;">The 36-Hour Journey</h2>
-            
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div style="background: #f8fafc; padding: 40px; border-radius: 20px; margin-bottom: 40px; border-left: 6px solid #667eea;">
-                    <h3 style="color: #667eea; margin-bottom: 20px; font-size: 1.4rem;">From Skeptical Engineer to Production App</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 15px;">
-                        "Four days. That's how long it took to go from skeptical enterprise engineer to building a production-ready app that would earn a main-stage shoutout from industry legends Gene Kim and Jeff Gallimore."
-                    </p>
-                    <p style="font-size: 1rem; color: #666; font-style: italic;">
-                        — From "EventFlow: From Specification to Production with AI Agents"
-                    </p>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px;">
-                    <div style="background: #667eea; color: white; padding: 30px; border-radius: 15px; text-align: center;">
-                        <h4 style="font-size: 2rem; margin-bottom: 10px;">Day 0</h4>
-                        <p style="font-weight: 600; margin-bottom: 15px;">Vibe Coding Workshop</p>
-                        <p style="font-size: 0.9rem; opacity: 0.9;">Gene Kim & Steve Yegge introduce rapid AI-assisted development</p>
-                    </div>
-                    
-                    <div style="background: #764ba2; color: white; padding: 30px; border-radius: 15px; text-align: center;">
-                        <h4 style="font-size: 2rem; margin-bottom: 10px;">Day 1</h4>
-                        <p style="font-weight: 600; margin-bottom: 15px;">MVP & Methodology</p>
-                        <p style="font-size: 0.9rem; opacity: 0.9;">From vibe coding to systematic specification-driven development</p>
-                    </div>
-                    
-                    <div style="background: #667eea; color: white; padding: 30px; border-radius: 15px; text-align: center;">
-                        <h4 style="font-size: 2rem; margin-bottom: 10px;">Day 2</h4>
-                        <p style="font-weight: 600; margin-bottom: 15px;">Main Stage Recognition</p>
-                        <p style="font-size: 0.9rem; opacity: 0.9;">Gene Kim & Jeff Gallimore showcase the app to ETLS audience</p>
-                    </div>
-                    
-                    <div style="background: #764ba2; color: white; padding: 30px; border-radius: 15px; text-align: center;">
-                        <h4 style="font-size: 2rem; margin-bottom: 10px;">Day 3</h4>
-                        <p style="font-weight: 600; margin-bottom: 15px;">Production Pipeline</p>
-                        <p style="font-size: 0.9rem; opacity: 0.9;">Full CI/CD, security scanning, and enterprise-grade infrastructure</p>
-                    </div>
-                </div>
-                
-                <div style="text-align: center;">
-                    <p style="font-size: 1.1rem; color: #666; margin-bottom: 20px;">
-                        This journey demonstrates a systematic methodology for production-grade AI-assisted development, 
-                        combining Deming's PDCA principles with modern AI capabilities.
-                    </p>
-                    <a href="https://github.com/Josh-thephillipsequation/Eventflow/blob/main/README.md" 
-                       style="display: inline-block; background: #667eea; color: white; padding: 12px 24px; text-decoration: none; border-radius: 25px; font-weight: 600;">
-                        Read the Full Journey →
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0;" id="offer">
-        <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Ready to Build Your App?</h2>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; margin-bottom: 40px; backdrop-filter: blur(10px);">
-                    <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: #fff;">Limited Time Offer: $500 Prototype Development</h3>
-                    
-                    <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 25px; opacity: 0.9;">
-                        "I'll build a working prototype of any app idea you've been sitting on — scoped and timeboxed — for $500. Real code. Running on your phone."
-                    </p>
-                    
-                    <div style="background: rgba(255,255,255,0.15); padding: 25px; border-radius: 15px; margin: 30px 0; text-align: left;">
-                        <h4 style="margin-bottom: 15px; color: #fff;">What You Get:</h4>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
-                                <span style="position: absolute; left: 0; color: #fff;">✓</span>
-                                Working prototype running on your phone
-                            </li>
-                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
-                                <span style="position: absolute; left: 0; color: #fff;">✓</span>
-                                Production-ready code with testing infrastructure
-                            </li>
-                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
-                                <span style="position: absolute; left: 0; color: #fff;">✓</span>
-                                Cross-platform Flutter development (iOS & Android)
-                            </li>
-                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
-                                <span style="position: absolute; left: 0; color: #fff;">✓</span>
-                                Same AI-assisted methodology that built EventFlow
-                            </li>
-                            <li style="padding: 8px 0; padding-left: 25px; position: relative;">
-                                <span style="position: absolute; left: 0; color: #fff;">✓</span>
-                                Foundation for App Store monetization
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <p style="font-size: 1rem; opacity: 0.8; margin-bottom: 30px; font-style: italic;">
-                        "Because my job only pays for one tech conference a year, and I want to hit a few more. 
-                        So instead of hitting VCs to fund my own startup first, I'd rather help friends and family build their ideas and get them out into the world."
-                    </p>
-                    
-                    <div style="margin-top: 30px;">
-                        <a href="mailto:josh@thephillipsequation.com?subject=App Prototype Development - $500 Offer" 
-                           style="display: inline-block; background: white; color: #667eea; padding: 18px 36px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; margin: 10px; transition: transform 0.2s;">
-                            Start Your App Project →
-                        </a>
-                    </div>
-                </div>
-                
-                <p style="font-size: 0.9rem; opacity: 0.7;">
-                    This is my soft launch for a new business focused on building production-grade apps that can actually be monetized and safely deployed to the App Store.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="tech-section" id="tech">
-        <div class="container">
-            <h2>Built with <span class="highlight">Amp AI</span></h2>
-            <div class="tech-content">
-                <p>
-                    EventFlow demonstrates the power of AI-assisted development. When I said "add speaker data from ICS files," 
-                    Amp updated the data model, parsing logic, UI components, and search functionality across multiple screens. 
-                    When I mentioned timezone issues, it fixed time display throughout the entire app.
-                </p>
-                <br>
-                <p>
-                    The key difference is Amp's ability to understand how changes propagate through a codebase and maintain 
-                    design patterns without constant specification. Traditional AI tools would require extensive manual coordination 
-                    for this scope of work.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
+    <section class="section-cta">
+        <div class="container center">
             <h2>EventFlow: The Future of Conference Management</h2>
-            <p style="margin-bottom: 30px; font-size: 1.1rem;">Built in 36 hours. Enterprise quality. AI-powered features.</p>
-            
-            <a href="https://github.com/Josh-thephillipsequation/Eventflow" class="btn">View on GitHub</a>
-            <a href="mailto:contact@thephillipsequation.com" class="btn">Contact Developer</a>
+            <p style="margin-bottom: var(--space-6); font-size: clamp(1rem, 1.6vw, 1.15rem); opacity: 0.9;">
+                Built in 36 hours. Enterprise quality. AI-powered features.
+            </p>
+            <div class="cta-group">
+                <a href="https://github.com/Josh-thephillipsequation/Eventflow" class="btn btn-primary">View on GitHub</a>
+                <a href="mailto:josh@thephillipsequation.com?subject=EventFlow Inquiry" class="btn btn-ghost">Contact Developer</a>
+            </div>
         </div>
     </section>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <img src="tpe-logo.png" alt="ThePhillipsEquation LLC" style="height: 30px;">
-                    <span style="color: white; font-weight: 600;">ThePhillipsEquation LLC</span>
+            <div class="foot-inner">
+                <div class="brand">
+                    <img src="tpe-logo.png" alt="ThePhillipsEquation LLC">
+                    <span class="brand-name">ThePhillipsEquation LLC</span>
                 </div>
-                <p style="margin: 0; text-align: center;">
-                    &copy; 2025 thephillipsequation llc • Built with Flutter & Amp AI • <a href="https://ampcode.com" style="color: #667eea;">Powered by Amp</a>
+                <p>
+                    &copy; 2025 ThePhillipsEquation LLC • Built with Flutter & Amp AI • 
+                    <a href="https://ampcode.com">Powered by Amp</a>
                 </p>
-                <p style="margin: 0; font-size: 0.9rem; opacity: 0.8; text-align: center;">
-                    Ready to build your app? <a href="mailto:josh@thephillipsequation.com" style="color: #667eea; font-weight: 600;">Contact us for your $500 prototype</a>
+                <p class="muted">
+                    Ready to build your app? 
+                    <a href="mailto:josh@thephillipsequation.com" style="font-weight: 600;">Contact us for your $500 prototype</a>
                 </p>
             </div>
         </div>
