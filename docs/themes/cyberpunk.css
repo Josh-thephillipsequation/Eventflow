@@ -618,9 +618,17 @@ button, .btn { cursor: pointer; border: 0; }
 }
 
 .section-cta { 
-  background: linear-gradient(-45deg, #1a237e, #0a0e27, #4a148c, #311b92, #1a237e, #00f0ff);
-  background-size: 400% 400%;
-  animation: neon-gradient-shift 18s ease infinite;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(0, 240, 255, 0.1) 20px,
+      rgba(0, 240, 255, 0.1) 40px
+    ),
+    linear-gradient(135deg, #0a0e27, #141b3d);
+  background-size: 200% 200%;
+  animation: diagonal-flow 8s linear infinite;
   color: #fff; 
   text-align: center;
   position: relative;
@@ -629,9 +637,17 @@ button, .btn { cursor: pointer; border: 0; }
   border-left: none;
   border-right: none;
   box-shadow: 
-    inset 0 0 100px rgba(0, 240, 255, 0.2),
-    0 0 80px rgba(255, 0, 255, 0.4),
-    0 0 100px rgba(0, 240, 255, 0.3);
+    inset 0 0 100px rgba(0, 240, 255, 0.15),
+    0 0 80px rgba(0, 240, 255, 0.3);
+}
+
+@keyframes diagonal-flow {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 100px 100px, 0 0;
+  }
 }
 
 .section-cta::after {
@@ -744,6 +760,32 @@ button, .btn { cursor: pointer; border: 0; }
 .muted { color: var(--muted); }
 .center { text-align: center; }
 .center > * { margin-left: auto; margin-right: auto; }
+.stack > * + * { margin-top: var(--space-4); }
+
+.social-proof {
+  background: rgba(0, 240, 255, 0.1);
+  padding: var(--space-5);
+  border-radius: var(--radius);
+  max-width: 700px;
+  margin: 0 auto var(--space-6);
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(0, 240, 255, 0.3);
+}
+
+.social-proof p {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-style: italic;
+  margin: 0;
+  max-width: 100%;
+}
+
+.social-proof cite {
+  display: block;
+  margin-top: var(--space-3);
+  font-style: normal;
+  opacity: 0.85;
+  font-size: 0.9rem;
+}
 .stack > * + * { margin-top: var(--space-4); }
 
 .social-proof {

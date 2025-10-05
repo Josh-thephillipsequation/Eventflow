@@ -23,6 +23,10 @@ const themes = {
   'hipster': {
     name: 'Artisanal Pixels Organic ☕',
     file: 'themes/tech-hipster.css'
+  },
+  'miami': {
+    name: 'Miami 1988 🌴',
+    file: 'themes/miami-1988.css'
   }
 };
 
