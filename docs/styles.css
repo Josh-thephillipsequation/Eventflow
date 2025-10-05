@@ -45,6 +45,15 @@ body {
   }
 }
 
+@keyframes float-pattern {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -200,6 +209,28 @@ button, .btn { cursor: pointer; border: 0; }
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   margin-top: calc(var(--space-7) * -1);
   padding-top: var(--space-9);
+  position: relative;
+  overflow: hidden;
+}
+
+.surface::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.04) 0%, transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.04) 0%, transparent 30%);
+  opacity: 1;
+  pointer-events: none;
+  animation: float-pattern 25s ease-in-out infinite;
+}
+
+.surface > * {
+  position: relative;
+  z-index: 1;
 }
 
 .media {
@@ -325,7 +356,32 @@ button, .btn { cursor: pointer; border: 0; }
   text-decoration: none;
 }
 
-.section-muted { background: var(--bg-alt); }
+.section-muted { 
+  background: var(--bg-alt);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-muted::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 15% 30%, rgba(102, 126, 234, 0.03) 0%, transparent 25%),
+    radial-gradient(circle at 85% 70%, rgba(118, 75, 162, 0.03) 0%, transparent 25%),
+    radial-gradient(circle at 50% 10%, rgba(102, 126, 234, 0.02) 0%, transparent 30%);
+  opacity: 1;
+  pointer-events: none;
+  animation: float-pattern 20s ease-in-out infinite;
+}
+
+.section-muted > * {
+  position: relative;
+  z-index: 1;
+}
 
 .section-dark { 
   background: #111; 
