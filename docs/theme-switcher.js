@@ -11,8 +11,19 @@ const themes = {
   'cyberpunk': {
     name: 'Neon Dreams 2077 ⚡',
     file: 'themes/cyberpunk.css'
+  },
+  'cassette': {
+    name: 'VHS Analog Tomorrow 📼',
+    file: 'themes/cassette-futurism.css'
+  },
+  'google': {
+    name: 'Material You Zen ✨',
+    file: 'themes/google-workspace.css'
+  },
+  'hipster': {
+    name: 'Artisanal Pixels Organic ☕',
+    file: 'themes/tech-hipster.css'
   }
-  // More themes will be added as we create them
 };
 
 // Get or set the current theme
