@@ -32,18 +32,24 @@ jobs:
     
     - name: Verify formatting
       run: |
-        dart format --output=none --set-exit-if-changed . || echo "❌ Format check failed" >> test_reports/failures.txt
+        dart format --output=none --set-exit-if-changed lib test || {
+          echo "❌ Format check failed" >> test_reports/failures.txt
+          echo "**Format check failed.** Run: \`dart format lib test\`" >> $GITHUB_STEP_SUMMARY
+        }
     
     - name: Analyze project source
       run: |
-        flutter analyze --fatal-infos > test_reports/analysis.txt 2>&1 || echo "❌ Analysis failed" >> test_reports/failures.txt
+        flutter analyze --fatal-infos > test_reports/analysis.txt 2>&1 || {
+          echo "❌ Analysis failed" >> test_reports/failures.txt
+          echo "**Analysis found issues.** See artifact analysis.txt" >> $GITHUB_STEP_SUMMARY
+        }
     
     - name: Run unit tests with coverage
       run: |
-        flutter test --coverage --reporter json > test_reports/test_results.json 2>&1 || {
-          echo "⚠️  Some tests failed - post-merge cleanup needed" >> test_reports/failures.txt
-          echo "App functionality is working - tests need updates after EventFlow rebrand merge" >> test_reports/failures.txt
-        }
+        set -o pipefail
+        echo "🧪 Running tests with detailed output..."
+        flutter test -j 1 --coverage --reporter expanded 2>&1 | tee test_reports/tests.txt
+        echo "✅ All tests passed successfully!"
     
     - name: Generate coverage report
       run: |
@@ -53,27 +59,16 @@ jobs:
           echo "No coverage data generated" > test_reports/coverage_summary.txt
         fi
     
-    - name: Check test results and generate agent feedback
+    - name: Check test results
       run: |
         if [ -f test_reports/failures.txt ]; then
-          echo "📋 Test failures detected. Check test_reports/ for details."
-          echo "
-        ## 🚨 Agent Feedback Required
-        
-        Test failures detected in this CI run. Please check:
-        - test_reports/failures.txt for summary
-        - test_reports/analysis.txt for static analysis issues  
-        - test_reports/test_results.json for test results
-        - test_reports/coverage_summary.txt for coverage issues
-        
-        **Next Steps:**
-        1. Copy AGENT_FEEDBACK_TEMPLATE.md to AGENT_FEEDBACK.md
-        2. Fill in the failure details from reports above
-        3. Ask agent to fix issues using the feedback file
-        " > test_reports/AGENT_INSTRUCTIONS.md
-          echo "⚠️ Test issues detected but not blocking pipeline - post-merge cleanup needed"
+          echo "📋 CI checks failed. See artifacts for details."
+          echo "## ❌ CI Checks Failed" >> $GITHUB_STEP_SUMMARY
+          echo "Check uploaded artifacts: analysis.txt, tests.txt, coverage_summary.txt" >> $GITHUB_STEP_SUMMARY
+          exit 1
         else
-          echo "✅ All tests passed successfully!"
+          echo "✅ All CI checks passed!"
+          echo "## ✅ All CI Checks Passed" >> $GITHUB_STEP_SUMMARY
         fi
     
     - name: Upload test reports
@@ -98,29 +93,13 @@ jobs:
           echo "📊 Coverage report generated at coverage/html/index.html"
         fi
     
-    - name: Auto-generate agent feedback on failure
-      if: failure()
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        # Generate detailed feedback from CI logs (with authentication)
-        python3 scripts/auto_ci_feedback.py
-        
-        # Configure git for automated commits
-        git config user.name "EventFlow CI Bot"
-        git config user.email "ci@eventflow.app"
-        
-        # Only commit if AGENT_FEEDBACK.md was updated
-        if git diff --quiet AGENT_FEEDBACK.md; then
-          echo "📝 No feedback changes to commit"
-        else
-          git add AGENT_FEEDBACK.md
-          git commit -m "🤖 Auto-generated CI feedback for agent - $(date '+%Y-%m-%d %H:%M')"
-          
-          # Push back to the branch (works for both push and PR events)
-          git push origin HEAD:${{ github.ref_name }}
-          echo "✅ Agent feedback committed and pushed"
-        fi
+    # Auto-feedback disabled - manual review preferred
+    # - name: Auto-generate agent feedback on failure
+    #   if: failure()
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   run: |
+    #     python3 scripts/auto_ci_feedback.py
 
   build:
     name: iOS Build

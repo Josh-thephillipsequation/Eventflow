@@ -72,39 +72,39 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                          Container(
-                            padding: const EdgeInsets.all(16),
-                            decoration: BoxDecoration(
-                              color:
-                                  colorScheme.onPrimary.withValues(alpha: 0.1),
-                              shape: BoxShape.circle,
+                            Container(
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: colorScheme.onPrimary
+                                    .withValues(alpha: 0.1),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.cloud_download_rounded,
+                                size: 48,
+                                color: colorScheme.onPrimary,
+                              ),
                             ),
-                            child: Icon(
-                              Icons.cloud_download_rounded,
-                              size: 48,
-                              color: colorScheme.onPrimary,
+                            const SizedBox(height: 16),
+                            Text(
+                              'Import Calendar',
+                              style: theme.textTheme.headlineMedium?.copyWith(
+                                color: colorScheme.onPrimary,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Import Calendar',
-                            style: theme.textTheme.headlineMedium?.copyWith(
-                              color: colorScheme.onPrimary,
-                              fontWeight: FontWeight.bold,
+                            const SizedBox(height: 8),
+                            Text(
+                              'Import your conference schedule to stay organized and never miss important sessions.',
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: colorScheme.onPrimary
+                                    .withValues(alpha: 0.9),
+                              ),
+                              textAlign: TextAlign.center,
+                              maxLines: 2,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            'Import your conference schedule to stay organized and never miss important sessions.',
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                              color:
-                                  colorScheme.onPrimary.withValues(alpha: 0.9),
-                            ),
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                          ),
-                        ],
+                          ],
                         ),
                       ),
                     ),

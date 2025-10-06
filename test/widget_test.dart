@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:conference_agenda_tracker/main.dart';
-import 'package:conference_agenda_tracker/providers/event_provider.dart';
-import 'package:conference_agenda_tracker/services/calendar_service.dart';
-import 'package:provider/provider.dart';
 
 void main() {
   group('EventFlow App Tests', () {
@@ -12,8 +9,10 @@ void main() {
       TestWidgetsFlutterBinding.ensureInitialized();
 
       // Mock SharedPreferences
-      const MethodChannel('plugins.flutter.io/shared_preferences')
-          .setMockMethodCallHandler((MethodCall methodCall) async {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+              const MethodChannel('plugins.flutter.io/shared_preferences'),
+              (MethodCall methodCall) async {
         if (methodCall.method == 'getAll') {
           return <String, Object>{};
         }
@@ -30,7 +29,7 @@ void main() {
       // Should show splash screen initially
       expect(find.text('EventFlow'), findsOneWidget);
       expect(find.text('by thephillipsequation llc'), findsOneWidget);
-      
+
       // Wait for any pending timers to complete
       await tester.pumpAndSettle(const Duration(seconds: 2));
     });
@@ -74,13 +73,13 @@ void main() {
 
       // Verify Fun tab is available and can be tapped
       expect(find.text('Fun'), findsOneWidget);
-      
+
       await tester.tap(find.text('Fun'));
       await tester.pumpAndSettle();
 
       // The main header should always appear
       expect(find.text('Fun Zone'), findsOneWidget);
-      
+
       // Test passes if we can navigate to Fun and see the header
       // The sections depend on provider state which has async issues in tests
       // This ensures basic navigation works without testing provider-dependent content

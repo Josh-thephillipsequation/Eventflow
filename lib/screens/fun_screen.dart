@@ -1188,13 +1188,13 @@ class _FunScreenState extends State<FunScreen> {
   }
 
   void _copyBingoToClipboard() {
-    final content = 'Conference Bingo Card:\n\n' +
-        _bingoSquares.asMap().entries.map((e) {
-          final index = e.key;
-          final square = e.value;
-          if ((index + 1) % 5 == 0) return '$square\n';
-          return square.padRight(15);
-        }).join('');
+    final content =
+        'Conference Bingo Card:\n\n${_bingoSquares.asMap().entries.map((e) {
+      final index = e.key;
+      final square = e.value;
+      if ((index + 1) % 5 == 0) return '$square\n';
+      return square.padRight(15);
+    }).join('')}';
 
     Clipboard.setData(ClipboardData(text: content));
     ScaffoldMessenger.of(context).showSnackBar(
@@ -1221,15 +1221,18 @@ class _FunScreenState extends State<FunScreen> {
 
     // Check columns
     for (int col = 0; col < 5; col++) {
-      if (List.generate(5, (row) => grid[row][col]).every((marked) => marked))
+      if (List.generate(5, (row) => grid[row][col]).every((marked) => marked)) {
         return true;
+      }
     }
 
     // Check diagonals
-    if (List.generate(5, (i) => grid[i][i]).every((marked) => marked))
+    if (List.generate(5, (i) => grid[i][i]).every((marked) => marked)) {
       return true;
-    if (List.generate(5, (i) => grid[i][4 - i]).every((marked) => marked))
+    }
+    if (List.generate(5, (i) => grid[i][4 - i]).every((marked) => marked)) {
       return true;
+    }
 
     return false;
   }

@@ -1,0 +1,214 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+X-WR-CALNAME:EventFlow Demo Conference 2025
+X-WR-CALDESC:Demo Conference for EventFlow Testing
+METHOD:PUBLISH
+CALSCALE:GREGORIAN
+PRODID:-//EventFlow Demo//EN
+X-WR-TIMEZONE:UTC
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251007T090000Z
+DTEND:20251007T103000Z
+SUMMARY:Opening Keynote: The Future of Technology Leadership
+DESCRIPTION:Join us for an inspiring opening keynote exploring emerging trends in technology leadership\, AI transformation\, and digital innovation. This session will set the stage for three days of cutting-edge insights and networking.
+CATEGORIES:KEYNOTE
+LOCATION:Main Auditorium\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="Dr. Sarah Chen":MAILTO:sarah.chen@techleadership.org
+SEQUENCE:0
+UID:demo-opening-keynote-2025
+URL:https://eventflow.demo/events/opening-keynote
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251007T110000Z
+DTEND:20251007T120000Z
+SUMMARY:AI-Powered Development: From Proof of Concept to Production
+DESCRIPTION:Explore practical strategies for implementing AI in enterprise software development. Learn from real-world case studies and hands-on examples of successful AI integration.
+CATEGORIES:TECHNICAL SESSION
+LOCATION:Room A\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="Michael Rodriguez":MAILTO:m.rodriguez@aidev.com
+SEQUENCE:0
+UID:demo-ai-development-2025
+URL:https://eventflow.demo/events/ai-development
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251007T110000Z
+DTEND:20251007T120000Z
+SUMMARY:Building Resilient Teams in Remote-First Organizations
+DESCRIPTION:Discover frameworks and practices for creating high-performing teams in distributed work environments. This session covers communication strategies\, culture building\, and team dynamics.
+CATEGORIES:LEADERSHIP
+LOCATION:Room B\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="Jennifer Kim":MAILTO:jennifer.kim@remoteleadership.com
+SEQUENCE:0
+UID:demo-resilient-teams-2025
+URL:https://eventflow.demo/events/resilient-teams
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251007T133000Z
+DTEND:20251007T143000Z
+SUMMARY:Lunch & Networking
+DESCRIPTION:Connect with fellow technology leaders over lunch. Dedicated networking time with structured networking activities and open discussion areas.
+CATEGORIES:NETWORKING
+LOCATION:Dining Hall\, Conference Center\, San Francisco\, CA\, USA
+SEQUENCE:0
+UID:demo-lunch-day1-2025
+URL:https://eventflow.demo/events/lunch-day1
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251007T143000Z
+DTEND:20251007T153000Z
+SUMMARY:Workshop: Hands-on Machine Learning for Leaders
+DESCRIPTION:A practical workshop designed for technology leaders to understand machine learning implementation. No coding experience required - focus on strategic decision-making and team leadership.
+CATEGORIES:WORKSHOP
+LOCATION:Workshop Lab\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="Dr. Alex Thompson":MAILTO:alex.thompson@mlstrategy.ai
+SEQUENCE:0
+UID:demo-ml-workshop-2025
+URL:https://eventflow.demo/events/ml-workshop
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251007T160000Z
+DTEND:20251007T170000Z
+SUMMARY:Panel: Scaling Engineering Organizations
+DESCRIPTION:Industry leaders share insights on scaling engineering teams from startup to enterprise. Topics include hiring strategies\, technical architecture\, and organizational design.
+CATEGORIES:PANEL
+LOCATION:Main Auditorium\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="Panel Moderator":MAILTO:panels@eventflow.demo
+SEQUENCE:0
+UID:demo-scaling-panel-2025
+URL:https://eventflow.demo/events/scaling-panel
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251007T180000Z
+DTEND:20251007T200000Z
+SUMMARY:Welcome Reception
+DESCRIPTION:Join us for cocktails\, appetizers\, and informal networking to kick off the conference. Meet speakers\, sponsors\, and fellow attendees in a relaxed atmosphere.
+CATEGORIES:SOCIAL
+LOCATION:Rooftop Terrace\, Conference Center\, San Francisco\, CA\, USA
+SEQUENCE:0
+UID:demo-welcome-reception-2025
+URL:https://eventflow.demo/events/welcome-reception
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251008T090000Z
+DTEND:20251008T100000Z
+SUMMARY:Day 2 Keynote: Sustainable Technology Innovation
+DESCRIPTION:Explore how technology leaders can drive innovation while maintaining sustainable and ethical practices. Focus on long-term thinking and responsible technology development.
+CATEGORIES:KEYNOTE
+LOCATION:Main Auditorium\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="Dr. Maria Santos":MAILTO:maria.santos@sustainabletech.org
+SEQUENCE:0
+UID:demo-day2-keynote-2025
+URL:https://eventflow.demo/events/day2-keynote
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251008T103000Z
+DTEND:20251008T113000Z
+SUMMARY:Cloud Architecture Patterns for Modern Applications
+DESCRIPTION:Deep dive into cloud-native architecture patterns\, microservices design\, and infrastructure best practices. Real-world examples from large-scale implementations.
+CATEGORIES:TECHNICAL SESSION
+LOCATION:Room A\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="David Park":MAILTO:david.park@cloudarchitect.com
+SEQUENCE:0
+UID:demo-cloud-architecture-2025
+URL:https://eventflow.demo/events/cloud-architecture
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251008T103000Z
+DTEND:20251008T113000Z
+SUMMARY:Data Strategy and Governance in the AI Era
+DESCRIPTION:Learn how to build robust data strategies that enable AI initiatives while maintaining privacy\, security\, and regulatory compliance. Practical frameworks and case studies.
+CATEGORIES:STRATEGY
+LOCATION:Room B\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="Lisa Wang":MAILTO:lisa.wang@datagovernance.io
+SEQUENCE:0
+UID:demo-data-strategy-2025
+URL:https://eventflow.demo/events/data-strategy
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251008T120000Z
+DTEND:20251008T130000Z
+SUMMARY:Lightning Talks: Innovation Showcase
+DESCRIPTION:Quick-fire presentations from conference attendees showcasing innovative projects\, tools\, and ideas. Interactive format with Q&A and networking opportunities.
+CATEGORIES:LIGHTNING TALKS
+LOCATION:Innovation Lab\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="Innovation Committee":MAILTO:innovation@eventflow.demo
+SEQUENCE:0
+UID:demo-lightning-talks-2025
+URL:https://eventflow.demo/events/lightning-talks
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251008T143000Z
+DTEND:20251008T153000Z
+SUMMARY:Security in a DevOps World
+DESCRIPTION:Integrate security practices into modern development workflows. Learn about DevSecOps\, security automation\, and building security-conscious engineering cultures.
+CATEGORIES:SECURITY
+LOCATION:Room A\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="James Wilson":MAILTO:james.wilson@devsecops.com
+SEQUENCE:0
+UID:demo-devsecops-2025
+URL:https://eventflow.demo/events/devsecops
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251008T160000Z
+DTEND:20251008T170000Z
+SUMMARY:Product Leadership for Technical Teams
+DESCRIPTION:Bridge the gap between engineering and product management. Strategies for technical leaders to influence product direction and build user-centric solutions.
+CATEGORIES:PRODUCT
+LOCATION:Room B\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="Amanda Foster":MAILTO:amanda.foster@producttech.com
+SEQUENCE:0
+UID:demo-product-leadership-2025
+URL:https://eventflow.demo/events/product-leadership
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251009T090000Z
+DTEND:20251009T100000Z
+SUMMARY:Closing Keynote: The Next Decade of Technology Leadership
+DESCRIPTION:Wrap up the conference with forward-looking insights on technology trends\, leadership evolution\, and preparing for the future of work in technology.
+CATEGORIES:KEYNOTE
+LOCATION:Main Auditorium\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="Dr. Robert Chang":MAILTO:robert.chang@futuretechleader.org
+SEQUENCE:0
+UID:demo-closing-keynote-2025
+URL:https://eventflow.demo/events/closing-keynote
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251009T103000Z
+DTEND:20251009T113000Z
+SUMMARY:Workshop: Building High-Performance Engineering Cultures
+DESCRIPTION:Interactive workshop on creating and maintaining cultures of excellence in engineering organizations. Includes assessment tools and practical implementation strategies.
+CATEGORIES:WORKSHOP
+LOCATION:Workshop Lab\, Conference Center\, San Francisco\, CA\, USA
+ORGANIZER;CN="Culture Coach":MAILTO:culture@engineeringexcellence.com
+SEQUENCE:0
+UID:demo-culture-workshop-2025
+URL:https://eventflow.demo/events/culture-workshop
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20251005T120000Z
+DTSTART:20251009T120000Z
+DTEND:20251009T130000Z
+SUMMARY:Conference Wrap-up and Networking
+DESCRIPTION:Final networking session with conference summary\, action planning\, and connections for future collaboration. Exchange contacts and plan follow-up initiatives.
+CATEGORIES:NETWORKING
+LOCATION:Main Hall\, Conference Center\, San Francisco\, CA\, USA
+SEQUENCE:0
+UID:demo-conference-wrapup-2025
+URL:https://eventflow.demo/events/conference-wrapup
+END:VEVENT
+END:VCALENDAR

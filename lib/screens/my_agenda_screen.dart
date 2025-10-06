@@ -238,19 +238,17 @@ class _MyAgendaScreenState extends State<MyAgendaScreen> {
                       ),
 
                       // Events for this date
-                      ...dayEvents
-                          .map((event) => EventCard(
-                                event: event,
-                                showDate:
-                                    false, // Don't show date since we're grouping by date
-                                onSelectionChanged: () {
-                                  provider.toggleEventSelection(event);
-                                },
-                                onPriorityChanged: (priority) {
-                                  provider.updateEventPriority(event, priority);
-                                },
-                              ))
-                          .toList(),
+                      ...dayEvents.map((event) => EventCard(
+                            event: event,
+                            showDate:
+                                false, // Don't show date since we're grouping by date
+                            onSelectionChanged: () {
+                              provider.toggleEventSelection(event);
+                            },
+                            onPriorityChanged: (priority) {
+                              provider.updateEventPriority(event, priority);
+                            },
+                          )),
 
                       const SizedBox(height: 8),
                     ],

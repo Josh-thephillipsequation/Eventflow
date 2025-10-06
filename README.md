@@ -27,6 +27,29 @@ flutter pub get
 flutter run
 ```
 
+### 📱 **Deploy to iPhone**
+
+For wireless testing on your iPhone:
+
+```bash
+# Check connected devices
+flutter devices
+
+# Deploy to iPhone (replace with your device ID)
+flutter run --release -d "00008140-0002248A0E12801C"
+
+# Or run with hot reload for development
+flutter run -d "00008140-0002248A0E12801C"
+```
+
+**Note:** For first-time iOS deployment, you may need to open Xcode and trust the developer certificate on your device. If deployment fails, run:
+
+```bash
+open ios/Runner.xcworkspace
+```
+
+Then use Xcode's "Product > Run" to deploy initially.
+
 ## 🤖 **The Amp Story**
 
 Built using [Amp](https://ampcode.com), Sourcegraph's AI coding agent. When I said "add speaker data from ICS files," Amp updated the data model, parsing logic, UI components, and search functionality across multiple screens. When I mentioned timezone issues, it fixed time display throughout the entire app.
