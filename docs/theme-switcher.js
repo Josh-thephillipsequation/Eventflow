@@ -66,18 +66,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeWidget = document.createElement('div');
   themeWidget.className = 'theme-widget';
   themeWidget.innerHTML = `
-    <div class="theme-widget-header">
-      <span class="theme-widget-icon">🎨</span>
-      <span class="theme-widget-title">Choose Theme</span>
+    <button class="theme-widget-toggle" aria-label="Toggle theme selector">
+      <span class="theme-widget-toggle-icon">🎨</span>
+    </button>
+    <div class="theme-widget-content">
+      <div class="theme-widget-header">
+        <span class="theme-widget-icon">🎨</span>
+        <span class="theme-widget-title">Choose Theme</span>
+        <button class="theme-widget-close" aria-label="Close theme selector">×</button>
+      </div>
+      <select id="theme-selector" class="theme-selector" aria-label="Select site theme">
+        ${Object.entries(themes).map(([id, theme]) => 
+          `<option value="${id}">${theme.name}</option>`
+        ).join('')}
+      </select>
     </div>
-    <select id="theme-selector" class="theme-selector" aria-label="Select site theme">
-      ${Object.entries(themes).map(([id, theme]) => 
-        `<option value="${id}">${theme.name}</option>`
-      ).join('')}
-    </select>
   `;
   
   document.body.appendChild(themeWidget);
+  
+  // Toggle widget open/close
+  const toggleBtn = themeWidget.querySelector('.theme-widget-toggle');
+  const closeBtn = themeWidget.querySelector('.theme-widget-close');
+  const content = themeWidget.querySelector('.theme-widget-content');
+  
+  toggleBtn.addEventListener('click', () => {
+    themeWidget.classList.toggle('theme-widget-open');
+  });
+  
+  closeBtn.addEventListener('click', () => {
+    themeWidget.classList.remove('theme-widget-open');
+  });
   
   // Add change event listener
   const selector = document.getElementById('theme-selector');
