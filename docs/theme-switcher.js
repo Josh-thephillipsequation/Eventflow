@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeContainer = document.createElement('div');
     themeContainer.className = 'theme-selector-container';
     themeContainer.innerHTML = `
+      <label for="theme-selector" class="theme-label">Theme:</label>
       <select id="theme-selector" class="theme-selector" aria-label="Select site theme">
         ${Object.entries(themes).map(([id, theme]) => 
           `<option value="${id}">${theme.name}</option>`

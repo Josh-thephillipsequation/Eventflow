@@ -32,6 +32,16 @@
         .theme-selector-container {
             display: flex;
             align-items: center;
+            gap: 8px;
+            margin-left: auto;
+        }
+        
+        .theme-label {
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
         }
         
         .theme-selector {
@@ -59,6 +69,16 @@
         }
         
         @media (max-width: 768px) {
+            .theme-selector-container {
+                width: 100%;
+                justify-content: center;
+                margin-left: 0;
+            }
+            
+            .theme-label {
+                font-size: 0.85rem;
+            }
+            
             .theme-selector {
                 font-size: 0.85rem;
                 padding: 6px 10px;
