@@ -272,7 +272,7 @@ class _InsightsScreenState extends State<InsightsScreen> {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 12),
-              Container(
+              SizedBox(
                 height: 60,
                 child: Row(
                   children: List.generate(24, (hour) {
@@ -312,7 +312,7 @@ class _InsightsScreenState extends State<InsightsScreen> {
                                 ),
                               const SizedBox(height: 4),
                               Text(
-                                '${hour.toString().padLeft(2, '0')}',
+                                hour.toString().padLeft(2, '0'),
                                 style: const TextStyle(fontSize: 8),
                               ),
                             ],
