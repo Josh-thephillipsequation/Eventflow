@@ -62,28 +62,28 @@ function setTheme(themeId) {
 
 // Initialize theme on page load
 document.addEventListener('DOMContentLoaded', () => {
-  // Create and populate the theme selector
-  const header = document.querySelector('.header-inner .nav');
-  if (header) {
-    const themeContainer = document.createElement('div');
-    themeContainer.className = 'theme-selector-container';
-    themeContainer.innerHTML = `
-      <label for="theme-selector" class="theme-label">Theme:</label>
-      <select id="theme-selector" class="theme-selector" aria-label="Select site theme">
-        ${Object.entries(themes).map(([id, theme]) => 
-          `<option value="${id}">${theme.name}</option>`
-        ).join('')}
-      </select>
-    `;
-    
-    header.appendChild(themeContainer);
-    
-    // Add change event listener
-    const selector = document.getElementById('theme-selector');
-    selector.addEventListener('change', (e) => {
-      setTheme(e.target.value);
-    });
-  }
+  // Create floating theme selector widget
+  const themeWidget = document.createElement('div');
+  themeWidget.className = 'theme-widget';
+  themeWidget.innerHTML = `
+    <div class="theme-widget-header">
+      <span class="theme-widget-icon">🎨</span>
+      <span class="theme-widget-title">Choose Theme</span>
+    </div>
+    <select id="theme-selector" class="theme-selector" aria-label="Select site theme">
+      ${Object.entries(themes).map(([id, theme]) => 
+        `<option value="${id}">${theme.name}</option>`
+      ).join('')}
+    </select>
+  `;
+  
+  document.body.appendChild(themeWidget);
+  
+  // Add change event listener
+  const selector = document.getElementById('theme-selector');
+  selector.addEventListener('change', (e) => {
+    setTheme(e.target.value);
+  });
   
   // Apply saved theme or default
   const currentTheme = getCurrentTheme();
