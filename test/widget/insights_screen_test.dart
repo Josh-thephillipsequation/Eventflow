@@ -72,7 +72,8 @@ void main() {
       await tester.pumpWidget(createTestWidget());
       await tester.pumpAndSettle(); // Wait for any animations
 
-      expect(find.text('Analyze: '), findsOneWidget); // Note the space after colon
+      expect(
+          find.text('Analyze: '), findsOneWidget); // Note the space after colon
       expect(find.byType(DropdownButton<String>), findsOneWidget);
     });
 

@@ -129,7 +129,7 @@ void main() {
     test('should clear all data', () async {
       eventProvider.addEventsForTesting([testEvent1, testEvent2]);
       expect(eventProvider.allEvents.length, equals(2));
-      
+
       await eventProvider.clearAllData();
 
       expect(eventProvider.allEvents, isEmpty);

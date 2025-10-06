@@ -11,7 +11,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -33,17 +32,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
             _buildSectionHeader(context, 'Appearance', Icons.palette_outlined),
             const SizedBox(height: 16),
             _buildThemeToggle(context),
-            
+
             const SizedBox(height: 32),
-            
+
             // Data Section
             _buildSectionHeader(context, 'Data', Icons.data_usage_outlined),
             const SizedBox(height: 16),
             _buildDemoDataCard(context),
             _buildClearDataCard(context),
-            
+
             const SizedBox(height: 32),
-            
+
             // About Section
             _buildSectionHeader(context, 'About', Icons.info_outline),
             const SizedBox(height: 16),
@@ -54,7 +53,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  Widget _buildSectionHeader(BuildContext context, String title, IconData icon) {
+  Widget _buildSectionHeader(
+      BuildContext context, String title, IconData icon) {
     final theme = Theme.of(context);
     return Row(
       children: [
@@ -77,12 +77,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
       builder: (context, themeProvider, child) {
         return Card(
           elevation: 1,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           child: ListTile(
             leading: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
+                color:
+                    theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(
@@ -124,7 +126,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
-  void _showThemeSelectionDialog(BuildContext context, ThemeProvider themeProvider) {
+  void _showThemeSelectionDialog(
+      BuildContext context, ThemeProvider themeProvider) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -174,11 +177,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
   ) {
     final theme = Theme.of(context);
     final isSelected = themeProvider.themeMode == mode;
-    
+
     return ListTile(
       leading: Icon(
         icon,
-        color: isSelected ? theme.colorScheme.primary : theme.colorScheme.onSurfaceVariant,
+        color: isSelected
+            ? theme.colorScheme.primary
+            : theme.colorScheme.onSurfaceVariant,
       ),
       title: Text(
         title,
@@ -188,7 +193,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ),
       subtitle: Text(subtitle),
-      trailing: isSelected 
+      trailing: isSelected
           ? Icon(Icons.check, color: theme.colorScheme.primary)
           : null,
       onTap: () {
@@ -209,7 +214,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             leading: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: theme.colorScheme.tertiaryContainer.withValues(alpha: 0.3),
+                color:
+                    theme.colorScheme.tertiaryContainer.withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(
@@ -330,7 +336,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     try {
       final provider = context.read<EventProvider>();
       await provider.loadCalendarFromAsset('assets/calendars/demo.ics');
-      
+
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -387,7 +393,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     try {
       final provider = context.read<EventProvider>();
       await provider.clearAllData();
-      
+
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

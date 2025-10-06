@@ -82,10 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         const Text(
                           'EventFlow',
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 8),
-                        const Text('A modern conference schedule management app'),
+                        const Text(
+                            'A modern conference schedule management app'),
                         const SizedBox(height: 16),
                         const Text(
                           'Developed by:',
@@ -114,7 +116,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       width: 40,
                                       height: 40,
                                       decoration: BoxDecoration(
-                                        color: Theme.of(context).colorScheme.primary,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
                                         borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: const Center(

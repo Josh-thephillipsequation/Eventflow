@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _initializeSplash() async {
     // Small delay to ensure the widget is fully built before removing native splash
     await Future.delayed(const Duration(milliseconds: 100));
-    
+
     // Remove native splash after our custom splash is ready
     FlutterNativeSplash.remove();
 
@@ -64,14 +64,14 @@ class _SplashScreenState extends State<SplashScreen> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Center(
-                  child: Text(
-                  'TPE',
-                  style: TextStyle(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  ),
-                  ),
+                    child: Text(
+                      'TPE',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 );
               },
