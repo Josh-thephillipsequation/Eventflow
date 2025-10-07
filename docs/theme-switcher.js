@@ -8,8 +8,8 @@ const themes = {
     name: 'Spooky Pumpkin Patches 🎃',
     file: 'themes/halloween.css'
   },
-  'default': {
-    name: 'Default (Purple Gradient)',
+  'purple': {
+    name: 'Purple Gradient',
     file: 'styles.css'
   },
   'cassette': {
@@ -32,7 +32,7 @@ const themes = {
 
 // Get or set the current theme
 function getCurrentTheme() {
-  return localStorage.getItem('eventflow-theme') || 'default';
+  return localStorage.getItem('eventflow-theme') || 'cyberpunk';
 }
 
 function setTheme(themeId) {
