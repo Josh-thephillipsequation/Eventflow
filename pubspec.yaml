@@ -48,6 +48,7 @@ flutter:
   assets:
     - assets/calendars/all.ics
     - assets/calendars/demo.ics
+    - assets/sample_conference.ics
     - assets/images/
     - assets/icons/
 
