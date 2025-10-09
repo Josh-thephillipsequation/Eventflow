@@ -7,7 +7,7 @@ class NeonPulseText extends StatefulWidget {
   final String text;
   final TextStyle? style;
   final Color? glowColor;
-  
+
   const NeonPulseText({
     super.key,
     required this.text,
@@ -31,7 +31,7 @@ class _NeonPulseTextState extends State<NeonPulseText>
       duration: const Duration(seconds: 2),
       vsync: this,
     )..repeat(reverse: true);
-    
+
     _animation = Tween<double>(begin: 0.3, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
@@ -46,43 +46,44 @@ class _NeonPulseTextState extends State<NeonPulseText>
   @override
   Widget build(BuildContext context) {
     final color = widget.glowColor ?? CyberpunkTheme.neonCyan;
-    
+
     return AnimatedBuilder(
       animation: _animation,
       builder: (context, child) {
         return Text(
           widget.text,
           style: widget.style?.copyWith(
-            shadows: [
-              Shadow(
-                color: color.withOpacity(_animation.value * 0.8),
-                blurRadius: 5,
+                shadows: [
+                  Shadow(
+                    color: color.withOpacity(_animation.value * 0.8),
+                    blurRadius: 5,
+                  ),
+                  Shadow(
+                    color: color.withOpacity(_animation.value * 0.6),
+                    blurRadius: 10,
+                  ),
+                  Shadow(
+                    color: color.withOpacity(_animation.value * 0.4),
+                    blurRadius: 20,
+                  ),
+                ],
+              ) ??
+              TextStyle(
+                shadows: [
+                  Shadow(
+                    color: color.withOpacity(_animation.value * 0.8),
+                    blurRadius: 5,
+                  ),
+                  Shadow(
+                    color: color.withOpacity(_animation.value * 0.6),
+                    blurRadius: 10,
+                  ),
+                  Shadow(
+                    color: color.withOpacity(_animation.value * 0.4),
+                    blurRadius: 20,
+                  ),
+                ],
               ),
-              Shadow(
-                color: color.withOpacity(_animation.value * 0.6),
-                blurRadius: 10,
-              ),
-              Shadow(
-                color: color.withOpacity(_animation.value * 0.4),
-                blurRadius: 20,
-              ),
-            ],
-          ) ?? TextStyle(
-            shadows: [
-              Shadow(
-                color: color.withOpacity(_animation.value * 0.8),
-                blurRadius: 5,
-              ),
-              Shadow(
-                color: color.withOpacity(_animation.value * 0.6),
-                blurRadius: 10,
-              ),
-              Shadow(
-                color: color.withOpacity(_animation.value * 0.4),
-                blurRadius: 20,
-              ),
-            ],
-          ),
         );
       },
     );
@@ -93,7 +94,7 @@ class _NeonPulseTextState extends State<NeonPulseText>
 class GlitchFlicker extends StatefulWidget {
   final Widget child;
   final Duration flickerInterval;
-  
+
   const GlitchFlicker({
     super.key,
     required this.child,
@@ -116,7 +117,7 @@ class _GlitchFlickerState extends State<GlitchFlicker>
       duration: const Duration(milliseconds: 100),
       vsync: this,
     );
-    
+
     _startFlickerLoop();
   }
 
@@ -124,9 +125,9 @@ class _GlitchFlickerState extends State<GlitchFlicker>
     while (mounted) {
       await Future.delayed(widget.flickerInterval);
       if (!mounted) break;
-      
+
       setState(() => _isFlickering = true);
-      
+
       // Flicker pattern: on-off-on-off-on
       await _controller.forward();
       await Future.delayed(const Duration(milliseconds: 50));
@@ -135,7 +136,7 @@ class _GlitchFlickerState extends State<GlitchFlicker>
       await _controller.forward();
       await Future.delayed(const Duration(milliseconds: 50));
       await _controller.reverse();
-      
+
       setState(() => _isFlickering = false);
       await _controller.forward();
     }
@@ -165,7 +166,7 @@ class _GlitchFlickerState extends State<GlitchFlicker>
 class CyberGlitch extends StatefulWidget {
   final Widget child;
   final Duration interval;
-  
+
   const CyberGlitch({
     super.key,
     required this.child,
@@ -188,7 +189,7 @@ class _CyberGlitchState extends State<CyberGlitch>
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
-    
+
     _startGlitchLoop();
   }
 
@@ -196,12 +197,12 @@ class _CyberGlitchState extends State<CyberGlitch>
     while (mounted) {
       await Future.delayed(widget.interval);
       if (!mounted) break;
-      
+
       // Random glitch direction
       final random = math.Random();
       final dx = (random.nextDouble() - 0.5) * 4;
       final dy = (random.nextDouble() - 0.5) * 4;
-      
+
       _animation = Tween<Offset>(
         begin: Offset.zero,
         end: Offset(dx, dy),
@@ -209,7 +210,7 @@ class _CyberGlitchState extends State<CyberGlitch>
         parent: _controller,
         curve: Curves.elasticOut,
       ));
-      
+
       await _controller.forward();
       await _controller.reverse();
     }
@@ -239,7 +240,7 @@ class _CyberGlitchState extends State<CyberGlitch>
 class GridScanBackground extends StatefulWidget {
   final Widget child;
   final Color? lineColor;
-  
+
   const GridScanBackground({
     super.key,
     required this.child,
@@ -282,7 +283,8 @@ class _GridScanBackgroundState extends State<GridScanBackground>
                 return CustomPaint(
                   painter: _GridScanPainter(
                     progress: _controller.value,
-                    lineColor: widget.lineColor ?? CyberpunkTheme.neonCyan.withOpacity(0.03),
+                    lineColor: widget.lineColor ??
+                        CyberpunkTheme.neonCyan.withOpacity(0.03),
                   ),
                 );
               },
@@ -312,8 +314,10 @@ class _GridScanPainter extends CustomPainter {
     // Horizontal lines moving down
     const lineSpacing = 2.0;
     final offset = progress * size.height;
-    
-    for (double y = -lineSpacing; y < size.height + lineSpacing; y += lineSpacing) {
+
+    for (double y = -lineSpacing;
+        y < size.height + lineSpacing;
+        y += lineSpacing) {
       final adjustedY = (y + offset) % (size.height + lineSpacing);
       canvas.drawLine(
         Offset(0, adjustedY),
@@ -331,7 +335,7 @@ class _GridScanPainter extends CustomPainter {
 class GradientShift extends StatefulWidget {
   final Widget child;
   final List<Color> colors;
-  
+
   const GradientShift({
     super.key,
     required this.child,
@@ -393,7 +397,7 @@ class NeonBorderGlow extends StatelessWidget {
   final Color? glowColor;
   final double borderWidth;
   final double borderRadius;
-  
+
   const NeonBorderGlow({
     super.key,
     required this.child,
@@ -405,7 +409,7 @@ class NeonBorderGlow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = glowColor ?? CyberpunkTheme.neonCyan;
-    
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius),

@@ -13,7 +13,7 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: isCyberpunk 
+        title: isCyberpunk
             ? const NeonPulseText(text: 'SETTINGS')
             : const Text('Settings'),
       ),
@@ -24,9 +24,9 @@ class SettingsScreen extends StatelessWidget {
           _buildSectionHeader(context, '🎨 Appearance', isCyberpunk),
           const SizedBox(height: 16),
           _buildThemeSelector(context, themeProvider, isCyberpunk),
-          
+
           const SizedBox(height: 32),
-          
+
           // About Section
           _buildSectionHeader(context, 'ℹ️ About', isCyberpunk),
           const SizedBox(height: 16),
@@ -36,26 +36,28 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSectionHeader(BuildContext context, String title, bool isCyberpunk) {
+  Widget _buildSectionHeader(
+      BuildContext context, String title, bool isCyberpunk) {
     final textStyle = Theme.of(context).textTheme.titleMedium?.copyWith(
-      fontWeight: FontWeight.bold,
-      letterSpacing: isCyberpunk ? 1.5 : null,
-    );
-    
+          fontWeight: FontWeight.bold,
+          letterSpacing: isCyberpunk ? 1.5 : null,
+        );
+
     if (isCyberpunk) {
       return NeonPulseText(
         text: title.toUpperCase(),
         style: textStyle,
       );
     }
-    
+
     return Text(
       title,
       style: textStyle,
     );
   }
 
-  Widget _buildThemeSelector(BuildContext context, ThemeProvider themeProvider, bool isCyberpunk) {
+  Widget _buildThemeSelector(
+      BuildContext context, ThemeProvider themeProvider, bool isCyberpunk) {
     Widget card = Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -65,8 +67,8 @@ class SettingsScreen extends StatelessWidget {
             Text(
               'Theme',
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
             const SizedBox(height: 16),
             ...AppThemeType.values.map((theme) {
@@ -83,14 +85,14 @@ class SettingsScreen extends StatelessWidget {
         ),
       ),
     );
-    
+
     if (isCyberpunk) {
       return NeonBorderGlow(
         borderRadius: 4,
         child: card,
       );
     }
-    
+
     return card;
   }
 
@@ -103,7 +105,7 @@ class SettingsScreen extends StatelessWidget {
   ) {
     final emoji = themeProvider.getThemeEmoji(theme);
     final name = themeProvider.getThemeName(theme);
-    
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: InkWell(
@@ -112,7 +114,7 @@ class SettingsScreen extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           decoration: BoxDecoration(
-            color: isSelected 
+            color: isSelected
                 ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(8),
@@ -134,11 +136,12 @@ class SettingsScreen extends StatelessWidget {
                 child: Text(
                   name,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                    color: isSelected 
-                        ? Theme.of(context).colorScheme.primary
-                        : null,
-                  ),
+                        fontWeight:
+                            isSelected ? FontWeight.bold : FontWeight.normal,
+                        color: isSelected
+                            ? Theme.of(context).colorScheme.primary
+                            : null,
+                      ),
                 ),
               ),
               if (isSelected)
@@ -163,35 +166,41 @@ class SettingsScreen extends StatelessWidget {
             Text(
               'EventFlow',
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
             const SizedBox(height: 8),
             Text(
               'Built in 36 hours with Amp AI',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
-              ),
+                    color: Theme.of(context)
+                        .colorScheme
+                        .onSurface
+                        .withOpacity(0.7),
+                  ),
             ),
             const SizedBox(height: 16),
             Text(
               'thephillipsequation llc',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
-              ),
+                    color: Theme.of(context)
+                        .colorScheme
+                        .onSurface
+                        .withOpacity(0.5),
+                  ),
             ),
           ],
         ),
       ),
     );
-    
+
     if (isCyberpunk) {
       return NeonBorderGlow(
         borderRadius: 4,
         child: card,
       );
     }
-    
+
     return card;
   }
 }

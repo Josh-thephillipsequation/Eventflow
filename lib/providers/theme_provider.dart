@@ -21,11 +21,10 @@ class ThemeProvider extends ChangeNotifier {
 
   AppThemeType get currentTheme => _currentTheme;
   bool get isInitialized => _isInitialized;
-  
+
   // Deprecated - keeping for backwards compatibility
-  ThemeMode get themeMode => _currentTheme == AppThemeType.light 
-      ? ThemeMode.light 
-      : ThemeMode.dark;
+  ThemeMode get themeMode =>
+      _currentTheme == AppThemeType.light ? ThemeMode.light : ThemeMode.dark;
 
   bool get isDarkMode => _currentTheme != AppThemeType.light;
   bool get isCyberpunkTheme => _currentTheme == AppThemeType.neonDreams2077;
@@ -76,7 +75,7 @@ class ThemeProvider extends ChangeNotifier {
     final nextIndex = (_currentTheme.index + 1) % AppThemeType.values.length;
     await setTheme(AppThemeType.values[nextIndex]);
   }
-  
+
   String getThemeName(AppThemeType theme) {
     switch (theme) {
       case AppThemeType.light:
@@ -87,7 +86,7 @@ class ThemeProvider extends ChangeNotifier {
         return 'Neon Dreams 2077 ⚡';
     }
   }
-  
+
   String getThemeEmoji(AppThemeType theme) {
     switch (theme) {
       case AppThemeType.light:

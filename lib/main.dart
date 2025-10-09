@@ -40,7 +40,7 @@ class ConferenceAgendaApp extends StatelessWidget {
               selectedTheme = CyberpunkTheme.theme;
               break;
           }
-          
+
           return MaterialApp(
             title: 'EventFlow',
             theme: selectedTheme,

@@ -33,13 +33,13 @@ class CyberpunkTheme {
       useMaterial3: true,
       colorScheme: colorScheme,
       scaffoldBackgroundColor: darkBg,
-      
+
       // Cyberpunk typography with monospace feel
       textTheme: GoogleFonts.spaceMonoTextTheme(
         ThemeData.dark().textTheme.apply(
-          bodyColor: textPrimary,
-          displayColor: textPrimary,
-        ),
+              bodyColor: textPrimary,
+              displayColor: textPrimary,
+            ),
       ).copyWith(
         headlineLarge: GoogleFonts.spaceMono(
           fontSize: 32,
@@ -60,7 +60,7 @@ class CyberpunkTheme {
           color: neonMagenta,
         ),
       ),
-      
+
       appBarTheme: AppBarTheme(
         centerTitle: true,
         backgroundColor: darkBg.withOpacity(0.9),
@@ -69,7 +69,7 @@ class CyberpunkTheme {
         scrolledUnderElevation: 0,
         shadowColor: neonCyan.withOpacity(0.3),
       ),
-      
+
       cardTheme: CardThemeData(
         elevation: 0,
         color: card,
@@ -82,7 +82,7 @@ class CyberpunkTheme {
           ),
         ),
       ),
-      
+
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: neonCyan,
@@ -99,7 +99,7 @@ class CyberpunkTheme {
           ),
         ),
       ),
-      
+
       chipTheme: ChipThemeData(
         backgroundColor: neonCyan.withOpacity(0.1),
         selectedColor: neonCyan.withOpacity(0.3),
@@ -116,7 +116,7 @@ class CyberpunkTheme {
           borderRadius: BorderRadius.circular(4),
         ),
       ),
-      
+
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: neonMagenta,
         foregroundColor: Colors.black,
@@ -125,7 +125,7 @@ class CyberpunkTheme {
           borderRadius: BorderRadius.circular(4),
         ),
       ),
-      
+
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: darkBgAlt,
         indicatorColor: neonCyan.withOpacity(0.3),
@@ -138,7 +138,7 @@ class CyberpunkTheme {
       ),
     );
   }
-  
+
   // Neon glow box shadows for widgets
   static List<BoxShadow> neonGlow({Color? color, double intensity = 0.5}) {
     final glowColor = color ?? neonCyan;
@@ -155,7 +155,7 @@ class CyberpunkTheme {
       ),
     ];
   }
-  
+
   // Dual neon glow (cyan + magenta)
   static List<BoxShadow> dualNeonGlow({double intensity = 0.5}) {
     return [

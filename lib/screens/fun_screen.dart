@@ -133,7 +133,8 @@ class _FunScreenState extends State<FunScreen> {
                                     Icon(
                                       Icons.mic_rounded,
                                       size: 32,
-                                      color: Theme.of(context).colorScheme.primary,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
                                     ),
                                     const SizedBox(height: 8),
                                     Text(
@@ -172,7 +173,8 @@ class _FunScreenState extends State<FunScreen> {
                                     Icon(
                                       Icons.lightbulb_rounded,
                                       size: 32,
-                                      color: Theme.of(context).colorScheme.primary,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
                                     ),
                                     const SizedBox(height: 8),
                                     Text(

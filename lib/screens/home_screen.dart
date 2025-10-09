@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     final isCyberpunk = themeProvider.isCyberpunkTheme;
-    
+
     Widget appBarTitle = Row(
       children: [
         Container(
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
     );
-    
+
     // Add cyberpunk effects when theme is active
     if (isCyberpunk) {
       appBarTitle = Row(
@@ -70,7 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderRadius: BorderRadius.circular(4),
                 boxShadow: [
                   BoxShadow(
-                    color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.5),
                     blurRadius: 10,
                     spreadRadius: 2,
                   ),
@@ -111,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       );
     }
-    
+
     return Scaffold(
       appBar: AppBar(
         title: appBarTitle,
@@ -240,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: isCyberpunk 
+      body: isCyberpunk
           ? GridScanBackground(child: _screens[_selectedIndex])
           : _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
