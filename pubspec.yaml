@@ -55,9 +55,9 @@ flutter:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/icons/eventflow_v3_minimal.svg.png"
-  adaptive_icon_background: "#6750A4"
-  adaptive_icon_foreground: "assets/icons/eventflow_v3_minimal.svg.png"
+  image_path: "assets/images/tpe-logo.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/tpe-logo.png"
 
 flutter_native_splash:
   color: "#FFFFFF"

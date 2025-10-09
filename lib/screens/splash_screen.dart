@@ -51,9 +51,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
       // If onboarding completed, load sample data
       if (result == true && mounted) {
-        final eventProvider = Provider.of<EventProvider>(context, listen: false);
+        final eventProvider =
+            Provider.of<EventProvider>(context, listen: false);
         try {
-          await eventProvider.loadCalendarFromAsset('assets/sample_conference.ics');
+          await eventProvider
+              .loadCalendarFromAsset('assets/sample_conference.ics');
         } catch (e) {
           // Silently fail - user can manually load sample data
         }

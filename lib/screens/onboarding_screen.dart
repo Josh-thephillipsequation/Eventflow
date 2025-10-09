@@ -59,7 +59,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Future<void> _completeOnboarding() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('onboarding_complete', true);
-    
+
     if (!mounted) return;
     Navigator.of(context).pop(true); // Return true to indicate completion
   }
@@ -121,7 +121,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         Container(
                           padding: const EdgeInsets.all(32),
                           decoration: BoxDecoration(
-                            color: page.color.withOpacity(0.1),
+                            color: page.color.withValues(alpha: 0.1),
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
@@ -187,9 +187,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
                 child: Text(
-                  _currentPage < _pages.length - 1
-                      ? 'Next'
-                      : 'Get Started',
+                  _currentPage < _pages.length - 1 ? 'Next' : 'Get Started',
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
