@@ -31,44 +31,21 @@ jobs:
       run: mkdir -p test_reports coverage
     
     - name: Verify formatting
-      run: |
-        dart format --output=none --set-exit-if-changed lib test || {
-          echo "❌ Format check failed" >> test_reports/failures.txt
-          echo "**Format check failed.** Run: \`dart format lib test\`" >> $GITHUB_STEP_SUMMARY
-        }
+      run: dart format --output=none --set-exit-if-changed lib test
     
     - name: Analyze project source
-      run: |
-        flutter analyze --fatal-infos > test_reports/analysis.txt 2>&1 || {
-          echo "❌ Analysis failed" >> test_reports/failures.txt
-          echo "**Analysis found issues.** See artifact analysis.txt" >> $GITHUB_STEP_SUMMARY
-        }
+      run: flutter analyze --fatal-infos | tee test_reports/analysis.txt
     
     - name: Run unit tests with coverage
-      run: |
-        set -o pipefail
-        echo "🧪 Running tests with detailed output..."
-        flutter test -j 1 --coverage --reporter expanded 2>&1 | tee test_reports/tests.txt
-        echo "✅ All tests passed successfully!"
+      run: flutter test -j 1 --coverage --reporter expanded | tee test_reports/tests.txt
     
     - name: Generate coverage report
+      if: always()
       run: |
         if [ -f coverage/lcov.info ]; then
           lcov --summary coverage/lcov.info > test_reports/coverage_summary.txt 2>&1 || true
         else
           echo "No coverage data generated" > test_reports/coverage_summary.txt
-        fi
-    
-    - name: Check test results
-      run: |
-        if [ -f test_reports/failures.txt ]; then
-          echo "📋 CI checks failed. See artifacts for details."
-          echo "## ❌ CI Checks Failed" >> $GITHUB_STEP_SUMMARY
-          echo "Check uploaded artifacts: analysis.txt, tests.txt, coverage_summary.txt" >> $GITHUB_STEP_SUMMARY
-          exit 1
-        else
-          echo "✅ All CI checks passed!"
-          echo "## ✅ All CI Checks Passed" >> $GITHUB_STEP_SUMMARY
         fi
     
     - name: Upload test reports

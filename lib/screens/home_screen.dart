@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'import_calendar_screen.dart';
 import 'events_list_screen.dart';
 import 'my_agenda_screen.dart';
 import 'insights_screen.dart';
 import 'fun_screen.dart';
 import 'settings_screen.dart';
+import '../providers/theme_provider.dart';
+import '../widgets/cyberpunk_effects.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,15 +29,53 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            Container(
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final isCyberpunk = themeProvider.isCyberpunkTheme;
+
+    Widget appBarTitle = Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(6),
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primary,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Icon(
+            Icons.event_note_rounded,
+            color: Theme.of(context).colorScheme.onPrimary,
+            size: 20,
+          ),
+        ),
+        const SizedBox(width: 12),
+        Text(
+          'EventFlow',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
+        ),
+      ],
+    );
+
+    // Add cyberpunk effects when theme is active
+    if (isCyberpunk) {
+      appBarTitle = Row(
+        children: [
+          GlitchFlicker(
+            flickerInterval: const Duration(seconds: 4),
+            child: Container(
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.primary,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(4),
+                boxShadow: [
+                  BoxShadow(
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                    blurRadius: 10,
+                    spreadRadius: 2,
+                  ),
+                ],
               ),
               child: Icon(
                 Icons.event_note_rounded,
@@ -42,16 +83,39 @@ class _HomeScreenState extends State<HomeScreen> {
                 size: 20,
               ),
             ),
-            const SizedBox(width: 12),
-            Text(
-              'EventFlow',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: Theme.of(context).colorScheme.onSurface,
+          ),
+          const SizedBox(width: 12),
+          // Split text with different flicker timings
+          Row(
+            children: [
+              NeonPulseText(
+                text: 'EVENT',
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 2,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
               ),
-            ),
-          ],
-        ),
+              GlitchFlicker(
+                flickerInterval: const Duration(seconds: 6),
+                child: NeonPulseText(
+                  text: 'FLOW',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    letterSpacing: 2,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: appBarTitle,
         backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
         scrolledUnderElevation: 1,
@@ -177,7 +241,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: _screens[_selectedIndex],
+      body: isCyberpunk
+          ? GridScanBackground(child: _screens[_selectedIndex])
+          : _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: (index) {

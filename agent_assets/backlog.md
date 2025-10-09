@@ -411,6 +411,42 @@ Agent Changes → Local Testing → GitHub Actions → iOS Build → TestFlight 
     6. Add contextual hints and tooltips for advanced features
   - Notes: Consider using packages like flutter_intro or showcaseview for overlay tutorials
 
+- M28 — Fun Theme System (Website Themes in App)
+  - Branch: `feature/fun-themes`
+  - Goal: Add fun/playful themes from website to Flutter app with theme selector in settings
+  - Priority: P1
+  - Status: todo
+  - Estimate: 4-6h
+  - Steps:
+    1. Convert "Neon Dreams 2077" cyberpunk theme CSS to Flutter ThemeData
+    2. Create theme manager/provider for dynamic theme switching
+    3. Add settings screen with theme selector dropdown
+    4. Implement theme persistence using shared_preferences
+    5. **Add cyberpunk animations & effects:**
+       - Neon pulse animation for logo/headers (CSS neon-pulse keyframes)
+       - Glitch/flicker effects for logo (neon-flicker animation)
+       - Cyber glitch shake effect (cyber-glitch animation)
+       - Grid scan background animation (moving grid lines)
+       - Gradient shift animations for hero sections
+       - Neon glow shadows on cards/buttons
+       - Diagonal flow patterns for backgrounds
+    6. **Implement custom painted effects:**
+       - Custom painter for neon glow/shadow effects
+       - Animated gradient backgrounds
+       - Scanline overlays with CustomPaint
+       - Glitch distortion shaders (if feasible)
+    7. Test theme across all screens (Events, Agenda, Import, Insights, Fun)
+    8. Add additional themes: Halloween, VHS Cassette, Miami 1988, Material You Zen, Hipster
+    9. Add theme preview thumbnails in settings
+  - Notes: 
+    - Neon Dreams: Cyan (#00f0ff) + Magenta (#ff00ff), dark bg (#0a0e27), neon glow effects
+    - Use Flutter's AnimatedContainer, AnimationController, and CustomPaint
+    - Consider flutter_animate package for complex effect chains
+    - All themes should maintain Material 3 compatibility
+    - Use GoogleFonts 'Courier New' or 'Space Mono' for cyberpunk typography
+    - Add subtle haptic feedback on theme switch for extra polish
+    - Make animations performant - use RepaintBoundary where needed
+
 - M12 — Fun Tab Enhancements
   - Status: done
   - Branch: `feature/fun-tab-enhancements`
@@ -471,6 +507,7 @@ Agent Changes → Local Testing → GitHub Actions → iOS Build → TestFlight 
 - **Apple Dev Account**: Required for M23-M24 (TestFlight + App Store submission)
 
 ## Recent activity
+- 2025-10-07: Added M28 (Fun Theme System) - bring website's playful themes (Neon Dreams 2077, Halloween, etc.) to Flutter app with theme selector
 - 2025-09-24: **MISSION CRITICAL**: Added P0 App Store automation pipeline (M21-M24) for complete CI/CD to production
 - 2025-09-24: Completed M7-M13 UX improvements. Added M10-M12 for speaker data, import UI polish, and Fun tab enhancements.
 - 2025-09-24: Added UX improvements phase 1 - smart views, day grouping, and time-based filtering. Added M8 (Event Insights) and M9 (AI Talk Generator) to roadmap.

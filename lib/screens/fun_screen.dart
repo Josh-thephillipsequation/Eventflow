@@ -48,7 +48,7 @@ class _FunScreenState extends State<FunScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header with fun emoji
+              // Header with icon
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(20.0),
@@ -65,7 +65,11 @@ class _FunScreenState extends State<FunScreen> {
                 ),
                 child: Column(
                   children: [
-                    const Text('🎨🤖', style: TextStyle(fontSize: 48)),
+                    Icon(
+                      Icons.auto_awesome,
+                      size: 48,
+                      color: Theme.of(context).colorScheme.onPrimaryContainer,
+                    ),
                     const SizedBox(height: 8),
                     Text(
                       'Fun Zone',
@@ -119,30 +123,38 @@ class _FunScreenState extends State<FunScreen> {
                         // Talk Generator
                         Expanded(
                           child: Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                children: [
-                                  const Text('🎤',
-                                      style: TextStyle(fontSize: 32)),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    'Talk Generator',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium
-                                        ?.copyWith(
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  const SizedBox(height: 8),
-                                  const Text(
-                                    'Generate talk proposals',
-                                    style: TextStyle(fontSize: 12),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
+                            child: InkWell(
+                              onTap: () => _generateTalk(events),
+                              borderRadius: BorderRadius.circular(12),
+                              child: Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Column(
+                                  children: [
+                                    Icon(
+                                      Icons.mic_rounded,
+                                      size: 32,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      'Talk Generator',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    const SizedBox(height: 8),
+                                    const Text(
+                                      'Generate talk proposals',
+                                      style: TextStyle(fontSize: 12),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -151,30 +163,38 @@ class _FunScreenState extends State<FunScreen> {
                         // Product Generator
                         Expanded(
                           child: Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                children: [
-                                  const Text('💡',
-                                      style: TextStyle(fontSize: 32)),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    'Product Ideas',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium
-                                        ?.copyWith(
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  const SizedBox(height: 8),
-                                  const Text(
-                                    'Generate product names',
-                                    style: TextStyle(fontSize: 12),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
+                            child: InkWell(
+                              onTap: () => _generateProduct(events),
+                              borderRadius: BorderRadius.circular(12),
+                              child: Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Column(
+                                  children: [
+                                    Icon(
+                                      Icons.lightbulb_rounded,
+                                      size: 32,
+                                      color:
+                                          Theme.of(context).colorScheme.primary,
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      'Product Ideas',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    const SizedBox(height: 8),
+                                    const Text(
+                                      'Generate product names',
+                                      style: TextStyle(fontSize: 12),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -184,29 +204,37 @@ class _FunScreenState extends State<FunScreen> {
                     const SizedBox(height: 12),
                     // Bingo Generator (Full Width)
                     Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          children: [
-                            const Text('🎯', style: TextStyle(fontSize: 32)),
-                            const SizedBox(height: 8),
-                            Text(
-                              'Conference Bingo',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(height: 8),
-                            const Text(
-                              'Generate a bingo card from your event topics',
-                              style: TextStyle(fontSize: 12),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
+                      child: InkWell(
+                        onTap: () => _generateBingo(events),
+                        borderRadius: BorderRadius.circular(12),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            children: [
+                              Icon(
+                                Icons.grid_on_rounded,
+                                size: 32,
+                                color: Theme.of(context).colorScheme.secondary,
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                'Conference Bingo',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 8),
+                              const Text(
+                                'Generate a bingo card from your event topics',
+                                style: TextStyle(fontSize: 12),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -476,7 +504,7 @@ class _FunScreenState extends State<FunScreen> {
                                 const SizedBox(width: 8),
                                 Expanded(
                                   child: Text(
-                                    'Tap squares to mark them as you hear these topics during the conference! 🎯',
+                                    'Tap squares to mark them as you hear these topics during the conference!',
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodySmall
@@ -1248,7 +1276,10 @@ class _FunScreenState extends State<FunScreen> {
       builder: (context) => AlertDialog(
         title: Row(
           children: [
-            const Text('🎉'),
+            Icon(
+              Icons.celebration,
+              color: Theme.of(context).colorScheme.primary,
+            ),
             const SizedBox(width: 8),
             Text(
               'BINGO!',
@@ -1257,14 +1288,16 @@ class _FunScreenState extends State<FunScreen> {
                     color: Theme.of(context).colorScheme.primary,
                   ),
             ),
-            const SizedBox(width: 8),
-            const Text('🎉'),
           ],
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text('🏆', style: TextStyle(fontSize: 48)),
+            Icon(
+              Icons.emoji_events,
+              size: 64,
+              color: Theme.of(context).colorScheme.primary,
+            ),
             const SizedBox(height: 16),
             Text(
               'Congratulations!',
