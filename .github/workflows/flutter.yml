@@ -66,10 +66,9 @@ jobs:
           echo "## ❌ CI Checks Failed" >> $GITHUB_STEP_SUMMARY
           echo "Check uploaded artifacts: analysis.txt, tests.txt, coverage_summary.txt" >> $GITHUB_STEP_SUMMARY
           exit 1
-        else
-          echo "✅ All CI checks passed!"
-          echo "## ✅ All CI Checks Passed" >> $GITHUB_STEP_SUMMARY
         fi
+        echo "✅ All CI checks passed!"
+        echo "## ✅ All CI Checks Passed" >> $GITHUB_STEP_SUMMARY
     
     - name: Upload test reports
       uses: actions/upload-artifact@v4
