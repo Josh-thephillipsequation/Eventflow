@@ -55,15 +55,15 @@ class _NeonPulseTextState extends State<NeonPulseText>
           style: widget.style?.copyWith(
                 shadows: [
                   Shadow(
-                    color: color.withOpacity(_animation.value * 0.8),
+                    color: color.withValues(alpha: _animation.value * 0.8),
                     blurRadius: 5,
                   ),
                   Shadow(
-                    color: color.withOpacity(_animation.value * 0.6),
+                    color: color.withValues(alpha: _animation.value * 0.6),
                     blurRadius: 10,
                   ),
                   Shadow(
-                    color: color.withOpacity(_animation.value * 0.4),
+                    color: color.withValues(alpha: _animation.value * 0.4),
                     blurRadius: 20,
                   ),
                 ],
@@ -71,15 +71,15 @@ class _NeonPulseTextState extends State<NeonPulseText>
               TextStyle(
                 shadows: [
                   Shadow(
-                    color: color.withOpacity(_animation.value * 0.8),
+                    color: color.withValues(alpha: _animation.value * 0.8),
                     blurRadius: 5,
                   ),
                   Shadow(
-                    color: color.withOpacity(_animation.value * 0.6),
+                    color: color.withValues(alpha: _animation.value * 0.6),
                     blurRadius: 10,
                   ),
                   Shadow(
-                    color: color.withOpacity(_animation.value * 0.4),
+                    color: color.withValues(alpha: _animation.value * 0.4),
                     blurRadius: 20,
                   ),
                 ],
@@ -284,7 +284,7 @@ class _GridScanBackgroundState extends State<GridScanBackground>
                   painter: _GridScanPainter(
                     progress: _controller.value,
                     lineColor: widget.lineColor ??
-                        CyberpunkTheme.neonCyan.withOpacity(0.03),
+                        CyberpunkTheme.neonCyan.withValues(alpha: 0.03),
                   ),
                 );
               },
@@ -414,7 +414,7 @@ class NeonBorderGlow extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius),
         border: Border.all(
-          color: color.withOpacity(0.3),
+          color: color.withValues(alpha: 0.3),
           width: borderWidth,
         ),
         boxShadow: CyberpunkTheme.neonGlow(color: color),

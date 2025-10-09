@@ -63,21 +63,21 @@ class CyberpunkTheme {
 
       appBarTheme: AppBarTheme(
         centerTitle: true,
-        backgroundColor: darkBg.withOpacity(0.9),
+        backgroundColor: darkBg.withValues(alpha: 0.9),
         foregroundColor: neonCyan,
         elevation: 0,
         scrolledUnderElevation: 0,
-        shadowColor: neonCyan.withOpacity(0.3),
+        shadowColor: neonCyan.withValues(alpha: 0.3),
       ),
 
       cardTheme: CardThemeData(
         elevation: 0,
         color: card,
-        shadowColor: neonCyan.withOpacity(0.3),
+        shadowColor: neonCyan.withValues(alpha: 0.3),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4),
           side: BorderSide(
-            color: neonCyan.withOpacity(0.3),
+            color: neonCyan.withValues(alpha: 0.3),
             width: 2,
           ),
         ),
@@ -92,7 +92,7 @@ class CyberpunkTheme {
             borderRadius: BorderRadius.circular(4),
           ),
           elevation: 0,
-          shadowColor: neonCyan.withOpacity(0.5),
+          shadowColor: neonCyan.withValues(alpha: 0.5),
           textStyle: GoogleFonts.spaceMono(
             fontWeight: FontWeight.w900,
             letterSpacing: 2,
@@ -101,15 +101,15 @@ class CyberpunkTheme {
       ),
 
       chipTheme: ChipThemeData(
-        backgroundColor: neonCyan.withOpacity(0.1),
-        selectedColor: neonCyan.withOpacity(0.3),
+        backgroundColor: neonCyan.withValues(alpha: 0.1),
+        selectedColor: neonCyan.withValues(alpha: 0.3),
         labelStyle: GoogleFonts.spaceMono(
           color: neonCyan,
           fontSize: 12,
           fontWeight: FontWeight.bold,
         ),
         side: BorderSide(
-          color: neonCyan.withOpacity(0.5),
+          color: neonCyan.withValues(alpha: 0.5),
           width: 1,
         ),
         shape: RoundedRectangleBorder(
@@ -128,7 +128,7 @@ class CyberpunkTheme {
 
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: darkBgAlt,
-        indicatorColor: neonCyan.withOpacity(0.3),
+        indicatorColor: neonCyan.withValues(alpha: 0.3),
         labelTextStyle: WidgetStateProperty.all(
           GoogleFonts.spaceMono(
             fontSize: 11,
@@ -144,12 +144,12 @@ class CyberpunkTheme {
     final glowColor = color ?? neonCyan;
     return [
       BoxShadow(
-        color: glowColor.withOpacity(0.3 * intensity),
+        color: glowColor.withValues(alpha: 0.3 * intensity),
         blurRadius: 10,
         spreadRadius: 2,
       ),
       BoxShadow(
-        color: glowColor.withOpacity(0.2 * intensity),
+        color: glowColor.withValues(alpha: 0.2 * intensity),
         blurRadius: 20,
         spreadRadius: 4,
       ),
@@ -160,12 +160,12 @@ class CyberpunkTheme {
   static List<BoxShadow> dualNeonGlow({double intensity = 0.5}) {
     return [
       BoxShadow(
-        color: neonCyan.withOpacity(0.3 * intensity),
+        color: neonCyan.withValues(alpha: 0.3 * intensity),
         blurRadius: 10,
         spreadRadius: 1,
       ),
       BoxShadow(
-        color: neonMagenta.withOpacity(0.2 * intensity),
+        color: neonMagenta.withValues(alpha: 0.2 * intensity),
         blurRadius: 20,
         spreadRadius: 3,
       ),

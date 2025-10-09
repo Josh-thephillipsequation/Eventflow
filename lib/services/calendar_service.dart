@@ -12,13 +12,29 @@ class CalendarService {
 
   Future<List<CalendarEvent>> parseCalendarFromUrl(String url) async {
     try {
-      // Support webcal:// URIs by converting them to https:// for fetching.
+      // Security: Only allow HTTPS and webcal:// URLs
       var fetchUrl = url.trim();
       if (fetchUrl.startsWith('webcal://')) {
         fetchUrl = fetchUrl.replaceFirst('webcal://', 'https://');
+      } else if (!fetchUrl.startsWith('https://')) {
+        throw Exception(
+            'Security Error: Only HTTPS URLs are allowed for calendar imports. HTTP is not secure.');
       }
-      final response = await http.get(Uri.parse(fetchUrl));
+
+      // Validate URL structure
+      final uri = Uri.parse(fetchUrl);
+      if (!uri.hasScheme || !uri.hasAuthority) {
+        throw Exception('Invalid URL format');
+      }
+
+      // Fetch with timeout and size limit
+      final response = await http.get(uri).timeout(const Duration(seconds: 30));
+
       if (response.statusCode == 200) {
+        // Enforce maximum file size (10MB)
+        if (response.bodyBytes.length > 10 * 1024 * 1024) {
+          throw Exception('Calendar file too large. Maximum size is 10MB.');
+        }
         return parseICalendarContent(response.body);
       } else {
         throw Exception(
