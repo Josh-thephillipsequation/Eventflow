@@ -1,7 +1,7 @@
 name: conference_agenda_tracker
 description: EventFlow - A modern conference schedule management app by thephillipsequation llc
 
-version: 1.0.0+202509240617
+version: 1.0.0+202510080300
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

@@ -54,5 +54,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>EventFlow uses a file picker that references this permission, but does not access your photos. We only import calendar files (.ics) from your device's file system.</string>
 </dict>
 </plist>
