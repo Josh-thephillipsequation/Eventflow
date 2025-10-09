@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../providers/theme_provider.dart';
 import '../widgets/cyberpunk_effects.dart';
+import 'onboarding_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -24,6 +26,13 @@ class SettingsScreen extends StatelessWidget {
           _buildSectionHeader(context, '🎨 Appearance', isCyberpunk),
           const SizedBox(height: 16),
           _buildThemeSelector(context, themeProvider, isCyberpunk),
+
+          const SizedBox(height: 32),
+
+          // Help Section
+          _buildSectionHeader(context, '❓ Help', isCyberpunk),
+          const SizedBox(height: 16),
+          _buildHelpCard(context, isCyberpunk),
 
           const SizedBox(height: 32),
 
@@ -154,6 +163,71 @@ class SettingsScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildHelpCard(BuildContext context, bool isCyberpunk) {
+    Widget card = Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Tutorial',
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Want to see the app tour again?',
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .onSurface
+                        .withValues(alpha: 0.7),
+                  ),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: () async {
+                // Reset onboarding flag
+                final prefs = await SharedPreferences.getInstance();
+                await prefs.setBool('onboarding_complete', false);
+
+                if (!context.mounted) return;
+
+                // Navigate to onboarding
+                await Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const OnboardingScreen(),
+                  ),
+                );
+
+                // Set it back to complete after viewing
+                if (context.mounted) {
+                  await prefs.setBool('onboarding_complete', true);
+                }
+              },
+              icon: const Icon(Icons.play_circle_outline),
+              label: const Text('View Tutorial Again'),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(double.infinity, 48),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    if (isCyberpunk) {
+      return NeonBorderGlow(
+        borderRadius: 4,
+        child: card,
+      );
+    }
+
+    return card;
   }
 
   Widget _buildAboutCard(BuildContext context, bool isCyberpunk) {
