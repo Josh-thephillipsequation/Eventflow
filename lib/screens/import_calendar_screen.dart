@@ -448,9 +448,11 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
 
   Future<void> _pickFile() async {
     try {
+      // Security: Restrict to ICS files only - no photo library access needed
       FilePickerResult? result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['ics'],
+        allowMultiple: false,
       );
 
       if (result != null && result.files.single.path != null) {
