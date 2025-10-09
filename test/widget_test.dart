@@ -8,16 +8,21 @@ void main() {
     setUp(() {
       TestWidgetsFlutterBinding.ensureInitialized();
 
-      // Mock SharedPreferences
+      // Mock SharedPreferences with onboarding complete
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(
               const MethodChannel('plugins.flutter.io/shared_preferences'),
               (MethodCall methodCall) async {
         if (methodCall.method == 'getAll') {
-          return <String, Object>{};
+          return <String, Object>{
+            'flutter.onboarding_complete': true, // Skip onboarding in tests
+          };
         }
         if (methodCall.method == 'setString') {
           return true;
+        }
+        if (methodCall.method == 'getBool') {
+          return true; // Onboarding already complete
         }
         return null;
       });
