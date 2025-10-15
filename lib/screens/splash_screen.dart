@@ -27,8 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
     // Remove native splash after our custom splash is ready
     FlutterNativeSplash.remove();
 
-    // Brief custom splash display - keep it snappy
-    await Future.delayed(const Duration(milliseconds: 500));
+    // Custom splash display - long enough to read the info
+    await Future.delayed(const Duration(milliseconds: 1500));
 
     // Check if onboarding has been completed
     final prefs = await SharedPreferences.getInstance();

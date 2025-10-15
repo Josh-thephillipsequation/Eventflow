@@ -76,7 +76,12 @@ class CalendarService {
           if (startRaw is IcsDateTime) start = startRaw.toDateTime();
           if (endRaw is IcsDateTime) end = endRaw.toDateTime();
 
+          // Skip events without valid start/end times
           if (start == null || end == null) continue;
+
+          // Type promotion helper
+          final eventStart = start;
+          final eventEnd = end;
 
           final uid = (component['uid'] as String?) ??
               DateTime.now().millisecondsSinceEpoch.toString();
@@ -132,8 +137,8 @@ class CalendarService {
             uid: uid,
             title: title,
             description: description,
-            startTime: start,
-            endTime: end,
+            startTime: eventStart,
+            endTime: eventEnd,
             location: location,
             speaker: speaker,
           ));
