@@ -84,6 +84,13 @@ EventFlow includes enterprise-grade development practices:
 - **Agent feedback loops** for automated issue resolution
 - **Human-in-the-loop testing** on real devices
 
+### Quick Deploy to iPhone
+
+```bash
+# Deploy to your iPhone with one command
+./scripts/test_it.sh
+```
+
 See [AGENTS.md](AGENTS.md) for development guidelines and [agent_assets/backlog.md](agent_assets/backlog.md) for project roadmap.
 
 ## 📱 **Status**
