@@ -124,12 +124,30 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const SizedBox(height: 8),
             // Company name
+            const SizedBox(height: 4),
             Text(
               'by thephillipsequation llc',
               style: TextStyle(
                 fontSize: 14,
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
                 fontWeight: FontWeight.w400,
+              ),
+            ),
+            const SizedBox(height: 24),
+            Text(
+              'tryeventflow.com',
+              style: TextStyle(
+                fontSize: 12,
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'thephillipsequation.com',
+              style: TextStyle(
+                fontSize: 12,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
           ],
