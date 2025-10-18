@@ -139,6 +139,28 @@ lib/
 - **Update as you go**: Version changes should be part of the feature PR/commit
 - **Current version**: See `pubspec.yaml` line 4
 
+### Pre-Commit Hooks & CI/CD Practices
+- **NEVER bypass pre-commit hooks without asking first** (`--no-verify` is forbidden unless explicitly approved)
+- **Always fix the actual errors** instead of bypassing validation
+- **Pre-commit hooks run automatically** on every commit and check:
+  1. **Code formatting** (`dart format`) - ensures consistent style
+  2. **Static analysis** (`flutter analyze`) - catches errors and warnings
+  3. **All tests** (`flutter test`) - ensures code quality
+- **If pre-commit checks fail:**
+  1. Read the error messages carefully
+  2. Fix the actual issues in the code
+  3. Commit again (hooks will re-run automatically)
+- **Common issues and fixes:**
+  - Deprecation warnings: Update to recommended API (e.g., `withOpacity()` → `withValues(alpha:)`)
+  - Format errors: Run `dart format .` before committing
+  - Test failures: Fix broken tests, don't skip them
+- **Why this matters:**
+  - Maintains code quality across all commits
+  - Prevents broken code from entering the repository
+  - Ensures all tests pass before deployment
+  - Makes code reviews easier and faster
+  - Builds confidence in automated deployments
+
 ## Development Commands
 
 ### Build & Run
