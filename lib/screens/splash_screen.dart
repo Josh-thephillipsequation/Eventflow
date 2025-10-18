@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 import 'home_screen.dart';
+import 'onboarding_screen.dart';
+import '../providers/event_provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,8 +27,40 @@ class _SplashScreenState extends State<SplashScreen> {
     // Remove native splash after our custom splash is ready
     FlutterNativeSplash.remove();
 
-    // Brief custom splash display - keep it snappy
-    await Future.delayed(const Duration(milliseconds: 500));
+    // Custom splash display - long enough to read the info
+    await Future.delayed(const Duration(milliseconds: 1500));
+
+    // Check if onboarding has been completed
+    final prefs = await SharedPreferences.getInstance();
+    final onboardingComplete = prefs.getBool('onboarding_complete') ?? false;
+
+    if (!mounted) return;
+
+    if (!onboardingComplete) {
+      // Show onboarding
+      final result = await Navigator.of(context).push(
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const OnboardingScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+          transitionDuration: const Duration(milliseconds: 200),
+        ),
+      );
+
+      // If onboarding completed, load sample data
+      if (result == true && mounted) {
+        final eventProvider =
+            Provider.of<EventProvider>(context, listen: false);
+        try {
+          await eventProvider
+              .loadCalendarFromAsset('assets/sample_conference.ics');
+        } catch (e) {
+          // Silently fail - user can manually load sample data
+        }
+      }
+    }
 
     // Navigate to home screen with faster transition
     if (mounted) {
@@ -88,12 +124,30 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const SizedBox(height: 8),
             // Company name
+            const SizedBox(height: 4),
             Text(
               'by thephillipsequation llc',
               style: TextStyle(
                 fontSize: 14,
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
                 fontWeight: FontWeight.w400,
+              ),
+            ),
+            const SizedBox(height: 24),
+            Text(
+              'tryeventflow.com',
+              style: TextStyle(
+                fontSize: 12,
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'thephillipsequation.com',
+              style: TextStyle(
+                fontSize: 12,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
           ],

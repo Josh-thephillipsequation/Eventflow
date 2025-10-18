@@ -27,25 +27,29 @@ class ConferenceAgendaApp extends StatelessWidget {
       ],
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
-          // Select theme based on current theme type
-          ThemeData selectedTheme;
+          // Determine theme mode based on selection
+          ThemeMode themeMode;
           switch (themeProvider.currentTheme) {
             case AppThemeType.light:
-              selectedTheme = AppTheme.lightTheme;
+              themeMode = ThemeMode.light;
               break;
             case AppThemeType.dark:
-              selectedTheme = AppTheme.darkTheme;
+              themeMode = ThemeMode.dark;
               break;
             case AppThemeType.neonDreams2077:
-              selectedTheme = CyberpunkTheme.theme;
+              themeMode = ThemeMode.dark; // Cyberpunk uses dark mode
               break;
           }
 
           return MaterialApp(
             title: 'EventFlow',
-            theme: selectedTheme,
-            darkTheme: selectedTheme,
-            themeMode: ThemeMode.dark, // Always use dark mode for cyberpunk
+            theme: themeProvider.currentTheme == AppThemeType.neonDreams2077
+                ? CyberpunkTheme.theme
+                : AppTheme.lightTheme,
+            darkTheme: themeProvider.currentTheme == AppThemeType.neonDreams2077
+                ? CyberpunkTheme.theme
+                : AppTheme.darkTheme,
+            themeMode: themeMode,
             home: const SplashScreen(),
             debugShowCheckedModeBanner: false,
           );

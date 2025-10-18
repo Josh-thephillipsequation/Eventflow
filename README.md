@@ -32,17 +32,28 @@ flutter run
 For wireless testing on your iPhone:
 
 ```bash
-# Check connected devices
+# 1. List all connected devices to find your device ID
 flutter devices
 
-# Deploy to iPhone (replace with your device ID)
-flutter run --release -d "00008140-0002248A0E12801C"
+# Example output:
+# iPhone (mobile) • 00008140-0002248A0E12801C • ios • iOS 17.6.1 (21G93)
+#                   ^^^^^^^^^^^^^^^^^^^^^^^^
+#                   This is your device ID
+
+# 2. Deploy to iPhone using your device ID
+flutter run --release -d "YOUR-DEVICE-ID"
 
 # Or run with hot reload for development
-flutter run -d "00008140-0002248A0E12801C"
+flutter run -d "YOUR-DEVICE-ID"
 ```
 
-**Note:** For first-time iOS deployment, you may need to open Xcode and trust the developer certificate on your device. If deployment fails, run:
+**Tip:** Save your device ID for quick deployments:
+```bash
+export IPHONE_ID="YOUR-DEVICE-ID"
+flutter run --release -d "$IPHONE_ID"
+```
+
+**First-Time Setup:** You may need to open Xcode and trust the developer certificate on your device:
 
 ```bash
 open ios/Runner.xcworkspace
@@ -72,6 +83,13 @@ EventFlow includes enterprise-grade development practices:
 - **GitHub Actions CI/CD** with automated testing and reporting
 - **Agent feedback loops** for automated issue resolution
 - **Human-in-the-loop testing** on real devices
+
+### Quick Deploy to iPhone
+
+```bash
+# Deploy to your iPhone with one command
+./scripts/test_it.sh
+```
 
 See [AGENTS.md](AGENTS.md) for development guidelines and [agent_assets/backlog.md](agent_assets/backlog.md) for project roadmap.
 

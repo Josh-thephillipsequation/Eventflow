@@ -1,7 +1,7 @@
 name: conference_agenda_tracker
 description: EventFlow - A modern conference schedule management app by thephillipsequation llc
 
-version: 1.0.0+202509240617
+version: 1.0.0+1
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -48,15 +48,16 @@ flutter:
   assets:
     - assets/calendars/all.ics
     - assets/calendars/demo.ics
+    - assets/sample_conference.ics
     - assets/images/
     - assets/icons/
 
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/icons/eventflow_v3_minimal.svg.png"
-  adaptive_icon_background: "#6750A4"
-  adaptive_icon_foreground: "assets/icons/eventflow_v3_minimal.svg.png"
+  image_path: "assets/images/tpe-logo.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/tpe-logo.png"
 
 flutter_native_splash:
   color: "#FFFFFF"

@@ -199,6 +199,71 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
 
                     const SizedBox(height: 24),
 
+                    // Sample Data Section
+                    Card(
+                      elevation: 2,
+                      color:
+                          colorScheme.tertiaryContainer.withValues(alpha: 0.3),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(24.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color:
+                                    colorScheme.tertiary.withValues(alpha: 0.2),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.celebration_outlined,
+                                size: 32,
+                                color: colorScheme.tertiary,
+                              ),
+                            ),
+                            const SizedBox(height: 16),
+                            Text(
+                              'Try Sample Data',
+                              style: theme.textTheme.titleLarge?.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: colorScheme.onSurface,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'Load a demo conference schedule to explore features',
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: colorScheme.onSurfaceVariant,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(height: 20),
+                            ElevatedButton.icon(
+                              onPressed:
+                                  provider.isLoading ? null : _loadSampleData,
+                              icon: const Icon(Icons.auto_awesome),
+                              label: const Text('Load Sample Conference'),
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(double.infinity, 56),
+                                backgroundColor: colorScheme.tertiary,
+                                foregroundColor: colorScheme.onTertiary,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                elevation: 0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 24),
+
                     // URL Input Section
                     Card(
                       elevation: 2,
@@ -383,23 +448,109 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
 
   Future<void> _pickFile() async {
     try {
+      // Security: Restrict to ICS files only - no photo library access needed
       FilePickerResult? result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['ics'],
+        allowMultiple: false,
       );
 
       if (result != null && result.files.single.path != null) {
         File file = File(result.files.single.path!);
         if (mounted) {
-          await context.read<EventProvider>().loadCalendarFromFile(file);
+          final provider = context.read<EventProvider>();
+          await provider.loadCalendarFromFile(file);
+
+          // Check if there was an error
+          if (provider.errorMessage.isNotEmpty && mounted) {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: const Text('Import Failed'),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(provider.errorMessage),
+                    const SizedBox(height: 16),
+                    const Text(
+                      'Try importing a valid .ics calendar file, or use the sample data button to see how EventFlow works.',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Text('OK'),
+                  ),
+                  FilledButton.icon(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      _loadSampleData();
+                    },
+                    icon: const Icon(Icons.download_outlined),
+                    label: const Text('Load Sample'),
+                  ),
+                ],
+              ),
+            );
+          } else if (provider.allEvents.isNotEmpty && mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                    'Successfully imported ${provider.allEvents.length} events'),
+                backgroundColor: Colors.green,
+              ),
+            );
+          }
         }
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error picking file: $e')),
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Error'),
+            content: Text('Error picking file: $e'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('OK'),
+              ),
+            ],
+          ),
         );
       }
+    }
+  }
+
+  Future<void> _loadSampleData() async {
+    try {
+      final provider = Provider.of<EventProvider>(context, listen: false);
+
+      // Load sample ICS file from assets
+      await provider.loadCalendarFromAsset('assets/sample_conference.ics');
+
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+              'Sample conference loaded! ${provider.allEvents.length} events added'),
+          backgroundColor: Colors.green,
+          duration: const Duration(seconds: 3),
+        ),
+      );
+    } catch (e) {
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error loading sample data: $e'),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
 

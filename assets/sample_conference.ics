@@ -1,0 +1,213 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//EventFlow//Sample Conference//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Tech Summit 2025
+X-WR-TIMEZONE:America/New_York
+X-WR-CALDESC:Sample conference schedule for EventFlow demo
+
+BEGIN:VEVENT
+DTSTART:20251015T090000Z
+DTEND:20251015T100000Z
+DTSTAMP:20251008T120000Z
+UID:event001@eventflow.app
+SUMMARY:Opening Keynote: The Future of AI
+DESCRIPTION:Join us for an inspiring keynote about the future of artificial intelligence and its impact on society. Learn about emerging trends in machine learning, neural networks, and ethical AI development.
+LOCATION:Main Auditorium
+ORGANIZER;CN=Dr. Sarah Chen:mailto:sarah.chen@techsummit.com
+CATEGORIES:Keynote,AI,Machine Learning
+PRIORITY:1
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251015T103000Z
+DTEND:20251015T113000Z
+DTSTAMP:20251008T120000Z
+UID:event002@eventflow.app
+SUMMARY:Building Scalable Cloud Infrastructure
+DESCRIPTION:Learn best practices for designing and deploying cloud-native applications. Topics include microservices architecture, container orchestration, and serverless computing.
+LOCATION:Room 201
+ORGANIZER;CN=Mike Johnson:mailto:mike.j@techsummit.com
+CATEGORIES:Cloud,DevOps,Infrastructure
+PRIORITY:2
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251015T103000Z
+DTEND:20251015T113000Z
+DTSTAMP:20251008T120000Z
+UID:event003@eventflow.app
+SUMMARY:UX Design Principles for Mobile Apps
+DESCRIPTION:Explore modern UX design patterns and best practices for creating delightful mobile experiences. Includes hands-on exercises with Figma and user testing techniques.
+LOCATION:Room 103
+ORGANIZER;CN=Jessica Williams:mailto:jessica.w@techsummit.com
+CATEGORIES:Design,UX,Mobile
+PRIORITY:2
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251015T120000Z
+DTEND:20251015T130000Z
+DTSTAMP:20251008T120000Z
+UID:event004@eventflow.app
+SUMMARY:Lunch & Networking
+DESCRIPTION:Enjoy lunch while networking with fellow attendees, speakers, and sponsors. Vegetarian and vegan options available.
+LOCATION:Exhibition Hall
+CATEGORIES:Networking,Social
+PRIORITY:3
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251015T130000Z
+DTEND:20251015T140000Z
+DTSTAMP:20251008T120000Z
+UID:event005@eventflow.app
+SUMMARY:Machine Learning in Production
+DESCRIPTION:Real-world challenges and solutions for deploying ML models at scale. Learn about model monitoring, A/B testing, and continuous training pipelines.
+LOCATION:Room 201
+ORGANIZER;CN=Dr. Raj Patel:mailto:raj.p@techsummit.com
+CATEGORIES:AI,Machine Learning,MLOps
+PRIORITY:1
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251015T130000Z
+DTEND:20251015T140000Z
+DTSTAMP:20251008T120000Z
+UID:event006@eventflow.app
+SUMMARY:Web3 and Blockchain Fundamentals
+DESCRIPTION:Understanding the basics of blockchain technology, smart contracts, and decentralized applications. No crypto-bro nonsense, just the tech.
+LOCATION:Room 103
+ORGANIZER;CN=Alex Martinez:mailto:alex.m@techsummit.com
+CATEGORIES:Blockchain,Web3,Cryptocurrency
+PRIORITY:2
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251015T143000Z
+DTEND:20251015T153000Z
+DTSTAMP:20251008T120000Z
+UID:event007@eventflow.app
+SUMMARY:Cybersecurity Best Practices
+DESCRIPTION:Essential security practices for modern applications. Topics include zero-trust architecture, secure coding, and incident response.
+LOCATION:Room 201
+ORGANIZER;CN=Emily Roberts:mailto:emily.r@techsummit.com
+CATEGORIES:Security,DevSecOps,Infrastructure
+PRIORITY:1
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251015T143000Z
+DTEND:20251015T153000Z
+DTSTAMP:20251008T120000Z
+UID:event008@eventflow.app
+SUMMARY:Flutter & Cross-Platform Development
+DESCRIPTION:Building beautiful mobile apps with Flutter. Learn about state management, animations, and platform integration.
+LOCATION:Room 103
+ORGANIZER;CN=Kevin Park:mailto:kevin.p@techsummit.com
+CATEGORIES:Mobile,Flutter,Cross-Platform
+PRIORITY:2
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251015T160000Z
+DTEND:20251015T170000Z
+DTSTAMP:20251008T120000Z
+UID:event009@eventflow.app
+SUMMARY:The State of DevOps 2025
+DESCRIPTION:Industry trends, tooling updates, and the future of software delivery. Featuring insights from the DevOps Report 2025.
+LOCATION:Main Auditorium
+ORGANIZER;CN=Chris Anderson:mailto:chris.a@techsummit.com
+CATEGORIES:DevOps,CI/CD,Automation
+PRIORITY:1
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251015T173000Z
+DTEND:20251015T183000Z
+DTSTAMP:20251008T120000Z
+UID:event010@eventflow.app
+SUMMARY:Lightning Talks & Open Source Showcase
+DESCRIPTION:Five-minute presentations from community members showcasing their open source projects and innovative ideas.
+LOCATION:Room 201
+CATEGORIES:Open Source,Community,Lightning Talks
+PRIORITY:2
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251015T190000Z
+DTEND:20251015T210000Z
+DTSTAMP:20251008T120000Z
+UID:event011@eventflow.app
+SUMMARY:Evening Reception & Happy Hour
+DESCRIPTION:Unwind with drinks, appetizers, and great conversations. Live music and games included!
+LOCATION:Rooftop Terrace
+CATEGORIES:Social,Networking,Entertainment
+PRIORITY:3
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251016T090000Z
+DTEND:20251016T100000Z
+DTSTAMP:20251008T120000Z
+UID:event012@eventflow.app
+SUMMARY:Day 2 Keynote: Sustainable Tech
+DESCRIPTION:How technology can help solve climate change and build a sustainable future. Featuring case studies from leading green tech companies.
+LOCATION:Main Auditorium
+ORGANIZER;CN=Dr. Maria Garcia:mailto:maria.g@techsummit.com
+CATEGORIES:Keynote,Sustainability,Climate Tech
+PRIORITY:1
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251016T103000Z
+DTEND:20251016T113000Z
+DTSTAMP:20251008T120000Z
+UID:event013@eventflow.app
+SUMMARY:API Design & GraphQL Workshop
+DESCRIPTION:Hands-on workshop covering RESTful API design, GraphQL schemas, and API security best practices.
+LOCATION:Workshop Room A
+ORGANIZER;CN=Tom Wilson:mailto:tom.w@techsummit.com
+CATEGORIES:API,GraphQL,Backend
+PRIORITY:2
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251016T103000Z
+DTEND:20251016T113000Z
+DTSTAMP:20251008T120000Z
+UID:event014@eventflow.app
+SUMMARY:Data Privacy & GDPR Compliance
+DESCRIPTION:Navigating data privacy regulations and implementing compliant systems. Essential for anyone handling user data.
+LOCATION:Room 103
+ORGANIZER;CN=Laura Schmidt:mailto:laura.s@techsummit.com
+CATEGORIES:Privacy,Legal,Compliance
+PRIORITY:1
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251016T120000Z
+DTEND:20251016T130000Z
+DTSTAMP:20251008T120000Z
+UID:event015@eventflow.app
+SUMMARY:Lunch & Sponsor Demos
+DESCRIPTION:Lunch with live demos from our amazing sponsors. Great opportunity to discover new tools and technologies.
+LOCATION:Exhibition Hall
+CATEGORIES:Networking,Sponsors,Demos
+PRIORITY:3
+END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20251016T130000Z
+DTEND:20251016T140000Z
+DTSTAMP:20251008T120000Z
+UID:event016@eventflow.app
+SUMMARY:Closing Keynote & Q&A
+DESCRIPTION:Wrap-up session with key takeaways, industry predictions, and open Q&A with all speakers.
+LOCATION:Main Auditorium
+CATEGORIES:Keynote,Q&A,Closing
+PRIORITY:1
+END:VEVENT
+
+END:VCALENDAR
