@@ -5,89 +5,83 @@ ai.weight: 0.1
 
 # EventFlow Privacy Policy
 
-**Effective Date:** [Insert Date]  
-**Last Updated:** [Insert Date]
+**Effective Date:** October 15, 2025  
+**Last Updated:** October 15, 2025
 
 ## Introduction
 
-EventFlow ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use the EventFlow mobile application.
+EventFlow ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we handle your information when you use the EventFlow mobile application.
 
-## Information We Collect
+## Data Collection
 
-### Information You Provide
-- **Calendar Data**: Events, schedules, and calendar information you import
-- **App Preferences**: Settings and customization preferences
-- **Support Communications**: Information you provide when contacting support
+**EventFlow collects NO data.**
 
-### Automatically Collected Information
-- **Device Information**: Device type, operating system version, app version
-- **Usage Analytics**: How you interact with the app (anonymized)
-- **Crash Reports**: Technical information to improve app stability
+All information you import and create in EventFlow stays entirely on your device. We do not:
+- Collect personal information
+- Track your usage
+- Send analytics or crash reports
+- Access your data remotely
+- Transmit any data to our servers or third parties
 
-## How We Use Your Information
+## Information You Control
 
-We use your information to:
-- **Provide Core Functionality**: Display and manage your calendar events
-- **Improve the App**: Analyze usage patterns to enhance user experience
-- **Provide Support**: Respond to your questions and technical issues
-- **Send Updates**: Notify you about app updates and new features
+### Local Storage Only
+- **Calendar Data**: Events you import from ICS files are stored locally on your device
+- **App Preferences**: Your theme selection and settings are stored locally
+- **Selected Events**: Your personal agenda selections remain on your device
+
+### What We Don't Collect
+- No account creation or login required
+- No email addresses, names, or contact information
+- No location data
+- No usage analytics
+- No advertising identifiers
+- No crash reports
+- No device identifiers
 
 ## Data Storage and Security
 
 ### Local Storage
-- Calendar data is stored locally on your device
-- We use industry-standard encryption for sensitive data
-- You control when to sync or backup your data
+- All calendar data is stored locally on your device using iOS secure storage (SharedPreferences)
+- Your data never leaves your device
+- No internet connection is required to use EventFlow
+- Data is protected by your device's security features (device passcode, biometric authentication)
 
-### Cloud Services
-- We may use reputable cloud services for app analytics and crash reporting
-- No personal calendar content is transmitted to our servers without your consent
-- All data transmission uses secure, encrypted connections (HTTPS/TLS)
-
-## Data Sharing
-
-We **do not sell, rent, or trade** your personal information. We may share data only in these limited circumstances:
-
-- **Service Providers**: Trusted third parties who help us operate the app (analytics, crash reporting)
-- **Legal Requirements**: When required by law or to protect our rights
-- **Business Transfers**: In connection with a merger or acquisition (users will be notified)
+### Clear Data
+- You can delete all app data at any time using the "Clear All Data" button in Settings
+- Uninstalling the app removes all locally stored data from your device
 
 ## Third-Party Services
 
-EventFlow may integrate with third-party services:
-- **Calendar Providers**: To import calendar data (Google Calendar, Apple Calendar, etc.)
-- **Analytics Services**: For app improvement (data is anonymized)
-- **Crash Reporting**: To identify and fix technical issues
-
-Each third-party service has its own privacy policy governing their use of your information.
+EventFlow does **not** integrate with any third-party services for:
+- Analytics
+- Crash reporting
+- Advertising
+- Social media
+- Cloud storage
 
 ## Your Rights and Choices
 
-You have the right to:
-- **Access Your Data**: View what personal information we have about you
-- **Delete Your Data**: Request deletion of your personal information
-- **Control Data Collection**: Opt out of analytics and crash reporting
-- **Export Your Data**: Download your calendar data in standard formats
-
-### How to Exercise Your Rights
-- **In-App Settings**: Use privacy controls within the EventFlow app
-- **Email Us**: Contact privacy@thephillipsequation.com
-- **Delete App**: Uninstalling the app removes all locally stored data
+You have complete control over your data:
+- **Access**: All your data is visible within the app
+- **Delete**: Use "Clear All Data" in Settings or uninstall the app
+- **Export**: Import/export standard ICS calendar files
+- **Control**: No opt-outs needed - we collect nothing
 
 ## Children's Privacy
 
-EventFlow is not directed to children under 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected such information, we will delete it immediately.
+EventFlow is safe for all ages. Since we collect no data, we cannot inadvertently collect information from children.
 
 ## International Users
 
-EventFlow is developed in the United States. By using the app, you consent to the transfer of your information to the United States, which may have different privacy laws than your country.
+EventFlow works the same everywhere - no data is collected regardless of your location. No data leaves your device.
 
 ## Changes to This Privacy Policy
 
-We may update this Privacy Policy from time to time. We will notify you of any material changes by:
-- Posting the updated policy in the app
-- Sending an email notification (if we have your email)
-- Displaying a prominent notice in the app
+We will update this policy if we add any data collection features in the future. Material changes will be communicated through:
+- App update notes in the App Store
+- Prominent notice within the app
+- Updated policy posted at: https://josh-thephillipsequation.github.io/Eventflow/privacy
 
 ## Contact Us
 
@@ -95,12 +89,8 @@ If you have questions about this Privacy Policy or our privacy practices:
 
 **thephillipsequation llc**  
 Email: privacy@thephillipsequation.com  
-Website: www.thephillipsequation.com  
-
-**For Data Subject Requests:**
-Email: privacy@thephillipsequation.com  
-Subject Line: "EventFlow Privacy Request"
+Website: https://thephillipsequation.com
 
 ---
 
-*This privacy policy was last updated on [Insert Date]. Please check back regularly for updates.*
+*This privacy policy was last updated on October 15, 2025. EventFlow v1.0.0*

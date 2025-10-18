@@ -458,13 +458,68 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
       if (result != null && result.files.single.path != null) {
         File file = File(result.files.single.path!);
         if (mounted) {
-          await context.read<EventProvider>().loadCalendarFromFile(file);
+          final provider = context.read<EventProvider>();
+          await provider.loadCalendarFromFile(file);
+
+          // Check if there was an error
+          if (provider.errorMessage.isNotEmpty && mounted) {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: const Text('Import Failed'),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(provider.errorMessage),
+                    const SizedBox(height: 16),
+                    const Text(
+                      'Try importing a valid .ics calendar file, or use the sample data button to see how EventFlow works.',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Text('OK'),
+                  ),
+                  FilledButton.icon(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      _loadSampleData();
+                    },
+                    icon: const Icon(Icons.download_outlined),
+                    label: const Text('Load Sample'),
+                  ),
+                ],
+              ),
+            );
+          } else if (provider.allEvents.isNotEmpty && mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                    'Successfully imported ${provider.allEvents.length} events'),
+                backgroundColor: Colors.green,
+              ),
+            );
+          }
         }
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error picking file: $e')),
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Error'),
+            content: Text('Error picking file: $e'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('OK'),
+              ),
+            ],
+          ),
         );
       }
     }

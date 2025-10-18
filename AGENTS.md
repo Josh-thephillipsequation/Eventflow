@@ -129,6 +129,16 @@ lib/
 - **GitHub Actions locally**: Use `act` or run test commands before pushing
 - Run tests with: `flutter test`
 
+### Version Management
+- **Always update version** when completing features or fixes in `pubspec.yaml`
+- **Semantic Versioning** (MAJOR.MINOR.PATCH+BUILD):
+  - **MAJOR** (2.0.0): Breaking changes or major UI/architecture overhaul
+  - **MINOR** (x.1.0): New features, backward compatible additions
+  - **PATCH** (x.x.1): Bug fixes, small improvements
+  - **BUILD** (+1): Increment for each build/release
+- **Update as you go**: Version changes should be part of the feature PR/commit
+- **Current version**: See `pubspec.yaml` line 4
+
 ## Development Commands
 
 ### Build & Run
