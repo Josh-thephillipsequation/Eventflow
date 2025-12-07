@@ -1,7 +1,7 @@
 name: conference_agenda_tracker
 description: EventFlow - A modern conference schedule management app by thephillipsequation llc
 
-version: 1.0.0+1
+version: 1.0.0+6
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -18,7 +18,7 @@ dependencies:
   http: ^1.1.0
   
   # File operations
-  file_picker: ^6.1.1
+  file_picker: ^10.3.3
   path_provider: ^2.1.1
   
   # Calendar parsing
@@ -39,6 +39,8 @@ dependencies:
 
 dev_dependencies:
   flutter_test:
+    sdk: flutter
+  integration_test:
     sdk: flutter
   flutter_lints: ^3.0.0
   flutter_launcher_icons: ^0.13.1

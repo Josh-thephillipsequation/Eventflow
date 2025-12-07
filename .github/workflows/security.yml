@@ -1,0 +1,60 @@
+name: Security Scanning
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0' # Weekly scan
+
+jobs:
+  security-scan:
+    name: Security Checks
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: OSV Dependency Vulnerability Scan
+        uses: google/osv-scanner/actions/scanner@v1
+        with:
+          scan-args: |-
+            --recursive
+            --lockfile=pubspec.lock
+        continue-on-error: true
+
+      - name: Gitleaks Secret Scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE || '' }}
+
+      - name: Semgrep Static Analysis
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/dart
+            p/mobile-security
+          auditOn: push
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN || '' }}
+        continue-on-error: true
+
+      - name: MobSF Mobile Security Scan
+        run: |
+          pip install mobsfscan
+          mobsfscan --exit-code 1 --scan-ignored -o mobsfscan.json . || true
+        continue-on-error: true
+
+      - name: Upload Security Scan Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: security-scan-results
+          path: |
+            mobsfscan.json
+            osv-scanner-results.json
+          retention-days: 30

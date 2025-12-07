@@ -413,24 +413,51 @@ class SettingsScreen extends StatelessWidget {
 
                   if (!context.mounted) return;
 
-                  // Show success message
+                  // Check if events were actually loaded
+                  if (eventProvider.allEvents.isEmpty) {
+                    throw Exception(
+                        'No events were loaded. Please try again or check the sample data file.');
+                  }
+
+                  // Check for error message
+                  if (eventProvider.errorMessage.isNotEmpty) {
+                    throw Exception(eventProvider.errorMessage);
+                  }
+
+                  // Show success message with event count
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content:
-                          Text('Sample conference data imported successfully!'),
-                      duration: Duration(seconds: 2),
+                    SnackBar(
+                      content: Text(
+                          'Sample conference loaded! ${eventProvider.allEvents.length} events imported.'),
+                      duration: const Duration(seconds: 3),
+                      backgroundColor: Colors.green,
                     ),
                   );
                 } catch (e) {
                   if (!context.mounted) return;
 
-                  // Show error dialog
+                  // Show error dialog with helpful message
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
                       title: const Text('Import Failed'),
-                      content: Text(
-                        'Could not import sample data: ${e.toString()}',
+                      content: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Could not import sample data: ${e.toString()}',
+                          ),
+                          const SizedBox(height: 16),
+                          const Text(
+                            'If this problem persists, please try:',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 8),
+                          const Text('1. Restart the app'),
+                          const Text('2. Clear all data and try again'),
+                          const Text('3. Contact support if issue continues'),
+                        ],
                       ),
                       actions: [
                         TextButton(

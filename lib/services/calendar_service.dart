@@ -5,6 +5,41 @@ import 'package:icalendar_parser/icalendar_parser.dart';
 import '../models/calendar_event.dart';
 
 class CalendarService {
+  static const int _maxEvents = 1000;
+  static const int _maxTitleLength = 500;
+  static const int _maxDescriptionLength = 10000;
+
+  bool _isPrivateIp(String host) {
+    if (host.isEmpty) return false;
+
+    if (host == 'localhost' ||
+        host == '127.0.0.1' ||
+        host.startsWith('127.') ||
+        host == '::1' ||
+        host.startsWith('[::1]')) {
+      return true;
+    }
+
+    try {
+      final ip = InternetAddress(host);
+      final bytes = ip.rawAddress;
+
+      if (ip.type == InternetAddressType.IPv4) {
+        return bytes[0] == 10 ||
+            (bytes[0] == 172 && bytes[1] >= 16 && bytes[1] <= 31) ||
+            (bytes[0] == 192 && bytes[1] == 168) ||
+            bytes[0] == 127;
+      } else if (ip.type == InternetAddressType.IPv6) {
+        return (bytes[0] == 0xfe && (bytes[1] & 0xc0) == 0x80) ||
+            (bytes.every((b) => b == 0) && bytes[15] == 1);
+      }
+    } catch (_) {
+      return false;
+    }
+
+    return false;
+  }
+
   Future<List<CalendarEvent>> parseCalendarFromFile(File file) async {
     final contents = await file.readAsString();
     return parseICalendarContent(contents);
@@ -27,18 +62,56 @@ class CalendarService {
         throw Exception('Invalid URL format');
       }
 
-      // Fetch with timeout and size limit
-      final response = await http.get(uri).timeout(const Duration(seconds: 30));
+      // Block localhost and private IPs
+      final host = uri.host.toLowerCase();
+      if (_isPrivateIp(host)) {
+        throw Exception(
+            'Security Error: Access to localhost and private IP addresses is not allowed.');
+      }
 
-      if (response.statusCode == 200) {
-        // Enforce maximum file size (10MB)
-        if (response.bodyBytes.length > 10 * 1024 * 1024) {
+      // Fetch with timeout, size limit, and proper headers
+      final request = http.Request('GET', uri);
+      request.headers['Accept'] = 'text/calendar, text/plain, */*';
+
+      final streamedResponse = await http.Client()
+          .send(request)
+          .timeout(const Duration(seconds: 30));
+
+      // Verify final URL after redirects is still HTTPS
+      if (streamedResponse.request?.url.scheme != 'https') {
+        throw Exception(
+            'Security Error: Redirect to non-HTTPS URL is not allowed.');
+      }
+
+      // Verify final host after redirects is not private
+      final finalHost = streamedResponse.request?.url.host ?? '';
+      if (_isPrivateIp(finalHost)) {
+        throw Exception(
+            'Security Error: Redirect to localhost or private IP is not allowed.');
+      }
+
+      if (streamedResponse.statusCode == 200) {
+        // Validate content-type
+        final contentType =
+            streamedResponse.headers['content-type']?.toLowerCase() ?? '';
+        if (!contentType.contains('text/calendar') &&
+            !contentType.contains('text/plain') &&
+            contentType.isNotEmpty) {
+          throw Exception(
+              'Invalid content type: $contentType. Expected text/calendar or text/plain.');
+        }
+
+        // Read response with size limit
+        final responseBytes = await streamedResponse.stream.toBytes();
+        if (responseBytes.length > 10 * 1024 * 1024) {
           throw Exception('Calendar file too large. Maximum size is 10MB.');
         }
-        return parseICalendarContent(response.body);
+
+        final responseBody = String.fromCharCodes(responseBytes);
+        return parseICalendarContent(responseBody);
       } else {
         throw Exception(
-            'Failed to fetch calendar from URL: ${response.statusCode}');
+            'Failed to fetch calendar from URL: ${streamedResponse.statusCode}');
       }
     } catch (e) {
       throw Exception('Error fetching calendar: $e');
@@ -58,6 +131,13 @@ class CalendarService {
     final List<CalendarEvent> events = [];
 
     try {
+      // Validate format starts with BEGIN:VCALENDAR
+      final trimmedContent = content.trim();
+      if (!trimmedContent.startsWith('BEGIN:VCALENDAR')) {
+        throw Exception(
+            'Invalid calendar format: must start with BEGIN:VCALENDAR');
+      }
+
       final calendar = ICalendar.fromString(content);
       // The new ICalendar API exposes parsed components in `data` as a
       // List<Map<String, dynamic>> where each map contains a `type` (e.g.
@@ -66,6 +146,11 @@ class CalendarService {
       for (final component in calendar.data) {
         try {
           if (component['type'] != 'VEVENT') continue;
+
+          // Enforce maximum event count
+          if (events.length >= _maxEvents) {
+            break;
+          }
 
           final startRaw = component['dtstart'];
           final endRaw = component['dtend'];
@@ -85,8 +170,18 @@ class CalendarService {
 
           final uid = (component['uid'] as String?) ??
               DateTime.now().millisecondsSinceEpoch.toString();
-          final title = (component['summary'] as String?) ?? 'Untitled Event';
-          final description = (component['description'] as String?) ?? '';
+
+          // Cap field lengths for security
+          var title = (component['summary'] as String?) ?? 'Untitled Event';
+          if (title.length > _maxTitleLength) {
+            title = title.substring(0, _maxTitleLength);
+          }
+
+          var description = (component['description'] as String?) ?? '';
+          if (description.length > _maxDescriptionLength) {
+            description = description.substring(0, _maxDescriptionLength);
+          }
+
           final location = (component['location'] as String?) ?? '';
 
           // Extract speaker/organizer information

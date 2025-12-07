@@ -1,0 +1,67 @@
+# Fastfile for EventFlow Screenshot Automation
+# This automates taking screenshots for all required device sizes
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Generate screenshots for all device sizes"
+  lane :screenshots do
+    # Clean previous screenshots
+    sh("rm -rf fastlane/screenshots")
+    sh("mkdir -p fastlane/screenshots")
+
+    # List of devices to screenshot
+    devices = [
+      "iPhone 15 Pro Max",      # 6.7" - 1290 x 2796
+      "iPhone 15 Pro",          # 6.1" - 1179 x 2556
+      "iPhone 14 Pro Max",      # 6.7" - 1290 x 2796
+      "iPhone 11 Pro Max",      # 6.5" - 1242 x 2688
+      "iPad Pro (12.9-inch) (6th generation)",  # 12.9" - 2048 x 2732
+      "iPad Pro (11-inch) (4th generation)",   # 11" - 1668 x 2388
+      "iPad Air (5th generation)",              # 10.9" - 1640 x 2360
+    ]
+
+    devices.each do |device|
+      UI.message("📸 Taking screenshots for #{device}...")
+      
+      # Build and run on simulator
+      sh("flutter build ios --simulator --debug")
+      
+      # Boot simulator
+      sh("xcrun simctl boot '#{device}' 2>/dev/null || true")
+      sh("open -a Simulator")
+      sleep(5) # Wait for simulator to boot
+      
+      # Run app
+      sh("flutter run -d '#{device}' --release &")
+      sleep(10) # Wait for app to launch
+      
+      # Take screenshots using our automation script
+      sh("ruby fastlane/scripts/take_screenshots.rb '#{device}'")
+      
+      # Stop app
+      sh("pkill -f 'flutter run' || true")
+    end
+
+    UI.success("✅ All screenshots generated!")
+    UI.message("📁 Screenshots saved in: fastlane/screenshots/")
+  end
+
+  desc "Upload screenshots to App Store Connect"
+  lane :upload_screenshots do
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: true,
+      skip_screenshots: false,
+      force: true,
+      screenshots_path: "fastlane/screenshots"
+    )
+  end
+
+  desc "Generate and upload screenshots"
+  lane :screenshots_and_upload do
+    screenshots
+    upload_screenshots
+  end
+end
+
