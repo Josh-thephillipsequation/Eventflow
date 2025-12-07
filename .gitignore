@@ -102,3 +102,22 @@ agents/context.md
 
 # Large media files (duplicates)
 # docs/EventflowUxDemo.MP4 - needed for GitHub Pages
+
+# Screenshot processing artifacts
+app_store_screenshots/
+app_store_screenshots_all/
+app_store_screenshots_correct/
+app_store_screenshots_final/
+img/IMG_*.jpeg
+img/IMG_*.PNG
+!img/EventflowUxDemo.MP4
+
+# Test output
+test_output.txt
+
+# Agent feedback artifacts  
+AGENT_FEEDBACK.md
+
+# Platform-specific Flutter build artifacts
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh

@@ -534,6 +534,17 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
 
       if (!mounted) return;
 
+      // Check if events were actually loaded
+      if (provider.allEvents.isEmpty) {
+        throw Exception(
+            'No events were loaded. The sample data file may be empty or invalid.');
+      }
+
+      // Check for error message
+      if (provider.errorMessage.isNotEmpty) {
+        throw Exception(provider.errorMessage);
+      }
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
@@ -545,10 +556,33 @@ class _ImportCalendarScreenState extends State<ImportCalendarScreen> {
     } catch (e) {
       if (!mounted) return;
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Error loading sample data: $e'),
-          backgroundColor: Colors.red,
+      // Show detailed error dialog
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Error Loading Sample Data'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Error: ${e.toString()}'),
+              const SizedBox(height: 16),
+              const Text(
+                'Troubleshooting:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              const Text('• Try restarting the app'),
+              const Text('• Clear all data and try again'),
+              const Text('• Check if the app has proper permissions'),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('OK'),
+            ),
+          ],
         ),
       );
     }

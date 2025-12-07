@@ -140,26 +140,75 @@ lib/
 - **Current version**: See `pubspec.yaml` line 4
 
 ### Pre-Commit Hooks & CI/CD Practices
+
+**🚨 CRITICAL: Pre-commit hooks are MANDATORY quality gates**
+
 - **NEVER bypass pre-commit hooks without asking first** (`--no-verify` is forbidden unless explicitly approved)
 - **Always fix the actual errors** instead of bypassing validation
-- **Pre-commit hooks run automatically** on every commit and check:
-  1. **Code formatting** (`dart format`) - ensures consistent style
-  2. **Static analysis** (`flutter analyze`) - catches errors and warnings
-  3. **All tests** (`flutter test`) - ensures code quality
-- **If pre-commit checks fail:**
-  1. Read the error messages carefully
-  2. Fix the actual issues in the code
-  3. Commit again (hooks will re-run automatically)
-- **Common issues and fixes:**
-  - Deprecation warnings: Update to recommended API (e.g., `withOpacity()` → `withValues(alpha:)`)
-  - Format errors: Run `dart format .` before committing
-  - Test failures: Fix broken tests, don't skip them
-- **Why this matters:**
-  - Maintains code quality across all commits
-  - Prevents broken code from entering the repository
-  - Ensures all tests pass before deployment
-  - Makes code reviews easier and faster
-  - Builds confidence in automated deployments
+- **Agents MUST verify all checks pass** before confirming code changes work
+
+#### Pre-Commit Hook Steps (`.git/hooks/pre-commit`)
+1. **Code Formatting** (`dart format lib test`)
+   - Auto-formats and stages changes
+   - Ensures consistent style across codebase
+
+2. **Static Analysis** (`flutter analyze --fatal-infos`)
+   - Catches errors, warnings, deprecations
+   - Enforces code quality standards
+
+3. **Security Checks**
+   - Blocks .env file commits (hard fail)
+   - Warns on potential secrets in code (excluding docs)
+   - Warns on debug print statements in production code
+   - Reviews required for security-sensitive changes
+
+4. **Test Suite** (`flutter test`)
+   - Runs 75+ tests covering unit, integration, security
+   - Must pass 100% before commit allowed
+   - Includes error handling, edge cases, performance
+
+5. **Build Verification** (`flutter build ios --debug --no-codesign`)
+   - Non-blocking quick build check
+   - Catches build-time issues early
+
+#### If Pre-Commit Checks Fail
+1. **Read error messages carefully** - they tell you exactly what's wrong
+2. **Fix the actual issues** in the code - don't bypass
+3. **Commit again** - hooks re-run automatically
+4. **Agents:** Run checks manually if working on changes
+
+#### Common Issues & Fixes
+- **Format errors:** Run `dart format .`
+- **Deprecation warnings:** Update to recommended API
+- **Test failures:** Fix broken tests, add missing test coverage
+- **Security warnings:** Remove debug code, check for secrets
+- **Build failures:** Run `flutter clean && flutter pub get`
+
+#### Why This Matters
+- ✅ **Quality:** Maintains code quality across all commits
+- 🚫 **Prevention:** Blocks broken code from repository
+- 🔒 **Security:** Prevents secret leaks and vulnerabilities
+- 🧪 **Testing:** Ensures all tests pass before deployment
+- 📈 **Confidence:** Builds trust in automated deployments
+- ⚡ **Speed:** Catches issues early when they're easiest to fix
+
+#### For AI Agents Working on EventFlow
+**Before saying "code change is complete" you MUST:**
+1. Run `flutter analyze --fatal-infos` (zero errors/warnings)
+2. Run `flutter test` (100% pass rate)
+3. Run `flutter build ios --debug --no-codesign` (successful build)
+4. Verify no secrets in changed files
+5. Verify no debug print statements in production code
+
+**Use this verification command:**
+```bash
+dart format . && \
+flutter analyze --fatal-infos && \
+flutter test && \
+flutter build ios --debug --no-codesign
+```
+
+If ANY step fails, the code change is NOT complete.
 
 ## Development Commands
 

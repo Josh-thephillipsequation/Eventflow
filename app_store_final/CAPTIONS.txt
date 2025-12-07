@@ -1,0 +1,47 @@
+# EventFlow - App Store Screenshot Captions
+
+Copy these captions into App Store Connect:
+
+01_screenshot.jpg
+Caption: Your personal conference companion - Never miss an important session again
+
+02_screenshot.jpg  
+Caption: Import schedules from ICS files, URLs, or try our sample data
+
+03_screenshot.jpg
+Caption: Filter by time, priority, and search for topics or speakers
+
+04_screenshot.jpg
+Caption: AI-powered fun features - Generate talks, product names, and play bingo
+
+05_screenshot.jpg
+Caption: Explore interactive insights with topic clouds and schedule heatmaps
+
+06_screenshot.jpg
+Caption: Browse all events with smart day grouping and priority badges
+
+07_screenshot.jpg
+Caption: Build your personal agenda with selected events and statistics
+
+08_screenshot.jpg
+Caption: Interactive analytics - Discover patterns and busy times at a glance
+
+09_screenshot.jpg
+Caption: Play conference bingo with smart buzzword detection and win tracking
+
+10_screenshot.jpg
+Caption: AI talk proposal generator for creative inspiration and fun
+
+---
+
+RECOMMENDED UPLOAD ORDER (Feature-first approach):
+1. 06_screenshot.jpg - Main events view
+2. 07_screenshot.jpg - My agenda
+3. 08_screenshot.jpg - Insights/analytics
+4. 09_screenshot.jpg - Fun bingo
+5. 10_screenshot.jpg - Talk generator
+6. 03_screenshot.jpg - Filtering
+7. 01_screenshot.jpg - Welcome (optional)
+8. 02_screenshot.jpg - Import guide (optional)
+
+All screenshots: 1284 × 2778 pixels (App Store approved dimensions)

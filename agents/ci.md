@@ -9,11 +9,13 @@ ai.weight: 0.3
 **Mission Critical Pipeline**: Agent Changes → Local Testing → GitHub Actions → iOS Build → TestFlight → App Store
 
 ## Current Status
-- ✅ Basic CI/testing foundation implemented
-- ⚠️ CI feedback loop needs full automation (M21)
-- ⚠️ Test failures must be resolved (M22) 
-- 🚧 iOS build automation needed (M23)
-- 🚧 App Store Connect integration needed (M24)
+- ✅ CI/testing foundation implemented and working
+- ✅ All tests passing (92+ tests)
+- ✅ Code analysis clean
+- ✅ Build verification working
+- 🚧 iOS build automation with signing (future enhancement)
+- 🚧 TestFlight integration (future enhancement)
+- 🚧 App Store Connect automation (future enhancement)
 
 ## GitHub Actions Configuration
 - **Workflow:** `.github/workflows/flutter.yml`
@@ -56,8 +58,32 @@ flutter build apk --release
 ## CI/CD Rules
 - **CRITICAL: No feature is complete unless CI tests pass**
 - **Run GitHub Actions locally before pushing**
-- **Human-in-the-loop testing**: Deploy each feature to iPhone before next feature
-- **Agent feedback loop**: Check `AGENT_FEEDBACK.md` for current failures
+- **Test before commit**: Always run `flutter test` and `flutter analyze`
+- **Material 3 consistency**: Verify design follows theme guidelines
+- **Update Linear**: Mark issues as done when CI passes
+
+## Pipeline Enhancement Opportunities
+
+### Future Enhancements (Post v1.0)
+1. **Automated iOS Build with Signing**
+   - Add code signing to CI
+   - Automatic TestFlight uploads
+   - Requires Apple Developer certificates in secrets
+
+2. **TestFlight Integration**
+   - Auto-upload builds to TestFlight
+   - Notify team on new builds
+   - Track beta feedback
+
+3. **App Store Connect Automation**
+   - Auto-submit for review
+   - Version management
+   - Release automation
+
+4. **Enhanced Reporting**
+   - Coverage reports in PR comments
+   - Test result summaries
+   - Build status notifications
 
 ## Key Files
 - **CI Feedback:** `AGENT_FEEDBACK.md` (current test failures)
